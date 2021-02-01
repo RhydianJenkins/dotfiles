@@ -15,6 +15,9 @@ export PS2="> "
 # Personnal Aliases
 #-------------------
 
+# show line numbers with less
+alias less='less -N'
+
 # ssh
 alias ssh-keygen='ssh-keygen -t ed25519' # elliptic curve keygen, shorter, more secure
 
