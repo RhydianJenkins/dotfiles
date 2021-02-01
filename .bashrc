@@ -111,8 +111,15 @@ find() {
 	fi
 }
 
-# start ssh agent + add all '*_key' keys
+
+#-------------------
+# SSH
+#-------------------
+
+# quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
+
+# quietly add all '~/.ssh/*_key' keys
 for possiblekey in ${HOME}/.ssh/*_key; do
     if grep -q PRIVATE "$possiblekey"; then
         ssh-add "$possiblekey" &> /dev/null
