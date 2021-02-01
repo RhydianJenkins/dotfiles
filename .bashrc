@@ -101,6 +101,16 @@ function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 # Create a ZIP archive of a file or folder.
 function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 
+# find a file containing a string
+find() {
+	if [ $# = 1 ]
+	then
+		command find . -iname "*$@*"
+	else
+		command find "$@"
+	fi
+}
+
 # start ssh agent + add all '*_key' keys
 eval `ssh-agent -s` &> /dev/null
 for possiblekey in ${HOME}/.ssh/*_key; do
