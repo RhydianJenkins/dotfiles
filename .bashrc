@@ -40,6 +40,7 @@ alias ..='cd ..'
 alias du='du -kh'
 alias df='df -kTh'
 alias grep='grep --color=auto'
+alias lint='npm run lint'
 
 # git
 alias gs='git status'
