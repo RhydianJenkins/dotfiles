@@ -1,0 +1,11 @@
+## enable line numbers
+set linenumbers
+
+## enable auto-indent
+set autoindent
+
+## set tab size
+set tabsize 4
+
+## enable regex search by default
+set regexp
