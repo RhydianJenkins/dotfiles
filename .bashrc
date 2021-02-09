@@ -107,14 +107,19 @@ function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 
 # find a file containing a string
 find() {
-	if [ $# = 1 ]
-	then
-		command find . -iname "*$@*"
-	else
-		command find "$@"
-	fi
+    if [ $# = 1 ]
+    then
+        command find . -iname "*$@*"
+    else
+        command find "$@"
+    fi
 }
 
+# weather forecast
+# Usage: `weather CITYNAME` or just `weather` to use your IP addr. location.
+function weather() {
+    curl http://wttr.in/${1}
+}
 
 #-------------------
 # SSH
