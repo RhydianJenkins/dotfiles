@@ -121,6 +121,12 @@ function weather() {
     curl http://wttr.in/${1}
 }
 
+# learn a new command (depends on whatis, cowsay)
+function learn() {
+	echo $STR$( whatis $(ls /bin | shuf | head -1)) | cowsay;
+}
+
+
 #-------------------
 # SSH
 #-------------------
