@@ -1,0 +1,45 @@
+# show line numbers with less
+alias less='less -N'
+
+# ssh
+alias ssh-keygen='ssh-keygen -t ed25519' # elliptic curve keygen, shorter, more secure
+
+# navigation
+alias des='desktop'
+alias desktop="echo 'You forgot to set desktop path in .custom_aliases'"
+alias docs='documents'
+alias documents="echo 'You forgot to set docs path in .custom_aliases'"
+
+# utility
+alias c='clear'
+alias C='clear'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias h='history'
+alias j='jobs -l'
+alias ..='cd ..'
+alias du='du -kh'
+alias df='df -kTh'
+alias grep='grep --color=auto'
+alias lint='npm run lint'
+
+# git
+alias gs='git status'
+alias gp='git pull'
+
+# pretty-print PATH
+alias path='echo -e ${PATH//:/\\n}'
+
+# ls
+alias ll='ls --color=auto -laF --group-directories-first'
+alias lr='ll -R' #  recursive ls
+alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
+
+# load custom_aliases file if exists
+if [ -f ~/.custom_aliases ]; then
+    . ~/.custom_aliases
+else
+    echo "No .custom_aliases file found. Ignoring..."
+fi
