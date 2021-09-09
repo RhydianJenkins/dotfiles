@@ -34,6 +34,7 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # ls
 alias ll='ls --color=auto -laF --group-directories-first'
+alias l='ls --color=auto -lF --group-directories-first'
 alias lr='ll -R' #  recursive ls
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
