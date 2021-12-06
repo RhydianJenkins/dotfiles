@@ -5,7 +5,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/home/rhydian/.oh-my-zsh"
 
 # ZSH_THEME="random"
-ZSH_THEME="lambda"
+ZSH_THEME="gallois"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
