@@ -18,7 +18,7 @@ ZSH_THEME="gallois"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Disable marking untracked files under VCS as dirty.
 # This makes repository status check for large repositories much, much faster.
@@ -29,7 +29,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Standard plugins found in $ZSH/plugins/
 # Custom plugins added to $ZSH_CUSTOM/plugins/
-plugins=(git nvm colorize command-not-found ssh-agent)
+plugins=(git nvm colorize ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
