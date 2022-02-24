@@ -92,3 +92,9 @@ ix() {
     }
     curl $opts -F f:1='<-' $* ix.io/$id
 }
+
+# asks a question using lynx on duck duck go
+ask() {
+    exec "lynx" "https://duckduckgo.com?q='$*'"
+}
+

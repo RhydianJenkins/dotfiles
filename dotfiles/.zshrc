@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:~/.local/share/pnpm/nodejs/*/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:~/.local/share/pnpm/nodejs/16.7.0/bin:$PATH
 export ZSH="/home/rhydian/.oh-my-zsh"
 
 ZSH_THEME="gallois"
