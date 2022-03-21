@@ -1,10 +1,12 @@
+#!/bin/bash
+
 # Swap 2 filenames around, if they exist (from Uzi's bashrc).
 function swap() {
     local TMPFILE=tmp.$$
 
     [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
-    [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
-    [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
+    [ ! -e "$1" ] && echo "swap: $1 does not exist" && return 1
+    [ ! -e "$2" ] && echo "swap: $2 does not exist" && return 1
 
     mv "$1" $TMPFILE
     mv "$2" "$1"
@@ -13,19 +15,19 @@ function swap() {
 
 # Handy Extract Program
 function extract() {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)   tar xvjf $1     ;;
-            *.tar.gz)    tar xvzf $1     ;;
-            *.bz2)       bunzip2 $1      ;;
-            *.rar)       unrar x $1      ;;
-            *.gz)        gunzip $1       ;;
-            *.tar)       tar xvf $1      ;;
-            *.tbz2)      tar xvjf $1     ;;
-            *.tgz)       tar xvzf $1     ;;
-            *.zip)       unzip $1        ;;
-            *.Z)         uncompress $1   ;;
-            *.7z)        7z x $1         ;;
+    if [ -f "$1" ] ; then
+        case "$1" in
+            *.tar.bz2)   tar xvjf "$1"     ;;
+            *.tar.gz)    tar xvzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"      ;;
+            *.rar)       unrar x "$1"      ;;
+            *.gz)        gunzip "$1"       ;;
+            *.tar)       tar xvf "$1"      ;;
+            *.tbz2)      tar xvjf "$1"     ;;
+            *.tgz)       tar xvzf "$1"     ;;
+            *.zip)       unzip "$1"        ;;
+            *.Z)         uncompress "$1"   ;;
+            *.7z)        7z x "$1"         ;;
             *)           echo "'$1' cannot be extracted via >extract<" ;;
         esac
     else
@@ -39,20 +41,10 @@ function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 # Create a ZIP archive of a file or folder.
 function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 
-# find a file containing a string
-find() {
-    if [ $# = 1 ]
-    then
-        command find . -iname "*$@*"
-    else
-        command find "$@"
-    fi
-}
-
 # weather forecast
 # Usage: `weather CITYNAME` or just `weather` to use your IP addr. location.
 function weather() {
-    curl http://wttr.in/${1}
+    curl http://wttr.in/"${1}"
 }
 
 # learn a new command (depends on whatis, cowsay)
@@ -90,7 +82,7 @@ ix() {
         }
         echo "^C to cancel, ^D to send."
     }
-    curl $opts -F f:1='<-' $* ix.io/$id
+    curl "$opts" -F f:1='<-' "$*" ix.io/"$id"
 }
 
 # asks a question using lynx on duck duck go
@@ -98,3 +90,14 @@ ask() {
     exec "lynx" "https://duckduckgo.com?q='$*'"
 }
 
+# Confirm a question with the user.
+# example: confirm "Are you sure?" && git reset --hard
+# not valid bash, but works in zsh. Uncomment first read to make compatible with bash.
+confirm() {
+    # read -r -p "${1:-Are you sure? [y/N]} " response
+    read -r "response?${1:-Are you sure? [y/N]} "
+    case "$response" in
+        [yY][eE][sS]|[yY]) true;;
+        *) false;;
+    esac
+}
