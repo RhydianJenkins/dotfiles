@@ -15,7 +15,6 @@ plugins=(
     ssh-agent
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -50,7 +49,8 @@ if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
     echo "Missing zsh-syntax-highlighting plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${PLUGINS_DIR}"/zsh-syntax-highlighting
 fi
-if [ ! -d "${PLUGINS_DIR}/zsh-fzf-history-search" ]; then
-    echo "Missing zsh-fzf-history-search plugin. Installing..."
-    git clone https://github.com/joshskidmore/zsh-fzf-history-search "${PLUGINS_DIR}"/zsh-fzf-history-search
+if [ ! -f ~/.fzf.bash ]; then
+   echo "Missing fzf, installing in ~/.fzf" # also usable in bash
+   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
