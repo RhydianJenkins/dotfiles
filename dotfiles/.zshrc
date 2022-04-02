@@ -47,3 +47,6 @@ if [ ! -f ~/.fzf.bash ]; then
    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# quietly start ssh agent
+eval `ssh-agent -s` &> /dev/null
