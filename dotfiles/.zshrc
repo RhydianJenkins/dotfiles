@@ -38,10 +38,12 @@ if [ ! -d "${PLUGINS_DIR}/zsh-autosuggestions" ]; then
     echo "Missing zsh-autosuggestions plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-autosuggestions "${PLUGINS_DIR}"/zsh-autosuggestions
 fi
+
 if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
     echo "Missing zsh-syntax-highlighting plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${PLUGINS_DIR}"/zsh-syntax-highlighting
 fi
+
 if [ ! -f ~/.fzf.bash ]; then
    echo "Missing fzf, installing in ~/.fzf" # also usable in bash
    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
