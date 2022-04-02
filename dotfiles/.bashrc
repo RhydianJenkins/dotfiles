@@ -32,3 +32,10 @@ for possiblekey in ${HOME}/.ssh/*_key; do
         ssh-add "$possiblekey" &> /dev/null
     fi
 done
+
+if [ ! -f ~/.fzf.bash ]; then
+   echo "Missing fzf, installing in ~/.fzf"
+   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
