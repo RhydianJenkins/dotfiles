@@ -29,13 +29,6 @@ if [ -f ~/.functions ]; then
     . ~/.functions
 fi
 
-# `ssh-agent` plugin started, quietly add all '~/.ssh/*_key' keys
-for possiblekey in "${HOME}"/.ssh/*_key; do
-    if grep -q PRIVATE "$possiblekey"; then
-        ssh-add "$possiblekey" &> /dev/null
-    fi
-done
-
 # colorize suggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
