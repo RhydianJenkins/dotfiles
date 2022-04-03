@@ -12,6 +12,7 @@ else
 	echo "Exiting without executing"
 fi
 
-# install apt packages
-sudo apt update
-sudo apt install neovim curl ripgrep
+# prompt to install apt packages
+echo "Time to intall stuff: "
+echo "sudo apt update && sudo apt install neovim curl ripgrep"
+
