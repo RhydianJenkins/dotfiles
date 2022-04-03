@@ -9,6 +9,11 @@ set incsearch
 set scrolloff=8
 set signcolumn=yes
 set colorcolumn=120
+set showmatch
+set hlsearch
+set wildmode=longest,list
+set clipboard=unnamedplus
+set ignorecase
 
 " indentation
 set autoindent
@@ -26,6 +31,8 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'preservim/nerdtree'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'dense-analysis/ale'
+    Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " toggle file explorer
