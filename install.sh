@@ -14,5 +14,11 @@ fi
 
 # prompt to install apt packages
 echo "Time to intall stuff: "
-echo "sudo apt update && sudo apt install neovim curl ripgrep"
+echo "sudo add-apt-repository ppa:neovim-ppa/stable"
+echo "sudo apt update"
+echo "sudo apt install neovim curl ripgrep"
+
+# vim-plug
+echo "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"
 
