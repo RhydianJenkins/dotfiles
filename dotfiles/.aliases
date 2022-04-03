@@ -6,9 +6,9 @@ alias ssh-keygen='ssh-keygen -t ed25519' # elliptic curve keygen, shorter, more 
 
 # navigation
 alias des='desktop'
-alias desktop="echo 'You forgot to set desktop path in .custom_aliases'"
+alias desktop="cd ~/Desktop"
 alias docs='documents'
-alias documents="echo 'You forgot to set docs path in .custom_aliases'"
+alias documents="cd ~/Documents"
 
 # utility
 alias c='clear'
@@ -24,6 +24,7 @@ alias du='du -kh'
 alias df='df -kTh'
 alias grep='grep --color=auto'
 alias lint='npm run lint'
+alias vi='nvim'
 
 # git
 alias gs='git status'
@@ -41,6 +42,4 @@ alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 # load custom_aliases file if exists
 if [ -f ~/.custom_aliases ]; then
     . ~/.custom_aliases
-else
-    echo "No .custom_aliases file found. Ignoring..."
 fi
