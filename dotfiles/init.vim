@@ -10,10 +10,10 @@ set scrolloff=8
 set signcolumn=yes
 set colorcolumn=120
 set showmatch
-set hlsearch
 set wildmode=longest,list
 set clipboard=unnamedplus
 set ignorecase
+set nohlsearch
 
 " indentation
 set autoindent
@@ -42,6 +42,8 @@ call plug#end()
 nnoremap <C-b> :NERDTreeToggle<CR>
 
 " find files using Telescope command-line sugar.
+let mapleader = " " " make space <leader> key
+
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
