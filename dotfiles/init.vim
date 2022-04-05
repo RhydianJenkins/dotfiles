@@ -36,6 +36,7 @@ call plug#begin()
     Plug 'dense-analysis/ale' " async lint engine
     Plug 'itchyny/lightline.vim' " Status line at bottom
     Plug 'neovim/nvim-lspconfig' " language server protocols
+    Plug 'git@github.com:ycm-core/YouCompleteMe' " code completion
 call plug#end()
 
 " toggle file explorer
