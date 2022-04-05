@@ -28,11 +28,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " plugins
 call plug#begin()
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'preservim/nerdtree'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'dense-analysis/ale'
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/popup.nvim' " allows overlays
+    Plug 'nvim-lua/plenary.nvim' " adds lua functions
+    Plug 'preservim/nerdtree' " navigation panel
+    Plug 'nvim-telescope/telescope.nvim' " fzf file search
+    Plug 'nvim-telescope/telescope-fzf-native.nvim' " speed bonus for fzf file search
+    Plug 'dense-analysis/ale' " async lint engine
+    Plug 'itchyny/lightline.vim' " Status line at bottom
+    Plug 'neovim/nvim-lspconfig' " language server protocols
 call plug#end()
 
 " toggle file explorer
@@ -43,4 +46,3 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
