@@ -35,8 +35,7 @@ call plug#begin()
     Plug 'nvim-telescope/telescope-fzf-native.nvim' " speed bonus for fzf file search
     Plug 'dense-analysis/ale' " async lint engine
     Plug 'itchyny/lightline.vim' " Status line at bottom
-    Plug 'neovim/nvim-lspconfig' " language server protocols
-    Plug 'git@github.com:ycm-core/YouCompleteMe' " code completion
+    Plug 'neoclide/coc.nvim'
 call plug#end()
 
 " toggle file explorer
