@@ -26,9 +26,16 @@ alias grep='grep --color=auto'
 alias lint='npm run lint'
 alias vi='nvim'
 
+# docker
+alias dockerps='docker ps --format "table {{.Names}}\t{{.Status}}"'
+alias dockerkill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
+alias dockerup='docker-compose up -d'
+alias dockerdown='docker-compose down'
+
 # git
 alias gs='git status'
 alias gp='git pull'
+alias gf='git fetch'
 
 # pretty-print PATH
 alias path='echo -e ${PATH//:/\\n}'
