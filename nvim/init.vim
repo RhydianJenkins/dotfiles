@@ -23,6 +23,10 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
+" case insensitive save and quit
+cabb W w
+cabb Q q
+
 " remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
