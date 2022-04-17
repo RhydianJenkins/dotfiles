@@ -8,5 +8,5 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'dense-analysis/ale' " async lint engine
     Plug 'itchyny/lightline.vim' " status line at bottom
     Plug 'neoclide/coc.nvim' " code completion engine
+    Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 call plug#end()
-
