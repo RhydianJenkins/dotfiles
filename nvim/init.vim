@@ -30,8 +30,8 @@ cabb Q q
 " remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" find files using Telescope command-line sugar.
-let mapleader = " " " make space <leader> key
+" make space <leader> key
+let mapleader = " "
 
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
