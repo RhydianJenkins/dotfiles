@@ -1,6 +1,7 @@
 " plugins
 call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'nvim-lua/popup.nvim' " allows overlays
+    Plug 'ervandew/supertab' " <tab> suggestion completion
     Plug 'nvim-lua/plenary.nvim' " adds lua functions
     Plug 'preservim/nerdtree' " left navigation panel
     Plug 'nvim-telescope/telescope.nvim' " fzf file search
