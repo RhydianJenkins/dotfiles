@@ -27,9 +27,6 @@ set shiftwidth=4
 cabb W w
 cabb Q q
 
-" remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
 " make space <leader> key
 let mapleader = " "
 

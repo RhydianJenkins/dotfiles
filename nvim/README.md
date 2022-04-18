@@ -11,3 +11,6 @@ Copy these files into `~/.config/nvim`.
 - Snippets
 - Inline errors
 - API integration?
+- Better buffer managment
+- comment blocks with C+/
+
