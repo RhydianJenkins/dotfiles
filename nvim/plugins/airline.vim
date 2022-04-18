@@ -6,4 +6,3 @@ let g:airline#extensions#tabline#show_splits = 1 "enable/disable displaying open
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline_section_z = airline#section#create(['%l/%c'])
-

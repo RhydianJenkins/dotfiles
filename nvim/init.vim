@@ -42,4 +42,3 @@ source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/phpactor.vim
 source $HOME/.config/nvim/plugins/airline.vim
-

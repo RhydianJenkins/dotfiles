@@ -12,4 +12,3 @@ Copy these files into `~/.config/nvim`.
 - Inline errors
 - Find/replace
 - Running tests
-

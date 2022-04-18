@@ -9,8 +9,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\   '*': ['trim_whitespace'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'php': ['php_cs_fixer'],
 \   'javascript': ['eslint'],
 \}
-
