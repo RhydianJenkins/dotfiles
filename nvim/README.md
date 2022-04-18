@@ -6,11 +6,10 @@ Copy these files into `~/.config/nvim`.
 
 - Git integration
 - Multi-cursor
-- Themes/styles
+- Themes / styles
 - Prettier / autoformating
 - Snippets
 - Inline errors
-- API integration?
-- Better buffer managment
-- comment blocks with C+/
+- Find/replace
+- Running tests
 

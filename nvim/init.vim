@@ -1,4 +1,5 @@
-set nocompatible " use vim defaults
+" use vim defaults
+set nocompatible
 
 set relativenumber
 set nu
