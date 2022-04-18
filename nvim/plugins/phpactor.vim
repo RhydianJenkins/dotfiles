@@ -3,10 +3,10 @@ nmap <silent><Leader>r <Plug>(coc-range-select)
 xmap <silent><Leader>r <Plug>(coc-range-select)
 
 " Navigations
-nmap <Leader>o <Plug>(coc-definition)
-nmap <Leader>O <Plug>(coc-type-definition)
-nmap <Leader>I <Plug>(coc-implementation)
-nmap <Leader>R <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " List code actions available for the current buffer
 nmap <leader>ca  <Plug>(coc-codeaction)

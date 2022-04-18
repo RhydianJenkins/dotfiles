@@ -10,4 +10,5 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
     Plug 'vim-airline/vim-airline' " bottom status bar
     Plug 'vim-airline/vim-airline-themes' " make airline look pretty
+    Plug 'scrooloose/nerdcommenter' " comment blocks of code
 call plug#end()

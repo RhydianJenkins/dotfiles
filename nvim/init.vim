@@ -14,6 +14,7 @@ set wildmode=longest,list
 set clipboard=unnamedplus
 set ignorecase
 set nohlsearch
+set splitright
 
 " indentation
 set autoindent
@@ -30,6 +31,9 @@ cabb Q q
 " make space <leader> key
 let mapleader = " "
 
+" CTRL + s to save
+nnoremap <C-s> :w<CR>
+
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
@@ -37,3 +41,4 @@ source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/phpactor.vim
 source $HOME/.config/nvim/plugins/airline.vim
+
