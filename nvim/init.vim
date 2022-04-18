@@ -35,6 +35,9 @@ let mapleader = " "
 " CTRL + s to save
 nnoremap <C-s> :w<CR>
 
+" CTRL + w to close current buffer
+nnoremap <C-w> :bd<CR>
+
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
