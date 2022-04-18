@@ -1,0 +1,13 @@
+{
+    "coc.preferences.formatOnType":true,
+    "coc.preferences.formatOnTypeFiletypes":["javascipt, typescript, php"],
+    "diagnostic.errorSign": "✘",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "diagnostic.enableHighlightLineNumber": true,
+    "codeLens.enable": true,
+    "signature.enable": true,
+
+    "phpactor.enable": true,
+    "phpactor.path": "~/.config/nvim/vim-plugged/phpactor/bin/phpactor"
+}
