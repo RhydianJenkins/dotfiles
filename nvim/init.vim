@@ -42,8 +42,7 @@ nnoremap <C-w> :bd<CR>
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/telescope.vim
-source $HOME/.config/nvim/plugins/ale.vim
-source $HOME/.config/nvim/plugins/phpactor.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
-source $HOME/.config/nvim/plugins/coc.vim
+luafile $HOME/.config/nvim/plugins/lspconfig.lua
+luafile $HOME/.config/nvim/plugins/nvimcmp.lua

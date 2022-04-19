@@ -1,9 +1,0 @@
-{
-  "diagnostic.errorSign": "✘",
-  "diagnostic.infoSign": "ℹ",
-  "diagnostic.hintSign": "➤",
-  "diagnostic.enableHighlightLineNumber": true,
-
-  "phpactor.enable": true,
-  "phpactor.path": "~/.config/nvim/vim-plugged/phpactor/bin/phpactor"
-}
