@@ -26,7 +26,7 @@ cmp.setup({
                 cmp.select_next_item()
             elseif vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
+            elseif has_words_before and has_words_before() then
                 cmp.complete()
             else
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
@@ -82,5 +82,9 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Add lsp servers to this array
 require('lspconfig')['phpactor'].setup {
+    capabilities = capabilities
+}
+
+require('lspconfig')['tsserver'].setup {
     capabilities = capabilities
 }
