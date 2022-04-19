@@ -12,4 +12,5 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'vim-airline/vim-airline' " bottom status bar
     Plug 'vim-airline/vim-airline-themes' " make airline look pretty
     Plug 'scrooloose/nerdcommenter' " comment blocks of code
+    Plug 'kqito/vim-easy-replace' " find and replace
 call plug#end()
