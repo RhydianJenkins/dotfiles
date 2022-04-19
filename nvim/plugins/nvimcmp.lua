@@ -3,7 +3,6 @@ local cmp = require'cmp'
 
 cmp.setup({
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
             -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -21,7 +20,7 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif vim.fn["vsnip#available"](1) == 1 then
@@ -32,7 +31,7 @@ cmp.setup({
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function()
+        ['<S-Tab>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif vim.fn["vsnip#jumpable"](-1) == 1 then
@@ -80,7 +79,7 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Add lsp servers to this array
+
 require('lspconfig')['phpactor'].setup {
     capabilities = capabilities
 }
