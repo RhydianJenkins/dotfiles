@@ -5,16 +5,5 @@
   "diagnostic.enableHighlightLineNumber": true,
 
   "phpactor.enable": true,
-  "phpactor.path": "~/.config/nvim/vim-plugged/phpactor/bin/phpactor",
-
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "Markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "php"
-  ]
+  "phpactor.path": "~/.config/nvim/vim-plugged/phpactor/bin/phpactor"
 }

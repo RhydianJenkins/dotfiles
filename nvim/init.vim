@@ -46,3 +46,4 @@ source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/phpactor.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
+source $HOME/.config/nvim/plugins/coc.vim
