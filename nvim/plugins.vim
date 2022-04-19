@@ -21,8 +21,17 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
 " include the language servers
 :lua require'lspconfig'.phpactor.setup{}
-
+:lua require'lspconfig'.tsserver.setup{}
+:lua require("null-ls").setup({
+\    sources = {
+\       require("null-ls").builtins.formatting.stylua,
+\       require("null-ls").builtins.diagnostics.eslint,
+\       require("null-ls").builtins.completion.spell,
+\    },
+\})
