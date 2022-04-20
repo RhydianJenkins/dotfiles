@@ -45,4 +45,3 @@ source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
-luafile $HOME/.config/nvim/plugins/nvimcmp.lua
