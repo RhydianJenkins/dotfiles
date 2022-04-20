@@ -38,9 +38,9 @@ nnoremap <C-s> :w<CR>
 " CTRL + w to close current buffer
 nnoremap <C-w> :bd<CR>
 
-" Tab navigation like browsers
-nnoremap <C-i> :bn<CR>
-nnoremap <S-Tab> :bprevious<CR>
+" Tab navigation of buffers
+nnoremap <Tab> :bn<CR>
+nnoremap <S-tab> :bprevious<CR>
 
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
