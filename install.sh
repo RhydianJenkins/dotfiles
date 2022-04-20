@@ -16,7 +16,7 @@ echo "Dotfiles linked"
 echo "Time to intall stuff: "
 echo "sudo add-apt-repository ppa:neovim-ppa/stable"
 echo "sudo apt update"
-echo "sudo apt install neovim curl ripgrep"
+echo "sudo apt install neovim curl ripgrep sqlite3 libsqlite3-dev pip"
 
 # vim-plug
 echo "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"

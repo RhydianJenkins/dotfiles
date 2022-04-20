@@ -5,6 +5,8 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'preservim/nerdtree' " left navigation panel
     Plug 'nvim-telescope/telescope.nvim' " fzf file search
     Plug 'nvim-telescope/telescope-fzf-native.nvim' " speed bonus for fzf file search
+    Plug 'nvim-telescope/telescope-frecency.nvim' " prioritise results based on recently used (needs sqlite)
+    Plug 'tami5/sqlite.lua' " sqlite dependency
     Plug 'vim-airline/vim-airline' " bottom status bar
     Plug 'vim-airline/vim-airline-themes' " make airline look pretty
     Plug 'scrooloose/nerdcommenter' " comment blocks of code
@@ -14,6 +16,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'APZelos/blamer.nvim' " git blame
     Plug 'ntpeters/vim-better-whitespace' " strip trailing whitespace
     Plug 'ellisonleao/glow.nvim', {'branch': 'main'} " md preview
+    Plug 'j-hui/fidget.nvim' " bottom right updates on tasks
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
@@ -27,7 +30,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
-    Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 " include the language servers
