@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'vim-vdebug/vdebug' " debugger
     Plug 'tomasiser/vim-code-dark' " theme
     Plug 'APZelos/blamer.nvim' " git blame
+    Plug 'ntpeters/vim-better-whitespace' " strip trailing whitespace
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
