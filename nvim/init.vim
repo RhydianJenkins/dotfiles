@@ -44,4 +44,5 @@ source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
+source $HOME/.config/nvim/plugins/codedark.vim
 luafile $HOME/.config/nvim/plugins/lspconfig.lua

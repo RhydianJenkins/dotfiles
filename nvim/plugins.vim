@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'scrooloose/nerdcommenter' " comment blocks of code
     Plug 'kqito/vim-easy-replace' " <leader>ra - find and replace all
     Plug 'vim-vdebug/vdebug' " debugger
+    Plug 'tomasiser/vim-code-dark' " theme
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
