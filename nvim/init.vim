@@ -50,4 +50,5 @@ source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
 source $HOME/.config/nvim/plugins/codedark.vim
 source $HOME/.config/nvim/plugins/blamer.vim
+source $HOME/.config/nvim/plugins/glow.vim
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
