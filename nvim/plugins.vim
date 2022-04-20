@@ -31,6 +31,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'lukas-reineke/lsp-format.nvim'
 call plug#end()
 
 " include the language servers
@@ -44,3 +45,4 @@ call plug#end()
 \})
 :lua require"fidget".setup{}
 :lua require('gitsigns').setup()
+:lua require("lsp-format").setup{}
