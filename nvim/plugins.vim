@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 " include the language servers
@@ -35,6 +36,6 @@ call plug#end()
 \    sources = {
 \       require("null-ls").builtins.formatting.stylua,
 \       require("null-ls").builtins.diagnostics.eslint,
-\       require("null-ls").builtins.completion.spell,
 \    },
 \})
+:lua require"fidget".setup{}
