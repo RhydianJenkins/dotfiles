@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'kqito/vim-easy-replace' " <leader>ra - find and replace all
     Plug 'vim-vdebug/vdebug' " debugger
     Plug 'tomasiser/vim-code-dark' " theme
+    Plug 'APZelos/blamer.nvim' " git blame
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
