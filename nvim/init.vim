@@ -53,3 +53,4 @@ source $HOME/.config/nvim/plugins/blamer.vim
 source $HOME/.config/nvim/plugins/glow.vim
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
+luafile $HOME/.config/nvim/plugins/telescope.lua
