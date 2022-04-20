@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:~/.local/share/pnpm/nodejs/16.7.0/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.config/composer/vendor/bin:/usr/local/go/bin:$HOME/.config/nvim/vim-plugged/phpactor/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:~/.local/share/pnpm/nodejs/16.7.0/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.config/composer/vendor/bin:/usr/local/go/bin:$HOME/.config/nvim/vim-plugged/phpactor/bin:$HOME/.local/bin:$HOME/.config/nvim/vim-plugged/lua-language-server/bin:$PATH
 export ZSH="/home/rhydian/.oh-my-zsh"
 export EDITOR=$(which vi)
 
@@ -53,3 +53,5 @@ fi
 
 # quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
+
+alias luamake=/home/rhydian/.config/nvim/vim-plugged/lua-language-server/3rd/luamake/luamake

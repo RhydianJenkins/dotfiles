@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'ellisonleao/glow.nvim', {'branch': 'main'} " md preview
     Plug 'j-hui/fidget.nvim' " bottom right updates on tasks
     Plug 'lewis6991/gitsigns.nvim' " git integration to show additions/etc
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " allow things to query the tree
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
@@ -32,11 +33,10 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'lukas-reineke/lsp-format.nvim'
+    Plug 'sumneko/lua-language-server'
 call plug#end()
 
 " include the language servers
-:lua require'lspconfig'.phpactor.setup{}
-:lua require'lspconfig'.tsserver.setup{}
 :lua require("null-ls").setup({
 \    sources = {
 \       require("null-ls").builtins.formatting.stylua,
