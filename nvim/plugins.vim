@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'ntpeters/vim-better-whitespace' " strip trailing whitespace
     Plug 'ellisonleao/glow.nvim', {'branch': 'main'} " md preview
     Plug 'j-hui/fidget.nvim' " bottom right updates on tasks
+    Plug 'lewis6991/gitsigns.nvim' " git integration to show additions/etc
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
@@ -42,3 +43,4 @@ call plug#end()
 \    },
 \})
 :lua require"fidget".setup{}
+:lua require('gitsigns').setup()
