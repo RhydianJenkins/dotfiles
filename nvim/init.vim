@@ -42,6 +42,12 @@ nnoremap <C-w> :bd<CR>
 nnoremap <Tab> :bn<CR>
 nnoremap <S-tab> :bprevious<CR>
 
+" Window navigation
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
@@ -51,6 +57,7 @@ source $HOME/.config/nvim/plugins/popup.vim
 source $HOME/.config/nvim/plugins/codedark.vim
 source $HOME/.config/nvim/plugins/blamer.vim
 source $HOME/.config/nvim/plugins/glow.vim
+source $HOME/.config/nvim/plugins/vdebug.vim
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
 luafile $HOME/.config/nvim/plugins/telescope.lua
