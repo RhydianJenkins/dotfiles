@@ -16,6 +16,7 @@ set clipboard=unnamedplus
 set ignorecase
 set nohlsearch
 set splitright
+set mouse=a
 
 " indentation
 set autoindent
