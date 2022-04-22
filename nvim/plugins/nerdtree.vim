@@ -8,3 +8,4 @@ let g:NERDTreeIgnore = ['^node_modules$']
 
 " toggle file explorer
 nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <leader>b :NERDTreeFind<CR>
