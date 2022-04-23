@@ -37,12 +37,4 @@ call plug#begin('~/.config/nvim/vim-plugged')
 call plug#end()
 
 " include the language servers
-:lua require("null-ls").setup({
-\    sources = {
-\       require("null-ls").builtins.formatting.stylua,
-\       require("null-ls").builtins.diagnostics.eslint,
-\    },
-\})
 :lua require"fidget".setup{}
-:lua require('gitsigns').setup()
-:lua require("lsp-format").setup{}

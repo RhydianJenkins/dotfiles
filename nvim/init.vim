@@ -16,6 +16,7 @@ set clipboard=unnamedplus
 set ignorecase
 set nohlsearch
 set splitright
+set splitbelow
 set mouse=a
 
 " indentation
@@ -35,6 +36,7 @@ let mapleader = " "
 
 " CTRL + s to save
 nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
 
 " CTRL + w to close current buffer
 nnoremap <C-w> :bd<CR>
@@ -44,10 +46,10 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-tab> :bprevious<CR>
 
 " Window navigation
-noremap <leader>h <C-w>h
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
+nnoremap <leader>wh <C-W><C-h>
+nnoremap <leader>wj <C-W><C-j>
+nnoremap <leader>wk <C-W><C-k>
+nnoremap <leader>wl <C-W><C-l>
 
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim

@@ -135,3 +135,5 @@ require('lspconfig').sumneko_lua.setup {
         }
     }
 }
+
+require("lsp-format").setup {}
