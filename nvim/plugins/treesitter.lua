@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "php", "javascript", "typescript", "lua" },
     highlight = {
         enable = true,

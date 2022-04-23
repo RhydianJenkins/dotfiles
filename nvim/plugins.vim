@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'lewis6991/gitsigns.nvim' " git integration to show additions/etc
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " allow things to query the tree
     Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multi line select/edit
+    Plug 'lewis6991/impatient.nvim' " speed up lua module loadtimes (caching)
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
