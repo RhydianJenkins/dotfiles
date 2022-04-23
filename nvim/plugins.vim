@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'folke/which-key.nvim' " help for keybindings
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
     Plug 'ryanoasis/vim-devicons' " adds icons
+    Plug 'vim-test/vim-test' " allows running of tests
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
