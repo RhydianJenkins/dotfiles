@@ -13,3 +13,13 @@ cd dotfiles
 ```
 
 After a shell restart, functions, aliases, and other personal customisations should be applied.
+
+# NeoVim
+
+See the [nvim readme](nvim/README.md) for installation instructions on my NeoVim setup.
+
+# Nerd Fonts
+
+For icons to work, [NerdFonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts) are needed to be installed.
+
+After downloading some `.tff` files, place them in the `$HOME/.local/share/fonts/NerdFonts` directory and set your terminal font to that nerd font.

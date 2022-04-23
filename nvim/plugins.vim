@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'lewis6991/impatient.nvim' " speed up lua module loadtimes (caching)
     Plug 'folke/which-key.nvim' " help for keybindings
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
+    Plug 'ryanoasis/vim-devicons' " adds icons
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
