@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'j-hui/fidget.nvim' " bottom right updates on tasks
     Plug 'lewis6991/gitsigns.nvim' " git integration to show additions/etc
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " allow things to query the tree
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multi line select/edit
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
@@ -35,6 +36,3 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'lukas-reineke/lsp-format.nvim'
     Plug 'sumneko/lua-language-server'
 call plug#end()
-
-" include the language servers
-:lua require"fidget".setup{}
