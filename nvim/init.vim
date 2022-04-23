@@ -67,3 +67,4 @@ luafile $HOME/.config/nvim/plugins/gitsigns.lua
 luafile $HOME/.config/nvim/plugins/telescope.lua
 luafile $HOME/.config/nvim/plugins/fidget.lua
 luafile $HOME/.config/nvim/plugins/whichkey.lua
+luafile $HOME/.config/nvim/plugins/tabnine.lua

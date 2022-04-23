@@ -9,6 +9,5 @@
 - Running tests
 - (better) git itegration
 - Icons
-- AI assistant (Like Tabnine, or CoPilot)
 - Better help for keybindings
 - Better help for LSP
