@@ -8,6 +8,5 @@
 
 - Running tests
 - (better) git itegration
-- Icons
 - Better help for keybindings
 - Better help for LSP
