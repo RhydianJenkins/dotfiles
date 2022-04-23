@@ -7,6 +7,5 @@
 # Wishlist
 
 - Running tests
-- (better) git itegration
 - Better help for keybindings
 - Better help for LSP
