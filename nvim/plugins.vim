@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " allow things to query the tree
     Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multi line select/edit
     Plug 'lewis6991/impatient.nvim' " speed up lua module loadtimes (caching)
+    Plug 'folke/which-key.nvim' " help for keybindings
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
