@@ -34,6 +34,9 @@ cabb Q q
 " make space <leader> key
 let mapleader = " "
 
+" CTRL + a to select all
+nnoremap <C-a> ggVG
+
 " CTRL + s to save
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
@@ -50,6 +53,8 @@ nnoremap <leader>wh <C-W><C-h>
 nnoremap <leader>wj <C-W><C-j>
 nnoremap <leader>wk <C-W><C-k>
 nnoremap <leader>wl <C-W><C-l>
+nnoremap <leader>ws <C-W><C-s>
+nnoremap <leader>wv <C-W><C-v>
 
 " Highlight yanked text
 au TextYankPost * silent! lua vim.highlight.on_yank()
