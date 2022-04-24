@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'nvim-lua/plenary.nvim' " adds lua functions
     Plug 'preservim/nerdtree' " left navigation panel
     Plug 'nvim-telescope/telescope.nvim' " fzf file search
-    Plug 'nvim-telescope/telescope-fzf-native.nvim' " speed bonus for fzf file search
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } " speed bonus for fzf file search
     Plug 'nvim-telescope/telescope-frecency.nvim' " prioritise results based on recently used (needs sqlite)
     Plug 'tami5/sqlite.lua' " sqlite dependency
     Plug 'vim-airline/vim-airline' " bottom status bar
