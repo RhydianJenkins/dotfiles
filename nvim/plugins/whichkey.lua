@@ -83,7 +83,7 @@ wk.register({
             h = { "Navigate left" },
             j = { "Navigate down" },
             k = { "Navigate up" },
-            --l = { "Navigate right" },
+            l = { "Navigate right" },
         },
         c = {
             name = "Commenter/Code Action"
