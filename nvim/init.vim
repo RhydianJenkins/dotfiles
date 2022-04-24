@@ -50,10 +50,10 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-tab> :bprevious<CR>
 
 " Window navigation
-nnoremap <leader>wh <C-W><C-h>
-nnoremap <leader>wj <C-W><C-j>
-nnoremap <leader>wk <C-W><C-k>
-nnoremap <leader>wl <C-W><C-l>
+nnoremap <leader>h <C-W><C-h>
+nnoremap <leader>j <C-W><C-j>
+nnoremap <leader>k <C-W><C-k>
+nnoremap <leader>l <C-W><C-l>
 nnoremap <leader>ws <C-W><C-s>
 nnoremap <leader>wv <C-W><C-v>
 nnoremap <leader>wq <C-W><C-q>
