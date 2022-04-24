@@ -51,6 +51,9 @@ nnoremap <leader>wj <C-W><C-j>
 nnoremap <leader>wk <C-W><C-k>
 nnoremap <leader>wl <C-W><C-l>
 
+" Highlight yanked text
+au TextYankPost * silent! lua vim.highlight.on_yank()
+
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
 luafile $HOME/.config/nvim/plugins/impatient.lua
