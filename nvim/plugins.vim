@@ -25,6 +25,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
     Plug 'ryanoasis/vim-devicons' " adds icons
     Plug 'vim-test/vim-test' " allows running of tests
+    Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
 
     " LSP
     Plug 'neovim/nvim-lspconfig'

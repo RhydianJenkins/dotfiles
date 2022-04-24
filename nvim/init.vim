@@ -18,6 +18,7 @@ set nohlsearch
 set splitright
 set splitbelow
 set mouse=a
+set laststatus=3
 
 " indentation
 set autoindent
@@ -55,6 +56,7 @@ nnoremap <leader>wk <C-W><C-k>
 nnoremap <leader>wl <C-W><C-l>
 nnoremap <leader>ws <C-W><C-s>
 nnoremap <leader>wv <C-W><C-v>
+nnoremap <leader>wq <C-W><C-q>
 
 " Highlight yanked text
 au TextYankPost * silent! lua vim.highlight.on_yank()
