@@ -7,5 +7,6 @@
 # Wishlist
 
 - Running tests
-- Better help for keybindings
-- Better help for LSP
+- Github Copilot (without ghost text NeoVim issue)
+- Convert init to lua
+- More information on intellesense (lots of 'unknown' currently)
