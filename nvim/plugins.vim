@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'j-hui/fidget.nvim' " bottom right updates on tasks
     Plug 'lewis6991/gitsigns.nvim' " git integration to show additions/etc
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " allow things to query the tree
+    Plug 'p00f/nvim-ts-rainbow' " ranbow parenthesis to help with scopes
     Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multi line select/edit
     Plug 'lewis6991/impatient.nvim' " speed up lua module loadtimes (caching)
     Plug 'folke/which-key.nvim' " help for keybindings
