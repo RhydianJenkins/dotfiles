@@ -53,5 +53,3 @@ fi
 
 # quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
-
-alias luamake=/home/rhydian/.config/nvim/vim-plugged/lua-language-server/3rd/luamake/luamake
