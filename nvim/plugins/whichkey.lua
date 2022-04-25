@@ -76,17 +76,17 @@ wk.register({
             name = "Replace/Rename"
         },
         w = {
-            name = "Window Nav",
+            name = "Window controls",
             v = { "<cmd>:vsplit<cr>", "Split window vertically" },
             s = { "<cmd>:split<cr>", "Split window horizontally" },
             q = { "Close current window" },
-            h = { "Navigate left" },
-            j = { "Navigate down" },
-            k = { "Navigate up" },
-            l = { "Navigate right" },
         },
         c = {
             name = "Commenter/Code Action"
-        }
+        },
+        h = { "Navigate window left" },
+        j = { "Navigate window down" },
+        k = { "Navigate window up" },
+        l = { "Navigate window right" },
     },
 })

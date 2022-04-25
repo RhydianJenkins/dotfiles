@@ -6,7 +6,8 @@
 
 # Wishlist
 
-- Running tests
 - Github Copilot (without ghost text NeoVim issue)
 - Convert init to lua
 - More information on intellesense (lots of 'unknown' currently)
+- Vim compatibility
+- Optional config to allow up and running with less effort, e.g. no tabnine if not logged in
