@@ -34,6 +34,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'ryanoasis/vim-devicons' " adds icons
     Plug 'vim-test/vim-test' " allows running of tests
     Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
+    Plug 'mhinz/vim-startify' " fancy start/splash screen
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
