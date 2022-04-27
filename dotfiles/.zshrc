@@ -53,3 +53,8 @@ fi
 
 # quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
+
+# evaluate any custom sources defined
+if [ ! -f ~/.custom-sources ]; then
+    source ~/.custom_sources
+fi
