@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'vim-test/vim-test' " allows running of tests
     Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
     Plug 'mhinz/vim-startify' " fancy start/splash screen
+    Plug 'beyondwords/vim-twig' " twig syntax highlighting
 
     " LSP
     Plug 'neovim/nvim-lspconfig'

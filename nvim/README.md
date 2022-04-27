@@ -12,3 +12,4 @@
 - Better Vim compatibility
 - Optional config to allow up and running with less effort, e.g. no tabnine if not logged in
 - Better window/buffer managment
+- Highlight occurrences on hover
