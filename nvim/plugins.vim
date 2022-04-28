@@ -52,4 +52,5 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'lukas-reineke/lsp-format.nvim'
     Plug 'sumneko/lua-language-server'
+    Plug 'nanotee/sqls.nvim'
 call plug#end()
