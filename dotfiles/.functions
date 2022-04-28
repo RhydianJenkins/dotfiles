@@ -101,3 +101,8 @@ confirm() {
         *) false;;
     esac
 }
+
+# load custom_functions file if exists
+if [ -f ~/.custom_functions ]; then
+    . ~/.custom_functions
+fi
