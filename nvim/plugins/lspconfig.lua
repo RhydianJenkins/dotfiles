@@ -136,4 +136,9 @@ require('lspconfig').sumneko_lua.setup {
     }
 }
 
+require('lspconfig').bashls.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities
+}
+
 require("lsp-format").setup {}

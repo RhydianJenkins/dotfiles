@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     " LSP
     Plug 'neovim/nvim-lspconfig'
     Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
+    Plug 'bash-lsp/bash-language-server', {'do': 'npm i'}
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
