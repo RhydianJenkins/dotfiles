@@ -59,7 +59,10 @@ nnoremap <leader>wv <C-W><C-v>
 nnoremap <leader>wq <C-W><C-q>
 
 " Highlight yanked text
-au TextYankPost * silent! lua vim.highlight.on_yank()
+augroup yank_group
+    au!
+    au TextYankPost * silent! lua vim.highlight.on_yank()
+augroup END
 
 " load plugin configs
 source $HOME/.config/nvim/plugins.vim
