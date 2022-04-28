@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
     Plug 'mhinz/vim-startify' " fancy start/splash screen
     Plug 'beyondwords/vim-twig' " twig syntax highlighting
-    Plug 'justinmk/vim-sneak' " go to navigation
+    Plug 'ggandor/lightspeed.nvim' " go to specific word
 
     " LSP
     Plug 'neovim/nvim-lspconfig'

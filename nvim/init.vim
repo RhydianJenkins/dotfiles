@@ -76,7 +76,6 @@ source $HOME/.config/nvim/plugins/blamer.vim
 source $HOME/.config/nvim/plugins/glow.vim
 source $HOME/.config/nvim/plugins/vdebug.vim
 source $HOME/.config/nvim/plugins/vimtest.vim
-source $HOME/.config/nvim/plugins/sneak.vim
 luafile $HOME/.config/nvim/plugins/treesitter.lua
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
