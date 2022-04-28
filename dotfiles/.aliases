@@ -25,7 +25,7 @@ alias df='df -kTh'
 alias grep='grep --color=auto'
 alias lint='npm run lint'
 alias vi='nvim'
-alias v='vi'
+alias v='vi .'
 
 # docker
 alias dockerps='docker ps --format "table {{.Names}}\t{{.Status}}"'
