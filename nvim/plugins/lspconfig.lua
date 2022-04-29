@@ -147,16 +147,6 @@ require('lspconfig').sqls.setup {
         require('sqls').on_attach(client, bufnr)
     end,
     cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
-    --settings = {
-    --sqls = {
-    --connections = {
-    --{
-    --driver = 'mysql',
-    --dataSourceName = 'root@tcp(127.0.0.1:3306)/basekit',
-    --},
-    --},
-    --},
-    --},
 }
 
 require("lsp-format").setup {}

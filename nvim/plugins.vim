@@ -36,6 +36,8 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'mhinz/vim-startify' " fancy start/splash screen
     Plug 'beyondwords/vim-twig' " twig syntax highlighting
     Plug 'ggandor/lightspeed.nvim' " go to specific word
+    Plug 'yuezk/vim-js' " js(x) highlighting
+    Plug 'maxmellon/vim-jsx-pretty' " jsx formatting
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
