@@ -14,5 +14,4 @@ echo "Dotfiles linked. Time to intall stuff: "
 echo ""
 
 # prompt to install apt packages
-echo "sudo add-apt-repository ppa:neovim-ppa/unstable" # nvim 0.7+ required. Change to 'stable' when ready
-echo "sudo apt update && sudo apt install neovim curl ripgrep sqlite3 libsqlite3-dev pip python-neovim python3-neovim fd-find"
+echo "sudo apt update && sudo apt install curl ripgrep sqlite3 libsqlite3-dev pip python-neovim python3-neovim fd-find pkg-config libssl-dev"

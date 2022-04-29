@@ -16,7 +16,15 @@ After a shell restart, functions, aliases, and other personal customisations sho
 
 # NeoVim
 
-See the [nvim readme](nvim/README.md) for installation instructions on my NeoVim setup.
+Neovim v0.7.0^ is currently required for the setup.
+
+There are many ways to install neovim, but a nice way I use is through [Bob](https://github.com/MordechaiHadad/bob.git):
+
+```sh
+curl https://sh.rustup.rs -sSf | sh # install cargo (rust pkg manager)
+cargo install --git https://github.com/MordechaiHadad/bob.git # install bob
+bob install v0.7.0
+```
 
 # Nerd Fonts
 
