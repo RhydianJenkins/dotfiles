@@ -38,6 +38,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'ggandor/lightspeed.nvim' " go to specific word
     Plug 'yuezk/vim-js' " js(x) highlighting
     Plug 'maxmellon/vim-jsx-pretty' " jsx formatting
+    Plug 'sheerun/vim-polyglot' " many language support
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
