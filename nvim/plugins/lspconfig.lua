@@ -48,6 +48,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'sqls' },
         { name = 'vsnip' },
         { name = 'cmp_tabnine' },
     }, {
@@ -145,16 +146,17 @@ require('lspconfig').sqls.setup {
     on_attach = function(client, bufnr)
         require('sqls').on_attach(client, bufnr)
     end,
-    settings = {
-        sqls = {
-            connections = {
-                {
-                    driver = 'mysql',
-                    dataSourceName = 'root@tcp(127.0.0.1:3306)/basekit',
-                },
-            },
-        },
-    },
+    cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
+    --settings = {
+    --sqls = {
+    --connections = {
+    --{
+    --driver = 'mysql',
+    --dataSourceName = 'root@tcp(127.0.0.1:3306)/basekit',
+    --},
+    --},
+    --},
+    --},
 }
 
 require("lsp-format").setup {}
