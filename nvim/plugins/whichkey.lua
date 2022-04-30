@@ -56,7 +56,6 @@ wk.setup {
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
     triggers = "auto", -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
     triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
         -- this is mostly relevant for key maps that start with a native binding
@@ -69,24 +68,24 @@ wk.setup {
 -- Register custom names for keybindings
 wk.register({
     ["<leader>"] = {
-        t = {
-            name = "Telescope/Test",
-        },
-        r = {
-            name = "Replace/Rename"
-        },
+        t = { "Telescope/Test" },
+        r = { "Replace/Rename" },
         w = {
             name = "Window controls",
             v = { "<cmd>:vsplit<cr>", "Split window vertically" },
             s = { "<cmd>:split<cr>", "Split window horizontally" },
             q = { "Close current window" },
         },
-        c = {
-            name = "Commenter/Code Action"
-        },
+        c = { "Commenter/Code Action" },
         h = { "Navigate window left" },
         j = { "Navigate window down" },
         k = { "Navigate window up" },
         l = { "Navigate window right" },
     },
+    ["["] = {
+        d = { "Previous diagnostic message", }
+    },
+    ["]"] = {
+        d = { "Next diagnostic message", }
+    }
 })
