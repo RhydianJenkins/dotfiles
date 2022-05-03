@@ -54,6 +54,13 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'theHamsta/nvim-dap-virtual-text' " shows ghost text of values as you step through
     Plug 'xdebug/vscode-php-debug', { 'do' : 'npm i' } " php debug adapter
 
+    " Debugging
+    Plug 'mfussenegger/nvim-dap' " main debugger
+    Plug 'Pocco81/dap-buddy.nvim' " helper for installing specific debuggers
+    Plug 'rcarriga/nvim-dap-ui' " nice fancy UI for deugging
+    Plug 'theHamsta/nvim-dap-virtual-text' " shows ghost text of values as you step through
+    Plug 'xdebug/vscode-php-debug', { 'do' : 'npm i' } " php debug adapter
+
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
     Plug 'neovim/nvim-lspconfig'
