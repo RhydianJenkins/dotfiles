@@ -6,11 +6,6 @@ let NERDTreeMapActivateNode='l'
 
 let g:NERDTreeIgnore = ['^node_modules$', '^.git$', '^vendor$']
 
-" toggle file explorer
-" nnoremap <C-b> :NERDTreeToggle<CR>
-" nnoremap <leader>b :NERDTreeFind<CR>
-
-" If NERDTree is open in the current buffer
 function! NERDTreeToggleInCurDir()
   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
     exe ":NERDTreeClose"
