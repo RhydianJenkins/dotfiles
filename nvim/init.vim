@@ -43,7 +43,7 @@ nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
 
 " CTRL + w to close current buffer
-nnoremap <C-w> :bd<CR>
+nnoremap <C-w> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Tab navigation of buffers
 nnoremap <Tab> :bn<CR>
