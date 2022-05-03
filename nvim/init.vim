@@ -57,6 +57,7 @@ nnoremap <leader>l <C-W><C-l>
 nnoremap <leader>ws <C-W><C-s>
 nnoremap <leader>wv <C-W><C-v>
 nnoremap <leader>wq <C-W><C-q>
+nnoremap <leader>wo <C-W><C-o>
 
 " Highlight yanked text
 augroup yank_group
@@ -71,7 +72,7 @@ source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/popup.vim
-source $HOME/.config/nvim/plugins/codedark.vim
+source $HOME/.config/nvim/plugins/gruvbox.vim
 source $HOME/.config/nvim/plugins/blamer.vim
 source $HOME/.config/nvim/plugins/glow.vim
 source $HOME/.config/nvim/plugins/vdebug.vim
