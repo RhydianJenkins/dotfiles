@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'tami5/sqlite.lua' " sqlite dependency
     Plug 'scrooloose/nerdcommenter' " comment blocks of code
     Plug 'kqito/vim-easy-replace' " <leader>ra - find and replace all
-    Plug 'vim-vdebug/vdebug' " debugger
     Plug 'APZelos/blamer.nvim' " git blame
     Plug 'ntpeters/vim-better-whitespace' " strip trailing whitespace
     Plug 'ellisonleao/glow.nvim', {'branch': 'main'} " md preview
@@ -46,6 +45,13 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'SmiteshP/nvim-gps' " status line component to show cursor position
     Plug 'feline-nvim/feline.nvim' " status line
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
+
+    " Debugging
+    Plug 'mfussenegger/nvim-dap' " main debugger
+    Plug 'Pocco81/dap-buddy.nvim' " helper for installing specific debuggers
+    Plug 'rcarriga/nvim-dap-ui' " nice fancy UI for deugging
+    Plug 'theHamsta/nvim-dap-virtual-text' " shows ghost text of values as you step through
+    Plug 'xdebug/vscode-php-debug', { 'do' : 'npm i' } " php debug adapter
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
