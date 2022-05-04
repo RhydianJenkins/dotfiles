@@ -139,7 +139,11 @@ require('lspconfig').sqls.setup {
 
 require('lspconfig').eslint.setup {
     on_attach = on_attach_with_format,
-    capabilities = capabilities
+    capabilities = capabilities,
+    handlers = {
+        -- Don't shout at me when there's an eslint error
+        ['window/showMessageRequest'] = function(_, result, params) return result end
+    }
 }
 
 require('lspconfig').gopls.setup {
