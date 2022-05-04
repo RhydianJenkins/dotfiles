@@ -10,8 +10,4 @@ fi
 
 # Just link and erase all dotfiles to $HOME
 ln -sf $SCRIPT_DIR/.[a-z]* ~/
-echo "Dotfiles linked. Time to intall stuff: "
-echo ""
-
-# prompt to install apt packages
-echo "sudo apt update && sudo apt install curl ripgrep sqlite3 libsqlite3-dev pip python-neovim python3-neovim fd-find pkg-config libssl-dev"
+echo "Dotfiles linked. "
