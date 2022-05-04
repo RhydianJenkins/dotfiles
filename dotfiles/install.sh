@@ -9,7 +9,7 @@ if ! [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 # Just link and erase all dotfiles to $HOME
-ln -sf $SCRIPT_DIR/dotfiles/.[a-z]* ~/
+ln -sf $SCRIPT_DIR/.[a-z]* ~/
 echo "Dotfiles linked. Time to intall stuff: "
 echo ""
 
