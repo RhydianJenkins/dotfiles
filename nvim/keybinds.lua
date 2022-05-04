@@ -1,5 +1,8 @@
 local opts = { noremap = true, silent = true }
 
+-- Space <leader> key
+vim.g.mapleader = " "
+
 -- CTRL + a to select all
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', opts)
 

@@ -28,9 +28,6 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
-" make space <leader> key
-let mapleader = " "
-
 " Highlight yanked text
 augroup yank_group
     au!
