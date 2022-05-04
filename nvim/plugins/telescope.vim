@@ -6,4 +6,4 @@ nnoremap <leader>tb <cmd>Telescope buffers<cr>
 nnoremap <leader>tr <cmd>lua require('telescope').extensions.frecency.frecency()<cr>
 nnoremap gr <cmd>Telescope lsp_references<cr>
 nnoremap gi <cmd>Telescope lsp_implementations<cr>
-nnoremap <leader>ca <cmd>Telescope lsp_code_actions<cr>
+nnoremap <leader>a <cmd>Telescope lsp_code_actions<cr>

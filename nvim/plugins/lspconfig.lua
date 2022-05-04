@@ -137,4 +137,9 @@ require('lspconfig').sqls.setup {
     cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
 }
 
+require('lspconfig').gopls.setup {
+    on_attach = on_attach_with_format,
+    capabilities = capabilities
+}
+
 require("lsp-format").setup {}
