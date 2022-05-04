@@ -96,6 +96,9 @@ local on_attach_general = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+    -- highlight word under cursor
+    require 'illuminate'.on_attach(client)
 end
 
 local on_attach_with_format = function(client, bufnr)

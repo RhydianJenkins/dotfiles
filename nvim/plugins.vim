@@ -37,14 +37,12 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'ggandor/lightspeed.nvim' " go to specific word
     Plug 'yuezk/vim-js' " js(x) highlighting
     Plug 'maxmellon/vim-jsx-pretty' " jsx formatting
-    "Plug 'sheerun/vim-polyglot' " many language support
     Plug 'morhetz/gruvbox' " color theme
+    Plug 'rrethy/vim-illuminate' " highlight words on cursor over
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
     Plug 'neovim/nvim-lspconfig'
-    "Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
-    "Plug 'bash-lsp/bash-language-server', {'do': 'npm i'}
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -55,6 +53,4 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'lukas-reineke/lsp-format.nvim'
-    "Plug 'sumneko/lua-language-server'
-    "Plug 'nanotee/sqls.nvim'
 call plug#end()
