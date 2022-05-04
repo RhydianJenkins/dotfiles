@@ -1,5 +1,27 @@
 local telescope = require('telescope')
 
+local opts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
+vim.api.nvim_set_keymap('n', '<C-f>', '<cmd>Telescope live_grep<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>th', '<cmd>Telescope help_tags<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tb', '<cmd>Telescope buffers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tr', '<cmd>lua require(\'telescope\').extensions.frecency.frecency()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>Telescope lsp_code_actions<CR>', opts)
+
+--nnoremap <C-p> <cmd>Telescope find_files<cr>
+--nnoremap <C-f> <cmd>Telescope live_grep<cr>
+
+--nnoremap <leader>th <cmd>Telescope help_tags<cr>
+--nnoremap <leader>tb <cmd>Telescope buffers<cr>
+--nnoremap <leader>tr <cmd>lua require('telescope').extensions.frecency.frecency()<cr>
+--nnoremap gr <cmd>Telescope lsp_references<cr>
+--nnoremap gi <cmd>Telescope lsp_implementations<cr>
+--nnoremap <leader>a <cmd>Telescope lsp_code_actions<cr>
+
+
 telescope.setup {
     extensions = {
         fzf = {
