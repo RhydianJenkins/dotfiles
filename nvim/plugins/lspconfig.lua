@@ -109,7 +109,7 @@ require('lspconfig').phpactor.setup {
 }
 
 require('lspconfig').tsserver.setup {
-    on_attach = on_attach_with_format,
+    on_attach = on_attach_general,
     capabilities = capabilities
 }
 
