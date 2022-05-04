@@ -28,10 +28,6 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
-" case insensitive save and quit
-cabb W w
-cabb Q q
-
 " make space <leader> key
 let mapleader = " "
 
@@ -41,26 +37,8 @@ augroup yank_group
     au TextYankPost * silent! lua vim.highlight.on_yank()
 augroup END
 
-" import keybindings
+" load keybindings
 luafile $HOME/.config/nvim/keybinds.lua
 
-" load plugin configs
+" load plugins
 source $HOME/.config/nvim/plugins.vim
-luafile $HOME/.config/nvim/plugins/impatient.lua
-source $HOME/.config/nvim/plugins/nerdtree.vim
-source $HOME/.config/nvim/plugins/popup.vim
-source $HOME/.config/nvim/plugins/gruvbox.vim
-source $HOME/.config/nvim/plugins/vdebug.vim
-luafile $HOME/.config/nvim/plugins/vimtest.lua
-luafile $HOME/.config/nvim/plugins/airline.lua
-luafile $HOME/.config/nvim/plugins/glow.lua
-luafile $HOME/.config/nvim/plugins/blamer.lua
-luafile $HOME/.config/nvim/plugins/lspinstaller.lua
-luafile $HOME/.config/nvim/plugins/lspconfig.lua
-luafile $HOME/.config/nvim/plugins/treesitter.lua
-luafile $HOME/.config/nvim/plugins/gitsigns.lua
-luafile $HOME/.config/nvim/plugins/telescope.lua
-luafile $HOME/.config/nvim/plugins/fidget.lua
-luafile $HOME/.config/nvim/plugins/whichkey.lua
-luafile $HOME/.config/nvim/plugins/tabnine.lua
-luafile $HOME/.config/nvim/plugins/illuminate.lua

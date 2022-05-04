@@ -11,17 +11,6 @@ vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>Telescope lsp_code_actions<CR>', opts)
 
---nnoremap <C-p> <cmd>Telescope find_files<cr>
---nnoremap <C-f> <cmd>Telescope live_grep<cr>
-
---nnoremap <leader>th <cmd>Telescope help_tags<cr>
---nnoremap <leader>tb <cmd>Telescope buffers<cr>
---nnoremap <leader>tr <cmd>lua require('telescope').extensions.frecency.frecency()<cr>
---nnoremap gr <cmd>Telescope lsp_references<cr>
---nnoremap gi <cmd>Telescope lsp_implementations<cr>
---nnoremap <leader>a <cmd>Telescope lsp_code_actions<cr>
-
-
 telescope.setup {
     extensions = {
         fzf = {

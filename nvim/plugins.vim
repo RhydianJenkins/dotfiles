@@ -5,7 +5,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" plugins
+" load plugins
 call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'nvim-lua/popup.nvim' " allows overlays
     Plug 'nvim-lua/plenary.nvim' " adds lua functions
@@ -54,3 +54,23 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'lukas-reineke/lsp-format.nvim'
 call plug#end()
+
+" load plugin configs
+luafile $HOME/.config/nvim/plugins/impatient.lua
+source $HOME/.config/nvim/plugins/nerdtree.vim
+source $HOME/.config/nvim/plugins/popup.vim
+source $HOME/.config/nvim/plugins/gruvbox.vim
+source $HOME/.config/nvim/plugins/vdebug.vim
+luafile $HOME/.config/nvim/plugins/vimtest.lua
+luafile $HOME/.config/nvim/plugins/airline.lua
+luafile $HOME/.config/nvim/plugins/glow.lua
+luafile $HOME/.config/nvim/plugins/blamer.lua
+luafile $HOME/.config/nvim/plugins/lspinstaller.lua
+luafile $HOME/.config/nvim/plugins/lspconfig.lua
+luafile $HOME/.config/nvim/plugins/treesitter.lua
+luafile $HOME/.config/nvim/plugins/gitsigns.lua
+luafile $HOME/.config/nvim/plugins/telescope.lua
+luafile $HOME/.config/nvim/plugins/fidget.lua
+luafile $HOME/.config/nvim/plugins/whichkey.lua
+luafile $HOME/.config/nvim/plugins/tabnine.lua
+luafile $HOME/.config/nvim/plugins/illuminate.lua
