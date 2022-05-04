@@ -81,8 +81,8 @@ cmp.setup.cmdline(':', {
 })
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 local opts = { noremap = true, silent = true }
+
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -109,7 +109,7 @@ require('lspconfig').phpactor.setup {
 }
 
 require('lspconfig').tsserver.setup {
-    on_attach = on_attach_with_format,
+    on_attach = on_attach_general,
     capabilities = capabilities
 }
 
@@ -126,7 +126,7 @@ require('lspconfig').sumneko_lua.setup {
 }
 
 require('lspconfig').bashls.setup {
-    on_attach = on_attach_general,
+    on_attach = on_attach_with_format,
     capabilities = capabilities
 }
 
@@ -135,6 +135,26 @@ require('lspconfig').sqls.setup {
         require('sqls').on_attach(client, bufnr)
     end,
     cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
+}
+
+require('lspconfig').eslint.setup {
+    on_attach = on_attach_with_format,
+    capabilities = capabilities
+}
+
+require('lspconfig').gopls.setup {
+    on_attach = on_attach_with_format,
+    capabilities = capabilities
+}
+
+require('lspconfig').rust_analyzer.setup {
+    on_attach = on_attach_with_format,
+    capabilities = capabilities
+}
+
+require('lspconfig').dockerls.setup {
+    on_attach = on_attach_with_format,
+    capabilities = capabilities
 }
 
 require("lsp-format").setup {}
