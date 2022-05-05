@@ -108,6 +108,11 @@ end
 
 require('lspconfig').phpactor.setup {
     on_attach = on_attach_general,
+    --capabilities = capabilities
+}
+
+require('lspconfig').intelephense.setup {
+    on_attach = on_attach_general,
     capabilities = capabilities
 }
 
@@ -145,6 +150,7 @@ require('lspconfig').eslint.setup {
     capabilities = capabilities,
     handlers = {
         -- Don't shout at me when there's an eslint error
+        ---@diagnostic disable-next-line: unused-local
         ['window/showMessageRequest'] = function(_, result, params) return result end
     }
 }

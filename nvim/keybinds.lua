@@ -26,6 +26,10 @@ vim.api.nvim_set_keymap('n', '<leader>ws', '<C-W><C-s>', opts)
 vim.api.nvim_set_keymap('n', '<leader>wv', '<C-W><C-v>', opts)
 vim.api.nvim_set_keymap('n', '<leader>wq', '<C-W><C-q>', opts)
 vim.api.nvim_set_keymap('n', '<leader>wo', '<C-W><C-o>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wr', '<C-W><C-r>', opts)
 
 -- Find dot files
 vim.api.nvim_set_keymap('n', '<leader>dot', "<cmd>lua require('telescope.builtin').find_files{ cwd = '~/dotfiles', prompt_title = '~ Dotfiles ~'}<CR>", opts)
+
+-- Resource vim config
+vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr>', opts)
