@@ -28,6 +28,11 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
+" use rg as a grep replacement
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
 " Highlight yanked text
 augroup yank_group
     au!
