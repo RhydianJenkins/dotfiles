@@ -18,5 +18,4 @@ function! NERDTreeToggleInCurDir()
   endif
 endfunction
 
-" nnoremap <leader>nf :NERDTreeFind<cr>
 nnoremap <C-b> :call NERDTreeToggleInCurDir()<cr>
