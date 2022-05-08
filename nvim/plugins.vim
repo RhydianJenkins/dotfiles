@@ -39,6 +39,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'maxmellon/vim-jsx-pretty' " jsx formatting
     Plug 'morhetz/gruvbox' " color theme
     Plug 'rrethy/vim-illuminate' " highlight words on cursor over
+    Plug 'theprimeagen/git-worktree.nvim' " manage git worktree
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
@@ -74,3 +75,4 @@ luafile $HOME/.config/nvim/plugins/fidget.lua
 luafile $HOME/.config/nvim/plugins/whichkey.lua
 luafile $HOME/.config/nvim/plugins/tabnine.lua
 luafile $HOME/.config/nvim/plugins/illuminate.lua
+luafile $HOME/.config/nvim/plugins/gitworktree.lua
