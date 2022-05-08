@@ -18,17 +18,17 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+# load omzsh if exists
+[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 # load alias file if exists
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+[ -f ~/.aliases ] && source ~/.aliases
 
 # load functions file if exists
-if [ -f ~/.functions ]; then
-    . ~/.functions
-fi
+[ -f ~/.functions ] && source ~/.functions
+
+# evaluate any custom sources defined
+[ -f ~/.custom_sources ] && source ~/.custom_sources
 
 # colorize suggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
@@ -54,7 +54,3 @@ fi
 # quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
 
-# evaluate any custom sources defined
-if [ -f ~/.custom_sources ]; then
-    source ~/.custom_sources
-fi

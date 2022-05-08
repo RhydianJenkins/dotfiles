@@ -107,7 +107,7 @@ local on_attach_with_format = function(client, bufnr)
 end
 
 require('lspconfig').phpactor.setup {
-    on_attach = on_attach_general,
+    --on_attach = on_attach_general,
     --capabilities = capabilities
 }
 
