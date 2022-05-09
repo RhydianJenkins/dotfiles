@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'morhetz/gruvbox' " color theme
     Plug 'rrethy/vim-illuminate' " highlight words on cursor over
     Plug 'theprimeagen/git-worktree.nvim' " manage git worktree
+    Plug 'onsails/lspkind.nvim' " adds icons to completion list
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
