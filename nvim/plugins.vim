@@ -68,6 +68,7 @@ luafile $HOME/.config/nvim/plugins/airline.lua
 luafile $HOME/.config/nvim/plugins/glow.lua
 luafile $HOME/.config/nvim/plugins/blamer.lua
 luafile $HOME/.config/nvim/plugins/lspinstaller.lua
+luafile $HOME/.config/nvim/plugins/cmp.lua
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
 luafile $HOME/.config/nvim/plugins/treesitter.lua
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
