@@ -1,5 +1,5 @@
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=50
+let NERDTreeWinSize=60
 let NERDTreeCascadeOpenSingleChildDir=0
 let NERDTreeCascadeSingleChildDir=0
 let NERDTreeMapActivateNode='l'
@@ -18,4 +18,4 @@ function! NERDTreeToggleInCurDir()
   endif
 endfunction
 
-nnoremap <C-b> :call NERDTreeToggleInCurDir()<cr>
+nnoremap <silent> <C-b> :call NERDTreeToggleInCurDir()<cr>
