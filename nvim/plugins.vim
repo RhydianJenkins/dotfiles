@@ -14,8 +14,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } " speed bonus for fzf file search
     Plug 'nvim-telescope/telescope-frecency.nvim' " prioritise results based on recently used (needs sqlite)
     Plug 'tami5/sqlite.lua' " sqlite dependency
-    Plug 'vim-airline/vim-airline' " bottom status bar
-    Plug 'vim-airline/vim-airline-themes' " make airline look pretty
     Plug 'scrooloose/nerdcommenter' " comment blocks of code
     Plug 'kqito/vim-easy-replace' " <leader>ra - find and replace all
     Plug 'vim-vdebug/vdebug' " debugger
@@ -29,7 +27,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'lewis6991/impatient.nvim' " speed up lua module loadtimes (caching)
     Plug 'folke/which-key.nvim' " help for keybindings
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
-    Plug 'ryanoasis/vim-devicons' " adds icons
+    Plug 'kyazdani42/nvim-web-devicons' " adds icons and colors
     Plug 'vim-test/vim-test' " allows running of tests
     Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
     Plug 'mhinz/vim-startify' " fancy start/splash screen
@@ -45,6 +43,9 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'norcalli/nvim-colorizer.lua' " adds color display for colors
     Plug 'petertriho/nvim-scrollbar' " adds scrollbar
     Plug 'beauwilliams/focus.nvim' " window resize on focus
+    Plug 'SmiteshP/nvim-gps' " status line component to show cursor position
+    Plug 'feline-nvim/feline.nvim' " status line
+    Plug 'akinsho/bufferline.nvim' " show buffers at the top
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
@@ -68,13 +69,15 @@ source $HOME/.config/nvim/plugins/popup.vim
 source $HOME/.config/nvim/plugins/gruvbox.vim
 luafile $HOME/.config/nvim/plugins/vdebug.lua
 luafile $HOME/.config/nvim/plugins/vimtest.lua
-luafile $HOME/.config/nvim/plugins/airline.lua
+luafile $HOME/.config/nvim/plugins/devicons.lua
+luafile $HOME/.config/nvim/plugins/feline.lua
 luafile $HOME/.config/nvim/plugins/glow.lua
 luafile $HOME/.config/nvim/plugins/blamer.lua
 luafile $HOME/.config/nvim/plugins/lspinstaller.lua
 luafile $HOME/.config/nvim/plugins/cmp.lua
 luafile $HOME/.config/nvim/plugins/lspconfig.lua
 luafile $HOME/.config/nvim/plugins/treesitter.lua
+luafile $HOME/.config/nvim/plugins/gps.lua
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
 luafile $HOME/.config/nvim/plugins/telescope.lua
 luafile $HOME/.config/nvim/plugins/fidget.lua
@@ -86,3 +89,4 @@ luafile $HOME/.config/nvim/plugins/harpoon.lua
 luafile $HOME/.config/nvim/plugins/colorizer.lua
 luafile $HOME/.config/nvim/plugins/scrollbar.lua
 luafile $HOME/.config/nvim/plugins/focus.lua
+luafile $HOME/.config/nvim/plugins/bufferline.lua
