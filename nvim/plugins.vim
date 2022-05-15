@@ -43,6 +43,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'onsails/lspkind.nvim' " adds icons to completion list
     Plug 'theprimeagen/harpoon' " marks utility
     Plug 'norcalli/nvim-colorizer.lua' " adds color display for colors
+    Plug 'petertriho/nvim-scrollbar' " adds scrollbar
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
@@ -82,3 +83,4 @@ luafile $HOME/.config/nvim/plugins/illuminate.lua
 luafile $HOME/.config/nvim/plugins/gitworktree.lua
 luafile $HOME/.config/nvim/plugins/harpoon.lua
 luafile $HOME/.config/nvim/plugins/colorizer.lua
+luafile $HOME/.config/nvim/plugins/scrollbar.lua
