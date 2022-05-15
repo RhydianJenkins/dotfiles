@@ -37,6 +37,7 @@ alias dockerdown='docker-compose down'
 alias gs='git status'
 alias gp='git pull'
 alias gf='git fetch'
+alias lg='lazygit'
 
 # pretty-print PATH
 alias path='echo -e ${PATH//:/\\n}'
