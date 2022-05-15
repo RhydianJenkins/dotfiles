@@ -65,7 +65,6 @@ call plug#end()
 " load plugin configs
 luafile $HOME/.config/nvim/plugins/impatient.lua
 source $HOME/.config/nvim/plugins/nerdtree.vim
-source $HOME/.config/nvim/plugins/popup.vim
 source $HOME/.config/nvim/plugins/gruvbox.vim
 luafile $HOME/.config/nvim/plugins/vdebug.lua
 luafile $HOME/.config/nvim/plugins/vimtest.lua
