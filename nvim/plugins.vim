@@ -85,3 +85,4 @@ luafile $HOME/.config/nvim/plugins/gitworktree.lua
 luafile $HOME/.config/nvim/plugins/harpoon.lua
 luafile $HOME/.config/nvim/plugins/colorizer.lua
 luafile $HOME/.config/nvim/plugins/scrollbar.lua
+luafile $HOME/.config/nvim/plugins/focus.lua
