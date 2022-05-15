@@ -19,6 +19,7 @@ set splitright
 set splitbelow
 set mouse=a
 set laststatus=3
+set termguicolors
 
 " indentation
 set autoindent
