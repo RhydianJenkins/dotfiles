@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'theprimeagen/harpoon' " marks utility
     Plug 'norcalli/nvim-colorizer.lua' " adds color display for colors
     Plug 'petertriho/nvim-scrollbar' " adds scrollbar
+    Plug 'beauwilliams/focus.nvim' " window resize on focus
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
