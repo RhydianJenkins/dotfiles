@@ -9,7 +9,6 @@ set nowrap
 set incsearch
 set scrolloff=8
 set signcolumn=yes
-set colorcolumn=120
 set showmatch
 set wildmode=longest,list
 set clipboard=unnamedplus
