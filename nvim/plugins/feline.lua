@@ -119,9 +119,7 @@ components.active[1][2] = {
 }
 -- filename
 components.active[1][3] = {
-    provider = function()
-        return vim.fn.expand("%:F")
-    end,
+    provider = function() return vim.fn.expand("%:F") end,
     hl = {
         fg = 'white',
         bg = 'bg',
@@ -144,13 +142,55 @@ components.active[1][4] = {
         fg = 'white',
         bg = 'bg',
         style = 'bold'
-    }
+    },
+    right_sep = ' '
 }
 
 -- RIGHT
 
--- gitBranch
+-- diagnosticErrors
 components.active[3][1] = {
+    provider = 'diagnostic_errors',
+    enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR) end,
+    hl = {
+        fg = 'red',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- diagnosticWarn
+components.active[3][2] = {
+    provider = 'diagnostic_warnings',
+    enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
+    hl = {
+        fg = 'yellow',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- diagnosticHint
+components.active[3][3] = {
+    provider = 'diagnostic_hints',
+    enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
+    hl = {
+        fg = 'cyan',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- diagnosticInfo
+components.active[3][4] = {
+    provider = 'diagnostic_info',
+    enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.INFO) end,
+    hl = {
+        fg = 'skyblue',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+
+-- gitBranch
+components.active[3][5] = {
     provider = 'git_branch',
     hl = {
         fg = 'yellow',
@@ -160,8 +200,39 @@ components.active[3][1] = {
     right_sep = ' '
 }
 
+-- diffAdd
+components.active[3][6] = {
+    provider = 'git_diff_added',
+    hl = {
+        fg = 'green',
+        bg = 'bg',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- diffModfified
+components.active[3][7] = {
+    provider = 'git_diff_changed',
+    hl = {
+        fg = 'orange',
+        bg = 'bg',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- diffRemove
+components.active[3][8] = {
+    provider = 'git_diff_removed',
+    hl = {
+        fg = 'red',
+        bg = 'bg',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+
 -- fileIcon
-components.active[3][2] = {
+components.active[3][9] = {
     provider = function()
         local filename  = vim.fn.expand('%:t')
         local extension = vim.fn.expand('%:e')
@@ -189,7 +260,7 @@ components.active[3][2] = {
 }
 
 -- fileType
-components.active[3][3] = {
+components.active[3][10] = {
     provider = 'file_type',
     hl = function()
         local val        = {}
@@ -209,7 +280,7 @@ components.active[3][3] = {
 }
 
 -- fileSize
-components.active[3][4] = {
+components.active[3][11] = {
     provider = 'file_size',
     enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
     hl = {
@@ -221,7 +292,7 @@ components.active[3][4] = {
 }
 
 -- fileFormat
-components.active[3][5] = {
+components.active[3][12] = {
     provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
     hl = {
         fg = 'white',
@@ -232,7 +303,7 @@ components.active[3][5] = {
 }
 
 -- fileEncode
-components.active[3][6] = {
+components.active[3][13] = {
     provider = 'file_encoding',
     hl = {
         fg = 'white',
