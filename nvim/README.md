@@ -8,7 +8,5 @@
 
 - Github Copilot (without ghost text NeoVim issue)
 - Convert lua
-- Better Vim compatibility
 - Optional config to allow up and running with less effort, e.g. no tabnine if not logged in
-- Better window/buffer managment
 - SQL interaction with the database
