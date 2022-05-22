@@ -89,3 +89,4 @@ luafile $HOME/.config/nvim/plugins/colorizer.lua
 luafile $HOME/.config/nvim/plugins/scrollbar.lua
 luafile $HOME/.config/nvim/plugins/focus.lua
 luafile $HOME/.config/nvim/plugins/bufferline.lua
+luafile $HOME/.config/nvim/plugins/nerdcommenter.lua

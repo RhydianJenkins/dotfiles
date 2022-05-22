@@ -1,3 +1,3 @@
-# NVim plugin configs
+# NeoVim plugin configs
 
-A place for individual nvim plugin configs to live.
+A place for individual `nvim` plugin configs to live.
