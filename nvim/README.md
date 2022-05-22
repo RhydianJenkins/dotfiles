@@ -10,7 +10,7 @@ cargo install --git https://github.com/MordechaiHadad/bob.git # install bob
 bob install v0.7.0
 ```
 
-# NEOVIM CONFIG
+# Neovim Config
 
 1. Copy these files into `~/.config/nvim`.
 2. Open neovim and run `:PlugInstall`.
