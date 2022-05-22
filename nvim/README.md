@@ -1,3 +1,15 @@
+# Installing NeoVim
+
+Neovim v0.7.0^ is currently required for the setup.
+
+There are many ways to install neovim, but a nice way I use is through [Bob](https://github.com/MordechaiHadad/bob.git):
+
+```sh
+curl https://sh.rustup.rs -sSf | sh # install cargo (rust pkg manager)
+cargo install --git https://github.com/MordechaiHadad/bob.git # install bob
+bob install v0.7.0
+```
+
 # NEOVIM CONFIG
 
 1. Copy these files into `~/.config/nvim`.
