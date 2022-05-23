@@ -1,0 +1,9 @@
+curl
+ripgrep
+sqlite3
+libsqlite3-dev
+pip
+fd-find
+pkg-config
+libssl-dev
+xdotool
