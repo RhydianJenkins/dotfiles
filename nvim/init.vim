@@ -8,6 +8,7 @@ set noerrorbells
 set nowrap
 set incsearch
 set scrolloff=8
+set sidescrolloff=32
 set signcolumn=yes
 set showmatch
 set wildmode=longest,list

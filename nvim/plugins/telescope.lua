@@ -1,4 +1,5 @@
 local telescope = require('telescope')
+local themes = require('telescope.themes')
 
 local opts = { noremap = true, silent = true }
 
@@ -18,6 +19,11 @@ telescope.setup {
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
             case_mode = "ignore_case", -- or "smart_case" or "respect_case"
+        },
+        harpoon = {
+            file_browser = {
+                theme = themes.get_dropdown()
+            }
         }
     },
     pickers = {
@@ -30,9 +36,11 @@ telescope.setup {
             "^node_modules/",
             "^.git/",
             "^.vender/",
-            "^cache/"
+            "^cache/",
+            "^babel-cache/",
         },
     }
 }
 
 telescope.load_extension('fzf')
+telescope.load_extension('harpoon')
