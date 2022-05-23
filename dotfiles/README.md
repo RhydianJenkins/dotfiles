@@ -10,7 +10,7 @@ cd dotfiles/dotfiles
 ./install.sh
 
 # Install some required dependencies
-sudo apt update && sudo apt install curl ripgrep sqlite3 libsqlite3-dev pip python-neovim python3-neovim fd-find pkg-config libssl-dev
+sudo apt update && sudo apt install curl ripgrep sqlite3 libsqlite3-dev pip python-neovim python3-neovim fd-find pkg-config libssl-dev xdotool
 ```
 
 After a shell restart, functions, aliases, and other personal customisations should be applied.
