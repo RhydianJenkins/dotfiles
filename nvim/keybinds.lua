@@ -37,3 +37,7 @@ vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr>', opts)
 -- Resize window
 vim.api.nvim_set_keymap('n', '<leader>=', '<cmd>vertical resize +5<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>-', '<cmd>vertical resize -5<CR>', opts)
+
+-- Replace line above/below
+vim.api.nvim_set_keymap('n', '<A-j>', '<cmd>move +1<CR>', opts)
+vim.api.nvim_set_keymap('n', '<A-k>', '<cmd>move -2<CR>', opts)
