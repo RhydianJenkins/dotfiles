@@ -9,57 +9,11 @@ window:
     y: 6
   startup_mode: Maximized
   title: Alacritty
-  opacity: 0.9
   instance: Alacritty
   general: Alacritty
+  opacity: 0.9
   scrolling:
     history: 5000
-  font:
-    normal:
-      family: Hack
-      style: Regular
-    bold:
-      family: Hack
-      style: Bold
-    italic:
-      family: Hack
-      style: Italic
-    bold_italic:
-      family: Hack
-      style: Bold Italic
-    size: 14.0
-    colors:
-      primary:
-        background: '0x002b36'
-        foreground: '0x93a1a1'
-    cursor:
-      text: '0x002b36'
-    cursor: '0x93a1a1'
-    normal:
-      black:   '0x002b36'
-      red:     '0xdc322f'
-      green:   '0x859900'
-      yellow:  '0xb58900'
-      blue:    '0x268bd2'
-      magenta: '0x6c71c4'
-      cyan:    '0x2aa198'
-      white:   '0x93a1a1'
-    bright:
-      black:   '0x657b83'
-      red:     '0xdc322f'
-      green:   '0x859900'
-      yellow:  '0xb58900'
-      blue:    '0x268bd2'
-      magenta: '0x6c71c4'
-      cyan:    '0x2aa198'
-      white:   '0xfdf6e3'
-  indexed_colors:
-    - { index: 16, color: '0xcb4b16' }
-    - { index: 17, color: '0xd33682' }
-    - { index: 18, color: '0x073642' }
-    - { index: 19, color: '0x586e75' }
-    - { index: 20, color: '0x839496' }
-    - { index: 21, color: '0xeee8d5' }
   save_to_clipboard: false
   dynamic_title: true
   key_bindings:
