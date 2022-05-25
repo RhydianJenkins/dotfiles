@@ -33,3 +33,7 @@ vim.api.nvim_set_keymap('n', '<leader>dot', "<cmd>lua require('telescope.builtin
 
 -- Resource vim config
 vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr>', opts)
+
+-- Resize window
+vim.api.nvim_set_keymap('n', '<leader>=', '<cmd>vertical resize +5<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>-', '<cmd>vertical resize -5<CR>', opts)

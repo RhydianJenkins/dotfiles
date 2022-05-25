@@ -38,6 +38,7 @@ telescope.setup {
             "^.vender/",
             "^cache/",
             "^babel-cache/",
+            "^tmp/",
         },
     }
 }
