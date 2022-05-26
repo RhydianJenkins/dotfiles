@@ -102,6 +102,73 @@ confirm() {
     esac
 }
 
+# Basekit
+function mstr() {
+    local timestamp="$(date +%Y%m%d%H%M%S)"
+    local argString="'$*'"
+    local name=${${argString// /_}//\'}
+    local suffix=".up.sql"
+    local result="${timestamp}_${name}${suffix}"
+
+    # print result
+    echo $result
+
+    # also copy to clipboard
+    echo $result | xclip
+}
+
+function purge_databases() {
+    echo "Recreating all basekit databases..."
+
+    local dropSqlCommands=(
+        "DROP DATABASE IF EXISTS basekit;"
+        "DROP DATABASE IF EXISTS basekit_sites;"
+        "DROP DATABASE IF EXISTS basekit_plugin_blog;"
+        "DROP DATABASE IF EXISTS basekit_plugin_ecommerce;"
+        "DROP DATABASE IF EXISTS basekit_plugin_menu;"
+        "DROP DATABASE IF EXISTS basekit_connect_bookings;"
+        "DROP DATABASE IF EXISTS basekit_customer_manager;"
+    )
+    docker-compose run --rm mysql mysql -h mysql -e "${dropSqlCommands[*]}"
+
+    make create_databases
+
+    echo "Databases purged."
+}
+
+function make_commands() {
+    echo "Executing make targets..."
+
+    make migrate_all
+    make install_templates
+    make default_users
+    make update_brand
+    make connect_install_packages
+    make down
+    make up
+
+    echo "Make targets executed"
+}
+
+function scaffold() {
+    echo "Starting scaffolding..."
+
+    docker exec -it basekit_mysql_1 mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
+
+    echo "Scaffolding complete"
+}
+
+function restore_databases() {
+    if (! confirm); then
+        return 1;
+    fi
+
+    bk
+    purge_databases
+    make_commands
+    scaffold
+}
+
 # load custom_functions file if exists
 if [ -f ~/.custom_functions ]; then
     . ~/.custom_functions
