@@ -46,6 +46,8 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'SmiteshP/nvim-gps' " status line component to show cursor position
     Plug 'feline-nvim/feline.nvim' " status line
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
+    Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
+    Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
