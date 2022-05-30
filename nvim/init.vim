@@ -1,7 +1,3 @@
-" use vim defaults
-set nocompatible
-
-set relativenumber
 set nu
 set hidden
 set noerrorbells
@@ -34,14 +30,16 @@ if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
-" Highlight yanked text
-augroup yank_group
-    au!
-    au TextYankPost * silent! lua vim.highlight.on_yank()
-augroup END
+if has('nvim')
+    " Highlight yanked text
+    augroup yank_group
+        au!
+        au TextYankPost * silent! lua vim.highlight.on_yank()
+    augroup END
 
-" load keybindings
-luafile $HOME/.config/nvim/keybinds.lua
+    " load keybindings
+    luafile $HOME/.config/nvim/keybinds.lua
 
-" load plugins
-source $HOME/.config/nvim/plugins.vim
+    " load plugins
+    source $HOME/.config/nvim/plugins.vim
+endif
