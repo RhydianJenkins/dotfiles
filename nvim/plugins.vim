@@ -48,6 +48,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
     Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
     Plug 'hrsh7th/vim-vsnip' " snippet manager
+    Plug 'github/copilot.vim' " AI autocompletion
 
     " Cmp
     Plug 'hrsh7th/nvim-cmp' " base completion engine
@@ -94,3 +95,4 @@ luafile $HOME/.config/nvim/plugins/scrollbar.lua
 luafile $HOME/.config/nvim/plugins/focus.lua
 luafile $HOME/.config/nvim/plugins/bufferline.lua
 luafile $HOME/.config/nvim/plugins/nerdcommenter.lua
+luafile $HOME/.config/nvim/plugins/copilot.lua
