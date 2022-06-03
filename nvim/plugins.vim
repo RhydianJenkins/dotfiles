@@ -47,24 +47,26 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
     Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
     Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
+    Plug 'hrsh7th/vim-vsnip' " snippet manager
+
+    " Cmp
+    Plug 'hrsh7th/nvim-cmp' " base completion engine
+    Plug 'hrsh7th/cmp-nvim-lsp' " adds lsp completion
+    Plug 'hrsh7th/cmp-nvim-lua' " adds lua to lsp completion
+    Plug 'hrsh7th/cmp-buffer' " adds buffer text to lsp completion
+    Plug 'hrsh7th/cmp-path' " adds path to lsp completion
+    Plug 'hrsh7th/cmp-cmdline' " adds cmdline lsp completion
+    Plug 'hrsh7th/cmp-vsnip' " adds vsnip support to lsp completion
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-nvim-lua'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/cmp-vsnip'
-    Plug 'hrsh7th/vim-vsnip'
+    Plug 'neovim/nvim-lspconfig' " base config
     Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'lukas-reineke/lsp-format.nvim'
 call plug#end()
 
-" load plugin configs
+
 luafile $HOME/.config/nvim/plugins/impatient.lua
 source $HOME/.config/nvim/plugins/nerdtree.vim
 luafile $HOME/.config/nvim/plugins/gruvbox.lua

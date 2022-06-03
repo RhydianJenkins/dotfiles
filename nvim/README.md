@@ -24,5 +24,4 @@ bob install v0.7.0
 # Wishlist
 
 - Github Copilot (without ghost text NeoVim issue)
-- SQL interaction with the database
 - Better vi(m) compatibility
