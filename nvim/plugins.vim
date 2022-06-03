@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
