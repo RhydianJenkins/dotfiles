@@ -28,7 +28,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
     Plug 'kyazdani42/nvim-web-devicons' " adds icons and colors
     Plug 'vim-test/vim-test' " allows running of tests
-    Plug 'sudormrfbin/cheatsheet.nvim' " telescope cheatsheet
     Plug 'mhinz/vim-startify' " fancy start/splash screen
     Plug 'beyondwords/vim-twig' " twig syntax highlighting
     Plug 'ggandor/lightspeed.nvim' " go to specific word
@@ -45,6 +44,15 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'SmiteshP/nvim-gps' " status line component to show cursor position
     Plug 'feline-nvim/feline.nvim' " status line
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
+    Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
+    Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
+
+    " Debugging
+    Plug 'mfussenegger/nvim-dap' " main debugger
+    Plug 'Pocco81/dap-buddy.nvim' " helper for installing specific debuggers
+    Plug 'rcarriga/nvim-dap-ui' " nice fancy UI for deugging
+    Plug 'theHamsta/nvim-dap-virtual-text' " shows ghost text of values as you step through
+    Plug 'xdebug/vscode-php-debug', { 'do' : 'npm i' } " php debug adapter
 
     " Debugging
     Plug 'mfussenegger/nvim-dap' " main debugger
@@ -64,6 +72,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
