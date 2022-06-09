@@ -166,6 +166,12 @@ function restore_databases() {
     bk
     purge_databases
     make_commands
+
+	sudo rm -f ./cache/container.*
+	sudo rm -rf ./tmp/twig/*
+	sudo rm -rf ./tmp/htmlPurifier/*
+	sudo rm -f ./tmp/*.php
+
     scaffold
 }
 
