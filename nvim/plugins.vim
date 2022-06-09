@@ -60,6 +60,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/cmp-path' " adds path to lsp completion
     Plug 'hrsh7th/cmp-cmdline' " adds cmdline lsp completion
     Plug 'hrsh7th/cmp-vsnip' " adds vsnip support to lsp completion
+    Plug 'hrsh7th/cmp-nvim-lsp-document-symbol' " allows @ search for functions, classes, etc
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers
