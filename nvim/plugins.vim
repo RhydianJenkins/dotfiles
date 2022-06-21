@@ -49,7 +49,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
     Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
     Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
-    Plug 'hrsh7th/vim-vsnip' " snippet manager
     Plug 'github/copilot.vim' " AI autocompletion
 
     " Cmp
@@ -61,6 +60,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'hrsh7th/cmp-cmdline' " adds cmdline lsp completion
     Plug 'hrsh7th/cmp-vsnip' " adds vsnip support to lsp completion
     Plug 'hrsh7th/cmp-nvim-lsp-document-symbol' " allows @ search for functions, classes, etc
+    Plug 'hrsh7th/vim-vsnip' " snippet manager
 
     " LSP
     Plug 'williamboman/nvim-lsp-installer' " used to install langage servers

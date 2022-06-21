@@ -3,9 +3,10 @@ export ZSH="/home/rhydian/.oh-my-zsh"
 export EDITOR=$(which nvim)
 
 ZSH_THEME="gallois"
-
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
 # $ZSH/plugins/ <- standard plugins dir
 # $ZSH_CUSTOM/plugins/ <- custom plugins dir
@@ -30,11 +31,10 @@ plugins=(
 # evaluate any custom sources defined
 [ -f ~/.custom_sources ] && source ~/.custom_sources
 
-# colorize suggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+# define where plugins get installed
+PLUGINS_DIR="$ZSH_CUSTOM/plugins"
 
 # install missing plugins
-PLUGINS_DIR="$ZSH_CUSTOM/plugins"
 if [ ! -d "${PLUGINS_DIR}/zsh-autosuggestions" ]; then
     echo "Missing zsh-autosuggestions plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-autosuggestions "${PLUGINS_DIR}"/zsh-autosuggestions
