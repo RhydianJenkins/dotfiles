@@ -13,12 +13,12 @@ vim.g['test#strategy'] = 'neovim'
 
 require("neotest").setup({
     adapters = {
-        require("neotest-plenary"),
-        require('neotest-jest')({
-            jestCommand = "npm run test:unit --"
-        }),
         require("neotest-vim-test")({
             ignore_file_types = { "js", "ts" },
+        }),
+        require("neotest-plenary"),
+        require('neotest-jest')({
+            jestCommand = "npm test --"
         }),
     },
     icons = {
