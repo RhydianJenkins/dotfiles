@@ -19,6 +19,7 @@ local source_mapping = {
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
     path = "[Path]",
+    copilot = "[CP]"
 }
 
 cmp.setup({
@@ -56,9 +57,11 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'sqls' },
+        { name = 'nvim_lua' },
         { name = 'vsnip' },
+        { name = 'copilot' },
         { name = 'cmp_tabnine' },
+        { name = 'path' },
     }, {
         { name = 'buffer' },
     }),
@@ -66,17 +69,29 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
+
             if entry.source.name == "cmp_tabnine" then
                 if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
                     menu = entry.completion_item.data.detail .. " " .. menu
                 end
+                vim_item.kind_hl_group = "CmpItemKindTabnine"
                 vim_item.kind = ""
             end
+
+            if entry.source.name == "copilot" then
+                vim_item.kind_hl_group = "CmpItemKindCopilot"
+                vim_item.kind = ""
+            end
+
             vim_item.menu = menu
             return vim_item
         end,
     },
+    experimental = { ghost_text = true },
 })
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
 
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
