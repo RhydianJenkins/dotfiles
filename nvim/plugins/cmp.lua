@@ -74,10 +74,12 @@ cmp.setup({
                 if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
                     menu = entry.completion_item.data.detail .. " " .. menu
                 end
+                vim_item.kind_hl_group = "CmpItemKindTabnine"
                 vim_item.kind = ""
             end
 
             if entry.source.name == "copilot" then
+                vim_item.kind_hl_group = "CmpItemKindCopilot"
                 vim_item.kind = ""
             end
 
@@ -87,6 +89,9 @@ cmp.setup({
     },
     experimental = { ghost_text = true },
 })
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
 
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
