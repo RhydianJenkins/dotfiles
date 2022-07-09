@@ -35,3 +35,6 @@ bob install v0.7.0
 Once auth is handled, the vimscript version can be uninstalled.
 
 [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) is used to turn suggestions into cmp completions.
+
+![image](https://user-images.githubusercontent.com/9198690/178099328-ea886b45-e071-40a4-8f27-5ee262b81ec0.png)
+
