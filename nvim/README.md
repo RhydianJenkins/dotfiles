@@ -23,7 +23,6 @@ bob install v0.7.0
 
 # Wishlist
 
-- Github Copilot (without ghost text NeoVim issue)
 - Better vi(m) compatibility
 - Run language servers in docker containers for work ([Plugin?](https://github.com/lspcontainers/lspcontainers.nvim))
 - (Better) debugging
