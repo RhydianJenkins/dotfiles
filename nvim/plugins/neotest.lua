@@ -8,10 +8,12 @@ vim.g["test#javascript#jest#options"] = {
 }
 
 vim.api.nvim_set_keymap('n', '<leader>tf', '<cmd>TestFile<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua require("neotest").run.run()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>TestNearest<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tr', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua require("neotest").run.run()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua require("neotest").output.open({ enter = true })<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>tl', '<cmd>lua require("neotest").neotest.run.run_last()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tv', '<cmd>TestVisit<CR>', opts)
 vim.api.nvim_set_keymap('n', '[t', '<cmd>lua require("neotest").jump.prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']t', '<cmd>lua require("neotest").jump.next()<CR>', opts)
 
@@ -25,14 +27,10 @@ require("neotest").setup({
         require("neotest-plenary"),
         require('neotest-jest')({
             jestCommand = "npm test --",
+            ignore_file_types = { "js", "ts" },
         }),
     },
     icons = {
         running = "↻",
-    },
-    strategies = {
-        integrated = {
-            width = 180
-        },
     },
 })

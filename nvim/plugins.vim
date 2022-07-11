@@ -30,7 +30,6 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'folke/which-key.nvim' " help for keybindings
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } " AI code assistant
     Plug 'kyazdani42/nvim-web-devicons' " adds icons and colors
-    Plug 'vim-test/vim-test' " allows running of tests
     Plug 'mhinz/vim-startify' " fancy start/splash screen
     Plug 'beyondwords/vim-twig' " twig syntax highlighting
     Plug 'ggandor/lightspeed.nvim' " go to specific word
@@ -87,7 +86,6 @@ luafile $HOME/.config/nvim/plugins/impatient.lua
 source $HOME/.config/nvim/plugins/nerdtree.vim
 luafile $HOME/.config/nvim/plugins/gruvbox.lua
 luafile $HOME/.config/nvim/plugins/vdebug.lua
-luafile $HOME/.config/nvim/plugins/vimtest.lua
 luafile $HOME/.config/nvim/plugins/devicons.lua
 luafile $HOME/.config/nvim/plugins/feline.lua
 luafile $HOME/.config/nvim/plugins/glow.lua
@@ -111,3 +109,4 @@ luafile $HOME/.config/nvim/plugins/focus.lua
 luafile $HOME/.config/nvim/plugins/bufferline.lua
 luafile $HOME/.config/nvim/plugins/nerdcommenter.lua
 luafile $HOME/.config/nvim/plugins/copilot.lua
+luafile $HOME/.config/nvim/plugins/neotest.lua
