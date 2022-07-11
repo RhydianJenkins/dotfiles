@@ -50,6 +50,14 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
     Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
 
+    " Testing
+    Plug 'antoinemadec/FixCursorHold.nvim' " Recomended for neotest
+    Plug 'vim-test/vim-test/' " fills gaps that neotest doesn't
+    Plug 'nvim-neotest/neotest' " core test
+    Plug 'nvim-neotest/neotest-plenary' " most tests use plenary, so the adapter is needed
+    Plug 'nvim-neotest/neotest-vim-test' " enables use of vim test from within neotest
+    Plug 'haydenmeade/neotest-jest' " javascipt
+
     " Cmp
     Plug 'hrsh7th/nvim-cmp' " base completion engine
     Plug 'hrsh7th/cmp-nvim-lsp' " adds lsp completion
