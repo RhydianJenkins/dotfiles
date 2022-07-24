@@ -21,3 +21,5 @@ vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.shortmess:append("c")
 vim.opt.mouse = "a"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.laststatus = 3
