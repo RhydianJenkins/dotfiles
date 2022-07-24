@@ -1,3 +1,4 @@
+vim.cmd([[
 let NERDTreeShowHidden=1
 let NERDTreeWinSize=60
 let NERDTreeCascadeOpenSingleChildDir=0
@@ -17,5 +18,7 @@ function! NERDTreeToggleInCurDir()
     endif
   endif
 endfunction
+]])
 
-nnoremap <silent> <C-b> :call NERDTreeToggleInCurDir()<cr>
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>call NERDTreeToggleInCurDir()<CR>', opts)
