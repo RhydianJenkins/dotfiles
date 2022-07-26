@@ -12,7 +12,7 @@ copilot.setup {
         enabled = true,
     },
     ft_disable = { "markdown", "terraform", "help" },
-    plugin_manager_path = vim.env.HOME .. "/.config/nvim/vim-plugged"
+    plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
 }
 
 vim.g.copilot_filetypes = {
