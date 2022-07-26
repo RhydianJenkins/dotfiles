@@ -62,7 +62,7 @@ return require("packer").startup(function(use)
     use { 'hrsh7th/vim-vsnip' } -- snippet manager
 
     -- Copilot
-    -- use { 'github/copilot.vim' } -- AI autocompletion
+    -- use { 'github/copilot.vim' } -- AI autocompletion, only needed to generate auth
     use { 'zbirenbaum/copilot.lua' } -- lua server for copilot
     use { 'zbirenbaum/copilot-cmp' } -- Turns copilot into a cmp source
 
