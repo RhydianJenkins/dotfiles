@@ -5,13 +5,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
-    use { 'lewis6991/impatient.nvim' }
-
-
+    use { 'lewis6991/impatient.nvim' } -- load plugins faster (caching)
     use {
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
-    }
+    } -- floating box with text in
     use { 'wbthomason/packer.nvim' } -- tell packer to manage itself
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- speed bonus for fzf file search
     use { 'preservim/nerdtree' } -- left navigation panel

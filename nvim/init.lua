@@ -6,4 +6,4 @@ end
 require('rhydian.autocommands')
 require('rhydian.keybinds')
 require('rhydian.options')
-require('rhydian.plugins')
+require('rhydian.packer')
