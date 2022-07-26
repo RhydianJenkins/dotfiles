@@ -1,5 +1,8 @@
 local status, copilot = pcall(require, "copilot")
-if (not status) then return end
+if (not status) then
+    print('copilot plugin not found')
+    return
+end
 
 copilot.setup {
     cmp = {

@@ -1,93 +1,82 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	Packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    Packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
-vim.cmd [[packadd packer.nvim]]
-
 return require("packer").startup(function(use)
-	use { 'wbthomason/packer.nvim' } -- tell packer to manage itself
+    use { 'lewis6991/impatient.nvim' }
 
-	use { 'nvim-lua/popup.nvim' } -- allows overlays
-	use { 'nvim-lua/plenary.nvim' } -- adds lua functions
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- speed bonus for fzf file search
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = {
-			{ 'nvim-lua/plenary.nvim' },
-			{ 'nvim-telescope/telescope-fzf-native.nvim' },
-		}
-	}
-	use { 'preservim/nerdtree' } -- left navigation panel
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- allow things to query the tree
-	use { 'tami5/sqlite.lua' } -- sqlite dependency
-	use { 'scrooloose/nerdcommenter' } -- comment blocks of code
-	use { 'kqito/vim-easy-replace' } -- <leader>ra - find and replace all
-	use { 'vim-vdebug/vdebug' } -- debugger
-	use { 'APZelos/blamer.nvim' } -- git blame
-	use { 'ntpeters/vim-better-whitespace' } -- strip trailing whitespace
-	use { 'ellisonleao/glow.nvim' } -- md preview
-	use { 'j-hui/fidget.nvim' } -- bottom right updates on tasks
-	use { 'lewis6991/gitsigns.nvim' } -- git integration to show additions/etc
-	use { 'p00f/nvim-ts-rainbow' } -- ranbow parenthesis to help with scopes
-	use { 'lewis6991/impatient.nvim' } -- speed up lua module loadtimes (caching)
-	use { 'folke/which-key.nvim' } -- help for keybindings
-	use { 'tzachar/cmp-tabnine', run = "./install.sh" } -- AI code assistant
-	use { 'kyazdani42/nvim-web-devicons' } -- adds icons and colors
-	use { 'mhinz/vim-startify' } -- fancy start/splash screen
-	use { 'beyondwords/vim-twig' } -- twig syntax highlighting
-	use { 'ggandor/lightspeed.nvim' } -- go to specific word
-	use { 'yuezk/vim-js' } -- js(x} highlighting
-	use { 'maxmellon/vim-jsx-pretty' } -- jsx formatting
-	use { 'morhetz/gruvbox' } -- color theme
-	use { 'rrethy/vim-illuminate' } -- highlight words on cursor over
-	use { 'theprimeagen/git-worktree.nvim' } -- manage git worktree
-	use { 'onsails/lspkind.nvim' } -- adds icons to completion list
-	use { 'theprimeagen/harpoon' } -- marks utility
-	use { 'norcalli/nvim-colorizer.lua' } -- adds color display for colors
-	use { 'petertriho/nvim-scrollbar' } -- adds scrollbar
-	use { 'beauwilliams/focus.nvim' } -- window resize on focus
-	use { 'SmiteshP/nvim-gps' } -- status line component to show cursor position
-	use { 'feline-nvim/feline.nvim' } -- status line
-	use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' } -- status line
-	use { 'RishabhRD/popfix' } -- requirement for Rishabh use(ins
-	use { 'RishabhRD/nvim-cheat.sh' } -- easy access to cheat.sh
 
-	-- Testing
-	use { 'antoinemadec/FixCursorHold.nvim' } -- Recomended for neotest
-	use { 'vim-test/vim-test' } -- fills gaps that neotest doesn't
-	use { 'nvim-neotest/neotest' } -- core test
-	use { 'nvim-neotest/neotest-plenary' } -- most tests use plenary, so the adapter is needed
-	use { 'nvim-neotest/neotest-vim-test' } -- enables use of vim test from within neotest
-	use { 'haydenmeade/neotest-jest' } -- javascipt
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = 'nvim-lua/plenary.nvim'
+    }
+    use { 'wbthomason/packer.nvim' } -- tell packer to manage itself
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- speed bonus for fzf file search
+    use { 'preservim/nerdtree' } -- left navigation panel
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- allow things to query the tree
+    use { 'tami5/sqlite.lua' } -- sqlite dependency
+    use { 'scrooloose/nerdcommenter' } -- comment blocks of code
+    use { 'kqito/vim-easy-replace' } -- <leader>ra - find and replace all
+    use { 'vim-vdebug/vdebug' } -- debugger
+    use { 'APZelos/blamer.nvim' } -- git blame
+    use { 'ntpeters/vim-better-whitespace' } -- strip trailing whitespace
+    use { 'j-hui/fidget.nvim' } -- bottom right updates on tasks
+    use { 'lewis6991/gitsigns.nvim' } -- git integration to show additions/etc
+    use { 'p00f/nvim-ts-rainbow' } -- ranbow parenthesis to help with scopes
+    use { 'folke/which-key.nvim' } -- help for keybindings
+    use { 'tzachar/cmp-tabnine', run = "./install.sh" } -- AI code assistant
+    use { 'kyazdani42/nvim-web-devicons' } -- adds icons and colors
+    use { 'beyondwords/vim-twig' } -- twig syntax highlighting
+    use { 'yuezk/vim-js' } -- js(x} highlighting
+    use { 'maxmellon/vim-jsx-pretty' } -- jsx formatting
+    use { 'morhetz/gruvbox' } -- color theme
+    use { 'rrethy/vim-illuminate' } -- highlight words on cursor over
+    use { 'theprimeagen/git-worktree.nvim' } -- manage git worktree
+    use { 'onsails/lspkind.nvim' } -- adds icons to completion list
+    use { 'theprimeagen/harpoon' } -- marks utility
+    use { 'norcalli/nvim-colorizer.lua' } -- adds color display for colors
+    use { 'petertriho/nvim-scrollbar' } -- adds scrollbar
+    use { 'beauwilliams/focus.nvim' } -- window resize on focus
+    use { 'SmiteshP/nvim-gps' } -- status line component to show cursor position
+    use { 'feline-nvim/feline.nvim' } -- status line
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' } -- status line
+    use { 'RishabhRD/popfix' } -- requirement for Rishabh plugins
 
-	-- Cmp
-	use { 'hrsh7th/nvim-cmp' } -- base completion engine
-	use { 'hrsh7th/cmp-nvim-lsp' } -- adds lsp completion
-	use { 'hrsh7th/cmp-nvim-lua' } -- adds lua to lsp completion
-	use { 'hrsh7th/cmp-buffer' } -- adds buffer text to lsp completion
-	use { 'hrsh7th/cmp-path' } -- adds path to lsp completion
-	use { 'hrsh7th/cmp-cmdline' } -- adds cmdline lsp completion
-	use { 'hrsh7th/cmp-vsnip' } -- adds vsnip support to lsp completion
-	use { 'hrsh7th/cmp-nvim-lsp-document-symbol' } -- allows @ search for functions, classes, etc
-	use { 'hrsh7th/vim-vsnip' } -- snippet manager
+    -- Testing
+    use { 'antoinemadec/FixCursorHold.nvim' } -- Recomended for neotest
+    use { 'vim-test/vim-test' } -- fills gaps that neotest doesn't
+    use { 'nvim-neotest/neotest' } -- core test
+    use { 'nvim-neotest/neotest-plenary' } -- most tests use plenary, so the adapter is needed
+    use { 'nvim-neotest/neotest-vim-test' } -- enables use of vim test from within neotest
+    use { 'haydenmeade/neotest-jest' } -- javascipt
 
-	-- Copilot
-	-- use{'github/copilot.vim'} -- AI autocompletion
-	use { 'zbirenbaum/copilot.lua' } -- lua server for copilot
-	use { 'zbirenbaum/copilot-cmp' } -- Turns copilot into a cmp source
+    -- Cmp
+    use { 'hrsh7th/nvim-cmp' } -- base completion engine
+    use { 'hrsh7th/cmp-nvim-lsp' } -- adds lsp completion
+    use { 'hrsh7th/cmp-nvim-lua' } -- adds lua to lsp completion
+    use { 'hrsh7th/cmp-buffer' } -- adds buffer text to lsp completion
+    use { 'hrsh7th/cmp-path' } -- adds path to lsp completion
+    use { 'hrsh7th/cmp-cmdline' } -- adds cmdline lsp completion
+    use { 'hrsh7th/cmp-vsnip' } -- adds vsnip support to lsp completion
+    use { 'hrsh7th/cmp-nvim-lsp-document-symbol' } -- allows @ search for functions, classes, etc
+    use { 'hrsh7th/vim-vsnip' } -- snippet manager
 
-	-- LSP
-	use { 'williamboman/nvim-lsp-installer' } -- used to install langage servers
-	use { 'neovim/nvim-lspconfig' } -- base config
-	use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
-	-- use { 'jose-elias-alvarez/null-ls.nvim' }
-	use { 'lukas-reineke/lsp-format.nvim' }
+    -- Copilot
+    -- use { 'github/copilot.vim' } -- AI autocompletion
+    use { 'zbirenbaum/copilot.lua' } -- lua server for copilot
+    use { 'zbirenbaum/copilot-cmp' } -- Turns copilot into a cmp source
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end aftr all plugins
-	if Packer_bootstrap then
-		require('packer').sync()
-	end
+    -- LSP
+    use { 'williamboman/nvim-lsp-installer' } -- used to install langage servers
+    use { 'neovim/nvim-lspconfig' } -- base config
+    use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+    use { 'lukas-reineke/lsp-format.nvim' }
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end aftr all plugins
+    if Packer_bootstrap then
+        require('packer').sync()
+    end
 end)
