@@ -44,3 +44,9 @@ vim.api.nvim_set_keymap('n', '<leader>-', '<cmd>vertical resize -5<CR>', opts)
 -- Replace line above/below
 vim.api.nvim_set_keymap('n', '<A-j>', '<cmd>move +1<CR>==', opts)
 vim.api.nvim_set_keymap('n', '<A-k>', '<cmd>move -2<CR>==', opts)
+
+-- Diagnostics
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
