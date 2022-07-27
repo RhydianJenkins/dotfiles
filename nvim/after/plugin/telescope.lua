@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap('n', '<leader>th', '<cmd>Telescope help_tags<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>tb', '<cmd>Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>a', "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_dropdown{ previewer = false })<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>a', "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
 telescope.setup {
     extensions = {

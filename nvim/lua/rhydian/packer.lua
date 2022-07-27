@@ -68,8 +68,8 @@ return require("packer").startup(function(use)
     use { 'zbirenbaum/copilot-cmp' } -- Turns copilot into a cmp source
 
     -- LSP
-    use { 'williamboman/nvim-lsp-installer' } -- used to install langage servers
     use { 'neovim/nvim-lspconfig' } -- base config
+    use { 'williamboman/nvim-lsp-installer' } -- used to install langage servers
     use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
     use { 'lukas-reineke/lsp-format.nvim' }
 
