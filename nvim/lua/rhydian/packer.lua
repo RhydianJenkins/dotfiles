@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
     use { 'feline-nvim/feline.nvim' } -- status line
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' } -- status line
     use { 'RishabhRD/popfix' } -- requirement for Rishabh plugins
+    use { 'nelsyeung/twig.vim' } -- twig support
 
     -- Testing
     use { 'antoinemadec/FixCursorHold.nvim' } -- Recomended for neotest

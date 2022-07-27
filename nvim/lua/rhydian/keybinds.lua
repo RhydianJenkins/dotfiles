@@ -13,6 +13,9 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<Esc><cmd>w<CR>', opts)
 -- CTRL + w to close current buffer
 vim.api.nvim_set_keymap('n', '<C-w>', '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>', opts)
 
+-- Shift + Y to yank to the end of the line
+vim.api.nvim_set_keymap('n', 'S-Y', 'y$', opts)
+
 -- Tab navigation of buffers
 vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>bn<CR>', opts)
 vim.api.nvim_set_keymap('n', '<S-tab>', '<cmd>bprevious<CR>', opts)
