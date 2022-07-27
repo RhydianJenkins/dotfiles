@@ -48,6 +48,7 @@ call plug#begin('~/.config/nvim/vim-plugged')
     Plug 'akinsho/bufferline.nvim' " show buffers at the top
     Plug 'RishabhRD/popfix' " requirement for Rishabh plugins
     Plug 'RishabhRD/nvim-cheat.sh' " easy access to cheat.sh
+    Plug 'nelsyeung/twig.vim' " twig support
 
     " Testing
     Plug 'antoinemadec/FixCursorHold.nvim' " Recomended for neotest
