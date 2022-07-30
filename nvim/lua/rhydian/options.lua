@@ -25,3 +25,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 3
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- use rg as a grep replacement
+if vim.call('executable', 'rg') then
+    vim.opt.grepprg = 'rg --vimgrep --no-heading --smart-case'
+end
