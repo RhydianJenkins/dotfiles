@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
     use { 'folke/which-key.nvim' } -- help for keybindings
     use { 'tzachar/cmp-tabnine', run = "./install.sh" } -- AI code assistant
     use { 'kyazdani42/nvim-web-devicons' } -- adds icons and colors
-    use { 'beyondwords/vim-twig' } -- twig syntax highlighting
+    use { 'lumiliet/vim-twig' } -- twig syntax highlighting
     use { 'yuezk/vim-js' } -- js(x} highlighting
     use { 'maxmellon/vim-jsx-pretty' } -- jsx formatting
     use { 'morhetz/gruvbox' } -- color theme
@@ -72,6 +72,7 @@ return require("packer").startup(function(use)
     use { 'williamboman/nvim-lsp-installer' } -- used to install langage servers
     use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
     use { 'lukas-reineke/lsp-format.nvim' }
+    use { "glepnir/lspsaga.nvim", branch = "main" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end aftr all plugins
