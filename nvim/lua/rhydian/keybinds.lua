@@ -54,5 +54,5 @@ vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<
 -- LSP
 vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gD', '<cmd>Lspsaga preview_definition<CR>', opts)
-vim.api.nvim_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+vim.api.nvim_set_keymap('n', 'K', '<cmd>Lspsaga preview_definition<CR>', opts)
+vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>Lspsaga hover_doc<CR>', opts)

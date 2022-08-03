@@ -1,6 +1,6 @@
 # Installation
 
-Neovim v0.7.0^ is currently required for the setup.
+Neovim v0.8.0^ is currently required for the setup.
 
 There are many ways to install NeoVim, but a nice way I use is through [Bob](https://github.com/MordechaiHadad/bob.git):
 
@@ -12,7 +12,7 @@ curl https://sh.rustup.rs -sSf | sh
 cargo install --git https://github.com/MordechaiHadad/bob.git
 
 # install NeoVim
-bob install v0.7.0
+bob install v0.8.0
 ```
 
 # Config
@@ -25,6 +25,7 @@ bob install v0.7.0
 
 - Better vi(m) compatibility
 - Run language servers in docker containers for work ([Plugin?](https://github.com/lspcontainers/lspcontainers.nvim))
+- Better automation of installation of language servers and other required binaries
 - (Better) debugging
 
 # GitHub Copilot
