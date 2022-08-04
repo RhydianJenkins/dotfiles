@@ -88,7 +88,13 @@ require('lspconfig').sqls.setup {
 
 require('lspconfig').eslint.setup {
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    handlers = {
+        ['window/showMessageRequest'] = function(_, result, params)
+            -- ignore messages, don't @ me
+            return result
+        end
+    }
 }
 
 require('lspconfig').gopls.setup {
