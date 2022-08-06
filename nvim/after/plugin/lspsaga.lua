@@ -1,4 +1,9 @@
-local saga = require 'lspsaga'
+local present, saga = pcall(require, "lspsaga")
+
+if not present then
+    print("saga plugin not found")
+    return
+end
 
 saga.init_lsp_saga({
     border_style = "rounded",

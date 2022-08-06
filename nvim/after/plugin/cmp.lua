@@ -1,5 +1,15 @@
-local cmp = require 'cmp'
-local lspkind = require("lspkind")
+local cmp_present, cmp = pcall(require, "cmp")
+local lspkind_present, lspkind = pcall(require, "lspkind")
+
+if not cmp_present then
+    print("cmp plugin not found")
+    return
+end
+
+if not lspkind_present then
+    print("lspkind plugin not found")
+    return
+end
 
 -- Check if there's a word before the cursor (used by <TAB> mapping)
 local has_words_before = function()

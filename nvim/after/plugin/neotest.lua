@@ -1,3 +1,9 @@
+local present, neotest = pcall(require, "neotest")
+
+if not present then
+    print("neotest plugin not found")
+    return
+end
 local opts = { noremap = true, silent = true }
 
 vim.g["test#javascript#runner"] = "jest"
@@ -19,7 +25,7 @@ vim.api.nvim_set_keymap('n', ']t', '<cmd>lua require("neotest").jump.next()<CR>'
 
 vim.g['test#strategy'] = 'neovim'
 
-require("neotest").setup({
+neotest.setup({
     adapters = {
         require("neotest-vim-test")({
             ignore_file_types = { "js", "jsx" },
