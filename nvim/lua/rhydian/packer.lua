@@ -17,7 +17,6 @@ return require("packer").startup(function(use)
     use {'tami5/sqlite.lua'} -- sqlite dependency
     use {'scrooloose/nerdcommenter'} -- comment blocks of code
     use {'kqito/vim-easy-replace'} -- <leader>ra - find and replace all
-    use {'vim-vdebug/vdebug'} -- debugger
     use {'APZelos/blamer.nvim'} -- git blame
     use {'ntpeters/vim-better-whitespace'} -- strip trailing whitespace
     use {'j-hui/fidget.nvim'} -- bottom right updates on tasks
@@ -45,6 +44,10 @@ return require("packer").startup(function(use)
     } -- status line
     use {'RishabhRD/popfix'} -- requirement for Rishabh plugins
     use {'nelsyeung/twig.vim'} -- twig support
+
+    -- Debugging
+    use {'mfussenegger/nvim-dap'} -- main adapter
+    use {'rcarriga/nvim-dap-ui'} -- tui for debugging
 
     -- Testing
     use {'antoinemadec/FixCursorHold.nvim'} -- Recomended for neotest
