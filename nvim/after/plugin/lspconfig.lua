@@ -52,10 +52,7 @@ require('lspconfig').intelephense.setup {
     capabilities = capabilities
 }
 
-require('lspconfig').phpactor.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
+require('lspconfig').phpactor.setup {}
 
 require('lspconfig').tsserver.setup {
     on_attach = on_attach,
