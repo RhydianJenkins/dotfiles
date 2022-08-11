@@ -56,3 +56,11 @@ vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)
 vim.api.nvim_set_keymap('n', 'K', '<cmd>Lspsaga preview_definition<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>Lspsaga hover_doc<CR>', opts)
+
+-- DAP
+vim.keymap.set('n', '<F4>', "<cmd>lua require'dapui'.toggle()<CR>")
+vim.keymap.set('n', '<F5>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set('n', '<F6>', "<cmd>lua require'dap'.continue()<CR>")
+vim.keymap.set('n', '<F9>', "<cmd>lua require'dap'.step_over()<CR>")
+vim.keymap.set('n', '<F10>', "<cmd>lua require'dap'.step_into()<CR>")
+vim.keymap.set('n', '<F11>', "<cmd>lua require'dap'.step_out()<CR>")

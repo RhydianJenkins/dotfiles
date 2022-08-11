@@ -18,15 +18,13 @@ bob install v0.8.0
 # Config
 
 1. Copy files from this directory into `$HOME/.config/nvim`.
-2. Open `nvim` and run `:PlugInstall`.
+2. Open `nvim` and run `:PackerSync`.
 3. Restart `nvim` and you should be ready to go.
 
 # Wishlist
 
 - Better vi(m) compatibility
-- Run language servers in docker containers for work ([Plugin?](https://github.com/lspcontainers/lspcontainers.nvim))
 - Better automation of installation of language servers and other required binaries
-- (Better) debugging
 
 # GitHub Copilot
 
@@ -38,3 +36,8 @@ Once auth is handled, the vimscript version can be uninstalled.
 
 ![image](https://user-images.githubusercontent.com/9198690/178099328-ea886b45-e071-40a4-8f27-5ee262b81ec0.png)
 
+# Debugging
+
+[nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters.
+
+Currently, only the [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) is set up. You'll have to alter the `phpDebugPath` in [dap.lua](./after/plugin/dap.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.

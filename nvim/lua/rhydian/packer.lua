@@ -17,7 +17,6 @@ return require("packer").startup(function(use)
     use {'tami5/sqlite.lua'} -- sqlite dependency
     use {'scrooloose/nerdcommenter'} -- comment blocks of code
     use {'kqito/vim-easy-replace'} -- <leader>ra - find and replace all
-    use {'vim-vdebug/vdebug'} -- debugger
     use {'APZelos/blamer.nvim'} -- git blame
     use {'ntpeters/vim-better-whitespace'} -- strip trailing whitespace
     use {'j-hui/fidget.nvim'} -- bottom right updates on tasks
@@ -45,6 +44,11 @@ return require("packer").startup(function(use)
     } -- status line
     use {'RishabhRD/popfix'} -- requirement for Rishabh plugins
     use {'nelsyeung/twig.vim'} -- twig support
+
+    -- Debugging
+    use {'mfussenegger/nvim-dap'} -- main adapter
+    use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}} -- tui for debugging
+    use {'theHamsta/nvim-dap-virtual-text'} -- adds ghost text to be able to easier see values
 
     -- Testing
     use {'antoinemadec/FixCursorHold.nvim'} -- Recomended for neotest
@@ -74,7 +78,6 @@ return require("packer").startup(function(use)
     use {'neovim/nvim-lspconfig'} -- base config
     use {'williamboman/nvim-lsp-installer'} -- used to install langage servers
     use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
-    -- use { 'lukas-reineke/lsp-format.nvim' }
     use {'jose-elias-alvarez/null-ls.nvim'}
     use {"glepnir/lspsaga.nvim", branch = "main"}
 
