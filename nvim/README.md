@@ -18,7 +18,7 @@ bob install v0.8.0
 # Config
 
 1. Copy files from this directory into `$HOME/.config/nvim`.
-2. Open `nvim` and run `:PlugInstall`.
+2. Open `nvim` and run `:PackerSync`.
 3. Restart `nvim` and you should be ready to go.
 
 # Wishlist
