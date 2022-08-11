@@ -24,9 +24,7 @@ bob install v0.8.0
 # Wishlist
 
 - Better vi(m) compatibility
-- Run language servers in docker containers for work ([Plugin?](https://github.com/lspcontainers/lspcontainers.nvim))
 - Better automation of installation of language servers and other required binaries
-- (Better) debugging
 
 # GitHub Copilot
 
