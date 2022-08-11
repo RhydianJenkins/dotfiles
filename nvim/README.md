@@ -40,4 +40,4 @@ Once auth is handled, the vimscript version can be uninstalled.
 
 [nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters.
 
-Currently, only the [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) is set up. You'll have to alter the `phpDebugPath` in [dap.lua](./after/plugin/dap.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
+Currently, only the [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) is set up. You'll have to alter the `phpDebugPath` in [php.lua](./lua/rhydian/configs/dap/php.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
