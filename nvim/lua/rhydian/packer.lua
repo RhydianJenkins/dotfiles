@@ -47,7 +47,8 @@ return require("packer").startup(function(use)
 
     -- Debugging
     use {'mfussenegger/nvim-dap'} -- main adapter
-    use {'rcarriga/nvim-dap-ui'} -- tui for debugging
+    use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}} -- tui for debugging
+    use {'theHamsta/nvim-dap-virtual-text'} -- adds ghost text to be able to easier see values
 
     -- Testing
     use {'antoinemadec/FixCursorHold.nvim'} -- Recomended for neotest
@@ -77,7 +78,6 @@ return require("packer").startup(function(use)
     use {'neovim/nvim-lspconfig'} -- base config
     use {'williamboman/nvim-lsp-installer'} -- used to install langage servers
     use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
-    -- use { 'lukas-reineke/lsp-format.nvim' }
     use {'jose-elias-alvarez/null-ls.nvim'}
     use {"glepnir/lspsaga.nvim", branch = "main"}
 

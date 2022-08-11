@@ -6,8 +6,8 @@ end
 
 dap.adapters.php = {
     type = 'executable',
+    args = {os.getenv('HOME') .. '/Documents/vscode-php-debug/out/phpDebug.js'},
     command = 'nodejs',
-    args = {"/home/rhydian/Documents/vscode-php-debug/out/phpDebug.js"},
 }
 
 dap.configurations.php = {
@@ -15,10 +15,11 @@ dap.configurations.php = {
         type = 'php',
         request = 'launch',
         name = 'Listen for xdebug',
-        port = '9009',
-        log = true,
-        serverSourceRoot = '/var/basekit',
-        localSourceRoot = '/var/www/basekit',
+        port = 9009,
+        log = false,
+        pathMappings = {
+            ['/var/basekit'] = '/var/www/basekit',
+        },
     },
 }
 
@@ -29,3 +30,14 @@ if (not dapui_status) then
 end
 
 dapui.setup()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+end
+
+local dap_ghost_status, dap_ghost = pcall(require, "nvim-dap-virtual-text")
+if (not dap_ghost_status) then
+    print('dap ghost text plugin not found')
+    return
+end
+
+dap_ghost.setup()
