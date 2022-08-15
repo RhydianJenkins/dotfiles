@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/9198690/184665071-3a1e15be-6e77-4882-ba44-8cfc6e8a3442.png)
+
+
 # Installation
 
 Neovim v0.8.0^ is currently required for the setup.
@@ -41,3 +44,5 @@ Once auth is handled, the vimscript version can be uninstalled.
 [nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters.
 
 Currently, only the [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) is set up. You'll have to alter the `phpDebugPath` in [php.lua](./lua/rhydian/configs/dap/php.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
+
+Any further debug adapter configs can be added in `./lua/rhydian/configs/dap/*.lua` and imported in `./after/plugin/dap.lua`
