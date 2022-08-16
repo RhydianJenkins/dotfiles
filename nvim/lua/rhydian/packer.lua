@@ -26,7 +26,8 @@ return require("packer").startup(function(use)
     use {'tzachar/cmp-tabnine', run = "./install.sh"} -- AI code assistant
     use {'kyazdani42/nvim-web-devicons'} -- adds icons and colors
     use {'lumiliet/vim-twig'} -- twig syntax highlighting
-    use {'yuezk/vim-js'} -- js(x} highlighting
+    use {'yuezk/vim-js'} -- js(x} syntax highlighting
+    use {'fgsch/vim-varnish'} -- varnish syntax highlighting
     use {'morhetz/gruvbox'} -- color theme
     use {'rrethy/vim-illuminate'} -- highlight words on cursor over
     use {'theprimeagen/git-worktree.nvim'} -- manage git worktree
@@ -34,7 +35,6 @@ return require("packer").startup(function(use)
     use {'theprimeagen/harpoon'} -- marks utility
     use {'norcalli/nvim-colorizer.lua'} -- adds color display for colors
     use {'petertriho/nvim-scrollbar'} -- adds scrollbar
-    use {'beauwilliams/focus.nvim'} -- window resize on focus
     use {'SmiteshP/nvim-gps'} -- status line component to show cursor position
     use {'feline-nvim/feline.nvim'} -- status line
     use {

@@ -15,9 +15,6 @@ if (not dapui_status) then
 end
 
 dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-end
 
 local dap_ghost_status, dap_ghost = pcall(require, "nvim-dap-virtual-text")
 if (not dap_ghost_status) then

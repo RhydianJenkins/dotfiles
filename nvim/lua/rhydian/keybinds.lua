@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap('n', '<leader>dot', "<cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr>', opts)
 
 -- Resize window
-vim.api.nvim_set_keymap('n', '<leader>=', '<cmd>vertical resize +5<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>-', '<cmd>vertical resize -5<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>=', '<cmd>vertical resize +30<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>-', '<cmd>vertical resize -30<CR>', opts)
 
 -- Replace line above/below
 vim.api.nvim_set_keymap('n', '<A-j>', '<cmd>move +1<CR>==', opts)
@@ -58,6 +58,7 @@ vim.api.nvim_set_keymap('n', 'K', '<cmd>Lspsaga preview_definition<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>Lspsaga hover_doc<CR>', opts)
 
 -- DAP
+vim.keymap.set('n', '<F1>', "<cmd>lua require'dapui'.eval()<CR>")
 vim.keymap.set('n', '<F4>', "<cmd>lua require'dapui'.toggle()<CR>")
 vim.keymap.set('n', '<F5>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set('n', '<F6>', "<cmd>lua require'dap'.continue()<CR>")
