@@ -3,7 +3,7 @@ env:
 
 window:
   decorations: None
-  gtk_theme_variant: dark
+  window.decorations_theme_variant: dark
   padding:
     x: 6
     y: 6
