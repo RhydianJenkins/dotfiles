@@ -9,6 +9,7 @@ vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', opts)
 -- CTRL + s to save
 vim.api.nvim_set_keymap('n', '<C-s>', '<cmd>w<CR>', opts)
 vim.api.nvim_set_keymap('i', '<C-s>', '<Esc><cmd>w<CR>', opts)
+vim.api.nvim_set_keymap('v', '<C-s>', '<Esc><cmd>w<CR>', opts)
 
 -- CTRL + w to close current buffer
 vim.api.nvim_set_keymap('n', '<C-w>', '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>', opts)
