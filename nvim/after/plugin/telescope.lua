@@ -36,6 +36,7 @@ telescope.setup {
             "^cache/",
             "^babel-cache/",
             "^tmp/",
+            ".phar$",
         },
     }
 }

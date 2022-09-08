@@ -26,6 +26,7 @@ dap.configurations.php = {
         name = 'Listen for xdebug',
         port = 9009,
         log = true,
+        stopOnEntry = false,
         pathMappings = {
             -- 'server' = 'local'
             ['/var/basekit'] = '/var/www/basekit',
