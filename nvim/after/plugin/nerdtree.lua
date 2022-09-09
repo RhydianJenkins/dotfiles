@@ -21,10 +21,10 @@ vim.g.NERDTreeWinSize = 60
 vim.g.NERDTreeCascadeOpenSingleChildDir = 0
 vim.g.NERDTreeCascadeSingleChildDir = 0
 vim.g.NERDTreeIgnore = {
-    "^node_modules/",
-    "^.git/",
-    "^.vender/",
-    "^cache/",
-    "^babel-cache/",
-    "^tmp/",
+    "^node_modules$",
+    "^vendor$",
+    "^.git$",
+    "^cache$",
+    "^babel-cache$",
+    "^tmp$",
 }

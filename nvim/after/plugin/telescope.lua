@@ -30,12 +30,12 @@ telescope.setup {
     },
     defaults = {
         file_ignore_patterns = {
-            "^node_modules/",
-            "^.git/",
-            "^.vender/",
-            "^cache/",
-            "^babel-cache/",
-            "^tmp/",
+            "^node_modules$",
+            "^vendor$",
+            "^.git$",
+            "^cache$",
+            "^babel-cache$",
+            "^tmp$",
             ".phar$",
         },
     }
