@@ -30,9 +30,17 @@ telescope.setup {
     },
     defaults = {
         file_ignore_patterns = {
+            "%.o",
+            "%.a",
+            "%.out",
+            "%.class",
+            "%.pdf",
+            "%.mkv",
+            "%.mp4",
+            "%.zip",
             "^node_modules$",
             "^vendor$",
-            "^.git$",
+            ".git/",
             "^cache$",
             "^babel-cache$",
             "^tmp$",
