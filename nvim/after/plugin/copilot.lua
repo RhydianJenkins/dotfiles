@@ -4,6 +4,12 @@ if (not status) then
     return
 end
 
+local status_cmp, copilot_cmp = pcall(require, "copilot_cmp")
+if (not status_cmp) then
+    print('copilot_cmp plugin not found')
+    return
+end
+
 copilot.setup {
     cmp = {
         enabled = true,
@@ -14,6 +20,8 @@ copilot.setup {
     ft_disable = { "markdown", "terraform", "help" },
     plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
 }
+
+copilot_cmp.setup()
 
 vim.g.copilot_filetypes = {
     ["*"] = false,
