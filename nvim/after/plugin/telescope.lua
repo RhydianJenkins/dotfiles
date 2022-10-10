@@ -45,6 +45,7 @@ telescope.setup {
             "^babel-cache$",
             "^tmp$",
             ".phar$",
+            ".min.js$",
         },
     }
 }
