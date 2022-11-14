@@ -26,6 +26,7 @@ vim.opt.laststatus = 3
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
+vim.opt.relativenumber = true
 
 -- use rg as a grep replacement
 if vim.call('executable', 'rg') then
