@@ -31,9 +31,7 @@ bob install v0.8.0
 
 # GitHub Copilot
 
-[copilot.lua](https://github.com/zbirenbaum/copilot.lua) is currecntly used for copilot suggestions. Currently, this plugin doesn't support the authentication step, so the original [copilot.vim](https://github.com/github/copilot.vim) is needed to generate files in `~/.config/github-copilot`.
-
-Once auth is handled, the vimscript version can be uninstalled.
+[copilot.lua](https://github.com/zbirenbaum/copilot.lua) is used for copilot suggestions.
 
 [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) is used to turn suggestions into cmp completions.
 
@@ -41,8 +39,6 @@ Once auth is handled, the vimscript version can be uninstalled.
 
 # Debugging
 
-[nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters.
-
-Currently, only the [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) is set up. You'll have to alter the `phpDebugPath` in [php.lua](./lua/rhydian/configs/dap/php.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
+[nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters. You'll have to alter the `phpDebugPath` in [php.lua](./lua/rhydian/configs/dap/php.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
 
 Any further debug adapter configs can be added in `./lua/rhydian/configs/dap/*.lua` and imported in `./after/plugin/dap.lua`
