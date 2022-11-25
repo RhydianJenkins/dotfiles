@@ -77,6 +77,7 @@ return require("packer").startup(function(use)
 
     -- LSP
     use {'neovim/nvim-lspconfig'} -- base config
+    use {'folke/neodev.nvim'} -- lua completion for nvim api
     use {'williamboman/nvim-lsp-installer'} -- used to install langage servers
     use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
     use {'jose-elias-alvarez/null-ls.nvim'}

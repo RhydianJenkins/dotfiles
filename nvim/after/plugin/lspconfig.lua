@@ -47,6 +47,18 @@ local on_attach_with_format = function(client, bufnr)
     return on_attach(client, bufnr)
 end
 
+require('neodev').setup({
+    library = {
+        enabled = true,
+        runtime = true,
+        types = true,
+        plugins = true,
+    },
+    setup_jsonls = true,
+    override = function(root_dir, options) end,
+    lspconfig = true,
+})
+
 require('lspconfig').intelephense.setup {
     on_attach = on_attach,
     capabilities = capabilities
@@ -68,7 +80,10 @@ require('lspconfig').sumneko_lua.setup {
                 version = "LuaJIT", -- LuaJIT version for neovim
                 path = vim.split(package.path, ";")
             },
-            diagnostics = {globals = {'vim'}}
+            diagnostics = {globals = {'vim'}},
+            completion = {
+                callSnippet = "Replace"
+            }
         }
     }
 }
