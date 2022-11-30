@@ -57,6 +57,7 @@ vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)
 vim.api.nvim_set_keymap('n', 'K', '<cmd>Lspsaga peek_definition<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>Lspsaga hover_doc<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>', opts)
 
 -- DAP
 vim.keymap.set('n', '<F1>', "<cmd>lua require'dapui'.eval()<CR>")
