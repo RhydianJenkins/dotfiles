@@ -12,10 +12,9 @@ saga.init_lsp_saga({
     code_action_lightbulb = {
         enable = false,
     },
-    finder_action_keys = {
-        quit = {'q', '<ESC>', '<C-c>'},
-        vsplit = 'v',
-        split = 's',
+    code_action_keys = {
+        quit = "<C-c>",
+        exec = "<CR>",
     },
     finder_action_keys = {
         quit = {'q', '<ESC>', '<C-c>'},

@@ -62,8 +62,6 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
     function(server)
-        lspconfig[server].setup({
-            capabilities = capabilities,
-        })
+        lspconfig[server].setup({})
     end,
 })
