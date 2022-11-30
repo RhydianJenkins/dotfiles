@@ -1,12 +1,10 @@
--- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-    command = "silent! lua vim.highlight.on_yank()",
     group = vim.api.nvim_create_augroup("YankHighlight", {}),
+    command = "silent! lua vim.highlight.on_yank()",
 })
 
--- Gives LSP actions
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = lsp_cmds,
+    group = vim.api.nvim_create_augroup("LspAttachGroup", {}),
     desc = 'LSP actions',
     callback = function()
         local bufmap = function(mode, lhs, rhs)
@@ -18,5 +16,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
         bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
         bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-    end
+    end,
 })
