@@ -38,6 +38,8 @@ alias gs='git status'
 alias gp='git pull'
 alias gf='git fetch'
 alias lg='lazygit'
+alias master='git checkout master'
+alias main='git checkout main'
 
 # pretty-print PATH
 alias path='echo -e ${PATH//:/\\n}'
