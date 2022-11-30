@@ -9,7 +9,7 @@ local file = io.open(phpDebugPath, 'r')
 if file ~= nil then
     io.close(file)
 else
-    print('cannot find php debug adapter ' .. phpDebugPath)
+    -- adapter can't be found
     return
 end
 
