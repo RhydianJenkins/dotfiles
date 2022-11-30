@@ -65,12 +65,8 @@ return require("packer").startup(function(use)
     use {'hrsh7th/cmp-buffer'} -- adds buffer text to lsp completion
     use {'hrsh7th/cmp-path'} -- adds path to lsp completion
     use {'hrsh7th/cmp-cmdline'} -- adds cmdline lsp completion
-    use {'hrsh7th/cmp-vsnip'} -- adds vsnip support to lsp completion
-    use {'hrsh7th/cmp-nvim-lsp-document-symbol'} -- allows @ search for functions, classes, etc
-    use {'hrsh7th/vim-vsnip'} -- snippet manager
 
     -- Copilot
-    -- use { 'github/copilot.vim' } -- AI autocompletion, only needed to generate auth
     use {'zbirenbaum/copilot.lua'} -- lua server for copilot
     use {'zbirenbaum/copilot-cmp'} -- Turns copilot into a cmp source
     use {'leoluz/nvim-dap-go'} -- go debugger (uses delve, needed in path)
