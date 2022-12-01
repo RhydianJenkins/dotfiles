@@ -37,24 +37,17 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
     cmp_nvim_lsp.default_capabilities()
 )
 
-neodev.setup({})
+neodev.setup()
 
-mason.setup({
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-})
+mason.setup()
 
 mason_lspconfig.setup({
     ensure_installed = {
         'intelephense',
+        'phpactor',
         'tsserver',
-        'eslint',
         'dockerls',
+        'eslint',
         'html',
         'cssls',
         'sqls',
@@ -62,12 +55,14 @@ mason_lspconfig.setup({
     }
 })
 
+local function on_attach_with_illuminate(client)
+    require 'illuminate'.on_attach(client)
+end
+
 mason_lspconfig.setup_handlers({
     function(server)
         lspconfig[server].setup({
-            on_attach = function(client)
-                require 'illuminate'.on_attach(client)
-            end,
+            on_attach = on_attach_with_illuminate,
         })
     end,
 })
