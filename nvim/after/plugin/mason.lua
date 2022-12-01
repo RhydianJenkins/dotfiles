@@ -62,6 +62,10 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
     function(server)
-        lspconfig[server].setup({})
+        lspconfig[server].setup({
+            on_attach = function(client)
+                require 'illuminate'.on_attach(client)
+            end,
+        })
     end,
 })
