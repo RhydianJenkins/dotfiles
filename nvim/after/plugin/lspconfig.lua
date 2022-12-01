@@ -65,4 +65,13 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach_with_illuminate,
         })
     end,
+    ["rust-analyzer"] = {
+        workspace = {
+            symbol = {
+                search = {
+                    kind = "all_symbols"
+                }
+            }
+        }
+    },
 })
