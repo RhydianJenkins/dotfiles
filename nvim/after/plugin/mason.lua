@@ -52,7 +52,7 @@ mason.setup({
 mason_lspconfig.setup({
     ensure_installed = {
         'phpactor',
-        'intellephense',
+        'intelephense',
         'tsserver',
         'eslint',
         'html',
