@@ -51,12 +51,14 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-        'phpactor',
         'intelephense',
         'tsserver',
         'eslint',
+        'dockerls',
         'html',
         'cssls',
+        'sqls',
+        'bashls',
     }
 })
 
