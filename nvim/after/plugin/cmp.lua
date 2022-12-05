@@ -17,9 +17,11 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
--- For cmp formatting
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
+
 local source_mapping = {
-    buffer = "[Buffer]",
+    buffer = "[Buf]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
@@ -28,6 +30,11 @@ local source_mapping = {
 }
 
 cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end
+    },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -54,6 +61,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
+        { name = 'vsnip' },
         { name = 'copilot' },
         { name = 'cmp_tabnine' },
         { name = 'path' },
@@ -85,18 +93,14 @@ cmp.setup({
     experimental = { ghost_text = true },
 })
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
-
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+        { name = 'cmp_git' },
     }, {
         { name = 'buffer' },
     })
 })
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
@@ -106,7 +110,6 @@ cmp.setup.cmdline('/', {
     })
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
