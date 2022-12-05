@@ -65,6 +65,8 @@ return require("packer").startup(function(use)
     use {'hrsh7th/cmp-buffer'} -- adds buffer text to lsp completion
     use {'hrsh7th/cmp-path'} -- adds path to lsp completion
     use {'hrsh7th/cmp-cmdline'} -- adds cmdline lsp completion
+    use {'hrsh7th/vim-vsnip'} -- snippet engine required for cmp
+    use {'hrsh7th/vim-vsnip-integ'} -- allows plugin integration with snippet engine
 
     -- Copilot
     use {'zbirenbaum/copilot.lua'} -- lua server for copilot

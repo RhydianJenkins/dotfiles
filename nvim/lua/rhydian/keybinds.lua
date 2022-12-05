@@ -21,6 +21,10 @@ vim.api.nvim_set_keymap('n', 'S-Y', 'y$', opts)
 vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>bn<CR>', opts)
 vim.api.nvim_set_keymap('n', '<S-tab>', '<cmd>bprevious<CR>', opts)
 
+-- Center after page up/down
+vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', opts)
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', opts)
+
 -- Window navigation
 vim.api.nvim_set_keymap('n', '<leader>h', '<C-W><C-h>', opts)
 vim.api.nvim_set_keymap('n', '<leader>j', '<C-W><C-j>', opts)
