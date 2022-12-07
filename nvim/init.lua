@@ -1,1 +1,1 @@
-require('rhydian')
+require("rhydian")

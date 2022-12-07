@@ -1,4 +1,4 @@
-require 'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = { "php", "javascript", "typescript", "lua" },
     highlight = {
         enable = true,
@@ -16,5 +16,5 @@ require 'nvim-treesitter.configs'.setup {
         -- disable = { "jsx", "cmp" } -- list of languages you want to ignore
         -- colors = {} -- table of hex colours
         -- termcoors = {} -- table of color name strings
-    }
-}
+    },
+})

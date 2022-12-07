@@ -5,4 +5,4 @@ if not present then
     return
 end
 
-devicons.setup {}
+devicons.setup({})

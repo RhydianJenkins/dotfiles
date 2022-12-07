@@ -27,24 +27,24 @@ local source_mapping = {
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
     path = "[Path]",
-    copilot = "[CP]"
+    copilot = "[CP]",
 }
 
 cmp.setup({
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
-        end
+        end,
     },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- set select to true to also confirm even if not explicitly selected
-        ['<Tab>'] = cmp.mapping(function(fallback)
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }), -- set select to true to also confirm even if not explicitly selected
+        ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif has_words_before() then
@@ -53,21 +53,21 @@ cmp.setup({
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, { "i", "s" }),
-        ['<S-Tab>'] = cmp.mapping(function()
+        ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             end
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'vsnip' },
-        { name = 'copilot' },
-        { name = 'cmp_tabnine' },
-        { name = 'path' },
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+        { name = "vsnip" },
+        { name = "copilot" },
+        { name = "cmp_tabnine" },
+        { name = "path" },
     }, {
-        { name = 'buffer' },
+        { name = "buffer" },
     }),
     formatting = {
         format = function(entry, vim_item)
@@ -99,28 +99,28 @@ cmp.setup({
     experimental = { ghost_text = true },
 })
 
-cmp.setup.filetype('gitcommit', {
+cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
-        { name = 'cmp_git' },
+        { name = "cmp_git" },
     }, {
-        { name = 'buffer' },
-    })
+        { name = "buffer" },
+    }),
 })
 
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp_document_symbol' }
+        { name = "nvim_lsp_document_symbol" },
     }, {
-        { name = 'buffer' }
-    })
+        { name = "buffer" },
+    }),
 })
 
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        { name = 'path' }
+        { name = "path" },
     }, {
-        { name = 'cmdline' }
-    })
+        { name = "cmdline" },
+    }),
 })

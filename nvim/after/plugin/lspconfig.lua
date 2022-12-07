@@ -31,11 +31,7 @@ end
 
 local lsp_defaults = lspconfig.util.default_config
 
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lsp_defaults.capabilities,
-    cmp_nvim_lsp.default_capabilities()
-)
+lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
 
 neodev.setup()
 
@@ -43,22 +39,22 @@ mason.setup()
 
 mason_lspconfig.setup({
     ensure_installed = {
-        'intelephense',
-        'phpactor',
-        'tsserver',
-        'dockerls',
-        'eslint',
-        'html',
-        'cssls',
-        'sqls',
-        'bashls',
-        'rust_analyzer',
-        'sumneko_lua',
-    }
+        "intelephense",
+        "phpactor",
+        "tsserver",
+        "dockerls",
+        "eslint",
+        "html",
+        "cssls",
+        "sqls",
+        "bashls",
+        "rust_analyzer",
+        "sumneko_lua",
+    },
 })
 
 local function on_attach_with_illuminate(client)
-    require 'illuminate'.on_attach(client)
+    require("illuminate").on_attach(client)
 end
 
 mason_lspconfig.setup_handlers({
@@ -71,21 +67,21 @@ mason_lspconfig.setup_handlers({
         workspace = {
             symbol = {
                 search = {
-                    kind = "all_symbols"
-                }
-            }
-        }
+                    kind = "all_symbols",
+                },
+            },
+        },
     },
-    ["sumneko_lua"] = function ()
-        lspconfig.sumneko_lua.setup {
+    ["sumneko_lua"] = function()
+        lspconfig.sumneko_lua.setup({
             on_attach = on_attach_with_illuminate,
             settings = {
                 Lua = {
                     diagnostics = {
-                        globals = { "vim" }
-                    }
-                }
-            }
-        }
+                        globals = { "vim" },
+                    },
+                },
+            },
+        })
     end,
 })

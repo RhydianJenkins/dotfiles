@@ -17,8 +17,8 @@ saga.init_lsp_saga({
         exec = "<CR>",
     },
     finder_action_keys = {
-        quit = {'q', '<ESC>', '<C-c>'},
-        vsplit = 'v',
-        split = 's',
+        quit = { "q", "<ESC>", "<C-c>" },
+        vsplit = "v",
+        split = "s",
     },
 })

@@ -14,7 +14,7 @@ vim.cmd([[
 ]])
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>call NERDTreeToggleInCurDir()<CR>', opts)
+vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>call NERDTreeToggleInCurDir()<CR>", opts)
 
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeWinSize = 60

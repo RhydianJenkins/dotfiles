@@ -13,17 +13,17 @@ vim.g["test#javascript#jest#options"] = {
     all = "--silent",
 }
 
-vim.api.nvim_set_keymap('n', '<leader>tf', '<cmd>TestFile<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>TestNearest<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tr', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>TestFile<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>TestNearest<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tr", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua require("neotest").run.run()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua require("neotest").output.open({ enter = true })<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tl', '<cmd>lua require("neotest").neotest.run.run_last()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tv', '<cmd>TestVisit<CR>', opts)
-vim.api.nvim_set_keymap('n', '[t', '<cmd>lua require("neotest").jump.prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']t', '<cmd>lua require("neotest").jump.next()<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>to", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>tl", '<cmd>lua require("neotest").neotest.run.run_last()<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>TestVisit<CR>", opts)
+vim.api.nvim_set_keymap("n", "[t", '<cmd>lua require("neotest").jump.prev()<CR>', opts)
+vim.api.nvim_set_keymap("n", "]t", '<cmd>lua require("neotest").jump.next()<CR>', opts)
 
-vim.g['test#strategy'] = 'neovim'
+vim.g["test#strategy"] = "neovim"
 
 neotest.setup({
     adapters = {
@@ -31,7 +31,7 @@ neotest.setup({
             ignore_file_types = { "js", "jsx" },
         }),
         require("neotest-plenary"),
-        require('neotest-jest')({
+        require("neotest-jest")({
             jestCommand = "npm test --",
             ignore_file_types = { "js", "ts" },
         }),

@@ -1,15 +1,15 @@
-local telescope = require('telescope')
-local themes = require('telescope.themes')
+local telescope = require("telescope")
+local themes = require("telescope.themes")
 
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-f>', '<cmd>Telescope live_grep<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>th', '<cmd>Telescope help_tags<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tb', '<cmd>Telescope buffers<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
+vim.api.nvim_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
-telescope.setup {
+telescope.setup({
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
@@ -19,14 +19,14 @@ telescope.setup {
         },
         harpoon = {
             file_browser = {
-                theme = themes.get_dropdown()
-            }
-        }
+                theme = themes.get_dropdown(),
+            },
+        },
     },
     pickers = {
         find_files = {
-            hidden = true
-        }
+            hidden = true,
+        },
     },
     defaults = {
         file_ignore_patterns = {
@@ -47,8 +47,8 @@ telescope.setup {
             ".phar$",
             ".min.js$",
         },
-    }
-}
+    },
+})
 
-telescope.load_extension('fzf')
-telescope.load_extension('harpoon')
+telescope.load_extension("fzf")
+telescope.load_extension("harpoon")
