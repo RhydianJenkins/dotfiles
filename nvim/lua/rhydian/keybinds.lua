@@ -40,7 +40,7 @@ vim.api.nvim_set_keymap('n', '<leader>wr', '<C-W><C-r>', opts)
 vim.api.nvim_set_keymap('n', '<leader>dot', "<cmd>lua require('telescope.builtin').find_files{ cwd = '~/dotfiles', prompt_title = '~ Dotfiles ~'}<CR>", opts)
 
 -- Resource vim config
-vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>src', '<cmd>source $MYVIMRC<cr><cmd>source %<cr>', opts)
 
 -- Resize window
 vim.api.nvim_set_keymap('n', '<leader>=', '<cmd>vertical resize +30<CR>', opts)
