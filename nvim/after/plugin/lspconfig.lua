@@ -52,6 +52,8 @@ mason_lspconfig.setup({
         'cssls',
         'sqls',
         'bashls',
+        'rust_analyzer',
+        'sumneko_lua',
     }
 })
 
