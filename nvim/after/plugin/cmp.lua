@@ -19,6 +19,7 @@ end
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
+vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
 
 local source_mapping = {
     buffer = "[Buf]",
@@ -84,6 +85,11 @@ cmp.setup({
             if entry.source.name == "copilot" then
                 vim_item.kind_hl_group = "CmpItemKindCopilot"
                 vim_item.kind = ""
+            end
+
+            if entry.source.name == "buffer" then
+                vim_item.kind_hl_group = "CmpItemKindBuffer"
+                vim_item.kind = "﬘"
             end
 
             vim_item.menu = menu
