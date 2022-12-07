@@ -30,6 +30,7 @@ if not mason_lspconfig_present then
 end
 
 local lsp_defaults = lspconfig.util.default_config
+local format_au_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
 lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -53,28 +54,34 @@ mason_lspconfig.setup({
     },
 })
 
-local function on_attach_with_illuminate(client)
+local function on_attach(client)
+    require("illuminate").on_attach(client)
+end
+
+local function on_attach_with_format(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = format_au_group, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = format_au_group,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ bufnr = bufnr })
+            end,
+        })
+    end
+
     require("illuminate").on_attach(client)
 end
 
 mason_lspconfig.setup_handlers({
     function(server)
         lspconfig[server].setup({
-            on_attach = on_attach_with_illuminate,
+            on_attach = on_attach,
         })
     end,
-    ["rust-analyzer"] = {
-        workspace = {
-            symbol = {
-                search = {
-                    kind = "all_symbols",
-                },
-            },
-        },
-    },
     ["sumneko_lua"] = function()
         lspconfig.sumneko_lua.setup({
-            on_attach = on_attach_with_illuminate,
+            on_attach = on_attach_with_format,
             settings = {
                 Lua = {
                     diagnostics = {
@@ -82,6 +89,11 @@ mason_lspconfig.setup_handlers({
                     },
                 },
             },
+        })
+    end,
+    ["rust_analyzer"] = function()
+        lspconfig.rust_analyzer.setup({
+            on_attach = on_attach_with_format,
         })
     end,
 })

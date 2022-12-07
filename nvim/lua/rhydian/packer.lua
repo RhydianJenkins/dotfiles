@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
     }) -- status line
     use({ "RishabhRD/popfix" }) -- requirement for Rishabh plugins
     use({ "nelsyeung/twig.vim" }) -- twig support
+    use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
 
     -- Debugging
     use({ "mfussenegger/nvim-dap" }) -- main adapter

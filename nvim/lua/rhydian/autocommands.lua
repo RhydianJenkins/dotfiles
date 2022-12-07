@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "ESLint formatting for ts/js(x) files",
+    desc = "Js/TS(x) formatting",
     group = vim.api.nvim_create_augroup("LintFormattingGroup", {}),
     pattern = {
         "*.js",
