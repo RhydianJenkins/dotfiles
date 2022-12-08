@@ -70,7 +70,7 @@ local function on_attach_with_format(client, bufnr)
         })
     end
 
-    require("illuminate").on_attach(client)
+    return on_attach(client)
 end
 
 mason_lspconfig.setup_handlers({
