@@ -56,12 +56,12 @@ return require("packer").startup(function(use)
     use({ "theHamsta/nvim-dap-virtual-text" }) -- adds ghost text to be able to easier see values
 
     -- Testing
-    use({ "antoinemadec/FixCursorHold.nvim" }) -- Recomended for neotest
+    use({ "antoinemadec/FixCursorHold.nvim" }) -- Recommended for neotest
     use({ "vim-test/vim-test" }) -- fills gaps that neotest doesn't
     use({ "nvim-neotest/neotest" }) -- core test
     use({ "nvim-neotest/neotest-plenary" }) -- most tests use plenary, so the adapter is needed
     use({ "nvim-neotest/neotest-vim-test" }) -- enables use of vim test from within neotest
-    use({ "haydenmeade/neotest-jest" }) -- javascipt
+    use({ "haydenmeade/neotest-jest" }) -- javascript testing
 
     -- Cmp
     use({ "hrsh7th/nvim-cmp" }) -- base completion engine
@@ -70,7 +70,17 @@ return require("packer").startup(function(use)
     use({ "hrsh7th/cmp-buffer" }) -- adds buffer text to lsp completion
     use({ "hrsh7th/cmp-path" }) -- adds path to lsp completion
     use({ "hrsh7th/cmp-cmdline" }) -- adds cmdline lsp completion
-    use({ "hrsh7th/vim-vsnip" }) -- snippet engine required for cmp
+    use({
+        "hrsh7th/cmp-vsnip",
+        after = "nvim-cmp",
+        requires = {
+            "hrsh7th/vim-vsnip",
+            {
+                "rafamadriz/friendly-snippets", -- adds some snippets out of the box
+                after = "cmp-vsnip",
+            },
+        },
+    }) -- snippets for completion
     use({ "hrsh7th/vim-vsnip-integ" }) -- allows plugin integration with snippet engine
 
     -- Copilot
@@ -81,7 +91,7 @@ return require("packer").startup(function(use)
     -- LSP
     use({ "neovim/nvim-lspconfig" }) -- base config
     use({ "folke/neodev.nvim" }) -- lua completion for nvim api
-    use({ "williamboman/mason.nvim" }) -- used to install langage servers
+    use({ "williamboman/mason.nvim" }) -- used to install language servers
     use({ "williamboman/mason-lspconfig.nvim" }) -- bridges the gap between mason and lspconfig
     use({ "glepnir/lspsaga.nvim", branch = "main" })
 

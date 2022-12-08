@@ -28,6 +28,7 @@ local source_mapping = {
     cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[CP]",
+    vsnip = "[Snip]",
 }
 
 cmp.setup({
@@ -90,6 +91,10 @@ cmp.setup({
             if entry.source.name == "buffer" then
                 vim_item.kind_hl_group = "CmpItemKindBuffer"
                 vim_item.kind = "﬘"
+            end
+
+            if entry.source.name == "vsnip" then
+                vim_item.kind = ""
             end
 
             vim_item.menu = menu
