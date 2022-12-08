@@ -61,9 +61,9 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
+        { name = "vsnip" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "vsnip" },
         { name = "copilot" },
         { name = "cmp_tabnine" },
         { name = "path" },
