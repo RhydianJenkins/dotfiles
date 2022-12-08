@@ -27,7 +27,6 @@ bob install v0.8.0
 # Wishlist
 
 - Better vi(m) compatibility
-- Better automation of installation of language servers and other required binaries
 
 # GitHub Copilot
 
