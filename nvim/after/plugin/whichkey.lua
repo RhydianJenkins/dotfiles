@@ -72,20 +72,26 @@ wk.register({
         r = { "Replace/Rename" },
         w = {
             name = "Window controls",
-            v = { "<cmd>:vsplit<cr>", "Split window vertically" },
-            s = { "<cmd>:split<cr>", "Split window horizontally" },
-            q = { "Close current window" },
+            v = { "<cmd>:vsplit<cr>", "Split buffer vertically" },
+            s = { "<cmd>:split<cr>", "Split buffer horizontally" },
+            o = { "Maximize current buffer" },
+            r = { "Rotate current buffer" },
+            t = { "Git worktrees" },
         },
-        c = { "Commenter/Code Action" },
         h = { "Navigate window left" },
         j = { "Navigate window down" },
         k = { "Navigate window up" },
         l = { "Navigate window right" },
+        m = { "Add harpoon mark" },
     },
     ["["] = {
         d = { "Previous diagnostic message" },
     },
     ["]"] = {
         d = { "Next diagnostic message" },
+    },
+    ["g"] = {
+        d = { "Go to definition" },
+        t = { "Go to type definition" },
     },
 })
