@@ -1,6 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/share/pnpm/nodejs/16.7.0/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.config/composer/vendor/bin:/usr/local/go/bin:$HOME/.config/nvim/vim-plugged/phpactor/bin:$HOME/.local/bin:$HOME/.config/nvim/vim-plugged/lua-language-server/bin:$HOME/.local/share/neovim/bin:$PATH
 export ZSH="/home/rhydian/.oh-my-zsh"
-export EDITOR=$(which nvim)
+export EDITOR=$(which vim)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=False
 
 ZSH_THEME="gallois"
@@ -20,22 +20,10 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-# load omzsh if exists
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
-# load alias file if exists
-[ -f ~/.aliases ] && source ~/.aliases
-
-# load functions file if exists
-[ -f ~/.functions ] && source ~/.functions
-
-# evaluate any custom sources defined
-[ -f ~/.custom_sources ] && source ~/.custom_sources
-
-# define where plugins get installed
 PLUGINS_DIR="$ZSH_CUSTOM/plugins"
 
-# install missing plugins
 if [ ! -d "${PLUGINS_DIR}/zsh-autosuggestions" ]; then
     echo "Missing zsh-autosuggestions plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-autosuggestions "${PLUGINS_DIR}"/zsh-autosuggestions
@@ -52,6 +40,8 @@ if [ ! -f ~/.fzf.bash ]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# quietly start ssh agent
 eval `ssh-agent -s` &> /dev/null
 
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.functions ] && source ~/.functions
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
