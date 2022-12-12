@@ -87,6 +87,7 @@ return require("packer").startup(function(use)
     use({ "zbirenbaum/copilot.lua" }) -- lua server for copilot
     use({ "zbirenbaum/copilot-cmp" }) -- Turns copilot into a cmp source
     use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
+    use({ "aduros/ai.vim" }) -- open AI completion with <C-a>
 
     -- LSP
     use({ "neovim/nvim-lspconfig" }) -- base config

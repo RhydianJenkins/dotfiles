@@ -27,6 +27,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
 
+vim.g.ai_no_mappings = 1
+
 -- use rg as a grep replacement
 if vim.call("executable", "rg") then
     vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"

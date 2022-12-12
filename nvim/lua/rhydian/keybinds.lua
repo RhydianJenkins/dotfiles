@@ -75,3 +75,6 @@ vim.keymap.set("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>")
 vim.keymap.set("n", "<F9>", "<cmd>lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<F10>", "<cmd>lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F11>", "<cmd>lua require'dap'.step_out()<CR>")
+
+-- OpenAI
+vim.api.nvim_set_keymap("i", "<C-a>", "<Esc>:AI<CR>a", { noremap = true })
