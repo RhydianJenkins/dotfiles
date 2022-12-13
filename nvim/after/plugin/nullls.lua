@@ -9,5 +9,10 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.diagnostics.codespell,
+        null_ls.builtins.diagnostics.phpcs.with({
+            extra_args = {
+                "--standard=tests/phpcs-ruleset.xml",
+            },
+        }),
     },
 })
