@@ -27,7 +27,6 @@ bob install v0.8.0
 # Wishlist
 
 - Better vi(m) compatibility
-- [vsnip](https://github.com/hrsh7th/vim-vsnip)/[luasnip](https://github.com/L3MON4D3/LuaSnip) support
 
 # GitHub Copilot
 

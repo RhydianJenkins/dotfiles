@@ -76,6 +76,14 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
+
+        ["<C-n>"] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
         { name = "luasnip" },
