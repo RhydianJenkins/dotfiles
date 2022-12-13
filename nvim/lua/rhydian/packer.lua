@@ -70,18 +70,9 @@ return require("packer").startup(function(use)
     use({ "hrsh7th/cmp-buffer" }) -- adds buffer text to lsp completion
     use({ "hrsh7th/cmp-path" }) -- adds path to lsp completion
     use({ "hrsh7th/cmp-cmdline" }) -- adds cmdline lsp completion
-    use({
-        "hrsh7th/cmp-vsnip",
-        after = "nvim-cmp",
-        requires = {
-            "hrsh7th/vim-vsnip",
-            {
-                "rafamadriz/friendly-snippets", -- adds some snippets out of the box
-                after = "cmp-vsnip",
-            },
-        },
-    }) -- snippets for completion
-    use({ "hrsh7th/vim-vsnip-integ" }) -- allows plugin integration with snippet engine
+    use({ "L3MON4D3/LuaSnip" }) -- snippet support
+    use({ "rafamadriz/friendly-snippets" }) -- snippets
+    use({ "saadparwaiz1/cmp_luasnip" }) -- luasnip support for cmp
 
     -- Copilot
     use({ "zbirenbaum/copilot.lua" }) -- lua server for copilot
