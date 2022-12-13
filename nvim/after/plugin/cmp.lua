@@ -1,5 +1,6 @@
 local cmp_present, cmp = pcall(require, "cmp")
 local lspkind_present, lspkind = pcall(require, "lspkind")
+local luasnip_present, luasnip = pcall(require, "luasnip")
 
 if not cmp_present then
     print("cmp plugin not found")
@@ -11,14 +12,17 @@ if not lspkind_present then
     return
 end
 
+if not luasnip_present then
+    print("luasnip plugin not found")
+    return
+end
+
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
+require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
@@ -31,18 +35,18 @@ local source_mapping = {
     cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[CP]",
-    vsnip = "[Snip]",
+    luasnip = "[Snip]",
 }
 
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
+    },
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -54,8 +58,8 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             elseif has_words_before() then
                 cmp.complete()
             else
@@ -63,22 +67,18 @@ cmp.setup({
             end
         end, { "i", "s" }),
 
-        ["<S-Tab>"] = cmp.mapping(function()
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-            end
-        end, { "i", "s" }),
-
-        ["<C-n>"] = cmp.mapping(function()
-            if vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
             end
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
-        { name = "vsnip" },
+        { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "copilot" },
@@ -110,7 +110,7 @@ cmp.setup({
                 vim_item.kind = "﬘"
             end
 
-            if entry.source.name == "vsnip" then
+            if entry.source.name == "luasnip" then
                 vim_item.kind = ""
             end
 
@@ -146,4 +146,3 @@ cmp.setup.cmdline(":", {
         { name = "cmdline" },
     }),
 })
-
