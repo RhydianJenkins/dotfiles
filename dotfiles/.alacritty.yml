@@ -17,16 +17,16 @@ window:
   save_to_clipboard: false
   dynamic_title: true
   key_bindings:
-    - { key: V,        mods: Control|Shift, action: Paste            }
-    - { key: C,        mods: Control|Shift, action: Copy             }
-    - { key: Key0,     mods: Control,       action: ResetFontSize    }
-    - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-    - { key: Add,      mods: Control,       action: IncreaseFontSize }
-    - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-    - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-    - { key: Paste,                    action: Paste                            }
-    - { key: Copy,                     action: Copy                             }
-    - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-    - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-    - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-    - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+    - { key: V,         mods: Control|Shift, action: Paste                               }
+    - { key: C,         mods: Control|Shift, action: Copy                                }
+    - { key: Key0,      mods: Control,       action: ResetFontSize                       }
+    - { key: Equals,    mods: Control,       action: IncreaseFontSize                    }
+    - { key: Add,       mods: Control,       action: IncreaseFontSize                    }
+    - { key: Subtract,  mods: Control,       action: DecreaseFontSize                    }
+    - { key: Minus,     mods: Control,       action: DecreaseFontSize                    }
+    - { key: Paste,                          action: Paste                               }
+    - { key: Copy,                           action: Copy                                }
+    - { key: PageUp,    mods: Shift,         action: ScrollPageUp,      mode: ~Alt       }
+    - { key: PageDown,  mods: Shift,         action: ScrollPageDown,    mode: ~Alt       }
+    - { key: Home,      mods: Shift,         action: ScrollToTop,       mode: ~Alt       }
+    - { key: End,       mods: Shift,         action: ScrollToBottom,    mode: ~Alt       }
