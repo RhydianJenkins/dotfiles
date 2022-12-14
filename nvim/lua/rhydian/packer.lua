@@ -49,6 +49,16 @@ return require("packer").startup(function(use)
     use({ "RishabhRD/popfix" }) -- requirement for Rishabh plugins
     use({ "nelsyeung/twig.vim" }) -- twig support
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup({})
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+    }) -- ChatGPT access
 
     -- Debugging
     use({ "mfussenegger/nvim-dap" }) -- main adapter
