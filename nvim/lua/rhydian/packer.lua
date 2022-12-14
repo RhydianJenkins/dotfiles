@@ -51,9 +51,6 @@ return require("packer").startup(function(use)
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
     use({
         "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup({})
-        end,
         requires = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",

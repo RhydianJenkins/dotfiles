@@ -36,6 +36,12 @@ bob install v0.8.0
 
 ![image](https://user-images.githubusercontent.com/9198690/178099328-ea886b45-e071-40a4-8f27-5ee262b81ec0.png)
 
+# ChatGPT
+
+Ensure`$OPENAI_API_KEY` environment variable exists. [Obtain a key](https://beta.openai.com/account/api-keys).
+
+`:ChatGPT` opens a prompt.
+
 # Debugging
 
 [nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters. You'll have to alter the `phpDebugPath` in [php.lua](./lua/rhydian/configs/dap/php.lua) to point to an [xdebug php adapter](https://github.com/xdebug/vscode-php-debug) installed on your system.
