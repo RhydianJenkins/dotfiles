@@ -27,11 +27,7 @@ return require("packer").startup(function(use)
     use({ "lewis6991/gitsigns.nvim" }) -- git integration to show additions/etc
     use({ "p00f/nvim-ts-rainbow" }) -- ranbow parenthesis to help with scopes
     use({ "folke/which-key.nvim" }) -- help for keybindings
-    use({ "tzachar/cmp-tabnine", run = "./install.sh" }) -- AI code assistant
     use({ "kyazdani42/nvim-web-devicons" }) -- adds icons and colors
-    use({ "lumiliet/vim-twig" }) -- twig syntax highlighting
-    use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
-    use({ "fgsch/vim-varnish" }) -- varnish syntax highlighting
     use({ "morhetz/gruvbox" }) -- color theme
     use({ "rrethy/vim-illuminate" }) -- highlight words on cursor over
     use({ "theprimeagen/git-worktree.nvim" }) -- manage git worktree
@@ -41,21 +37,15 @@ return require("packer").startup(function(use)
     use({ "petertriho/nvim-scrollbar" }) -- adds scrollbar
     use({ "SmiteshP/nvim-gps" }) -- status line component to show cursor position
     use({ "feline-nvim/feline.nvim" }) -- status line
-    use({
-        "akinsho/bufferline.nvim",
-        tag = "v2.*",
-        requires = "kyazdani42/nvim-web-devicons",
-    }) -- status line
+    use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- status line
     use({ "RishabhRD/popfix" }) -- requirement for Rishabh plugins
     use({ "nelsyeung/twig.vim" }) -- twig support
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
-    use({
-        "jackMort/ChatGPT.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-        },
-    }) -- ChatGPT access
+
+    -- Syntax highlighting
+    use({ "lumiliet/vim-twig" }) -- twig syntax highlighting
+    use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
+    use({ "fgsch/vim-varnish" }) -- varnish syntax highlighting
 
     -- Debugging
     use({ "mfussenegger/nvim-dap" }) -- main adapter
@@ -81,10 +71,12 @@ return require("packer").startup(function(use)
     use({ "rafamadriz/friendly-snippets" }) -- snippets
     use({ "saadparwaiz1/cmp_luasnip" }) -- luasnip support for cmp
 
-    -- Copilot
+    -- ML
     use({ "zbirenbaum/copilot.lua" }) -- lua server for copilot
     use({ "zbirenbaum/copilot-cmp" }) -- Turns copilot into a cmp source
     use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
+    use({ "tzachar/cmp-tabnine", run = "./install.sh" }) -- AI code assistant
+    use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } }) -- ChatGPT access
 
     -- LSP
     use({ "neovim/nvim-lspconfig" }) -- base config
