@@ -1,6 +1,17 @@
-- uses: actions/checkout@v3
-- uses: JohnnyMorganz/stylua-action@v2
-  with:
-    token: ${{ secrets.GITHUB_TOKEN }}
-    version: latest
-    args: --check .
+name: Code quality
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  Linting:
+    name: Run stylua
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: JohnnyMorganz/stylua-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        version: latest
+        args: --check .
