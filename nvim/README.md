@@ -27,6 +27,7 @@ bob install v0.8.0
 # Wishlist
 
 - Better vi(m) compatibility
+- Maybe better abstraction of lsp installation with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
 
 # GitHub Copilot
 
