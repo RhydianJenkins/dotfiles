@@ -54,6 +54,11 @@ vim.api.nvim_set_keymap("n", "<leader>-", "<cmd>vertical resize -30<CR>", opts)
 -- Replace line above/below
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>move +1<CR>==", opts)
 vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>move -2<CR>==", opts)
+vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+-- paste without replacing current register contents
+vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', opts)
 
 -- Diagnostics
 vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
