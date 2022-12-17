@@ -10,4 +10,6 @@ if os.getenv("OPENAI_API_KEY") == nil then
     return
 end
 
-chatgpt.setup({})
+chatgpt.setup({
+    welcome_message = "",
+})
