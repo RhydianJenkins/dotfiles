@@ -18,4 +18,4 @@ if ! [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     exit 1
 fi
 
-sudo apt-get update && sudo apt-get install $(cat ./pkglist)
+sudo apt-get update && sudo apt-get install $(cat "./pkglist")

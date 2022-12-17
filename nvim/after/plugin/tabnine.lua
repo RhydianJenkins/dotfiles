@@ -1,4 +1,9 @@
-local tabnine = require("cmp_tabnine.config")
+local present, tabnine = pcall(require, "cmp_tabnine.config")
+
+if not present then
+    print("tabnine plugin not found")
+    return
+end
 
 tabnine:setup({
     max_lines = 1000,
