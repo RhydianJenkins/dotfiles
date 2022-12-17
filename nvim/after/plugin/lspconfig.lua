@@ -54,23 +54,49 @@ mason_lspconfig.setup({
     },
 })
 
-local function on_attach(client)
-    require("illuminate").on_attach(client)
+local function on_attach(client, bufnr)
+    require("illuminate").on_attach(client, bufnr)
+
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = "LSP: " .. desc
+        end
+
+        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+    end
+
+    nmap("<leader>a", "<cmd>Lspsaga code_action<CR>", "Code [a]ction")
+    nmap("<leader>rn", "<cmd>Lspsaga rename<CR>", "[R]e[n]ame")
+    nmap("K", "<cmd>Lspsaga peek_definition<CR>", "Pee[k] definition")
+    nmap("<C-k>", "<cmd>Lspsaga hover_doc<CR>", "Hover doc")
+    nmap("gd", vim.lsp.buf.definition, "[G]o to [d]efinition")
+    nmap("gi", vim.lsp.buf.implementation, "[G]o to [i]mplementation")
+    nmap("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
+
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+        if vim.lsp.buf.format then
+            vim.lsp.buf.format()
+        elseif vim.lsp.buf.formatting then
+            vim.lsp.buf.formatting()
+        end
+    end, { desc = "Format current buffer with LSP" })
 end
 
 local function on_attach_with_format(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = format_au_group, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = format_au_group,
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr })
-            end,
-        })
-    end
+    vim.api.nvim_clear_autocmds({ group = format_au_group, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = format_au_group,
+        buffer = bufnr,
+        callback = function()
+            if vim.lsp.buf.format then
+                vim.lsp.buf.format()
+            elseif vim.lsp.buf.formatting then
+                vim.lsp.buf.formatting()
+            end
+        end,
+    })
 
-    return on_attach(client)
+    return on_attach(client, bufnr)
 end
 
 mason_lspconfig.setup_handlers({

@@ -4,73 +4,55 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- CTRL + a to select all
-vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", opts)
+vim.keymap.set("n", "<C-a>", "ggVG", opts)
 
 -- CTRL + s to save
-vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>w<CR>", opts)
-vim.api.nvim_set_keymap("i", "<C-s>", "<Esc><cmd>w<CR>", opts)
-vim.api.nvim_set_keymap("v", "<C-s>", "<Esc><cmd>w<CR>", opts)
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", opts)
+vim.keymap.set({ "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", opts)
 
 -- CTRL + w to close current buffer
-vim.api.nvim_set_keymap("n", "<C-w>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+vim.keymap.set("n", "<C-w>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- Shift + Y to yank to the end of the line
-vim.api.nvim_set_keymap("n", "S-Y", "y$", opts)
+vim.keymap.set("n", "S-Y", "y$", opts)
 
 -- Tab navigation of buffers
-vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>bn<CR>", opts)
-vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>bprevious<CR>", opts)
+vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", opts)
+vim.keymap.set("n", "<S-tab>", "<cmd>bprevious<CR>", opts)
 
 -- Center after page up/down
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", opts)
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 
 -- Window navigation
-vim.api.nvim_set_keymap("n", "<leader>h", "<C-W><C-h>", opts)
-vim.api.nvim_set_keymap("n", "<leader>j", "<C-W><C-j>", opts)
-vim.api.nvim_set_keymap("n", "<leader>k", "<C-W><C-k>", opts)
-vim.api.nvim_set_keymap("n", "<leader>l", "<C-W><C-l>", opts)
-vim.api.nvim_set_keymap("n", "<leader>ws", "<C-W><C-s>", opts)
-vim.api.nvim_set_keymap("n", "<leader>wv", "<C-W><C-v>", opts)
-vim.api.nvim_set_keymap("n", "<leader>wq", "<C-W><C-q>", opts)
-vim.api.nvim_set_keymap("n", "<leader>wo", "<C-W><C-o>", opts)
-vim.api.nvim_set_keymap("n", "<leader>wr", "<C-W><C-r>", opts)
-
--- Find dot files
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>dot",
-    "<cmd>lua require('telescope.builtin').find_files{ cwd = '~/dotfiles', prompt_title = '~ Dotfiles ~'}<CR>",
-    opts
-)
-
--- Resource vim config
-vim.api.nvim_set_keymap("n", "<Leader>src", "<cmd>source $MYVIMRC<cr><cmd>source %<cr>", opts)
+vim.keymap.set("n", "<leader>h", "<C-W><C-h>", opts)
+vim.keymap.set("n", "<leader>j", "<C-W><C-j>", opts)
+vim.keymap.set("n", "<leader>k", "<C-W><C-k>", opts)
+vim.keymap.set("n", "<leader>l", "<C-W><C-l>", opts)
+vim.keymap.set("n", "<leader>ws", "<C-W><C-s>", opts)
+vim.keymap.set("n", "<leader>wv", "<C-W><C-v>", opts)
+vim.keymap.set("n", "<leader>wq", "<C-W><C-q>", opts)
+vim.keymap.set("n", "<leader>wo", "<C-W><C-o>", opts)
+vim.keymap.set("n", "<leader>wr", "<C-W><C-r>", opts)
 
 -- Resize window
-vim.api.nvim_set_keymap("n", "<leader>=", "<cmd>vertical resize +30<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>-", "<cmd>vertical resize -30<CR>", opts)
+vim.keymap.set("n", "<leader>=", "<cmd>vertical resize +30<CR>", opts)
+vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -30<CR>", opts)
 
 -- Replace line above/below
-vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>move +1<CR>==", opts)
-vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>move -2<CR>==", opts)
-vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("n", "<A-j>", "<cmd>move +1<CR>==", opts)
+vim.keymap.set("n", "<A-k>", "<cmd>move -2<CR>==", opts)
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- paste without replacing current register contents
-vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', opts)
+vim.keymap.set("x", "<leader>p", '"_dP', opts)
 
 -- Diagnostics
-vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-vim.api.nvim_set_keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.api.nvim_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
--- LSP
-vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 -- DAP
 vim.keymap.set("n", "<F1>", "<cmd>lua require'dapui'.eval()<CR>")

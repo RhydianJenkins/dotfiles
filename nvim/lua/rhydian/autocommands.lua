@@ -4,20 +4,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     command = "silent! lua vim.highlight.on_yank()",
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "LSP actions",
-    group = vim.api.nvim_create_augroup("LspAttachGroup", {}),
-    callback = function()
-        local bufmap = function(mode, lhs, rhs)
-            vim.keymap.set(mode, lhs, rhs, { buffer = true })
-        end
-
-        bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-        bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-        bufmap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-    end,
-})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Js/TS(x) formatting",
     group = vim.api.nvim_create_augroup("LintFormattingGroup", {}),

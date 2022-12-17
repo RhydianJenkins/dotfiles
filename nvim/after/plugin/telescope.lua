@@ -1,13 +1,15 @@
 local telescope = require("telescope")
 local themes = require("telescope.themes")
-
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
-vim.api.nvim_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+pcall(telescope.load_extension, "fzf")
+pcall(telescope.load_extension, "harpoon")
+
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
+vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
+vim.keymap.set("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
+vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
 telescope.setup({
     extensions = {
@@ -50,5 +52,13 @@ telescope.setup({
     },
 })
 
-telescope.load_extension("fzf")
-telescope.load_extension("harpoon")
+vim.keymap.set("n", "<leader>dot", function()
+    require("telescope.builtin").find_files({ cwd = "~/dotfiles", prompt_title = "~ Search Dotfiles ~" })
+end, { desc = "Search dotfiles" })
+
+vim.keymap.set("n", "<leader>/", function()
+    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+    }))
+end, { desc = "Fuzzily search in current buffer" })
