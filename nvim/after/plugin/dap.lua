@@ -1,4 +1,4 @@
-local status, dap = pcall(require, "dap")
+local status = pcall(require, "dap")
 if not status then
     print("dap plugin not found")
     return

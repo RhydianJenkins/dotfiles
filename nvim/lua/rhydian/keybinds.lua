@@ -49,10 +49,8 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("x", "<leader>p", '"_dP', opts)
 
 -- Diagnostics
-vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 -- DAP
 vim.keymap.set("n", "<F1>", "<cmd>lua require'dapui'.eval()<CR>")
