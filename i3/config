@@ -1,4 +1,5 @@
 set $mod Mod4
+set $aLT Mod1
 
 font pango:DejaVu Sans Mono 8
 
@@ -56,6 +57,8 @@ bindsym $mod+b bar mode toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $alt+space exec dmenu_run
 
 set $bg #2c2c2e
 set $fg #9f9f9f
