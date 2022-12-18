@@ -21,6 +21,7 @@ plugins=(
 )
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+[ -d ~/Pictures/Wallpapers ] && feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
 PLUGINS_DIR="$ZSH_CUSTOM/plugins"
 
