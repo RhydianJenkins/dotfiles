@@ -34,7 +34,7 @@ if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${PLUGINS_DIR}"/zsh-syntax-highlighting
 fi
 
-if [ ! -f ~/.fzf ]; then
+if [ ! -d ~/.fzf ]; then
    echo "Missing fzf, installing in ~/.fzf" # also usable in bash
    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fi
