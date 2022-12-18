@@ -90,7 +90,7 @@ return require("packer").startup(function(use)
         end,
     }) -- status line component to show cursor position
 
-    use({ "feline-nvim/feline.nvim" }) -- status line
+    use({ "feline-nvim/feline.nvim" }) -- bottom status line
 
     use({
         "akinsho/bufferline.nvim",
@@ -98,9 +98,7 @@ return require("packer").startup(function(use)
         config = function()
             require("bufferline").setup({})
         end,
-    }) -- status line
-
-    use({ "RishabhRD/popfix" }) -- requirement for Rishabh plugins
+    }) -- top buffer tabs
 
     use({ "nelsyeung/twig.vim" }) -- twig support
 
