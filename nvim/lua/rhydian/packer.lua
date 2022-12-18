@@ -48,6 +48,8 @@ return require("packer").startup(function(use)
 
     use({ "lewis6991/gitsigns.nvim" }) -- git integration to show additions/etc
 
+    use({ "p00f/nvim-ts-rainbow" }) -- ranbow parenthesis to help with scopes
+
     use({ "folke/which-key.nvim" }) -- help for keybindings
 
     use({
@@ -108,7 +110,7 @@ return require("packer").startup(function(use)
 
     use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
 
-    use({ "fgsch/vim-varnish" }) -- varnish syntax highlighting
+    use({ "varnishcache-friends/vim-varnish" }) -- varnish syntax highlighting
 
     use({ "mfussenegger/nvim-dap" }) -- main adapter
 
@@ -157,6 +159,10 @@ return require("packer").startup(function(use)
     use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } }) -- ChatGPT access
 
     use({ "neovim/nvim-lspconfig" }) -- base config
+
+    use({ "folke/neodev.nvim" }) -- lua completion for nvim api
+
+    use({ "williamboman/mason.nvim" }) -- used to install language servers
 
     use({ "williamboman/mason-lspconfig.nvim" }) -- bridges the gap between mason and lspconfig
 
