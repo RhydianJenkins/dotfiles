@@ -9,3 +9,4 @@ libssl-dev
 xdotool
 python3.9
 feh
+playerctl
