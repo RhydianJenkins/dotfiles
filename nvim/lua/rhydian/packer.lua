@@ -104,8 +104,6 @@ return require("packer").startup(function(use)
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
 
-    use({ "lumiliet/vim-twig" }) -- twig syntax highlighting
-
     use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
 
     use({ "varnishcache-friends/vim-varnish" }) -- varnish syntax highlighting
@@ -116,39 +114,44 @@ return require("packer").startup(function(use)
 
     use({ "theHamsta/nvim-dap-virtual-text" }) -- adds ghost text to be able to easier see values
 
-    use({ "antoinemadec/FixCursorHold.nvim" }) -- Recommended for neotest
-
     use({ "vim-test/vim-test" }) -- fills gaps that neotest doesn't
 
-    use({ "nvim-neotest/neotest" }) -- core test
+    use({
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-neotest/neotest-vim-test",
+            "nvim-neotest/neotest-plenary",
 
-    use({ "nvim-neotest/neotest-plenary" }) -- most tests use plenary, so the adapter is needed
+            -- jest
+            "haydenmeade/neotest-jest",
 
-    use({ "nvim-neotest/neotest-vim-test" }) -- enables use of vim test from within neotest
+            -- php
+            "haydenmeade/neotest-jest",
+        },
+    }) -- core test
 
-    use({ "haydenmeade/neotest-jest" }) -- javascript testing
+    use({
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "saadparwaiz1/cmp_luasnip",
 
-    use({ "hrsh7th/nvim-cmp" }) -- base completion engine
+            -- copilot
+            "zbirenbaum/copilot.lua",
+            "zbirenbaum/copilot-cmp",
+        },
+    }) -- base completion engine
 
-    use({ "hrsh7th/cmp-nvim-lsp" }) -- adds lsp completion
-
-    use({ "hrsh7th/cmp-nvim-lua" }) -- adds lua to lsp completion
-
-    use({ "hrsh7th/cmp-buffer" }) -- adds buffer text to lsp completion
-
-    use({ "hrsh7th/cmp-path" }) -- adds path to lsp completion
-
-    use({ "hrsh7th/cmp-cmdline" }) -- adds cmdline lsp completion
-
-    use({ "L3MON4D3/LuaSnip" }) -- snippet support
-
-    use({ "rafamadriz/friendly-snippets" }) -- snippets
-
-    use({ "saadparwaiz1/cmp_luasnip" }) -- luasnip support for cmp
-
-    use({ "zbirenbaum/copilot.lua" }) -- lua server for copilot
-
-    use({ "zbirenbaum/copilot-cmp" }) -- Turns copilot into a cmp source
+    use({ "L3MON4D3/LuaSnip", requires = {
+        "rafamadriz/friendly-snippets",
+    } }) -- snippet support
 
     use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
 
@@ -160,9 +163,9 @@ return require("packer").startup(function(use)
 
     use({ "folke/neodev.nvim" }) -- lua completion for nvim api
 
-    use({ "williamboman/mason.nvim" }) -- used to install language servers
-
-    use({ "williamboman/mason-lspconfig.nvim" }) -- bridges the gap between mason and lspconfig
+    use({ "williamboman/mason.nvim", requires = {
+        "williamboman/mason-lspconfig.nvim",
+    } }) -- used to install language servers
 
     use({ "glepnir/lspsaga.nvim", branch = "main" })
 
