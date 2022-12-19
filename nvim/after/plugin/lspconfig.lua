@@ -73,11 +73,9 @@ local function on_attach(client, bufnr)
     nmap("gi", vim.lsp.buf.implementation, "[G]o to [i]mplementation")
     nmap("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
 
-    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
         if vim.lsp.buf.format then
-            vim.lsp.buf.format()
-        elseif vim.lsp.buf.formatting then
-            vim.lsp.buf.formatting()
+            vim.lsp.buf.format({ async = false })
         end
     end, { desc = "Format current buffer with LSP" })
 end
@@ -89,9 +87,7 @@ local function on_attach_with_format(client, bufnr)
         buffer = bufnr,
         callback = function()
             if vim.lsp.buf.format then
-                vim.lsp.buf.format()
-            elseif vim.lsp.buf.formatting then
-                vim.lsp.buf.formatting()
+                vim.lsp.buf.format({ async = false })
             end
         end,
     })
