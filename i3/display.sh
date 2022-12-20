@@ -32,7 +32,7 @@ fi
 if [ `xrandr | grep HDMI-3 | grep -c ' connected '` -eq 1 ]; then
     EXTERNAL_OUTPUT="HDMI-3"
 fi
-if [ `xrandr | grep DP1 | grep -c ' connected '` -eq 1 ]; then
+if [ `xrandr | grep DP-1 | grep -c ' connected '` -eq 1 ]; then
     EXTERNAL_OUTPUT="DP-1"
 fi
 if [ `xrandr | grep DP-2 | grep -c ' connected '` -eq 1 ]; then
