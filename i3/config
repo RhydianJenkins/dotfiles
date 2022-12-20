@@ -39,8 +39,6 @@ bindsym $alt+h focus left
 bindsym $alt+j focus down
 bindsym $alt+k focus up
 bindsym $alt+l focus right
-bindsym $alt+Left focus left
-bindsym $alt+Down focus down
 bindsym $alt+Up focus up
 bindsym $alt+Right focus right
 bindsym $alt+Shift+h move left
