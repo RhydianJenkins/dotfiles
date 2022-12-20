@@ -1,7 +1,11 @@
 set $mod Mod4
 set $alt Mod1
+set $ctrl Control
 
 font pango:DejaVu Sans Mono 8
+
+# Only display focused window
+workspace_layout tabbed
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -179,6 +183,7 @@ bar {
         tray_output primary
         position top
         separator_symbol "┃"
+        modifier $alt
 
         colors {
                 background $bg
