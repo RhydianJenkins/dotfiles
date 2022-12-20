@@ -7,8 +7,9 @@ font pango:DejaVu Sans Mono 8
 # Only display focused window
 workspace_layout tabbed
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+# clipboard history and management
+exec_always --no-startup-id greenclip daemon>/dev/null
+bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
