@@ -163,43 +163,44 @@ mode "$alte_system" {
 }
 
 mode "resize" {
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 50 px or 50 ppt
-        bindsym j resize grow height 50 px or 50 ppt
-        bindsym k resize shrink height 50 px or 50 ppt
-        bindsym l resize grow width 50 px or 50 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 50 px or 50 ppt
+    bindsym j resize grow height 50 px or 50 ppt
+    bindsym k resize shrink height 50 px or 50 ppt
+    bindsym l resize grow width 50 px or 50 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 50 px or 50 ppt
-        bindsym Down resize grow height 50 px or 50 ppt
-        bindsym Up resize shrink height 50 px or 50 ppt
-        bindsym Right resize grow width 50 px or 50 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 50 px or 50 ppt
+    bindsym Down resize grow height 50 px or 50 ppt
+    bindsym Up resize shrink height 50 px or 50 ppt
+    bindsym Right resize grow width 50 px or 50 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $alt+r mode "default"
-        bindsym Ctrl+c mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $alt+r mode "default"
+    bindsym Ctrl+c mode "default"
 }
 
 bar {
-        i3bar_command /usr/bin/i3bar
-        status_command i3status --config ~/.config/i3/i3status.conf
-        tray_output primary
-        position bottom
-        mode hide
-        hidden_state hide
-        modifier $alt
+    i3bar_command /usr/bin/i3bar
+    status_command i3status --config ~/.config/i3/i3status.conf
+    tray_output primary
+    position bottom
+    mode hide
+    hidden_state hide
+    modifier $alt
+    separator_symbol "  "
 
-        colors {
-                background $bg
-                statusline $fg
-                separator $hi
-                focused_workspace $gn $bg $ac
-                active_workspace $gn $ac $tx
-                inactive_workspace $bg $bg $ia
-                urgent_workspace $rd $bg $ac
-        }
+    colors {
+        background $bg
+        statusline $fg
+        separator $hi
+        focused_workspace $gn $bg $ac
+        active_workspace $gn $ac $tx
+        inactive_workspace $bg $bg $ia
+        urgent_workspace $rd $bg $ac
+    }
 }
