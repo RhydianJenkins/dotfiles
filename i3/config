@@ -1,8 +1,7 @@
 set $mod Mod4
 set $alt Mod1
-set $ctrl Control
 
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 12
 
 # Only display focused window
 workspace_layout tabbed
@@ -36,26 +35,25 @@ floating_maximum_size 3880 x 2160
 
 # window movement
 bindsym $alt+h focus left
+bindsym $alt+l focus right
 bindsym $alt+j focus down
 bindsym $alt+k focus up
-bindsym $alt+l focus right
-bindsym $alt+Up focus up
-bindsym $alt+Right focus right
-bindsym $alt+Shift+h move left
-bindsym $alt+Shift+j move down
-bindsym $alt+Shift+k move up
-bindsym $alt+Shift+l move right
-bindsym $alt+Shift+Left move left
-bindsym $alt+Shift+Down move down
-bindsym $alt+Shift+Up move up
-bindsym $alt+Shift+Right move right
+bindsym $alt+Shift+h move left 50
+bindsym $alt+Shift+j move down 50
+bindsym $alt+Shift+k move up 50
+bindsym $alt+Shift+l move right 50
+bindsym $alt+Shift+Left move left 50
+bindsym $alt+Shift+Down move down 50
+bindsym $alt+Shift+Up move up 50
+bindsym $alt+Shift+Right move right 50
+
 # bindsym $alt+h split h
 # bindsym $alt+v split v
 
 bindsym $alt+Return exec i3-sensible-terminal
 bindsym $alt+Shift+q kill
-bindsym $alt+d exec dmenu_run
-bindsym $alt+space exec dmenu_run
+bindsym $alt+d exec rofi -show run
+bindsym $alt+space exec rofi -show run
 bindsym $alt+f fullscreen toggle
 bindsym $alt+s layout stacking
 bindsym $alt+w layout tabbed
@@ -130,6 +128,7 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym Insert exec playerctl next
 
 # no focus following the mouse
 focus_follows_mouse no
@@ -178,7 +177,6 @@ mode "resize" {
 bar {
         i3bar_command /usr/bin/i3bar
         status_command i3status --config ~/.config/i3/i3status.conf
-        font pango:DejaVu Sans Mono 9
         tray_output primary
         position top
         separator_symbol "┃"
