@@ -13,7 +13,7 @@ INTERNAL_OUTPUT="eDP-1"
 choices="laptop\ndual\nexternal\nclone"
 
 # Your choice in dmenu will determine what xrandr command to run
-chosen=$(echo -e $choices | dmenu -i)
+chosen=$(echo -e $choices | rofi -dmenu)
 
 # This is used to determine which external display you have connected
 # This may vary between OS. e.g VGA1 instead of VGA-1
