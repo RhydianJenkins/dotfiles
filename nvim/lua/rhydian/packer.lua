@@ -114,22 +114,19 @@ return require("packer").startup(function(use)
 
     use({ "theHamsta/nvim-dap-virtual-text" }) -- adds ghost text to be able to easier see values
 
-    use({ "vim-test/vim-test" }) -- fills gaps that neotest doesn't
-
     use({
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
+            "vim-test/vim-test",
             "nvim-neotest/neotest-vim-test",
             "nvim-neotest/neotest-plenary",
 
-            -- jest
+            -- individual runners
             "haydenmeade/neotest-jest",
-
-            -- php
-            "haydenmeade/neotest-jest",
+            "olimorris/neotest-phpunit",
         },
     }) -- core test
 
@@ -143,7 +140,6 @@ return require("packer").startup(function(use)
             "hrsh7th/cmp-cmdline",
             "saadparwaiz1/cmp_luasnip",
 
-            -- copilot
             "zbirenbaum/copilot.lua",
             "zbirenbaum/copilot-cmp",
         },

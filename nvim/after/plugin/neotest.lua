@@ -4,39 +4,58 @@ if not present then
     print("neotest plugin not found")
     return
 end
-local opts = { noremap = true, silent = true }
 
-vim.g["test#javascript#runner"] = "jest"
-vim.g["test#typescript#runner"] = "jest"
-vim.g["test#strategy"] = "neovim"
-vim.g["test#javascript#jest#options"] = {
-    all = "--silent",
-}
+-- Disabled - too many tests to run at once inside of neovim!
+-- vim.keymap.set("n", "<leader>ta", function()
+-- require("neotest").run.run({ suite = true })
+-- end, { desc = "[T]est [a]ll" })
 
-vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>TestFile<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>TestNearest<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>tr", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua require("neotest").run.run()<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>to", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>tl", '<cmd>lua require("neotest").neotest.run.run_last()<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>TestVisit<CR>", opts)
-vim.api.nvim_set_keymap("n", "[t", '<cmd>lua require("neotest").jump.prev()<CR>', opts)
-vim.api.nvim_set_keymap("n", "]t", '<cmd>lua require("neotest").jump.next()<CR>', opts)
+-- vim.keymap.set("n", "<leader>td", function()
+-- require("neotest").run.run({ strategy = "dap" })
+-- end, { desc = "[T]est [d]ebug" })
 
-vim.g["test#strategy"] = "neovim"
+vim.keymap.set("n", "<leader>tf", function()
+    require("neotest").run.run(vim.fn.expand("%"))
+end, { desc = "[T]est [f]ile" })
+
+vim.keymap.set("n", "<leader>tl", function()
+    require("neotest").neotest.run.run_last()
+end, { desc = "[T]est [l]ast" })
+
+vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>", { desc = "[T]est [v]isit" })
+
+vim.keymap.set("n", "<leader>tn", "<cmd>TestNearest<CR>", { desc = "[T]est [n]earest" })
+
+vim.keymap.set("n", "<leader>ts", function()
+    require("neotest").summary.toggle()
+end, { desc = "[T]est [s]ummary toggle" })
+
+vim.keymap.set("n", "[t", function()
+    require("neotest").jump.prev()
+end, { desc = "Jump to previous test" })
+
+vim.keymap.set("n", "]t", function()
+    require("neotest").jump.next()
+end, { desc = "Jump to next test" })
 
 neotest.setup({
     adapters = {
-        require("neotest-vim-test")({
-            ignore_file_types = { "js", "jsx" },
-        }),
         require("neotest-plenary"),
+        require("neotest-phpunit")({
+            phpunit_cmd = function()
+                return "vendor/bin/phpunit"
+            end,
+        }),
         require("neotest-jest")({
             jestCommand = "npm test --",
-            ignore_file_types = { "js", "ts" },
+            jestConfigFile = "jest.config.js",
+            env = { CI = true },
+            cwd = function()
+                return vim.fn.getcwd()
+            end,
         }),
-    },
-    icons = {
-        running = "↻",
+        require("neotest-vim-test")({
+            ignore_file_types = { "js", "ts", "jsx", "tsx", "php" },
+        }),
     },
 })
