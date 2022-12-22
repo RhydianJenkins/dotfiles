@@ -59,7 +59,7 @@ return require("packer").startup(function(use)
         end,
     }) -- adds icons and colors
 
-    use({ "morhetz/gruvbox" }) -- color theme
+    use({ "RRethy/nvim-base16" }) -- colourschemes
 
     use({ "rrethy/vim-illuminate" }) -- highlight words on cursor over
 
