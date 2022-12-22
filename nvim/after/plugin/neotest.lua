@@ -43,7 +43,18 @@ neotest.setup({
         require("neotest-plenary"),
         require("neotest-phpunit")({
             phpunit_cmd = function()
-                return "vendor/bin/phpunit"
+                local vendorPaths = {
+                    "vendor/bin/phpunit",
+                    "/var/www/basekit/vendor/bin/phpunit",
+                }
+
+                for _, path in ipairs(vendorPaths) do
+                    local file = io.open(path, "r")
+                    if file ~= nil then
+                        io.close(file)
+                        return path
+                    end
+                end
             end,
         }),
         require("neotest-jest")({
