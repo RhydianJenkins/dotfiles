@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
     use({
         "petertriho/nvim-scrollbar",
         config = function()
-            require("scrollbar")
+            require("scrollbar").setup({})
         end,
     }) -- adds scrollbar
 

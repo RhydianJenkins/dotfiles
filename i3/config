@@ -43,8 +43,8 @@ floating_maximum_size 3880 x 2160
 # window movement
 bindsym $alt+h focus left
 bindsym $alt+l focus right
-bindsym $alt+Left focus left
-bindsym $alt+Right focus right
+# bindsym $alt+Left focus left
+# bindsym $alt+Right focus right
 bindsym $alt+Down focus down
 bindsym $alt+Up focus up
 bindsym $alt+Shift+h move left 50
