@@ -55,6 +55,8 @@ neotest.setup({
                         return path
                     end
                 end
+
+                print("phpunit not found")
             end,
         }),
         require("neotest-jest")({
