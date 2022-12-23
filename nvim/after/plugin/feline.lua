@@ -55,25 +55,6 @@ local vi_mode_colors = {
     NONE = "yellow",
 }
 
-local vi_mode_text = {
-    NORMAL = "<|",
-    OP = "<|",
-    INSERT = "|>",
-    VISUAL = "<>",
-    LINES = "<>",
-    BLOCK = "<>",
-    REPLACE = "<>",
-    ["V-REPLACE"] = "<>",
-    ENTER = "<>",
-    MORE = "<>",
-    SELECT = "<>",
-    COMMAND = "<|",
-    SHELL = "<|",
-    TERM = "<|",
-    NONE = "<>",
-    CONFIRM = "|>",
-}
-
 force_inactive.filetypes = {
     "NvimTree",
     "dbui",
@@ -103,6 +84,7 @@ components.active[1][1] = {
     end,
     right_sep = " ",
 }
+
 -- vi-symbol
 components.active[1][2] = {
     --provider = function()
@@ -117,6 +99,7 @@ components.active[1][2] = {
     end,
     right_sep = " ",
 }
+
 -- filename
 components.active[1][3] = {
     provider = function()
@@ -136,6 +119,7 @@ components.active[1][3] = {
         },
     },
 }
+
 -- nvimGps
 components.active[1][4] = {
     provider = function()
@@ -166,6 +150,7 @@ components.active[3][1] = {
     },
     right_sep = " ",
 }
+
 -- diagnosticWarn
 components.active[3][2] = {
     provider = "diagnostic_warnings",
@@ -178,6 +163,7 @@ components.active[3][2] = {
     },
     right_sep = " ",
 }
+
 -- diagnosticHint
 components.active[3][3] = {
     provider = "diagnostic_hints",
@@ -190,6 +176,7 @@ components.active[3][3] = {
     },
     right_sep = " ",
 }
+
 -- diagnosticInfo
 components.active[3][4] = {
     provider = "diagnostic_info",
@@ -224,6 +211,7 @@ components.active[3][6] = {
     },
     right_sep = " ",
 }
+
 -- diffModfified
 components.active[3][7] = {
     provider = "git_diff_changed",
@@ -234,6 +222,7 @@ components.active[3][7] = {
     },
     right_sep = " ",
 }
+
 -- diffRemove
 components.active[3][8] = {
     provider = "git_diff_removed",

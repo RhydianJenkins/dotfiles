@@ -30,6 +30,6 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.updatetime = 100
 
 -- use rg as a grep replacement
-if vim.call("executable", "rg") then
-    vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
+if vim.fn.executable("rg") == 1 then
+    vim.o.grepprg = "rg --smart-case --vimgrep"
 end

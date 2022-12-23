@@ -7,6 +7,12 @@ end
 
 colorscheme.with_config({
     telescope = false,
+    indentblankline = false,
+    notify = false,
+    ts_rainbow = false,
+    cmp = false,
+    illuminate = false,
+    lsp_semantic = false,
 })
 
 vim.cmd("colorscheme base16-gruvbox-dark-hard")
