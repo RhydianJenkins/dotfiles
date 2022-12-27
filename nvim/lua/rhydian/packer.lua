@@ -31,6 +31,8 @@ return require("packer").startup(function(use)
 
     use({ "tami5/sqlite.lua" }) -- sqlite dependency
 
+    use({ "rebelot/kanagawa.nvim" }) -- dark colorscheme
+
     use({ "scrooloose/nerdcommenter" }) -- comment blocks of code
 
     use({ "kqito/vim-easy-replace" }) -- <leader>ra - find and replace all
@@ -38,6 +40,9 @@ return require("packer").startup(function(use)
     use({ "APZelos/blamer.nvim" }) -- git blame
 
     use({ "ntpeters/vim-better-whitespace" }) -- strip trailing whitespace
+
+    -- TODO revert to rareitems/printer.nvim if yank change ever gets merged
+    use({ "rhydianjenkins/printer.nvim", branch = "yankregister" }) -- yank print statements
 
     use({
         "j-hui/fidget.nvim",
@@ -58,8 +63,6 @@ return require("packer").startup(function(use)
             require("nvim-web-devicons").setup({})
         end,
     }) -- adds icons and colors
-
-    use({ "RRethy/nvim-base16" }) -- colourschemes
 
     use({ "rrethy/vim-illuminate" }) -- highlight words on cursor over
 
