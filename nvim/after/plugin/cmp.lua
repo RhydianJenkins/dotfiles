@@ -101,9 +101,6 @@ cmp.setup({
             local menu = source_mapping[entry.source.name]
 
             if entry.source.name == "cmp_tabnine" then
-                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-                    menu = entry.completion_item.data.detail .. " " .. menu
-                end
                 vim_item.kind_hl_group = "CmpItemKindTabnine"
                 vim_item.kind = ""
             end
