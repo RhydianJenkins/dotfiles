@@ -1,5 +1,4 @@
-![image](https://user-images.githubusercontent.com/9198690/184665071-3a1e15be-6e77-4882-ba44-8cfc6e8a3442.png)
-
+![image](https://user-images.githubusercontent.com/9198690/210136444-a87eb355-f08f-4451-a2e5-5d90b7bf8a0c.png)
 
 # Installation
 
