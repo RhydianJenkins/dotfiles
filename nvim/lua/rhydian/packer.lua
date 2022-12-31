@@ -35,8 +35,6 @@ return require("packer").startup(function(use)
 
     use({ "scrooloose/nerdcommenter" }) -- comment blocks of code
 
-    use({ "kqito/vim-easy-replace" }) -- <leader>ra - find and replace all
-
     use({ "APZelos/blamer.nvim" }) -- git blame
 
     use({ "ntpeters/vim-better-whitespace" }) -- strip trailing whitespace
