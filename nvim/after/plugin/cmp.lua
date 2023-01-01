@@ -48,7 +48,8 @@ cmp.setup({
 
         ["<C-e>"] = cmp.mapping.abort(),
 
-        ["<CR>"] = cmp.mapping.confirm({ select = false }), -- set select to true to also confirm even if not explicitly selected
+        -- set select to true to also confirm even if not explicitly selected
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
