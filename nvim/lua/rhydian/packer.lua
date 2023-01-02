@@ -109,11 +109,17 @@ return require("packer").startup(function(use)
 
     use({ "varnishcache-friends/vim-varnish" }) -- varnish syntax highlighting
 
-    use({ "mfussenegger/nvim-dap" }) -- main adapter
+    use({
+        "mfussenegger/nvim-dap",
+        requires = {
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
 
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }) -- tui for debugging
-
-    use({ "theHamsta/nvim-dap-virtual-text" }) -- adds ghost text to be able to easier see values
+            -- specific adapters
+            "leoluz/nvim-dap-go",
+            "jbyuki/one-small-step-for-vimkind",
+        },
+    }) -- main adapter
 
     use({
         "nvim-neotest/neotest",
@@ -149,8 +155,6 @@ return require("packer").startup(function(use)
     use({ "L3MON4D3/LuaSnip", requires = {
         "rafamadriz/friendly-snippets",
     } }) -- snippet support
-
-    use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
 
     use({ "tzachar/cmp-tabnine", run = "./install.sh" }) -- AI code assistant
 

@@ -7,6 +7,7 @@ end
 local dap_configs = "rhydian.configs.dap."
 require(dap_configs .. "php")
 require(dap_configs .. "go")
+require(dap_configs .. "lua")
 
 local dapui_status, dapui = pcall(require, "dapui")
 if not dapui_status then

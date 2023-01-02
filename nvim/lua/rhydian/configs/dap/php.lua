@@ -1,15 +1,12 @@
-local status, dap = pcall(require, "dap")
-if not status then
-    print("dap plugin not found")
-    return
-end
-
+local dap = require("dap")
 local phpDebugPath = os.getenv("HOME") .. "/Documents/vscode-php-debug/out/phpDebug.js"
 local file = io.open(phpDebugPath, "r")
+
 if file ~= nil then
     io.close(file)
 else
     -- adapter can't be found
+    -- see debug README for help installing the vscode php debugger
     return
 end
 
