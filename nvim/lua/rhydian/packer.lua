@@ -39,9 +39,6 @@ return require("packer").startup(function(use)
 
     use({ "ntpeters/vim-better-whitespace" }) -- strip trailing whitespace
 
-    -- TODO revert to rareitems/printer.nvim if yank change ever gets merged
-    use({ "rhydianjenkins/printer.nvim", branch = "yankregister" }) -- yank print statements
-
     use({
         "j-hui/fidget.nvim",
         config = function()
