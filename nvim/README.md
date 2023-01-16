@@ -26,6 +26,7 @@ bob install v0.8.1
 # Wishlist
 
 - Better vi(m) compatibility
+- Symmfony support, with some better PHP intelesense.
 - Maybe better abstraction of lsp installation with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
 
 # GitHub Copilot
