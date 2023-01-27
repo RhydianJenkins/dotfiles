@@ -51,6 +51,7 @@ mason_lspconfig.setup({
         "bashls",
         "rust_analyzer",
         "sumneko_lua",
+        "sqls",
     },
 })
 
@@ -116,6 +117,12 @@ mason_lspconfig.setup_handlers({
     ["rust_analyzer"] = function()
         lspconfig.rust_analyzer.setup({
             on_attach = on_attach_with_format,
+        })
+    end,
+    ["sqls"] = function()
+        lspconfig.sqls.setup({
+            on_attach = on_attach,
+            cmd = { "sqls", "-c", "/home/rhydian/.config/sqls/config.yml" },
         })
     end,
 })

@@ -10,19 +10,6 @@ if not status_cmp then
     return
 end
 
-copilot.setup({
-    cmp = {
-        enabled = true,
-    },
-    panel = {
-        enabled = true,
-    },
-    ft_disable = { "markdown", "terraform", "help" },
-    plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
-})
-
-copilot_cmp.setup()
-
 vim.g.copilot_filetypes = {
     ["*"] = false,
     ["javascript"] = true,
@@ -36,3 +23,16 @@ vim.g.copilot_filetypes = {
     ["go"] = true,
     ["python"] = true,
 }
+
+copilot.setup({
+    cmp = {
+        enabled = true,
+    },
+    panel = {
+        enabled = true,
+    },
+    ft_disable = { "markdown", "terraform", "help" },
+    plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
+})
+
+copilot_cmp.setup()
