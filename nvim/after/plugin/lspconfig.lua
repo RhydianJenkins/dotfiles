@@ -40,7 +40,6 @@ mason.setup()
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "intelephense",
         "phpactor",
         "tsserver",
         "dockerls",
