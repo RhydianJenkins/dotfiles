@@ -5,20 +5,26 @@ if not present then
     return
 end
 
-saga.init_lsp_saga({
-    border_style = "rounded",
-    preview_lines_above = 5,
-    finder_request_timeout = 3000,
-    code_action_lightbulb = {
+saga.setup({
+    lightbulb = {
         enable = false,
     },
-    code_action_keys = {
-        quit = "<C-c>",
-        exec = "<CR>",
+    code_action = {
+        keys = {
+            quit = { "q", "<ESC>", "<C-c>" },
+            exec = "<CR>",
+        },
     },
-    finder_action_keys = {
-        quit = { "q", "<ESC>", "<C-c>" },
-        vsplit = "v",
-        split = "s",
+    preview = {
+        lines_above = 10,
+        lines_below = 20,
+    },
+    symbol_in_winbar = {
+        enable = false,
+    },
+    request_timeout = 5000,
+    ui = {
+        title = true, -- requires nvim 0.9^
+        border = "rounded",
     },
 })
