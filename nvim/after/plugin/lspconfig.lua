@@ -49,7 +49,7 @@ mason_lspconfig.setup({
         "sqls",
         "bashls",
         "rust_analyzer",
-        "sumneko_lua",
+        "lua_ls",
         "sqls",
     },
 })
@@ -101,8 +101,8 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach,
         })
     end,
-    ["sumneko_lua"] = function()
-        lspconfig.sumneko_lua.setup({
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
             on_attach = on_attach_with_format,
             settings = {
                 Lua = {
