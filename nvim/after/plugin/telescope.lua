@@ -49,6 +49,7 @@ telescope.setup({
             "tmp",
             ".phar$",
             ".min.js$",
+            "assets/public/lib/*",
         },
     },
 })
