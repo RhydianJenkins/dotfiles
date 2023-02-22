@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Js/TS(x) formatting",
-    group = vim.api.nvim_create_augroup("LintFormattingGroup", { clear = true }),
+    group = vim.api.nvim_create_augroup("TsLintFormattingGroup", { clear = true }),
     pattern = {
         "*.js",
         "*.tsx",
@@ -27,5 +27,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     },
     callback = function()
         vim.cmd("EslintFixAll")
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "php cs formatting",
+    group = vim.api.nvim_create_augroup("PhpLintFormattingGroup", { clear = true }),
+    pattern = { "*.php" },
+    callback = function()
+        vim.cmd("Format")
     end,
 })

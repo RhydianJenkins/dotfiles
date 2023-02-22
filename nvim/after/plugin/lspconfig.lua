@@ -3,6 +3,8 @@ local neodev_present, neodev = pcall(require, "neodev")
 local lspconfig_present, lspconfig = pcall(require, "lspconfig")
 local mason_lspconfig_present, mason_lspconfig = pcall(require, "mason-lspconfig")
 local cmp_nvim_lsp_present, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local null_ls_present, null_ls = pcall(require, "null-ls")
+local mason_null_ls_present, mason_null_ls = pcall(require, "mason-null-ls")
 
 if not mason_present then
     print("mason plugin not found")
@@ -14,18 +16,28 @@ if not neodev_present then
     return
 end
 
+if not null_ls_present then
+    print("null ls plugin not found")
+    return
+end
+
+if not mason_null_ls_present then
+    print("mason null ls plugin not found")
+    return
+end
+
 if not lspconfig_present then
     print("lspconfig plugin not found")
     return
 end
 
-if not cmp_nvim_lsp_present then
-    print("cmp_nvim_lsp plugin not found")
+if not mason_lspconfig_present then
+    print("mason lspconfig plugin not found")
     return
 end
 
-if not mason_lspconfig_present then
-    print("mason lspconfig plugin not found")
+if not cmp_nvim_lsp_present then
+    print("cmp_nvim_lsp plugin not found")
     return
 end
 
@@ -43,8 +55,8 @@ mason_lspconfig.setup({
         "phpactor",
         "tsserver",
         "dockerls",
-        "eslint",
         "html",
+        "eslint",
         "cssls",
         "sqls",
         "bashls",
@@ -52,6 +64,35 @@ mason_lspconfig.setup({
         "lua_ls",
         "sqls",
     },
+})
+
+mason_null_ls.setup({
+    ensure_installed = {
+        "stylua",
+        "codespell",
+        "phpcs",
+        "phpcbf",
+    },
+    automatic_installation = true,
+    automatic_setup = true,
+})
+
+null_ls.setup({
+    sources = {
+        -- anything not supported by mason
+    },
+})
+
+mason_null_ls.setup_handlers({
+    function(source_name, methods)
+        require("mason-null-ls.automatic_setup")(source_name, methods)
+    end,
+    phpcs = function(_source_name, _methods)
+        null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+            extra_args = { "--standard=tests/phpcs-ruleset.xml" },
+            method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+        }))
+    end,
 })
 
 local function on_attach(client, bufnr)

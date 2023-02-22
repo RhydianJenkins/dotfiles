@@ -100,8 +100,6 @@ return require("packer").startup(function(use)
 
     use({ "nelsyeung/twig.vim" }) -- twig support
 
-    use({ "jose-elias-alvarez/null-ls.nvim" }) -- use neovim as an LSP for injecting functionality
-
     use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
 
     use({ "varnishcache-friends/vim-varnish" }) -- varnish syntax highlighting
@@ -157,9 +155,14 @@ return require("packer").startup(function(use)
 
     use({ "folke/neodev.nvim" }) -- lua completion for nvim api
 
-    use({ "williamboman/mason.nvim", requires = {
-        "williamboman/mason-lspconfig.nvim",
-    } }) -- used to install language servers
+    use({
+        "williamboman/mason.nvim",
+        requires = {
+            "williamboman/mason-lspconfig.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+            "jay-babu/mason-null-ls.nvim",
+        },
+    }) -- used to install language servers
 
     use({ "glepnir/lspsaga.nvim", branch = "main" })
 
