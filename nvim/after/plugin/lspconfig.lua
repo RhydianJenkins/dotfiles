@@ -93,6 +93,11 @@ mason_null_ls.setup_handlers({
             method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         }))
     end,
+    phpcbf = function(_source_name, _methods)
+        null_ls.register(null_ls.builtins.formatting.phpcbf.with({
+            extra_args = { "--standard=tests/phpcs-ruleset.xml" },
+        }))
+    end,
 })
 
 local function on_attach(client, bufnr)
