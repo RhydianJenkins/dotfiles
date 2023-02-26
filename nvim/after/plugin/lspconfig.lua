@@ -91,7 +91,7 @@ mason_null_ls.setup_handlers({
         local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
         local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
 
-        return null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+        null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
             extra_args = extra_args,
             method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         }))
@@ -100,7 +100,15 @@ mason_null_ls.setup_handlers({
         local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
         local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
 
-        return null_ls.register(null_ls.builtins.formatting.phpcbf.with({ extra_args = extra_args }))
+        null_ls.register(null_ls.builtins.formatting.phpcbf.with({ extra_args = extra_args }))
+    end,
+    codespell = function(_source_name, _methods)
+        null_ls.register(null_ls.builtins.diagnostics.codespell)
+
+        local fixOnSave = false
+        if fixOnSave then
+            null_ls.register(null_ls.builtins.formatting.codespell)
+        end
     end,
 })
 
