@@ -25,7 +25,15 @@ return require("packer").startup(function(use)
 
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- speed bonus for fzf file search
 
-    use({ "preservim/nerdtree" }) -- left navigation panel
+    use({
+        "nvim-tree/nvim-tree.lua",
+        config = function()
+            require("nvim-tree").setup({})
+        end,
+        requires = {
+            "nvim-tree/nvim-web-devicons", -- optional, for file icons
+        },
+    }) -- left navigation panel
 
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- allow things to query the tree
 
@@ -145,7 +153,7 @@ return require("packer").startup(function(use)
         "L3MON4D3/LuaSnip",
         requires = {
             "rafamadriz/friendly-snippets",
-        }
+        },
     }) -- snippet support
 
     use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
