@@ -141,17 +141,18 @@ return require("packer").startup(function(use)
         },
     }) -- base completion engine
 
-    use({ "L3MON4D3/LuaSnip", requires = {
-        "rafamadriz/friendly-snippets",
-    } }) -- snippet support
+    use({
+        "L3MON4D3/LuaSnip",
+        requires = {
+            "rafamadriz/friendly-snippets",
+        }
+    }) -- snippet support
 
     use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
 
     use({ "tzachar/cmp-tabnine", run = "./install.sh" }) -- AI code assistant
 
     use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } }) -- ChatGPT access
-
-    use({ "neovim/nvim-lspconfig" }) -- base config
 
     use({ "folke/neodev.nvim" }) -- lua completion for nvim api
 
@@ -161,6 +162,7 @@ return require("packer").startup(function(use)
             "williamboman/mason-lspconfig.nvim",
             "jose-elias-alvarez/null-ls.nvim",
             "jay-babu/mason-null-ls.nvim",
+            "neovim/nvim-lspconfig",
         },
     }) -- used to install language servers
 
