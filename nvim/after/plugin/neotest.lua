@@ -15,11 +15,11 @@ end
 -- end, { desc = "[T]est [d]ebug" })
 
 vim.keymap.set("n", "<leader>tf", function()
-    require("neotest").run.run(vim.fn.expand("%"))
+    neotest.run.run(vim.fn.expand("%"))
 end, { desc = "[T]est [f]ile" })
 
 vim.keymap.set("n", "<leader>tl", function()
-    require("neotest").neotest.run.run_last()
+    neotest.neotest.run.run_last()
 end, { desc = "[T]est [l]ast" })
 
 vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>", { desc = "[T]est [v]isit" })
@@ -27,15 +27,15 @@ vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>", { desc = "[T]est [v]isit
 vim.keymap.set("n", "<leader>tn", "<cmd>TestNearest<CR>", { desc = "[T]est [n]earest" })
 
 vim.keymap.set("n", "<leader>ts", function()
-    require("neotest").summary.toggle()
+    neotest.summary.toggle()
 end, { desc = "[T]est [s]ummary toggle" })
 
 vim.keymap.set("n", "[t", function()
-    require("neotest").jump.prev()
+    neotest.jump.prev()
 end, { desc = "Jump to previous test" })
 
 vim.keymap.set("n", "]t", function()
-    require("neotest").jump.next()
+    neotest.jump.next()
 end, { desc = "Jump to next test" })
 
 neotest.setup({
