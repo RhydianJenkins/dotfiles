@@ -50,3 +50,8 @@ eval `ssh-agent -s` &> /dev/null
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# set keyboard repeat rate
+if [ -f /usr/bin/xset ]; then
+  xset r rate 200 40
+fi
