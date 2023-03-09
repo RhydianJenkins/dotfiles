@@ -1,6 +1,6 @@
 # .dotfiles
 
-Some config for my own personal use. See directories for individual configs.
+These are my dotfiles. There are many like them, but these ones are mine.
 
 ## Nerd Fonts
 
