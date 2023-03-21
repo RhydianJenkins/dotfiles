@@ -164,8 +164,15 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach_with_format,
             settings = {
                 Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
                     diagnostics = {
                         globals = { "vim" },
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                        checkThirdParty = false,
                     },
                 },
             },
