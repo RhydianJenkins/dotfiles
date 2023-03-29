@@ -131,11 +131,11 @@ local function on_attach(client, bufnr)
     nmap("gi", vim.lsp.buf.implementation, "[G]o to [i]mplementation")
     nmap("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
 
-    vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-        if vim.lsp.buf.format then
+    if vim.lsp.buf.format then
+        vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
             vim.lsp.buf.format({ async = false })
-        end
-    end, { desc = "Format current buffer with LSP" })
+        end, { desc = "Format current buffer with LSP" })
+    end
 end
 
 local function on_attach_with_format(client, bufnr)
