@@ -1,22 +1,22 @@
 local status, dap = pcall(require, "dap")
+
 if not status then
     print("dap plugin not found")
     return
 end
 
-local phpDebugPath = os.getenv("HOME") .. "/Documents/vscode-php-debug/out/phpDebug.js"
-local file = io.open(phpDebugPath, "r")
-if file ~= nil then
-    io.close(file)
-else
+local phpDebugPath = vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/php-debug-adapter"
+
+if vim.fn.filereadable(phpDebugPath) == 0 then
     -- adapter can't be found
+    print("No PHP debug adapter found")
     return
 end
 
 dap.adapters.php = {
     type = "executable",
     args = { phpDebugPath },
-    command = "nodejs",
+    command = "bash",
 }
 
 dap.configurations.php = {
