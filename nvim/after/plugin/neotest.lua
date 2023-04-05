@@ -22,6 +22,10 @@ vim.keymap.set("n", "<leader>tl", function()
     neotest.neotest.run.run_last()
 end, { desc = "[T]est [l]ast" })
 
+vim.keymap.set("n", "<leader>to", function()
+    neotest.output.open()
+end, { desc = "[T]est [o]pen" })
+
 vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>", { desc = "[T]est [v]isit" })
 
 vim.keymap.set("n", "<leader>tn", "<cmd>TestNearest<CR>", { desc = "[T]est [n]earest" })
