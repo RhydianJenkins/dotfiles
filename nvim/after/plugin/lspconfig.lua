@@ -58,11 +58,10 @@ mason_lspconfig.setup({
         "html",
         "eslint",
         "cssls",
-        "sqls",
+        "sqlls",
         "bashls",
         "rust_analyzer",
         "lua_ls",
-        "sqls",
     },
 })
 
@@ -183,10 +182,11 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach_with_format,
         })
     end,
-    ["sqls"] = function()
-        lspconfig.sqls.setup({
+    ["sqlls"] = function()
+        lspconfig.sqlls.setup({
             on_attach = on_attach,
-            cmd = { "sqls", "-c", "/home/rhydian/.config/sqls/config.yml" },
+            filetypes = { "sql", "mysql" },
+            cmd = { "sql-language-server", "up", "--method", "stdio" },
         })
     end,
 })
