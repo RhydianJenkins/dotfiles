@@ -58,11 +58,10 @@ mason_lspconfig.setup({
         "html",
         "eslint",
         "cssls",
-        "sqls",
+        "sqlls",
         "bashls",
         "rust_analyzer",
         "lua_ls",
-        "sqls",
     },
 })
 
@@ -75,41 +74,40 @@ mason_null_ls.setup({
     },
     automatic_installation = true,
     automatic_setup = true,
+    handlers = {
+        function(source_name, methods)
+            require("mason-null-ls.automatic_setup")(source_name, methods)
+        end,
+        phpcs = function(_source_name, _methods)
+            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
+            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
+
+            null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+                extra_args = extra_args,
+                method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+            }))
+        end,
+        phpcbf = function(_source_name, _methods)
+            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
+            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
+
+            null_ls.register(null_ls.builtins.formatting.phpcbf.with({ extra_args = extra_args }))
+        end,
+        codespell = function(_source_name, _methods)
+            null_ls.register(null_ls.builtins.diagnostics.codespell)
+
+            local fixOnSave = false
+            if fixOnSave then
+                null_ls.register(null_ls.builtins.formatting.codespell)
+            end
+        end,
+    },
 })
 
 null_ls.setup({
     sources = {
         -- anything not supported by mason
     },
-})
-
-mason_null_ls.setup_handlers({
-    function(source_name, methods)
-        require("mason-null-ls.automatic_setup")(source_name, methods)
-    end,
-    phpcs = function(_source_name, _methods)
-        local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
-        local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
-
-        null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
-            extra_args = extra_args,
-            method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-        }))
-    end,
-    phpcbf = function(_source_name, _methods)
-        local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
-        local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
-
-        null_ls.register(null_ls.builtins.formatting.phpcbf.with({ extra_args = extra_args }))
-    end,
-    codespell = function(_source_name, _methods)
-        null_ls.register(null_ls.builtins.diagnostics.codespell)
-
-        local fixOnSave = false
-        if fixOnSave then
-            null_ls.register(null_ls.builtins.formatting.codespell)
-        end
-    end,
 })
 
 local function on_attach(client, bufnr)
@@ -183,10 +181,11 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach_with_format,
         })
     end,
-    ["sqls"] = function()
-        lspconfig.sqls.setup({
+    ["sqlls"] = function()
+        lspconfig.sqlls.setup({
             on_attach = on_attach,
-            cmd = { "sqls", "-c", "/home/rhydian/.config/sqls/config.yml" },
+            filetypes = { "sql", "mysql" },
+            cmd = { "sql-language-server", "up", "--method", "stdio" },
         })
     end,
 })
