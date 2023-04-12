@@ -132,7 +132,7 @@ local function on_attach(client, bufnr)
     if vim.lsp.buf.format then
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
             vim.lsp.buf.format({ async = false })
-        end, { desc = "Format current buffer with LSP" })
+        end, { desc = "LSP: Format current buffer" })
     end
 end
 
@@ -186,6 +186,15 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach,
             filetypes = { "sql", "mysql" },
             cmd = { "sql-language-server", "up", "--method", "stdio" },
+            root_dir = function(fname)
+                return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
+            end,
+            handlers = {
+                ["textDocument/publishDiagnostics"] = vim.lsp.with(
+                    vim.lsp.diagnostic.on_publish_diagnostics,
+                    { virtual_text = false }
+                ),
+            },
         })
     end,
 })
