@@ -158,7 +158,7 @@ mason_lspconfig.setup_handlers({
     end,
     ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
-            on_attach = on_attach,
+            on_attach = on_attach_with_format,
             settings = {
                 Lua = {
                     runtime = {
