@@ -11,3 +11,13 @@ cd dotfiles/dotfiles
 ```
 
 After a shell restart, functions, aliases, and other personal customisations should be applied.
+
+## Tmuxifier
+
+While Tmuxifier config is present, the binary will need to be manually added to `$PATH`.
+
+```bash
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier.git
+cd /usr/local/bin
+sudo ln -s ~/.tmuxifier.git/bin/tmuxifier tmuxifier
+```
