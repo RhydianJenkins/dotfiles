@@ -67,7 +67,6 @@ mason_lspconfig.setup({
 
 mason_null_ls.setup({
     ensure_installed = {
-        "stylua",
         "codespell",
         "phpcs",
         "phpcbf",
@@ -159,7 +158,7 @@ mason_lspconfig.setup_handlers({
     end,
     ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
-            on_attach = on_attach_with_format,
+            on_attach = on_attach,
             settings = {
                 Lua = {
                     runtime = {
