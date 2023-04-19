@@ -15,3 +15,4 @@ continuation_indent = 4
 trailing_table_separator = smart
 call_arg_parentheses = keep
 space_around_table_field_list = true
+trailing_comma = always

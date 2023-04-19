@@ -91,7 +91,7 @@ return require("packer").startup(function(use)
 
     use({
         "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig"
+        requires = "neovim/nvim-lspconfig",
     })
 
     use({ "feline-nvim/feline.nvim" })
