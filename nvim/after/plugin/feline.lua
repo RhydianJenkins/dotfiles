@@ -20,7 +20,7 @@ local components = {
     inactive = { {}, {}, {} },
 }
 
-local colors = {
+local theme = {
     bg = "#282828",
     black = "#282828",
     yellow = "#d8a657",
@@ -72,24 +72,19 @@ force_inactive.buftypes = {
 
 -- vi-mode
 components.active[1][1] = {
-    provider = " NV-IDE ",
+    provider = " Vi ",
     hl = function()
-        local val = {}
-
-        val.bg = vi_mode_utils.get_mode_color()
-        val.fg = "black"
-        val.style = "bold"
-
-        return val
+        return {
+            bg = vi_mode_utils.get_mode_color(),
+            fg = "black",
+            style = "bold",
+        }
     end,
     right_sep = " ",
 }
 
 -- vi-symbol
 components.active[1][2] = {
-    --provider = function()
-    --return vi_mode_text[vi_mode_utils.get_vim_mode()]
-    --end,
     hl = function()
         local val = {}
         val.fg = vi_mode_utils.get_mode_color()
@@ -350,7 +345,7 @@ components.inactive[1][1] = {
 }
 
 feline.setup({
-    theme = colors,
+    theme = theme,
     vi_mode_colors = vi_mode_colors,
     components = components,
     force_inactive = force_inactive,

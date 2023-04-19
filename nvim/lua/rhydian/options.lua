@@ -32,6 +32,7 @@ vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.completeopt = "menuone,noselect"
 vim.o.updatetime = 100
+vim.o.cmdheight = 0
 
 -- use rg as a grep replacement
 if vim.fn.executable("rg") == 1 then
