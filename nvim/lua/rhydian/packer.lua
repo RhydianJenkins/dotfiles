@@ -17,13 +17,13 @@ return require("packer").startup(function(use)
         config = function()
             require("impatient")
         end,
-    }) -- load plugins faster (caching)
+    })
 
-    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }) -- floating box with text in
+    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 
-    use({ "wbthomason/packer.nvim" }) -- tell packer to manage itself
+    use({ "wbthomason/packer.nvim" })
 
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- speed bonus for fzf file search
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     use({
         "nvim-tree/nvim-tree.lua",
@@ -31,72 +31,70 @@ return require("packer").startup(function(use)
             require("nvim-tree").setup({})
         end,
         requires = {
-            "nvim-tree/nvim-web-devicons", -- optional, for file icons
+            "nvim-tree/nvim-web-devicons",
         },
-    }) -- left navigation panel
+    })
 
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- allow things to query the tree
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-    use({ "tami5/sqlite.lua" }) -- sqlite dependency
+    use({ "tami5/sqlite.lua" })
 
-    use({ "rebelot/kanagawa.nvim" }) -- dark colorscheme
+    use({ "rebelot/kanagawa.nvim" })
 
-    use({ "scrooloose/nerdcommenter" }) -- comment blocks of code
+    use({ "scrooloose/nerdcommenter" })
 
-    use({ "APZelos/blamer.nvim" }) -- git blame
+    use({ "APZelos/blamer.nvim" })
 
-    use({ "ntpeters/vim-better-whitespace" }) -- strip trailing whitespace
+    use({ "ntpeters/vim-better-whitespace" })
 
     use({
         "j-hui/fidget.nvim",
         config = function()
             require("fidget").setup({})
         end,
-    }) -- bottom right updates on tasks
+    })
 
-    use({ "lewis6991/gitsigns.nvim" }) -- git integration to show additions/etc
+    use({ "lewis6991/gitsigns.nvim" })
 
-    use({ "p00f/nvim-ts-rainbow" }) -- ranbow parenthesis to help with scopes
+    use({ "p00f/nvim-ts-rainbow" })
 
-    use({ "folke/which-key.nvim" }) -- help for keybindings
+    use({ "folke/which-key.nvim" })
 
     use({
         "kyazdani42/nvim-web-devicons",
         config = function()
             require("nvim-web-devicons").setup({})
         end,
-    }) -- adds icons and colors
+    })
 
-    use({ "rrethy/vim-illuminate" }) -- highlight words on cursor over
+    use({ "rrethy/vim-illuminate" })
 
-    use({ "theprimeagen/git-worktree.nvim" }) -- manage git worktree
+    use({ "theprimeagen/git-worktree.nvim" })
 
-    use({ "onsails/lspkind.nvim" }) -- adds icons to completion list
+    use({ "onsails/lspkind.nvim" })
 
-    use({ "theprimeagen/harpoon" }) -- marks utility
+    use({ "theprimeagen/harpoon" })
 
     use({
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup({})
         end,
-    }) -- adds color display for colors
+    })
 
     use({
         "petertriho/nvim-scrollbar",
         config = function()
             require("scrollbar").setup({})
         end,
-    }) -- adds scrollbar
+    })
 
     use({
-        "SmiteshP/nvim-gps",
-        config = function()
-            require("nvim-gps").setup({})
-        end,
-    }) -- status line component to show cursor position
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+    })
 
-    use({ "feline-nvim/feline.nvim" }) -- bottom status line
+    use({ "feline-nvim/feline.nvim" })
 
     use({
         "akinsho/bufferline.nvim",
@@ -104,19 +102,19 @@ return require("packer").startup(function(use)
         config = function()
             require("bufferline").setup({})
         end,
-    }) -- top buffer tabs
+    })
 
-    use({ "nelsyeung/twig.vim" }) -- twig support
+    use({ "nelsyeung/twig.vim" })
 
-    use({ "yuezk/vim-js" }) -- js(x} syntax highlighting
+    use({ "yuezk/vim-js" })
 
-    use({ "varnishcache-friends/vim-varnish" }) -- varnish syntax highlighting
+    use({ "varnishcache-friends/vim-varnish" })
 
-    use({ "mfussenegger/nvim-dap" }) -- main adapter
+    use({ "mfussenegger/nvim-dap" })
 
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }) -- tui for debugging
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
-    use({ "theHamsta/nvim-dap-virtual-text" }) -- adds ghost text to be able to easier see values
+    use({ "theHamsta/nvim-dap-virtual-text" })
 
     use({
         "nvim-neotest/neotest",
@@ -127,12 +125,10 @@ return require("packer").startup(function(use)
             "vim-test/vim-test",
             "nvim-neotest/neotest-vim-test",
             "nvim-neotest/neotest-plenary",
-
-            -- individual runners
             "haydenmeade/neotest-jest",
             "olimorris/neotest-phpunit",
         },
-    }) -- core test
+    })
 
     use({
         "hrsh7th/nvim-cmp",
@@ -143,26 +139,25 @@ return require("packer").startup(function(use)
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "saadparwaiz1/cmp_luasnip",
-
             "zbirenbaum/copilot.lua",
             "zbirenbaum/copilot-cmp",
         },
-    }) -- base completion engine
+    })
 
     use({
         "L3MON4D3/LuaSnip",
         requires = {
             "rafamadriz/friendly-snippets",
         },
-    }) -- snippet support
+    })
 
-    use({ "leoluz/nvim-dap-go" }) -- go debugger (uses delve, needed in path)
+    use({ "leoluz/nvim-dap-go" })
 
-    use({ "tzachar/cmp-tabnine", run = "./install.sh" }) -- AI code assistant
+    use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
-    use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } }) -- ChatGPT access
+    use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } })
 
-    use({ "folke/neodev.nvim" }) -- lua completion for nvim api
+    use({ "folke/neodev.nvim" })
 
     use({
         "williamboman/mason.nvim",
@@ -172,7 +167,7 @@ return require("packer").startup(function(use)
             "jay-babu/mason-null-ls.nvim",
             "neovim/nvim-lspconfig",
         },
-    }) -- used to install language servers
+    })
 
     use({ "glepnir/lspsaga.nvim", branch = "main" })
 

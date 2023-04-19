@@ -13,7 +13,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: latest
-        args: -f nvim/stylua.toml --check .
+        args: --check .
 
   Luacheck:
     runs-on: ubuntu-latest

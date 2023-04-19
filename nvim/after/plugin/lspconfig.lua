@@ -5,6 +5,7 @@ local mason_lspconfig_present, mason_lspconfig = pcall(require, "mason-lspconfig
 local cmp_nvim_lsp_present, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 local null_ls_present, null_ls = pcall(require, "null-ls")
 local mason_null_ls_present, mason_null_ls = pcall(require, "mason-null-ls")
+local navic_present, navic = pcall(require, "nvim-navic")
 
 if not mason_present then
     print("mason plugin not found")
@@ -41,6 +42,11 @@ if not cmp_nvim_lsp_present then
     return
 end
 
+if not navic_present then
+    print("navic plugin not found")
+    return
+end
+
 local lsp_defaults = lspconfig.util.default_config
 local format_au_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -67,7 +73,6 @@ mason_lspconfig.setup({
 
 mason_null_ls.setup({
     ensure_installed = {
-        "stylua",
         "codespell",
         "phpcs",
         "phpcbf",
@@ -107,6 +112,12 @@ mason_null_ls.setup({
 null_ls.setup({
     sources = {
         -- anything not supported by mason
+    },
+})
+
+navic.setup({
+    lsp = {
+        auto_attach = true,
     },
 })
 
