@@ -99,9 +99,6 @@ return require("packer").startup(function(use)
     use({
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("bufferline").setup({})
-        end,
     })
 
     use({ "nelsyeung/twig.vim" })
