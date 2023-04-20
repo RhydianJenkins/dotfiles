@@ -6,9 +6,9 @@ if not bufferline_present then
 end
 
 local options = {
+    diagnostics = "nvim_lsp",
     hover = {
         enabled = true,
-        delay = 200,
         reveal = { "close" },
     },
 }
