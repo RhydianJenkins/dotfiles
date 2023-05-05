@@ -124,6 +124,7 @@ return require("packer").startup(function(use)
             "nvim-neotest/neotest-plenary",
             "haydenmeade/neotest-jest",
             "olimorris/neotest-phpunit",
+            "rouge8/neotest-rust",
         },
     })
 

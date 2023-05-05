@@ -45,6 +45,7 @@ end, { desc = "Jump to next test" })
 neotest.setup({
     adapters = {
         require("neotest-plenary"),
+        require("neotest-rust"), -- requires nextest to be installed
         require("neotest-phpunit")({
             phpunit_cmd = function()
                 local vendorPaths = {
