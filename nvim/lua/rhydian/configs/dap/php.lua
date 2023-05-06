@@ -8,7 +8,6 @@ end
 local phpDebugPath = vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/php-debug-adapter"
 
 if vim.fn.filereadable(phpDebugPath) == 0 then
-    -- adapter can't be found
     print("No PHP debug adapter found")
     return
 end
