@@ -148,8 +148,6 @@ return require("packer").startup(function(use)
 
     use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
-    use({ "jackMort/ChatGPT.nvim", requires = { "MunifTanjim/nui.nvim" } })
-
     use({ "folke/neodev.nvim" })
 
     use({
