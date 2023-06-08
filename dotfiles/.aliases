@@ -38,6 +38,7 @@ alias gs='git status'
 alias gp='git pull'
 alias gf='git fetch'
 alias lg='lazygit'
+alias ld='lazydocker'
 alias master='git checkout master'
 alias main='git checkout main'
 
