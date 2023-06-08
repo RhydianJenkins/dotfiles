@@ -53,7 +53,7 @@ neotest.setup({
             phpunit_cmd = function()
                 local vendorPaths = {
                     "vendor/bin/phpunit",
-                    "/var/www/basekit/vendor/bin/phpunit",
+                    "/var/basekit/vendor/bin/phpunit",
                 }
 
                 for _, path in ipairs(vendorPaths) do

@@ -28,7 +28,7 @@ dap.configurations.php = {
         stopOnEntry = false,
         pathMappings = {
             -- 'server' = 'local'
-            ["/var/basekit"] = "/var/www/basekit",
+            ["/var/basekit"] = "/var/basekit",
         },
     },
 }
