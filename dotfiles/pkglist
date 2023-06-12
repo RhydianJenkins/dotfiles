@@ -9,6 +9,7 @@ pkg-config
 libssl-dev
 xdotool
 python3.9
+python3-venv
 feh
 playerctl
 rofi
