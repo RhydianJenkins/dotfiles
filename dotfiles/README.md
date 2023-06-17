@@ -18,6 +18,5 @@ While Tmuxifier config is present, the binary will need to be manually added to 
 
 ```bash
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier.git
-cd /usr/local/bin
-sudo ln -s ~/.tmuxifier.git/bin/tmuxifier tmuxifier
+sudo ln -s ~/.tmuxifier.git/bin/tmuxifier /usr/local/bin/tmuxifier
 ```
