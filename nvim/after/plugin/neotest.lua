@@ -43,8 +43,6 @@ vim.keymap.set("n", "]t", function()
 end, { desc = "Jump to next test" })
 
 local function get_path_that_exists(potential_paths, name)
-    print("searching for paths found in list for " .. name)
-
     for _, path in ipairs(potential_paths) do
         local file = io.open(path, "r")
         if file ~= nil then
@@ -60,10 +58,10 @@ end
 neotest.setup({
     adapters = {
         require("neotest-plenary"),
-        require("neotest-rust") {
+        require("neotest-rust")({
             -- requires cargo-nextest installed on system
             args = { "--no-capture" },
-        },
+        }),
         require("neotest-phpunit")({
             phpunit_cmd = function()
                 local vendorPaths = {
