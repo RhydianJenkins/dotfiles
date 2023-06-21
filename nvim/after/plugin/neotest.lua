@@ -42,6 +42,21 @@ vim.keymap.set("n", "]t", function()
     neotest.jump.next()
 end, { desc = "Jump to next test" })
 
+local function get_path_that_exists(potential_paths, name)
+    print("searching for paths found in list for " .. name)
+
+    for _, path in ipairs(potential_paths) do
+        local file = io.open(path, "r")
+        if file ~= nil then
+            io.close(file)
+            return path
+        end
+    end
+
+    print("No paths found in list for " .. name)
+    return nil
+end
+
 neotest.setup({
     adapters = {
         require("neotest-plenary"),
@@ -56,15 +71,7 @@ neotest.setup({
                     "/var/basekit/vendor/bin/phpunit",
                 }
 
-                for _, path in ipairs(vendorPaths) do
-                    local file = io.open(path, "r")
-                    if file ~= nil then
-                        io.close(file)
-                        return path
-                    end
-                end
-
-                print("phpunit not found")
+                return get_path_that_exists(vendorPaths, "phpunit")
             end,
         }),
         require("neotest-jest")({
@@ -77,6 +84,34 @@ neotest.setup({
         }),
         require("neotest-vim-test")({
             ignore_file_types = { "js", "ts", "jsx", "tsx", "php" },
+        }),
+        require("neotest-playwright").adapter({
+            options = {
+                persist_project_selection = true,
+                enable_dynamic_test_discovery = true,
+
+                get_playwright_binary = function()
+                    print("finding playwright bin")
+
+                    local binPaths = {
+                        vim.loop.cwd() + "/node_modules/.bin/playwright",
+                        "~/.nvm/versions/node/v20.2.0/bin/playwright",
+                    }
+
+                    return get_path_that_exists(binPaths, "playwright binary")
+                end,
+
+                get_playwright_config = function()
+                    print("finding playwright config")
+
+                    local configPaths = {
+                        vim.loop.cwd() + "/playwright.config.ts",
+                        "/var/basekit/build/functional-tests/playwright.config.ts",
+                    }
+
+                    return get_path_that_exists(configPaths, "playwright config")
+                end,
+            },
         }),
     },
 })

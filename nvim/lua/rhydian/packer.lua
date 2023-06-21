@@ -121,6 +121,7 @@ return require("packer").startup(function(use)
             "haydenmeade/neotest-jest",
             "olimorris/neotest-phpunit",
             "rouge8/neotest-rust",
+            "thenbe/neotest-playwright",
         },
     })
 
