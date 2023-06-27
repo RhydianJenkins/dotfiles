@@ -51,8 +51,6 @@ return require("packer").startup(function(use)
 
     use({ "lewis6991/gitsigns.nvim" })
 
-    use({ "p00f/nvim-ts-rainbow" })
-
     use({ "folke/which-key.nvim" })
 
     use({
@@ -63,8 +61,6 @@ return require("packer").startup(function(use)
     })
 
     use({ "rrethy/vim-illuminate" })
-
-    use({ "theprimeagen/git-worktree.nvim" })
 
     use({ "onsails/lspkind.nvim" })
 
@@ -93,15 +89,14 @@ return require("packer").startup(function(use)
 
     use({ "nelsyeung/twig.vim" })
 
-    use({ "yuezk/vim-js" })
-
-    use({ "varnishcache-friends/vim-varnish" })
-
-    use({ "mfussenegger/nvim-dap" })
-
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-
-    use({ "theHamsta/nvim-dap-virtual-text" })
+    use({
+        "mfussenegger/nvim-dap",
+        requires = {
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+            "leoluz/nvim-dap-go",
+        },
+    })
 
     use({
         "nvim-neotest/neotest",
@@ -138,8 +133,6 @@ return require("packer").startup(function(use)
             "rafamadriz/friendly-snippets",
         },
     })
-
-    use({ "leoluz/nvim-dap-go" })
 
     use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
