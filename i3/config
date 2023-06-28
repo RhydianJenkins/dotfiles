@@ -13,6 +13,7 @@ bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 # Capture screenshot and copy to clipboard
 bindsym Print exec shutter --full -c
 bindsym --release Shift+Print exec --no-startup-id import /tmp/latest-screenshot.png && xclip -selection clipboard -t image/png -i /tmp/latest-screenshot.png
+bindsym --release Shift+$alt+S exec --no-startup-id import /tmp/latest-screenshot.png && xclip -selection clipboard -t image/png -i /tmp/latest-screenshot.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
