@@ -24,10 +24,6 @@ keymap("n", "<C-u>", "<C-u>zz", { desc = "Page up" })
 keymap("n", "<C-d>", "<C-d>zz", { desc = "Page down" })
 
 -- Window manipulation
-keymap("n", "<leader>h", "<C-W><C-h>", { desc = "Navigate window left" })
-keymap("n", "<leader>j", "<C-W><C-j>", { desc = "Navigate window down" })
-keymap("n", "<leader>k", "<C-W><C-k>", { desc = "Navigate window up" })
-keymap("n", "<leader>l", "<C-W><C-l>", { desc = "Navigate window right" })
 keymap("n", "<leader>ws", "<C-W><C-s>", { desc = "[W]indow horizontal [s]plit" })
 keymap("n", "<leader>wv", "<C-W><C-v>", { desc = "[W]indow [v]ertical split" })
 keymap("n", "<leader>wq", "<C-W><C-q>", { desc = "[W]indow [q]uit" })

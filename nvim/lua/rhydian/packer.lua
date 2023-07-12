@@ -150,6 +150,8 @@ return require("packer").startup(function(use)
 
     use({ "glepnir/lspsaga.nvim", branch = "main" })
 
+    use({ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" })
+
     if packer_bootstrap then
         print("Packer is bootstrapping itself. You'll need to restart neovim once finished")
         require("packer").sync()
