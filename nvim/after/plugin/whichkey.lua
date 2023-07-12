@@ -13,5 +13,11 @@ whichkey.register({
         r = { "Replace/Rename" },
         w = { "Window controls" },
         m = { "Add harpoon mark" },
+        ["<leader>"] = {
+            h = { "Swap buffer left" },
+            j = { "Swap buffer down" },
+            k = { "Swap buffer up" },
+            l = { "Swap buffer right" },
+        },
     },
 })

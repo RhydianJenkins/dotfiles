@@ -5,6 +5,11 @@ if not present then
     return
 end
 
+smart_splits.setup({
+    at_edge = "stop",
+    cursor_follows_swapped_bufs = true,
+})
+
 vim.keymap.set("n", "<A-h>", smart_splits.resize_left)
 vim.keymap.set("n", "<A-j>", smart_splits.resize_down)
 vim.keymap.set("n", "<A-k>", smart_splits.resize_up)
