@@ -16,6 +16,7 @@ end
 
 vim.keymap.set("n", "<leader>tf", function()
     neotest.run.run(vim.fn.expand("%"))
+    neotest.output.open()
 end, { desc = "[T]est [f]ile" })
 
 vim.keymap.set("n", "<leader>tl", function()
