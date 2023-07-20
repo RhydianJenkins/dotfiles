@@ -29,12 +29,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.cmd("EslintFixAll")
     end,
 })
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "php cs formatting",
-    group = vim.api.nvim_create_augroup("PhpLintFormattingGroup", { clear = true }),
-    pattern = { "*.php" },
-    callback = function()
-        vim.cmd("Format")
-    end,
-})
