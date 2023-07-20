@@ -58,7 +58,6 @@ mason.setup()
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "phpactor",
         "tsserver",
         "dockerls",
         "html",
@@ -75,7 +74,6 @@ mason_null_ls.setup({
     ensure_installed = {
         "codespell",
         "phpcs",
-        "phpcbf",
     },
     automatic_installation = true,
     automatic_setup = true,
@@ -91,12 +89,6 @@ mason_null_ls.setup({
                 extra_args = extra_args,
                 method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
             }))
-        end,
-        phpcbf = function(_source_name, _methods)
-            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
-            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
-
-            null_ls.register(null_ls.builtins.formatting.phpcbf.with({ extra_args = extra_args }))
         end,
         codespell = function(_source_name, _methods)
             null_ls.register(null_ls.builtins.diagnostics.codespell)
@@ -205,6 +197,11 @@ mason_lspconfig.setup_handlers({
                     { virtual_text = false }
                 ),
             },
+        })
+    end,
+    ["intelephense"] = function()
+        lspconfig.intelephense.setup({
+            on_attach = on_attach_with_format,
         })
     end,
 })
