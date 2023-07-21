@@ -199,9 +199,4 @@ mason_lspconfig.setup_handlers({
             },
         })
     end,
-    ["intelephense"] = function()
-        lspconfig.intelephense.setup({
-            on_attach = on_attach_with_format,
-        })
-    end,
 })

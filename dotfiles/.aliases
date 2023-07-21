@@ -9,7 +9,6 @@ alias des='desktop'
 alias desktop="cd ~/Desktop"
 alias docs='documents'
 alias documents="cd ~/Documents"
-alias swp='cd ~/.local/share/nvim/swap && rm ./*.swp && cd -'
 
 # utility
 alias c='clear'
