@@ -55,3 +55,6 @@ keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debug cont
 keymap("n", "<F9>", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debug step over" })
 keymap("n", "<F10>", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debug step into" })
 keymap("n", "<F11>", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debug step out" })
+
+-- Delete, don't cut
+keymap("n", "x", '"_x', { desc = "Remove char without copying to clipboard" })
