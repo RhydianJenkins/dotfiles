@@ -148,7 +148,7 @@ return require("packer").startup(function(use)
         },
     })
 
-    use({ "glepnir/lspsaga.nvim", branch = "main" })
+    use({ "nvimdev/lspsaga.nvim" })
 
     use({ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" })
 
