@@ -144,7 +144,6 @@ function make_commands() {
     make default_users
     make update_brand
     make connect_install_packages
-    make clear_cache
     make fresh
 
     echo "Make targets executed"
