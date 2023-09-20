@@ -17,7 +17,7 @@ ln -s /path/to/this/i3 ~/.config/i3
 
 ## Clipboard Management
 
-[Greenclip](https://github.com/erebe/greenclip) is used for clipboard managment.
+[Greenclip](https://github.com/erebe/greenclip) is used for clipboard management.
 
 ```bash
 # Install static binary to path
