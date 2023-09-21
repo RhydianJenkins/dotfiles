@@ -2,8 +2,6 @@
 
 # Installation
 
-Neovim v0.8.1^ is currently required for the setup.
-
 There are many ways to install NeoVim, but a nice way I use is through [Bob](https://github.com/MordechaiHadad/bob.git):
 
 ```sh
@@ -14,7 +12,7 @@ curl https://sh.rustup.rs -sSf | sh
 cargo install --git https://github.com/MordechaiHadad/bob.git
 
 # install NeoVim
-bob install v0.8.1
+bob install v0.9.2
 ```
 
 # Config
@@ -26,8 +24,7 @@ bob install v0.8.1
 # Wishlist
 
 - Better vi(m) compatibility
-- Symmfony support, with some better PHP intelesense.
-- Maybe better abstraction of lsp installation with [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
+- Symfony support, with some better PHP intelesense.
 
 # GitHub Copilot
 
@@ -36,12 +33,6 @@ bob install v0.8.1
 [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) is used to turn suggestions into cmp completions.
 
 ![image](https://user-images.githubusercontent.com/9198690/178099328-ea886b45-e071-40a4-8f27-5ee262b81ec0.png)
-
-# ChatGPT
-
-Ensure`$OPENAI_API_KEY` environment variable exists. [Obtain a key](https://beta.openai.com/account/api-keys).
-
-`:ChatGPT` opens a prompt.
 
 # Debugging
 
