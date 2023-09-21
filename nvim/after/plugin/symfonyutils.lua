@@ -1,0 +1,13 @@
+local present, symfony_utils = pcall(require, "symfony_utils")
+
+if not present then
+    print("symfony_utils plugin not found")
+    return
+end
+
+symfony_utils.setup({
+    search_dirs = {
+        "connect/app",
+        "config/di",
+    },
+})
