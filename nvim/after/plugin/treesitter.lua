@@ -29,9 +29,12 @@ require("nvim-treesitter.configs").setup({
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+    indent = {
+        enable = true,
+    },
     rainbow = {
         enable = true,
-        extended_mode = true, -- also highlight non-bracket delimiters
+        extended_mode = true,  -- also highlight non-bracket delimiters
         max_file_lines = 5000, -- do not enable for files with more than n lines
         -- disable = { "jsx", "cmp" } -- list of languages you want to ignore
         -- colors = {} -- table of hex colours
