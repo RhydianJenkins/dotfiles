@@ -17,11 +17,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "Js/TS(x) formatting",
-    group = vim.api.nvim_create_augroup("TsLintFormattingGroup", { clear = true }),
+    desc = "EsLint fix on save",
+    group = vim.api.nvim_create_augroup("EsLintFormattingGroup", { clear = true }),
     pattern = {
         "*.js",
-        "*.tsx",
+        "*.jsx",
         "*.ts",
         "*.tsx",
     },
