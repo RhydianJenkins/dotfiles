@@ -11,3 +11,5 @@ symfony_utils.setup({
         "config/di",
     },
 })
+
+vim.keymap.set("n", "gsd", "<cmd>GoToSymfonyDefinition<CR>", { desc = "[G]o to [S]ymfony [D]efinition" })
