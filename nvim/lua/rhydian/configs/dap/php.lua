@@ -26,6 +26,11 @@ dap.configurations.php = {
         port = 9009,
         log = false,
         stopOnEntry = false,
+        xdebugSettings = {
+            max_children = 128,
+            max_data = -1,
+            max_depth = 3,
+        },
         pathMappings = {
             -- 'server' = 'local'
             -- ["/var/basekit"] = "/var/basekit",
