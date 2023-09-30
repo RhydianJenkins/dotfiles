@@ -1,3 +1,5 @@
+if vim.loader then vim.loader.enable() end
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -12,13 +14,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-    use({
-        "lewis6991/impatient.nvim",
-        config = function()
-            require("impatient")
-        end,
-    })
-
     use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 
     use({ "wbthomason/packer.nvim" })
