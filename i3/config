@@ -62,17 +62,13 @@ bindsym $alt+Shift+q kill
 bindsym $alt+d exec rofi -show run
 bindsym $alt+space exec rofi -show run
 bindsym $alt+f fullscreen toggle
-bindsym $alt+s layout stacking
 bindsym $alt+w layout tabbed
 bindsym $alt+e layout toggle split
 bindsym $alt+Shift+space floating toggle
 # bindsym $alt+space focus mode_toggle
 bindsym $alt+a focus parent
 bindsym $alt+r mode "resize"
-bindsym $alt+b bar mode toggle
 bindsym $alt+Shift+c reload
-bindsym $alt+Shift+r restart
-bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $alt+Shift+p exec --no-startup-id ~/.config/i3/display.sh
 bindsym $alt+p exec --no-startup-id ~/.config/i3/pass.sh
 
