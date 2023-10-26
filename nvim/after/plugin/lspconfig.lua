@@ -3,8 +3,6 @@ local neodev_present, neodev = pcall(require, "neodev")
 local lspconfig_present, lspconfig = pcall(require, "lspconfig")
 local mason_lspconfig_present, mason_lspconfig = pcall(require, "mason-lspconfig")
 local cmp_nvim_lsp_present, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-local null_ls_present, null_ls = pcall(require, "null-ls")
-local mason_null_ls_present, mason_null_ls = pcall(require, "mason-null-ls")
 local navic_present, navic = pcall(require, "nvim-navic")
 
 if not mason_present then
@@ -14,16 +12,6 @@ end
 
 if not neodev_present then
     print("neodev plugin not found")
-    return
-end
-
-if not null_ls_present then
-    print("null ls plugin not found")
-    return
-end
-
-if not mason_null_ls_present then
-    print("mason null ls plugin not found")
     return
 end
 
@@ -70,42 +58,36 @@ mason_lspconfig.setup({
     },
 })
 
-mason_null_ls.setup({
-    ensure_installed = {
-        "codespell",
-        "phpcs",
-    },
-    automatic_installation = true,
-    automatic_setup = true,
-    handlers = {
-        function(source_name, methods)
-            require("mason-null-ls.automatic_setup")(source_name, methods)
-        end,
-        phpcs = function(_source_name, _methods)
-            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
-            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
-
-            null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
-                extra_args = extra_args,
-                method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-            }))
-        end,
-        codespell = function(_source_name, _methods)
-            null_ls.register(null_ls.builtins.diagnostics.codespell)
-
-            local fixOnSave = false
-            if fixOnSave then
-                null_ls.register(null_ls.builtins.formatting.codespell)
-            end
-        end,
-    },
-})
-
-null_ls.setup({
-    sources = {
-        -- anything not supported by mason
-    },
-})
+-- mason_null_ls.setup({
+-- ensure_installed = {
+-- "codespell",
+-- "phpcs",
+-- },
+-- automatic_installation = true,
+-- automatic_setup = true,
+-- handlers = {
+-- function(source_name, methods)
+-- require("mason-null-ls.automatic_setup")(source_name, methods)
+-- end,
+-- phpcs = function(_source_name, _methods)
+-- local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
+-- local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
+--
+-- null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+-- extra_args = extra_args,
+-- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+-- }))
+-- end,
+-- codespell = function(_source_name, _methods)
+-- null_ls.register(null_ls.builtins.diagnostics.codespell)
+--
+-- local fixOnSave = false
+-- if fixOnSave then
+-- null_ls.register(null_ls.builtins.formatting.codespell)
+-- end
+-- end,
+-- },
+-- })
 
 navic.setup({
     lsp = {

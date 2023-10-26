@@ -1,4 +1,6 @@
-vim.api.nvim_create_autocmd("BufReadPost", {
+local ac = vim.api.nvim_create_autocmd
+
+ac("BufReadPost", {
     desc = "Focus cursor on last position",
     group = vim.api.nvim_create_augroup("FocusCursorGroup", {}),
     callback = function()
@@ -10,13 +12,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
+ac("TextYankPost", {
     desc = "Highlight yanked text",
     group = vim.api.nvim_create_augroup("YankHighlight", {}),
     command = "silent! lua vim.highlight.on_yank()",
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+ac("BufWritePre", {
     desc = "EsLint fix on save",
     group = vim.api.nvim_create_augroup("EsLintFormattingGroup", { clear = true }),
     pattern = {
@@ -27,5 +29,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     },
     callback = function()
         vim.cmd("EslintFixAll")
+    end,
+})
+
+ac("BufWritePre", {
+    pattern = "*",
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
     end,
 })

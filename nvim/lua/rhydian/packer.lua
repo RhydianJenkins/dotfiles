@@ -137,8 +137,6 @@ return require("packer").startup(function(use)
         "williamboman/mason.nvim",
         requires = {
             "williamboman/mason-lspconfig.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
-            "jay-babu/mason-null-ls.nvim",
             "neovim/nvim-lspconfig",
         },
     })
@@ -148,6 +146,8 @@ return require("packer").startup(function(use)
     use({ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" })
 
     use({ "rhydianjenkins/symfonyutils" })
+
+    use({ "stevearc/conform.nvim" })
 
     if packer_bootstrap then
         print("Packer is bootstrapping itself. You'll need to restart neovim once finished")
