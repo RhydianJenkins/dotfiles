@@ -13,9 +13,8 @@ PATHS=(
 )
 
 export PATH=$(printf "%s:" "${PATHS[@]}")$PATH
-export ZSH="/home/rhydian/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 export EDITOR=$(which nvim)
-export USE_GKE_GCLOUD_AUTH_PLUGIN=False
 
 ZSH_THEME="gallois"
 HYPHEN_INSENSITIVE="true"
