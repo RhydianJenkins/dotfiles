@@ -1,4 +1,18 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/share/pnpm/nodejs/16.7.0/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.config/composer/vendor/bin:/usr/local/go/bin:$HOME/.config/nvim/vim-plugged/phpactor/bin:$HOME/.local/bin:$HOME/.config/nvim/vim-plugged/lua-language-server/bin:$HOME/.local/share/neovim/bin:$PATH
+PATHS=(
+    $HOME/bin
+    $HOME/.local/share/pnpm/nodejs/16.7.0/bin
+    $HOME/.cargo/bin
+    $HOME/.deno/bin
+    $HOME/.config/composer/vendor/bin
+    $HOME/.config/nvim/vim-plugged/phpactor/bin
+    $HOME/.local/bin
+    $HOME/.config/nvim/vim-plugged/lua-language-server/bin
+    $HOME/.local/share/neovim/bin
+    /usr/local/bin
+    /usr/local/go/bin
+)
+
+export PATH=$(printf "%s:" "${PATHS[@]}")$PATH
 export ZSH="/home/rhydian/.oh-my-zsh"
 export EDITOR=$(which nvim)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=False
