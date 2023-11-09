@@ -10,10 +10,6 @@ smart_splits.setup({
     cursor_follows_swapped_bufs = true,
 })
 
--- resizing splits
-vim.keymap.set("n", "<A-h>", smart_splits.resize_left)
-vim.keymap.set("n", "<A-l>", smart_splits.resize_right)
-
 -- moving between splits
 vim.keymap.set("n", "<C-h>", smart_splits.move_cursor_left)
 vim.keymap.set("n", "<C-j>", smart_splits.move_cursor_down)
