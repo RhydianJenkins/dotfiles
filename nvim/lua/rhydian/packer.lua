@@ -1,4 +1,6 @@
-if vim.loader then vim.loader.enable() end
+if vim.loader then
+    vim.loader.enable()
+end
 
 local ensure_packer = function()
     local fn = vim.fn

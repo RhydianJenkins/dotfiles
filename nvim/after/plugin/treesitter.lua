@@ -1,4 +1,11 @@
-require("nvim-treesitter.configs").setup({
+local present, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+
+if not present then
+    print("treesitter plugin not found")
+    return
+end
+
+treesitter_configs.setup({
     ensure_installed = {
         "php",
         "javascript",
@@ -28,11 +35,8 @@ require("nvim-treesitter.configs").setup({
     },
     rainbow = {
         enable = true,
-        extended_mode = true,  -- also highlight non-bracket delimiters
-        max_file_lines = 5000, -- do not enable for files with more than n lines
-        -- disable = { "jsx", "cmp" } -- list of languages you want to ignore
-        -- colors = {} -- table of hex colours
-        -- termcoors = {} -- table of color name strings
+        extended_mode = true,
+        max_file_lines = 5000,
     },
     incremental_selection = {
         enable = true,

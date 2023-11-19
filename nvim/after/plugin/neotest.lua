@@ -46,10 +46,10 @@ end, { desc = "Jump to next test" })
 neotest.setup({
     adapters = {
         require("neotest-plenary"),
-        require("neotest-rust") {
+        require("neotest-rust")({
             -- requires cargo-nextest installed on system
             args = { "--no-capture" },
-        },
+        }),
         require("neotest-phpunit")({
             phpunit_cmd = function()
                 local vendorPaths = {
