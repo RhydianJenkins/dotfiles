@@ -58,3 +58,6 @@ keymap("n", "<F11>", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debug ste
 
 -- Delete, don't cut
 keymap("n", "x", '"_x', { desc = "Remove char without copying to clipboard" })
+
+-- Netrw
+vim.keymap.set("n", "<C-b>", function() vim.cmd("Explore") end, { desc = "Open NetRw" })
