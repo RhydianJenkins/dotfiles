@@ -19,7 +19,7 @@ local on_attach = function(bufnr)
 
     map("<CR>", api.node.open.no_window_picker, "Open: No window Picker")
     map("<Tab>", api.node.open.preview, "Open Preview")
-    map("<BS>", api.node.navigate.parent_close, "Close Directory")
+    map("-", api.node.navigate.parent_close, "Close Directory")
     map("a", api.fs.create, "Add/Create")
     map("c", api.fs.copy.node, "Copy")
     map("d", api.fs.remove, "Delete")
