@@ -22,6 +22,4 @@ jobs:
       - name: Running luacheck
         uses: lunarmodules/luacheck@v0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: latest
           args: --config nvim/.luacheckrc .
