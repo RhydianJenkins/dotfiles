@@ -39,7 +39,7 @@ return require("packer").startup(function(use)
 
     use({ "ntpeters/vim-better-whitespace" })
 
-    use({ "j-hui/fidget.nvim", tag = "legacy" })
+    use({ "j-hui/fidget.nvim" })
 
     use({ "lewis6991/gitsigns.nvim" })
 
