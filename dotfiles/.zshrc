@@ -72,4 +72,5 @@ fi
 # set keyboard repeat rate
 if [ -f /usr/bin/xset ]; then
   xset r rate 200 40
+  xset s off
 fi
