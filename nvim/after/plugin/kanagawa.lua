@@ -30,8 +30,7 @@ kanagawa.setup({
 vim.cmd("colorscheme kanagawa")
 
 -- remove background color from certain elements
-vim.cmd("hi LineNr guibg=bg")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#8f8f8f" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 vim.opt.fillchars = { eob = " " }
