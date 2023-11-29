@@ -49,7 +49,7 @@ if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
 fi
 
 if [ ! -d $HOME/.fzf ]; then
-    echo "Missing fzf, installing in ~/.fzf" # also usable in bash
+    echo "Missing fzf, installing in ~/.fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fi
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -61,15 +61,13 @@ eval `ssh-agent -s` &> /dev/null
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Load tmuxifier if present in PATH
 if type -p "tmuxifier" >/dev/null; then
     [ -f $HOME/.tmuxifier ] && source $HOME/.tmuxifier
 fi
 
-# set keyboard repeat rate
 if [ -f /usr/bin/xset ]; then
   xset r rate 200 40
   xset s off
