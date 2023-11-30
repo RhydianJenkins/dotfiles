@@ -43,6 +43,21 @@ vim.keymap.set("n", "]t", function()
     neotest.jump.next()
 end, { desc = "Jump to next test" })
 
+---@param paths table<string>
+---@return string|nil
+local function find_path_that_exists(paths)
+    for _, path in ipairs(paths) do
+        local file = io.open(path, "r")
+        if file ~= nil then
+            io.close(file)
+            return path
+        end
+    end
+
+    print("No path found in " .. vim.inspect(paths))
+    return nil
+end
+
 neotest.setup({
     adapters = {
         require("neotest-plenary"),
@@ -52,28 +67,25 @@ neotest.setup({
         }),
         require("neotest-phpunit")({
             phpunit_cmd = function()
-                local vendorPaths = {
-                    "vendor/bin/phpunit",
+                return find_path_that_exists({
+                    vim.fn.getcwd() .. "/vendor/bin/phpunit",
                     "/var/basekit/vendor/bin/phpunit",
-                }
-
-                for _, path in ipairs(vendorPaths) do
-                    local file = io.open(path, "r")
-                    if file ~= nil then
-                        io.close(file)
-                        return path
-                    end
-                end
-
-                print("phpunit not found")
+                })
             end,
         }),
         require("neotest-jest")({
             jestCommand = "npm test --",
-            jestConfigFile = "jest.config.js",
+            jestConfigFile = function()
+                return find_path_that_exists({
+                    vim.fn.getcwd() .. "/jest.config.js",
+                    vim.fn.getcwd() .. "/jest.config.ts",
+                    "/var/basekit/connect/jest.config.js",
+                    "/var/basekit/connect/jest.config.ts",
+                })
+            end,
             env = { CI = true },
             cwd = function()
-                return vim.fn.getcwd()
+                return vim.fn.getcwd() .. "/connect"
             end,
         }),
         require("neotest-vim-test")({
