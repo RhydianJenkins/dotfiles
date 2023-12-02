@@ -74,7 +74,10 @@ return require("packer").startup(function(use)
         requires = "neovim/nvim-lspconfig",
     })
 
-    use({ "feline-nvim/feline.nvim" })
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    })
 
     use({
         "akinsho/bufferline.nvim",
