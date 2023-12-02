@@ -5,7 +5,7 @@ if not present then
     return
 end
 
-lualine.setup {
+lualine.setup({
     options = {
         icons_enabled = true,
         theme = "auto",
@@ -44,4 +44,4 @@ lualine.setup {
     winbar = {},
     inactive_winbar = {},
     extensions = {},
-}
+})
