@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
 
     use({ "rebelot/kanagawa.nvim" })
 
-    use({ "scrooloose/nerdcommenter" })
+    use({ "numToStr/Comment.nvim" })
 
     use({ "APZelos/blamer.nvim" })
 
