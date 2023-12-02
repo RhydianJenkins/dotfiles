@@ -17,6 +17,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "Stop trailing whitespace",
+    group = vim.api.nvim_create_augroup("StripWhitespaceGroup", {}),
+    callback = function()
+        vim.cmd("StripWhitespaceOnChangedLines")
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "EsLint fix on save",
     group = vim.api.nvim_create_augroup("EsLintFormattingGroup", { clear = true }),
     pattern = {
