@@ -39,8 +39,6 @@ return require("packer").startup(function(use)
 
     use({ "APZelos/blamer.nvim" })
 
-    use({ "ntpeters/vim-better-whitespace" })
-
     use({ "j-hui/fidget.nvim" })
 
     use({ "lewis6991/gitsigns.nvim" })
