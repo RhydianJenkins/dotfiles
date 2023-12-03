@@ -1,7 +1,5 @@
 local keymap = vim.keymap.set
 
-vim.g.mapleader = " "
-
 -- CTRL + a to select all
 keymap("n", "<C-a>", "ggVG", { desc = "Select all" })
 

@@ -1,6 +1,7 @@
 -- Disable netrw to avoid race conditions (using nvimtree instead)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.mapleader = " "
 
 vim.o.nu = true
 vim.o.relativenumber = true
