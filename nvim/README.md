@@ -15,16 +15,15 @@ cargo install --git https://github.com/MordechaiHadad/bob.git
 bob install v0.9.2
 ```
 
-# Config
+# Installation
 
-1. Copy files from this directory into `$HOME/.config/nvim`.
-2. Open `nvim` and run `:PackerSync`.
+1. Copy/symlink files from this directory into `$HOME/.config/nvim`.
+2. Open `nvim` and wait for plugins to be installed
 3. Restart `nvim` and you should be ready to go.
 
 # Wishlist
 
 - Better vi(m) compatibility
-- Symfony support, with some better PHP intelesense.
 
 # GitHub Copilot
 

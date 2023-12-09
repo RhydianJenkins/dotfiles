@@ -32,7 +32,7 @@ copilot.setup({
         enabled = true,
     },
     ft_disable = { "markdown", "terraform", "help" },
-    plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
+    plugin_manager_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim",
 })
 
 copilot_cmp.setup()
