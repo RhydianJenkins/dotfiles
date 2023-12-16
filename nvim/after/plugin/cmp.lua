@@ -22,6 +22,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
+vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#48E0CE" })
 
 local source_mapping = {
     buffer = "[Buf]",
@@ -30,6 +31,7 @@ local source_mapping = {
     cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[CP]",
+    codeium = "[CD]",
     luasnip = "[Snip]",
 }
 
@@ -77,6 +79,7 @@ cmp.setup({
         { name = "nvim_lua" },
         { name = "copilot" },
         { name = "cmp_tabnine" },
+        { name = "codeium" },
         { name = "path" },
     }, {
         { name = "buffer" },
@@ -96,13 +99,14 @@ cmp.setup({
                 vim_item.kind = ""
             end
 
+            if entry.source.name == "codeium" then
+                vim_item.kind_hl_group = "CmpItemKindCodeium"
+                vim_item.kind = ""
+            end
+
             if entry.source.name == "buffer" then
                 vim_item.kind_hl_group = "CmpItemKindBuffer"
                 vim_item.kind = "﬘"
-            end
-
-            if entry.source.name == "luasnip" then
-                vim_item.kind = ""
             end
 
             vim_item.menu = menu
