@@ -72,22 +72,18 @@ cmp.setup({
         end, { "i", "s" }),
     }),
 
-    sources = cmp.config.sources(
-        {
-            { name = "nvim_lsp" },
-            { name = "nvim_lua" },
-            { name = "luasnip" },
-        },
-        {
-            { name = "copilot" },
-            { name = "cmp_tabnine" },
-            { name = "codeium" },
-        },
-        {
-            { name = "path" },
-            { name = "buffer" },
-        }
-    ),
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+        { name = "luasnip" },
+    }, {
+        { name = "copilot" },
+        { name = "cmp_tabnine" },
+        { name = "codeium" },
+    }, {
+        { name = "path" },
+        { name = "buffer" },
+    }),
 
     formatting = {
         format = function(entry, vim_item)
