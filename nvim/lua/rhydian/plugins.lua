@@ -72,6 +72,14 @@ return {
     },
 
     {
+        "sourcegraph/sg.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    },
+
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
