@@ -40,11 +40,13 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
+
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
     },
+
     mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
 
@@ -68,22 +70,25 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
+    }),
 
-        ["<C-n>"] = cmp.mapping(function(fallback)
-            fallback()
-        end, { "i", "s" }),
-    }),
-    sources = cmp.config.sources({
-        { name = "luasnip" },
-        { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "copilot" },
-        { name = "cmp_tabnine" },
-        { name = "codeium" },
-        { name = "path" },
-    }, {
-        { name = "buffer" },
-    }),
+    sources = cmp.config.sources(
+        {
+            { name = "nvim_lsp" },
+            { name = "nvim_lua" },
+            { name = "luasnip" },
+        },
+        {
+            { name = "copilot" },
+            { name = "cmp_tabnine" },
+            { name = "codeium" },
+        },
+        {
+            { name = "path" },
+            { name = "buffer" },
+        }
+    ),
+
     formatting = {
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
@@ -117,7 +122,10 @@ cmp.setup({
             return vim_item
         end,
     },
-    experimental = { ghost_text = true },
+
+    experimental = {
+        ghost_text = true,
+    },
 })
 
 cmp.setup.filetype("gitcommit", {
