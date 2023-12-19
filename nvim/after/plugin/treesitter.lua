@@ -26,7 +26,9 @@ treesitter_configs.setup({
         "twig",
         "yaml",
     },
+    ignore_install = {},
     auto_install = true,
+    sync_install = false,
     highlight = {
         enable = true,
     },
@@ -46,4 +48,5 @@ treesitter_configs.setup({
             node_decremental = "S",
         },
     },
+    modules = {},
 })

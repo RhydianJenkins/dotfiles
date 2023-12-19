@@ -75,6 +75,7 @@ mason_null_ls.setup({
         function(source_name, methods)
             require("mason-null-ls.automatic_setup")(source_name, methods)
         end,
+        ---@diagnostic disable-next-line: unused-local
         phpcs = function(_source_name, _methods)
             local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
             local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
@@ -84,6 +85,7 @@ mason_null_ls.setup({
                 method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
             }))
         end,
+        ---@diagnostic disable-next-line: unused-local
         codespell = function(_source_name, _methods)
             null_ls.register(null_ls.builtins.diagnostics.codespell)
 
@@ -101,6 +103,8 @@ null_ls.setup({
     },
 })
 
+---@param client any
+---@param bufnr number
 local function on_attach(client, bufnr)
     require("illuminate").on_attach(client, bufnr)
 
@@ -126,6 +130,8 @@ local function on_attach(client, bufnr)
     end
 end
 
+---@param client any
+---@param bufnr number
 local function on_attach_with_format(client, bufnr)
     vim.api.nvim_clear_autocmds({ group = format_au_group, buffer = bufnr })
     vim.api.nvim_create_autocmd("BufWritePre", {
