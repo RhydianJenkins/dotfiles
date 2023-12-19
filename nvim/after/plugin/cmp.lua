@@ -86,6 +86,8 @@ cmp.setup({
     }),
 
     formatting = {
+        fields = { "abbr", "kind", "menu" },
+        expandable_indicator = true,
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
