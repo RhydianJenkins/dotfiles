@@ -73,28 +73,6 @@ function purge_databases() {
     echo "Databases purged."
 }
 
-function make_commands() {
-    echo "Executing make targets..."
-
-    make migrate_all
-    make install_templates
-    make default_users
-    make update_brand
-    make connect_install_packages
-    make down
-    make up
-
-    echo "Make targets executed"
-}
-
-function scaffold() {
-    echo "Starting scaffolding..."
-
-    docker exec -it basekit_mysql_1 mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
-
-    echo "Scaffolding complete"
-}
-
 function restore_databases() {
     if (! confirm); then
         return 1;
@@ -102,9 +80,20 @@ function restore_databases() {
 
     bk
     purge_databases
-    make_commands
 
-    scaffold
+    echo "Executing make targets..."
+    make migrate_all
+    make install_templates
+    make default_users
+    make update_brand
+    make connect_install_packages
+    make down
+    make up
+    echo "Make targets executed"
+
+    echo "Starting scaffolding..."
+    docker exec -it basekit_mysql_1 mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
+    echo "Scaffolding complete"
 }
 
 # load custom_functions file if exists
