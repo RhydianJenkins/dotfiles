@@ -12,9 +12,8 @@ whichkey.register({
         t = { "Telescope/Test" },
         r = { "Replace/Rename" },
         w = { "Window controls" },
-        m = { "Add harpoon mark" },
-        h = { "See harpoon marks" },
         ["<leader>"] = {
+            name = "Swap buffers...",
             h = { "Swap buffer left" },
             j = { "Swap buffer down" },
             k = { "Swap buffer up" },
