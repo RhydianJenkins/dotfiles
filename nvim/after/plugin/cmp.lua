@@ -22,6 +22,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
+vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#48E0CE" })
 
 local source_mapping = {
     buffer = "[Buf]",
@@ -30,6 +31,7 @@ local source_mapping = {
     cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[CP]",
+    codeium = "[CD]",
     luasnip = "[Snip]",
 }
 
@@ -38,11 +40,13 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
+
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
     },
+
     mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
 
@@ -66,21 +70,21 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
-
-        ["<C-n>"] = cmp.mapping(function(fallback)
-            fallback()
-        end, { "i", "s" }),
     }),
+
     sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
+        { name = "luasnip" },
+    }, {
         { name = "copilot" },
         { name = "cmp_tabnine" },
-        { name = "path" },
+        { name = "codeium" },
     }, {
+        { name = "path" },
         { name = "buffer" },
     }),
+
     formatting = {
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
@@ -96,6 +100,11 @@ cmp.setup({
                 vim_item.kind = ""
             end
 
+            if entry.source.name == "codeium" then
+                vim_item.kind_hl_group = "CmpItemKindCodeium"
+                vim_item.kind = ""
+            end
+
             if entry.source.name == "buffer" then
                 vim_item.kind_hl_group = "CmpItemKindBuffer"
                 vim_item.kind = "﬘"
@@ -109,7 +118,10 @@ cmp.setup({
             return vim_item
         end,
     },
-    experimental = { ghost_text = true },
+
+    experimental = {
+        ghost_text = true,
+    },
 })
 
 cmp.setup.filetype("gitcommit", {
