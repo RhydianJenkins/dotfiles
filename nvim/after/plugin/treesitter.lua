@@ -25,6 +25,7 @@ treesitter_configs.setup({
         "svelte",
         "twig",
         "yaml",
+        "jsdoc",
     },
     ignore_install = {},
     auto_install = true,
