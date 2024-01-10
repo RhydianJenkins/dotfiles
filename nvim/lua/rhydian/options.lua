@@ -27,7 +27,7 @@ vim.o.updatetime = 50
 vim.opt.shortmess:append("c")
 vim.o.mouse = "a"
 vim.o.mousemoveevent = true
-vim.o.clipboard = "unnamed,unnamedplus"
+vim.o.clipboard = "unnamedplus"
 vim.o.laststatus = 3
 vim.o.ignorecase = true
 vim.o.smartcase = true
