@@ -130,6 +130,10 @@ local function on_attach(client, bufnr)
     end
 end
 
+lspconfig.lsp_test.setup({
+    on_attach = on_attach,
+})
+
 ---@param client any
 ---@param bufnr number
 local function on_attach_with_format(client, bufnr)
