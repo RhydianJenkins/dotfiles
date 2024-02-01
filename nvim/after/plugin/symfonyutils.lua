@@ -6,7 +6,11 @@ if not present then
 end
 
 symfony_utils.setup({
-    search_dirs = {
+    class_dirs = {
+        "connect",
+        "library/BaseKit",
+    },
+    yaml_dirs = {
         "connect/app",
         "config/di",
     },
