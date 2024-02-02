@@ -9,7 +9,7 @@ symfony_utils.setup({
     class_dirs = {
         "connect",
         "library/BaseKit",
-        "plugins/ecommerce",
+        "plugins/ecommerce/src",
     },
     yaml_dirs = {
         "connect/app",
