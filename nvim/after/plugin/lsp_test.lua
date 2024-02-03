@@ -1,7 +1,5 @@
-local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 local configs = require("lspconfig.configs")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 if not configs.symfony_lsp then
     configs.symfony_lsp = {
