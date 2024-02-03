@@ -130,10 +130,6 @@ local function on_attach(client, bufnr)
     end
 end
 
-lspconfig.lsp_test.setup({
-    on_attach = on_attach,
-})
-
 ---@param client any
 ---@param bufnr number
 local function on_attach_with_format(client, bufnr)
@@ -150,6 +146,10 @@ local function on_attach_with_format(client, bufnr)
 
     return on_attach(client, bufnr)
 end
+
+lspconfig.symfony_lsp.setup({
+    on_attach = on_attach,
+})
 
 mason_lspconfig.setup_handlers({
     function(server)
