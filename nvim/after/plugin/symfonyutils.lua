@@ -23,6 +23,7 @@ symfony_utils.setup({
         "library/BaseKit",
         "plugins/ecommerce/src",
         "control/src",
+        "editor/src",
     },
     yaml_dirs = {
         "connect/app",
