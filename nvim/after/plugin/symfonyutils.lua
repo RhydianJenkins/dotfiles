@@ -24,6 +24,7 @@ symfony_utils.setup({
         "plugins/ecommerce/src",
         "control/src",
         "editor/src",
+        "api/src",
     },
     yaml_dirs = {
         "connect/app",
