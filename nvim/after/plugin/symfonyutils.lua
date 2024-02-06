@@ -30,6 +30,7 @@ symfony_utils.setup({
         "connect/app",
         "config/di",
     },
+    enable_telescope = true,
 })
 
 vim.keymap.set("n", "gsd", "<cmd>GoToSymfonyDefinition<CR>", { desc = "[G]o to [S]ymfony [D]efinition" })
