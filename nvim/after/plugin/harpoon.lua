@@ -17,8 +17,7 @@ harpoon.setup({})
 
 map("<leader>m", function() harpoon:list():append() end, "Add mark")
 map("<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Toggle quick menu")
-map("<leader>1", function() harpoon:list():select(1) end, "Navigate to mark 1")
-map("<leader>2", function() harpoon:list():select(2) end, "Navigate to mark 2")
-map("<leader>3", function() harpoon:list():select(3) end, "Navigate to mark 3")
-map("<leader>4", function() harpoon:list():select(4) end, "Navigate to mark 4")
-map("<leader>5", function() harpoon:list():select(5) end, "Navigate to mark 5")
+
+for i = 1, 5 do
+    map("<leader>" .. i, function() harpoon:list():select(i) end, "Navigate to mark " .. i)
+end
