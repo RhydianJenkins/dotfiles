@@ -147,7 +147,7 @@ local function on_attach_with_format(client, bufnr)
     return on_attach(client, bufnr)
 end
 
-lspconfig.symfony_lsp.setup({
+lspconfig.symfony_ls.setup({
     on_attach = on_attach,
 })
 

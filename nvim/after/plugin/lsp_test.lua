@@ -1,11 +1,11 @@
 local util = require("lspconfig.util")
 local configs = require("lspconfig.configs")
 
-if not configs.symfony_lsp then
-    configs.symfony_lsp = {
+if not configs.symfony_ls then
+    configs.symfony_ls = {
         default_config = {
-            cmd = { "symfony_lsp" },
-            filetypes = { "php", "yml", "yaml" },
+            cmd = { "symfony_ls" },
+            filetypes = { "lua", "php", "yml", "yaml" },
             root_dir = util.find_git_ancestor,
         },
     }
