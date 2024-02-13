@@ -177,6 +177,11 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach_with_format,
         })
     end,
+    ["gopls"] = function()
+        lspconfig.gopls.setup({
+            on_attach = on_attach_with_format,
+        })
+    end,
     ["sqlls"] = function()
         lspconfig.sqlls.setup({
             on_attach = on_attach,
