@@ -68,6 +68,7 @@ return {
             "haydenmeade/neotest-jest",
             "olimorris/neotest-phpunit",
             "rouge8/neotest-rust",
+            "nvim-neotest/neotest-go",
         },
     },
 

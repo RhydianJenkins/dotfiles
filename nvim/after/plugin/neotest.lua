@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>tf", function()
 end, { desc = "[T]est [f]ile" })
 
 vim.keymap.set("n", "<leader>tl", function()
-    neotest.neotest.run.run_last()
+    neotest.run.run_last()
 end, { desc = "[T]est [l]ast" })
 
 vim.keymap.set("n", "<leader>to", function()
@@ -91,5 +91,6 @@ neotest.setup({
         require("neotest-vim-test")({
             ignore_file_types = { "js", "ts", "jsx", "tsx", "php" },
         }),
+        require("neotest-go"),
     },
 })
