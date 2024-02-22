@@ -9,6 +9,7 @@ alias des='desktop'
 alias desktop="cd ~/Desktop"
 alias docs='documents'
 alias documents="cd ~/Documents"
+alias downloads="cd ~/Downloads"
 
 # utility
 alias c='clear'
