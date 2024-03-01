@@ -6,7 +6,7 @@ return {
         build = "make",
     },
 
-    "nvim-tree/nvim-tree.lua",
+    -- "nvim-tree/nvim-tree.lua",
 
     {
         "nvim-treesitter/nvim-treesitter",
