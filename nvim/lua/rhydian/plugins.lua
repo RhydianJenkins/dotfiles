@@ -119,4 +119,6 @@ return {
     },
 
     "rhydianjenkins/symfonyutils",
+
+    "kevinhwang91/nvim-bqf",
 }
