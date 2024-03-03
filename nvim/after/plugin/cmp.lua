@@ -43,30 +43,32 @@ cmp.setup({
         end,
     },
 
-    mapping = cmp.mapping.preset.insert({
-        ["<C-Space>"] = cmp.mapping.complete(),
+    mapping = cmp.mapping.preset.insert({}),
 
-        ["<C-e>"] = cmp.mapping.abort(),
-
-        -- set select to true to also confirm even if not explicitly selected
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-    }),
+    -- mapping = cmp.mapping.preset.insert({
+    --     ["<C-Space>"] = cmp.mapping.complete(),
+    --
+    --     ["<C-e>"] = cmp.mapping.abort(),
+    --
+    --     -- set select to true to also confirm even if not explicitly selected
+    --     ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    --
+    --     ["<Tab>"] = cmp.mapping(function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_next_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end, { "i", "s" }),
+    --
+    --     ["<S-Tab>"] = cmp.mapping(function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_prev_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end, { "i", "s" }),
+    -- }),
 
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -106,7 +108,7 @@ cmp.setup({
     },
 
     experimental = {
-        ghost_text = true,
+        ghost_text = false,
     },
 })
 
