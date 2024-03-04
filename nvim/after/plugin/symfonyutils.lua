@@ -20,6 +20,7 @@ symfony_utils.setup({
         "connect/app/webhooks/src",
         "connect/app/webhooks/tests",
         "connect/src",
+        "config/di/connect",
         "library/BaseKit",
         "plugins/ecommerce/src",
         "control/src",
