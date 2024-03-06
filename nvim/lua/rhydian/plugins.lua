@@ -126,4 +126,13 @@ return {
             { "junegunn/fzf", run = "fzf#install" },
         },
     },
+
+    {
+        "sourcegraph/sg.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    },
+
 }
