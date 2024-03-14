@@ -29,6 +29,8 @@ return {
 
     "folke/which-key.nvim",
 
+    "folke/trouble.nvim",
+
     "kyazdani42/nvim-web-devicons",
 
     "rrethy/vim-illuminate",
