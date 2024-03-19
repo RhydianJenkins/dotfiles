@@ -102,16 +102,6 @@
     description = "Rhydian";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    #packages = with pkgs; [
-      #firefox
-      #neovim
-      #tldr
-      #dmenu
-      #xclip
-      #ripgrep
-      #rofi
-      #cargo
-    #];
   };
 
   # Enable automatic login for the user.

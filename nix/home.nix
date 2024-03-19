@@ -7,6 +7,15 @@ in {
     stateVersion = "23.11";
 
     packages = with pkgs; [
+      firefox
+      neovim
+      tldr
+      dmenu
+      xclip
+      ripgrep
+      rofi
+      cargo
+      gcc
       neovim
       wget
       neofetch
