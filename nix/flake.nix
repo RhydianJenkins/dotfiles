@@ -7,23 +7,22 @@
         };
     };
 
-    outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-    let
+    outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
         user = "rhydian";
     in {
-    nixosConfigurations.nixos-studio = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	specialArgs = {inherit inputs self user;};
-        modules = [
-            ./system/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.rhydian = import ./rhydian.nix;
-                home-manager.extraSpecialArgs = {inherit inputs self user;};
-            }
-        ];
-    };
+        nixosConfigurations.nixos-studio = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+	    specialArgs = {inherit inputs self user;};
+            modules = [
+                ./system/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.rhydian = import ./rhydian.nix;
+                    home-manager.extraSpecialArgs = {inherit inputs self user;};
+                }
+            ];
+        };
     };
 }
