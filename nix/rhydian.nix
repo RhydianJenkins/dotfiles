@@ -11,6 +11,7 @@ in {
       wget
       wezterm
       neofetch
+      lazygit
     ];
   };
 }
