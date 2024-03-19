@@ -1,19 +1,25 @@
 {
-    description = "Rhydian's configuration flake";
-
     inputs = {
-        nixpkgs = {
-            url = "github:NixOS/nixpkgs/nixos-20.03";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = { self, nixpkgs }: {
-        packages.x86_64-linux.default = with import nixpkgs { system = "x86_64-linux"; };
-        stdenv.mkDerivation {
-            name = "hello";
-            src = self;
-            buildPhase = "gcc -o hello ./hello.c";
-            installPhase = "mkdir -p $out/bin; install -t $out/bin hello";
-        };
+    outputs = { self, nixpkgs home-manager ... }:
+    let
+        user = "rhydian";
+    in {
+        modules = [
+            ./system/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.titus = import ./config/home.nix;
+                home-manager.extraSpecialArgs = {inherit inputs self user;};
+            }
+        ];
     };
 }
