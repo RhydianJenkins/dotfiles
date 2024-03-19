@@ -9,7 +9,6 @@ in {
     packages = with pkgs; [
       neovim
       wget
-      wezterm
       neofetch
       lazygit
     ];
@@ -18,20 +17,15 @@ in {
   programs = {
     home-manager.enable = true;
 
+    wezterm = {
+      enable = true;
+      package = pkgs.wezterm;
+    };
+
     git = {
       enable = true;
       userName = "Rhydian Jenkins";
       userEmail = "rhydz@msn.com";
-    };
-
-    zsh = {
-      enableAutosuggestions = true;
-      shellAliases = {
-        c = "clear";
-        ll = "ls -la";
-        lg = "lazygit";
-        gs = "git status";
-      };
     };
   };
 

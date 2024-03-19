@@ -85,20 +85,33 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    shellAliases = {
+       c = "clear";
+       ll = "ls -la";
+       lg = "lazygit";
+       gs = "git status";
+    };
+  };
+
   users.users.rhydian = {
     isNormalUser = true;
     description = "Rhydian";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      neovim
-      tldr
-      dmenu
-      xclip
-      ripgrep
-      rofi
-      cargo
-    ];
+    shell = pkgs.zsh;
+    #packages = with pkgs; [
+      #firefox
+      #neovim
+      #tldr
+      #dmenu
+      #xclip
+      #ripgrep
+      #rofi
+      #cargo
+    #];
   };
 
   # Enable automatic login for the user.
@@ -120,6 +133,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    curl
     git
   ];
 
@@ -155,7 +169,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
