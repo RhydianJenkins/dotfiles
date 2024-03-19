@@ -5,15 +5,15 @@ in {
   #   ./packages
   # ];
 
-  fonts.fontconfig.enable = true;
+  # fonts.fontconfig.enable = true;
 
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
+  # xdg = {
+  #  enable = true;
+  #  userDirs = {
+  #    enable = true;
+  #    createDirectories = true;
+  #  };
+  #};
 
   home = {
     username = "${username}";
