@@ -10,7 +10,7 @@
     outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
         user = "rhydian";
     in {
-        nixosConfigurations.nixos-studio = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.rhydian = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
 	    specialArgs = {inherit inputs self user;};
             modules = [
