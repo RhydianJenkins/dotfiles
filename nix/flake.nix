@@ -19,7 +19,7 @@
                 {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.rhydian = import ./rhydian.nix;
+                    home-manager.users.rhydian = import ./home.nix;
                     home-manager.extraSpecialArgs = {inherit inputs self user;};
                 }
             ];
