@@ -17,7 +17,7 @@
             {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.titus = import ./config/home.nix;
+                home-manager.users.rhydian = import ./config/rhydian.nix;
                 home-manager.extraSpecialArgs = {inherit inputs self user;};
             }
         ];
