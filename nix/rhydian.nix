@@ -9,6 +9,7 @@ in {
     packages = with pkgs; [
       neovim
       wget
+      wezterm
       neofetch
     ];
   };
