@@ -31,6 +31,7 @@ plugins=(
     ssh-agent
     zsh-autosuggestions
     zsh-syntax-highlighting
+    nix-zsh-completions
 )
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
@@ -46,6 +47,11 @@ fi
 if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
     echo "Missing zsh-syntax-highlighting plugin. Installing..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${PLUGINS_DIR}"/zsh-syntax-highlighting
+fi
+
+if [ ! -d "${PLUGINS_DIR}/nix-zsh-completions" ]; then
+    echo "Missing nix-zsh-completions plugin. Installing..."
+    git clone https://github.com/nix-community/nix-zsh-completions.git "${PLUGINS_DIR}"/nix-zsh-completions
 fi
 
 if [ ! -d $HOME/.fzf ]; then
