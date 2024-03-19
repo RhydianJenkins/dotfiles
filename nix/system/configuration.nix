@@ -5,17 +5,20 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable flakes + nix cli
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      warn-dirty = false;
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -53,9 +56,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "gb";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -84,18 +87,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    shellAliases = {
-       c = "clear";
-       ll = "ls -la";
-       lg = "lazygit";
-       gs = "git status";
-    };
-  };
+  programs.zsh.enable = true;
 
   users.users.rhydian = {
     isNormalUser = true;
@@ -125,9 +117,14 @@
     wget
     curl
     git
+    xclip
+    gcc
+    unzip
+    python3
+    nodejs_21
   ];
 
-  fonts = {                           
+  fonts = {
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk

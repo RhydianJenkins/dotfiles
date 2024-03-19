@@ -11,15 +11,11 @@ in {
       neovim
       tldr
       dmenu
-      xclip
       ripgrep
       rofi
       cargo
-      gcc
-      neovim
-      wget
-      neofetch
       lazygit
+      neofetch
     ];
   };
 
@@ -38,7 +34,5 @@ in {
     };
   };
 
-  services = {
-    gpg-agent.enable = true;
-  };
+  services.gpg-agent.enable = true;
 }

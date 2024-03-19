@@ -1,5 +1,10 @@
 local present, tabnine = pcall(require, "cmp_tabnine.config")
 
+if not executable('rg') then
+    print("tabnine not found in $PATH")
+    return
+end
+
 if not present then
     print("tabnine plugin not found")
     return
