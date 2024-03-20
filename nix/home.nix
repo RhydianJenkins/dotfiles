@@ -10,7 +10,6 @@ in {
       firefox
       neovim
       tldr
-      dmenu
       ripgrep
       rofi
       cargo
