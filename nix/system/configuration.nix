@@ -138,6 +138,16 @@
     unzip
     python3
     nodejs_21
+    wezterm
+    firefox
+    rofi
+    neovim
+    ripgrep
+    tldr
+    cargo
+    lazygit
+    neofetch
+    haskellPackages.greenclip
   ];
 
   fonts = {
