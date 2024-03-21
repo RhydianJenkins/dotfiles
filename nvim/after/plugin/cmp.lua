@@ -20,7 +20,6 @@ end
 require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#d61577" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
 vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#48E0CE" })
 
@@ -28,7 +27,6 @@ local source_mapping = {
     buffer = "[Buf]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
-    cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[CP]",
     codeium = "[CD]",
@@ -78,7 +76,6 @@ cmp.setup({
         { name = "luasnip" },
     }, {
         { name = "copilot" },
-        { name = "cmp_tabnine" },
         { name = "codeium" },
     }, {
         { name = "path" },
@@ -91,11 +88,6 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
-
-            if entry.source.name == "cmp_tabnine" then
-                vim_item.kind_hl_group = "CmpItemKindTabnine"
-                vim_item.kind = ""
-            end
 
             if entry.source.name == "copilot" then
                 vim_item.kind_hl_group = "CmpItemKindCopilot"

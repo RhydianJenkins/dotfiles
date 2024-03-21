@@ -96,11 +96,6 @@ return {
         },
     },
 
-    {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-    },
-
     "folke/neodev.nvim",
 
     {
