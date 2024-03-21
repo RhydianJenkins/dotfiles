@@ -183,7 +183,7 @@ mode "resize" {
 }
 
 bar {
-    i3bar_command /usr/bin/i3bar
+    i3bar_command i3bar
     status_command i3status --config ~/.config/i3/i3status.conf
     tray_output primary
     position bottom
