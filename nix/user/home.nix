@@ -20,7 +20,8 @@ in {
     home.file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
     home.file.".wezterm.lua".source = ../../dotfiles/.wezterm.lua;
     home.file.".zshrc".source = ../../dotfiles/.zshrc;
-    # home.file.".config/i3".source = ../../i3;
+    home.file.".config/i3".source = ../../i3;
+    home.file.".config/nvim".source = ../../nvim;
 
     services.gpg-agent.enable = true;
 
