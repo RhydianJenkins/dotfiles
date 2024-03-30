@@ -79,6 +79,7 @@
         isNormalUser = true;
         description = "Rhydian";
         extraGroups = [ "networkmanager" "wheel" ];
+        shell = pkgs.zsh;
     };
 
     services.xserver.displayManager.autoLogin.enable = true;
