@@ -79,7 +79,6 @@
         isNormalUser = true;
         description = "Rhydian";
         extraGroups = [ "networkmanager" "wheel" ];
-        shell = pkgs.zsh;
     };
 
     services.xserver.displayManager.autoLogin.enable = true;
@@ -109,8 +108,29 @@
         cargo
         lazygit
         neofetch
+        fzf-zsh
         haskellPackages.greenclip
     ];
+
+    programs = {
+        zsh = {
+            enable = true;
+            syntaxHighlighting.enable = true;
+            ohMyZsh = {
+                enable = true;
+                theme = "gallois";
+                plugins = [
+                    "git"
+                    "tmux"
+                    "docker"
+                    "nvm"
+                    "colorize"
+                    "ssh-agent"
+                ];
+            };
+        };
+    };
+
 
     fonts = {
         packages = with pkgs; [
