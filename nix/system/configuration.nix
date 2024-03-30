@@ -107,6 +107,8 @@
         ripgrep
         tldr
         cargo
+        rustup
+        rustc
         lazygit
         neofetch
         fzf-zsh
