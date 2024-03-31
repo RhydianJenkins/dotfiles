@@ -113,6 +113,7 @@
         lazygit
         neofetch
         fzf-zsh
+        pass
         haskellPackages.greenclip
     ];
 
