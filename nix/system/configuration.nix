@@ -101,6 +101,7 @@
         python3
         nodejs_21
         wezterm
+        brave
         firefox
         rofi
         neovim
