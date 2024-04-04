@@ -114,6 +114,9 @@
         neofetch
         fzf-zsh
         pass
+        gnumake
+        docker
+        go
         haskellPackages.greenclip
     ];
 
