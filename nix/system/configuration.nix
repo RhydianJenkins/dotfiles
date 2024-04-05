@@ -92,32 +92,7 @@
     environment.pathsToLink = [ "/libexec" ];
 
     environment.systemPackages = with pkgs; [
-        wget
-        curl
-        git
-        xclip
-        gcc
-        unzip
-        python3
-        nodejs_21
-        wezterm
-        brave
-        firefox
-        rofi
-        neovim
-        ripgrep
-        tldr
-        cargo
-        rustup
-        rustc
-        lazygit
-        neofetch
-        fzf-zsh
-        pass
-        gnumake
-        docker
-        go
-        haskellPackages.greenclip
+        vim
     ];
 
     programs = {
