@@ -162,7 +162,10 @@ mason_lspconfig.setup_handlers({
                         version = "LuaJIT",
                     },
                     diagnostics = {
-                        globals = { "vim" },
+                        globals = {
+                            "vim",
+                            "ngx",
+                        },
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
