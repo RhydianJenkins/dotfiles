@@ -55,6 +55,7 @@ return {
             "rcarriga/nvim-dap-ui",
             "theHamsta/nvim-dap-virtual-text",
             "leoluz/nvim-dap-go",
+            "nvim-neotest/nvim-nio",
         },
     },
 
@@ -94,11 +95,6 @@ return {
         dependencies = {
             "rafamadriz/friendly-snippets",
         },
-    },
-
-    {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
     },
 
     "folke/neodev.nvim",

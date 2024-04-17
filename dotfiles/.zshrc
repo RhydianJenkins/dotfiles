@@ -25,31 +25,20 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 # $ZSH/plugins/ <- standard plugins dir
 # $ZSH_CUSTOM/plugins/ <- custom plugins dir
 plugins=(
-    git
-    nvm
-    colorize
-    ssh-agent
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    # managed by nix
 )
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
-[ -d ~/Pictures/Wallpapers ] && feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+
+if [ ! $ZSH_CUSTOM ]; then
+    ZSH_CUSTOM="$ZSH/custom"
+fi
 
 PLUGINS_DIR="$ZSH_CUSTOM/plugins"
 
-if [ ! -d "${PLUGINS_DIR}/zsh-autosuggestions" ]; then
-    echo "Missing zsh-autosuggestions plugin. Installing..."
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${PLUGINS_DIR}"/zsh-autosuggestions
-fi
-
-if [ ! -d "${PLUGINS_DIR}/zsh-syntax-highlighting" ]; then
-    echo "Missing zsh-syntax-highlighting plugin. Installing..."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting "${PLUGINS_DIR}"/zsh-syntax-highlighting
-fi
-
 if [ ! -d $HOME/.fzf ]; then
     echo "Missing fzf, installing in ~/.fzf"
+    echo "Be sure to `sudo ~/.fzf/install`"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fi
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -73,3 +62,6 @@ if [ -f /usr/bin/xset ]; then
 fi
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+# turn off annoying bell
+unsetopt BEEP

@@ -54,6 +54,10 @@ alias l='ls --color=auto -lF --group-directories-first'
 alias lr='ll -R' #  recursive ls
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
+# nix
+alias hm='$(cd ~/dotfiles/nix && home-manager switch --flake .)'
+alias nixrebuild='$(cd ~/dotfiles/nix && sudo nixos-rebuild switch --flake .)'
+
 # load custom_aliases file if exists
 if [ -f ~/.custom_aliases ]; then
     . ~/.custom_aliases
