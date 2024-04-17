@@ -86,7 +86,6 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "zbirenbaum/copilot.lua",
             "zbirenbaum/copilot-cmp",
-            "Exafunction/codeium.nvim",
         },
     },
 

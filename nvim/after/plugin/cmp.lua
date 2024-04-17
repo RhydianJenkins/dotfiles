@@ -21,7 +21,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
-vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#48E0CE" })
 
 local source_mapping = {
     buffer = "[Buf]",
@@ -29,7 +28,6 @@ local source_mapping = {
     nvim_lua = "[Lua]",
     path = "[Path]",
     copilot = "[CP]",
-    codeium = "[CD]",
     luasnip = "[Snip]",
 }
 
@@ -76,7 +74,6 @@ cmp.setup({
         { name = "luasnip" },
     }, {
         { name = "copilot" },
-        { name = "codeium" },
     }, {
         { name = "path" },
         { name = "buffer" },
@@ -92,11 +89,6 @@ cmp.setup({
             if entry.source.name == "copilot" then
                 vim_item.kind_hl_group = "CmpItemKindCopilot"
                 vim_item.kind = ""
-            end
-
-            if entry.source.name == "codeium" then
-                vim_item.kind_hl_group = "CmpItemKindCodeium"
-                vim_item.kind = ""
             end
 
             if entry.source.name == "buffer" then
