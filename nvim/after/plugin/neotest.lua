@@ -66,8 +66,15 @@ neotest.setup({
             args = { "--no-capture" },
         }),
         require("neotest-phpunit")({
+            root_files = { "composer.json", "phpunit.xml", "phpunit.xml.dist", ".github" },
+            filter_dirs = { "vendor" },
+            env = {
+                CONTAINER = "basekit-php-1",
+                REMOTE_PHPUNIT_BIN = "vendor/bin/phpunit",
+            },
             phpunit_cmd = function()
                 return find_path_that_exists({
+                    "/usr/local/bin/runtests.sh",
                     vim.fn.getcwd() .. "/vendor/bin/phpunit",
                     "/var/basekit/vendor/bin/phpunit",
                 })
