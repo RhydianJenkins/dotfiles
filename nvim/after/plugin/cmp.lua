@@ -68,7 +68,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },
-    }, {
+        { name = "zsh" },
         { name = "copilot" },
     }, {
         { name = "path" },

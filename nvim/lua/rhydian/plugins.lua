@@ -86,6 +86,7 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "zbirenbaum/copilot.lua",
             "zbirenbaum/copilot-cmp",
+            "tamago324/cmp-zsh",
         },
     },
 
@@ -94,6 +95,7 @@ return {
         dependencies = {
             "rafamadriz/friendly-snippets",
         },
+        build = "make install_jsregexp",
     },
 
     "folke/neodev.nvim",
