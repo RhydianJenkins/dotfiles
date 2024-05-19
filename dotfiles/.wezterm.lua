@@ -8,6 +8,8 @@ end
 config.check_for_updates = false
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
+config.use_fancy_tab_bar = false
+config.enable_scroll_bar = false
 config.window_padding = {
     left = 0,
     right = 0,
