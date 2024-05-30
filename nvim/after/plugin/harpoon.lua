@@ -1,29 +1,23 @@
-local present, harpoon = pcall(require, "harpoon")
+local harpoon_present, harpoon = pcall(require, "harpoon")
 
-if not present then
-    print("harpoon plugin not found")
+if not harpoon_present then
+    print("Harpoon plugin not found")
     return
 end
 
----@param mode "n" | "i" | "v"
 ---@param key string
----@param operation string
+---@param operation string|function
 ---@param desc string
-local function map(mode, key, operation, desc)
+local function map(key, operation, desc)
     local opts = { noremap = true, silent = true, desc = desc }
-    vim.api.nvim_set_keymap(mode, key, operation, opts)
+    vim.keymap.set("n", key, operation, opts)
 end
 
-map("n", "<leader>m", '<cmd>lua require("harpoon.mark").add_file()<CR>', "Add mark")
-map("n", "<leader>h", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', "Toggle quick menu")
-map("n", "<leader>1", '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', "Navigate to mark 1")
-map("n", "<leader>2", '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', "Navigate to mark 2")
-map("n", "<leader>3", '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', "Navigate to mark 3")
-map("n", "<leader>4", '<cmd>lua require("harpoon.ui").nav_file(4)<CR>', "Navigate to mark 4")
-map("n", "<leader>5", '<cmd>lua require("harpoon.ui").nav_file(5)<CR>', "Navigate to mark 5")
+harpoon.setup({})
 
-harpoon.setup({
-    menu = {
-        width = vim.api.nvim_win_get_width(0) - 5,
-    },
-})
+map("<leader>m", function() harpoon:list():append() end, "Add mark")
+map("<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Toggle quick menu")
+
+for i = 1, 5 do
+    map("<leader>" .. i, function() harpoon:list():select(i) end, "Navigate to mark " .. i)
+end

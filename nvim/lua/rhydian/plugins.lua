@@ -37,7 +37,7 @@ return {
 
     "onsails/lspkind.nvim",
 
-    "theprimeagen/harpoon",
+    { "theprimeagen/harpoon", branch = "harpoon2" },
 
     "norcalli/nvim-colorizer.lua",
 
