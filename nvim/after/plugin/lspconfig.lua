@@ -56,7 +56,6 @@ mason_lspconfig.setup({
         "dockerls",
         "html",
         "eslint",
-        "cssls",
         "sqlls",
         "bashls",
         "rust_analyzer",
