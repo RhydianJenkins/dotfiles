@@ -11,7 +11,9 @@ exec_always --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # Capture screenshot and copy to clipboard
-bindsym --release $alt+Shift+S exec --no-startup-id import /tmp/latest-screenshot.png && xclip -selection clipboard -t image/png -i /tmp/latest-screenshot.png
+bindsym --release $alt+Shift+S exec --no-startup-id import /tmp/latest-screenshot.png && \
+    pngquant --force --strip /tmp/latest-screenshot.png --output /tmp/latest-screenshot.png && \
+    xclip -selection clipboard -t image/png -i /tmp/latest-screenshot.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
