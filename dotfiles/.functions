@@ -87,12 +87,11 @@ function restore_databases() {
     make default_users
     make update_brand
     make connect_install_packages
-    make down
-    make up
+    make fresh
     echo "Make targets executed"
 
     echo "Starting scaffolding..."
-    docker exec -it basekit_mysql_1 mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
+    docker compose exec mysql mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
     echo "Scaffolding complete"
 }
 
