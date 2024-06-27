@@ -34,6 +34,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         "*.tsx",
     },
     callback = function()
-        vim.cmd("EslintFixAll")
+        if vim.fn.executable("EslintFixAll") == 1 then
+            vim.cmd("EslintFixAll")
+        end
     end,
 })
