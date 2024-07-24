@@ -33,6 +33,8 @@ return {
 
     "kyazdani42/nvim-web-devicons",
 
+    "echasnovski/mini.icons",
+
     "rrethy/vim-illuminate",
 
     "onsails/lspkind.nvim",
