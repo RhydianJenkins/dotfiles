@@ -1,4 +1,10 @@
 local present, neotest = pcall(require, "neotest")
+local dap_status, dap = pcall(require, "dap")
+
+if not dap_status then
+    print("dap plugin not found")
+    return
+end
 
 if not present then
     print("neotest plugin not found")
@@ -69,9 +75,11 @@ neotest.setup({
             root_files = { "composer.json", "phpunit.xml", "phpunit.xml.dist", ".github" },
             filter_dirs = { "vendor" },
             env = {
-                CONTAINER = "basekit-php-1",
+                CONTAINER = "basekit-php_xdebug-1",
+                XDEBUG_CONFIG = "idekey=PHPSTORM",
                 REMOTE_PHPUNIT_BIN = "vendor/bin/phpunit",
             },
+            dap = dap.configurations.php[1],
             phpunit_cmd = function()
                 return find_path_that_exists({
                     "/usr/local/bin/runtests.sh",
