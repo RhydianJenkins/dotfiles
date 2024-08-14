@@ -57,3 +57,6 @@ set("n", "<F11>", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debug step o
 
 -- Delete, don't cut
 set("n", "x", '"_x', { desc = "Remove char without copying to clipboard" })
+
+-- Git blame
+set("n", "<leader>bt", "<cmd>BlamerToggle<CR>", { desc = "[B]lame [T]oggle" })
