@@ -7,10 +7,14 @@ end
 
 symfony_utils.setup({
     class_dirs = {
-        "connect/app/bookings/src",
-        "connect/app/bookings/tests",
+        "api/src",
+        "config/di/connect",
         "connect/app/bookings-checkout/src",
         "connect/app/bookings-checkout/tests",
+        "connect/app/bookings/src",
+        "connect/app/bookings/tests",
+        "connect/app/customer-account/src",
+        "connect/app/customer-account/tests",
         "connect/app/customer-manager/src",
         "connect/app/customer-manager/tests",
         "connect/app/dashboard/src",
@@ -20,12 +24,10 @@ symfony_utils.setup({
         "connect/app/webhooks/src",
         "connect/app/webhooks/tests",
         "connect/src",
-        "config/di/connect",
-        "library/BaseKit",
-        "plugins/ecommerce/src",
         "control/src",
         "editor/src",
-        "api/src",
+        "library/BaseKit",
+        "plugins/ecommerce/src",
     },
     yaml_dirs = {
         "connect/app",
