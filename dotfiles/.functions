@@ -53,33 +53,16 @@ function mstr() {
     echo $result | xclip
 }
 
-function purge_databases() {
-    echo "Recreating all basekit databases..."
-
-    local dropSqlCommands=(
-        "DROP DATABASE IF EXISTS basekit;"
-        "DROP DATABASE IF EXISTS basekit_sites;"
-        "DROP DATABASE IF EXISTS basekit_plugin_blog;"
-        "DROP DATABASE IF EXISTS basekit_plugin_ecommerce;"
-        "DROP DATABASE IF EXISTS basekit_plugin_menu;"
-        "DROP DATABASE IF EXISTS basekit_connect;"
-        "DROP DATABASE IF EXISTS basekit_connect_bookings;"
-        "DROP DATABASE IF EXISTS basekit_customer_manager;"
-    )
-    docker-compose run --rm mysql mysql -h mysql -e "${dropSqlCommands[*]}"
-
-    make create_databases
-
-    echo "Databases purged."
-}
-
 function restore_databases() {
     if (! confirm); then
         return 1;
     fi
 
     bk
-    purge_databases
+
+    if (type purge_databases &> /dev/null); then
+        purge_databases
+    fi
 
     echo "Executing make targets..."
     make migrate_all
