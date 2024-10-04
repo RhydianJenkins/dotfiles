@@ -5,6 +5,26 @@
         ./hardware-configuration.nix
     ];
 
+    environment.systemPackages = with pkgs; [
+        curl
+        docker
+        bluez
+        blueman
+        firefox
+        fzf-zsh
+        gcc
+        git
+        haskellPackages.greenclip
+        neofetch
+        python3
+        ripgrep
+        rofi
+        vim
+        wezterm
+        wget
+        xclip
+    ];
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
@@ -38,6 +58,7 @@
         displayManager.autoLogin.user = "rhydian";
         openssh.enable = true;
         printing.enable = true;
+        blueman.enable = true;
 
         xserver = {
             enable = true;
@@ -79,6 +100,7 @@
 
     console.keyMap = "uk";
     hardware.pulseaudio.enable = false;
+    hardware.bluetooth.enable = false;
     security.rtkit.enable = true;
 
     users.users.rhydian = {
@@ -92,10 +114,6 @@
     systemd.services."autovt@tty1".enable = false;
     nixpkgs.config.allowUnfree = true;
     environment.pathsToLink = [ "/libexec" ];
-
-    environment.systemPackages = with pkgs; [
-        vim
-    ];
 
     programs = {
         zsh = {

@@ -7,32 +7,17 @@ in {
         stateVersion = "23.11";
 
         packages = with pkgs; [
-            blueman
             brave
             cargo
             codespell
-            curl
-            docker
-            firefox
-            fzf-zsh
-            gcc
-            git
             gnumake
             go
-            haskellPackages.greenclip
             lazygit
-            neofetch
             neovim
             nodejs_22
             pass
-            python3
-            ripgrep
-            rofi
             tldr
             unzip
-            wezterm
-            wget
-            xclip
         ];
     };
 
