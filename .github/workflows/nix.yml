@@ -14,4 +14,4 @@ jobs:
     - uses: cachix/install-nix-action@v25
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: nix flake check nix
+    - run: nix flake check
