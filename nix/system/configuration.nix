@@ -8,7 +8,6 @@
     environment.systemPackages = with pkgs; [
         curl
         docker
-        bluez
         blueman
         firefox
         fzf-zsh
@@ -100,7 +99,10 @@
 
     console.keyMap = "uk";
     hardware.pulseaudio.enable = false;
-    hardware.bluetooth.enable = false;
+    hardware.bluetooth = {
+        enable = true;
+        package = pkgs.bluez;
+    };
     security.rtkit.enable = true;
 
     users.users.rhydian = {
