@@ -7,29 +7,32 @@ in {
         stateVersion = "23.11";
 
         packages = with pkgs; [
-            wget
-            curl
-            git
-            xclip
-            gcc
-            unzip
-            python3
-            wezterm
+            blueman
             brave
-            firefox
-            rofi
-            neovim
-            ripgrep
-            tldr
             cargo
-            lazygit
-            neofetch
-            fzf-zsh
-            pass
-            gnumake
+            codespell
+            curl
             docker
+            firefox
+            fzf-zsh
+            gcc
+            git
+            gnumake
             go
             haskellPackages.greenclip
+            lazygit
+            neofetch
+            neovim
+            nodejs_22
+            pass
+            python3
+            ripgrep
+            rofi
+            tldr
+            unzip
+            wezterm
+            wget
+            xclip
         ];
     };
 
@@ -44,9 +47,6 @@ in {
     home.file.".zshrc".source = ../../dotfiles/.zshrc;
     home.file.".config/i3".source = ../../i3;
     home.file.".config/nvim".source = ../../nvim;
-
-    # Converted
-    # home.file.".wezterm.lua".source = ../../dotfiles/.wezterm.lua;
 
     services.gpg-agent.enable = true;
 

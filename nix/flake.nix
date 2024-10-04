@@ -12,7 +12,7 @@
         lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
     in {
-        nixosConfigurations.system = lib.nixosSystem {
+        nixosConfigurations.nixos = lib.nixosSystem {
             inherit system;
             modules = [ ./system/configuration.nix ];
         };

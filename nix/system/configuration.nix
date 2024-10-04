@@ -33,52 +33,53 @@
         LC_TIME = "en_GB.UTF-8";
     };
 
-    services.xserver = {
-        enable = true;
-        autorun = true;
-        autoRepeatDelay = 200;
-        autoRepeatInterval = 40;
-
-        desktopManager = {
-            xterm.enable = false;
-        };
-
-        displayManager = {
-            lightdm.enable = true;
-        };
-
-        windowManager.i3 = {
-            enable = true;
-            extraPackages = with pkgs; [
-                dmenu
-                i3status
-                i3lock
-                i3blocks
-            ];
-        };
-
-        xkb = {
-            layout = "gb";
-            variant = "";
-        };
-    };
-
     services = {
         displayManager.autoLogin.enable = true;
         displayManager.autoLogin.user = "rhydian";
+        openssh.enable = true;
+        printing.enable = true;
+
+        xserver = {
+            enable = true;
+            autorun = true;
+            autoRepeatDelay = 200;
+            autoRepeatInterval = 40;
+
+            desktopManager = {
+                xterm.enable = false;
+            };
+
+            displayManager = {
+                lightdm.enable = true;
+            };
+
+            windowManager.i3 = {
+                enable = true;
+                extraPackages = with pkgs; [
+                    dmenu
+                    i3status
+                    i3lock
+                    i3blocks
+                ];
+            };
+
+            xkb = {
+                layout = "gb";
+                variant = "";
+            };
+        };
+
+        pipewire = {
+            enable = true;
+            alsa.enable = true;
+            alsa.support32Bit = true;
+            pulse.enable = true;
+        };
     };
 
     console.keyMap = "uk";
-    services.printing.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
-
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-    };
 
     users.users.rhydian = {
         isNormalUser = true;
@@ -137,6 +138,5 @@
         };
     };
 
-    services.openssh.enable = true;
     system.stateVersion = "23.11";
 }
