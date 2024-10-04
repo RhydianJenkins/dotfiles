@@ -36,13 +36,14 @@
     services.xserver = {
         enable = true;
         autorun = true;
+        autoRepeatDelay = 200;
+        autoRepeatInterval = 40;
 
         desktopManager = {
             xterm.enable = false;
         };
 
         displayManager = {
-            defaultSession = "none+i3";
             lightdm.enable = true;
         };
 
@@ -62,9 +63,13 @@
         };
     };
 
+    services = {
+        displayManager.autoLogin.enable = true;
+        displayManager.autoLogin.user = "rhydian";
+    };
+
     console.keyMap = "uk";
     services.printing.enable = true;
-    sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
 
@@ -82,10 +87,6 @@
         shell = pkgs.zsh;
     };
 
-    services.xserver.displayManager.autoLogin.enable = true;
-    services.xserver.displayManager.autoLogin.user = "rhydian";
-    services.xserver.autoRepeatDelay = 200;
-    services.xserver.autoRepeatInterval = 40;
     systemd.services."getty@tty1".enable = false;
     systemd.services."autovt@tty1".enable = false;
     nixpkgs.config.allowUnfree = true;

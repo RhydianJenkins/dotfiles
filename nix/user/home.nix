@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, inputs, ...}: let
     username = "rhydian";
 in {
     home = {
@@ -14,7 +14,6 @@ in {
             gcc
             unzip
             python3
-            nodejs_21
             wezterm
             brave
             firefox
@@ -23,8 +22,6 @@ in {
             ripgrep
             tldr
             cargo
-            rustup
-            rustc
             lazygit
             neofetch
             fzf-zsh
@@ -44,12 +41,19 @@ in {
     home.file.".inputrc".source = ../../dotfiles/.inputrc;
     home.file.".tmux.conf".source = ../../dotfiles/.tmux.conf;
     home.file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
-    home.file.".wezterm.lua".source = ../../dotfiles/.wezterm.lua;
     home.file.".zshrc".source = ../../dotfiles/.zshrc;
     home.file.".config/i3".source = ../../i3;
-    # home.file.".config/nvim".source = ../../nvim;
+    home.file.".config/nvim".source = ../../nvim;
+
+    # Converted
+    # home.file.".wezterm.lua".source = ../../dotfiles/.wezterm.lua;
 
     services.gpg-agent.enable = true;
 
     programs.home-manager.enable = true;
+
+    programs.wezterm = {
+        enable = true;
+        extraConfig = builtins.readFile ../../dotfiles/.wezterm.lua;
+    };
 }
