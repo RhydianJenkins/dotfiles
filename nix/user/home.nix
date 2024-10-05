@@ -12,6 +12,9 @@ in {
             codespell
             gnumake
             go
+            keybase
+            kbfs
+            keybase-gui
             lazygit
             neovim
             nodejs_22
@@ -38,6 +41,9 @@ in {
         enable = true;
         pinentryPackage = pkgs.pinentry-all;
     };
+
+    services.keybase.enable = true;
+    services.kbfs.enable = true;
 
     programs.home-manager.enable = true;
 
