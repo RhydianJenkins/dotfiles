@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script is intended to make switching between laptop and external displays easier when using i3+dmenu
 # To run this script, map it to some shortcut in your i3 config, e.g:
