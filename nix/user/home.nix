@@ -12,13 +12,14 @@ in {
             codespell
             gnumake
             go
-            keybase
             kbfs
+            keybase
             keybase-gui
             lazygit
             neovim
             nodejs_22
             pass
+            spotify
             tldr
             typescript
             unzip
@@ -51,4 +52,6 @@ in {
         enable = true;
         extraConfig = builtins.readFile ../../dotfiles/.wezterm.lua;
     };
+
+    nixpkgs.config.allowUnfree = true;
 }
