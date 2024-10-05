@@ -34,7 +34,10 @@ in {
     home.file.".config/i3".source = ../../i3;
     home.file.".config/nvim".source = ../../nvim;
 
-    services.gpg-agent.enable = true;
+    services.gpg-agent = {
+        enable = true;
+        pinentryPackage = pkgs.pinentry-all;
+    };
 
     programs.home-manager.enable = true;
 

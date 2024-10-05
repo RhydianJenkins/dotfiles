@@ -6,13 +6,14 @@
     ];
 
     environment.systemPackages = with pkgs; [
+        blueman
         curl
         docker
-        blueman
         firefox
         fzf-zsh
         gcc
         git
+        gnupg
         haskellPackages.greenclip
         neofetch
         python3
