@@ -17,6 +17,7 @@ in {
             nodejs_22
             pass
             tldr
+            typescript
             unzip
         ];
     };
