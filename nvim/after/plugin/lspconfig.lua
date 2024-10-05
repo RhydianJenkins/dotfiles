@@ -52,7 +52,7 @@ mason.setup()
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "dockerls",
         "html",
         "eslint",
