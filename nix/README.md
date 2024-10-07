@@ -3,13 +3,15 @@
 # Building
 
 ```sh
-# ensure nix has flakes and nix-command experimental features, if building for the first timec
+# ensure nix has flakes and nix-command experimental features, if building for the first time
 sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.rhydian.config.system.build.toplevel
 
+# to update the lock file later on
+nix flake update
+
+# from this nix dir, apply system config
 sudo nixos-rebuild switch --flake .
 
-# ... to update the lock file later on:
-nix flake update
 ```
 
 # Home Manager
@@ -22,6 +24,6 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 nix-shell '<home-manager>' -A install
 
-# then to apply home config
+# from this nix dir, apply home config
 home-manager switch --flake .
 ```
