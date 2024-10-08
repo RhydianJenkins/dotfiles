@@ -1,10 +1,6 @@
 name: Nix
 
-on:
-  push:
-    paths:
-      # - nix/**
-      - ./**
+on: [push]
 
 jobs:
 
