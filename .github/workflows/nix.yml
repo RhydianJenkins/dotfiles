@@ -3,6 +3,7 @@ name: Nix
 on: [push]
 
 jobs:
+  working-directory: ./nix
 
   Check:
     runs-on: ubuntu-latest
@@ -12,9 +13,7 @@ jobs:
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/cache@v3
-      working-directory: ./nix
       with:
         path: /nix/store
         key: ${{ runner.os }}-nix-${{ hashFiles('flake.nix', 'system/configuration.nix', 'user/home.nix') }}
     - run: nix flake check --no-build
-      working-directory: ./nix
