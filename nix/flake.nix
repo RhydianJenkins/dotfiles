@@ -19,6 +19,8 @@
             modules = [ ./system/configuration.nix ];
         };
 
+        WRONG
+
         homeConfigurations.rhydian = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ ./user/home.nix ];
