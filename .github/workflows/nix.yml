@@ -3,8 +3,6 @@ name: Nix
 on: [push]
 
 jobs:
-  working-directory: ./nix
-
   Check:
     runs-on: ubuntu-latest
     steps:
@@ -15,5 +13,5 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: /nix/store
-        key: ${{ runner.os }}-nix-${{ hashFiles('flake.nix', 'system/configuration.nix', 'user/home.nix') }}
-    - run: nix flake check --no-build
+        key: ${{ runner.os }}-nix-${{ hashFiles('nix/flake.nix', 'nix/system/configuration.nix', 'nix/user/home.nix') }}
+    - run: nix flake check nix --no-build
