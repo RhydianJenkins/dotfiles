@@ -14,4 +14,4 @@ jobs:
       with:
         path: /nix/store
         key: ${{ runner.os }}-nix-${{ hashFiles('nix/flake.nix', 'nix/system/configuration.nix', 'nix/user/home.nix') }}
-    - run: nix flake check nix --no-build
+    - run: nix flake check nix -L --no-build
