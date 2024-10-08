@@ -1,5 +1,7 @@
 # NixOS Config Flake
 
+Contains a system-level and user-level (managed by home-manager) flake that installs personal config.
+
 # Building
 
 ```sh
@@ -17,7 +19,6 @@ sudo nixos-rebuild switch --flake .
 # Home Manager
 
 https://nix-community.github.io/home-manager/index.xhtml#ch-installation
-
 
 ```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
