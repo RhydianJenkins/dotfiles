@@ -3,7 +3,8 @@ name: Nix
 on:
   push:
     paths:
-      - nix/**
+      # - nix/**
+      - ./**
 
 jobs:
 
