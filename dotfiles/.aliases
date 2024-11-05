@@ -28,7 +28,6 @@ alias lint='npm run lint'
 alias v='nvim .'
 alias xclip='xclip -selection clipboard'
 alias setrepeat='xset r rate 200 40'
-alias curl='curl --netrc-optional ~/.netrc'
 
 # docker
 alias dockerps='docker ps --format "table {{.Names}}\t{{.Status}}"'
