@@ -2,7 +2,7 @@ local set = vim.keymap.set
 local del = vim.keymap.del
 
 -- CTRL + a to select all
-set("n", "<C-a>", "ggVG", { desc = "Select all" })
+set("n", "<leader>a", "ggVG", { desc = "Select all" })
 
 -- CTRL + s to save
 set("n", "<C-s>", "<cmd>w<CR>", { desc = "[S]ave buffer" })
