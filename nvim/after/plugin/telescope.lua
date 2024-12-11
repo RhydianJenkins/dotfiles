@@ -19,14 +19,10 @@ telescope.setup({
             override_file_sorter = true,
             case_mode = "ignore_case",
         },
-        harpoon = {
-            file_browser = {
-                theme = themes.get_dropdown(),
-            },
-        },
     },
     pickers = {
         find_files = {
+            theme = "ivy",
             hidden = true,
         },
     },
