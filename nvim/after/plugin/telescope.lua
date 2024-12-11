@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 local themes = require("telescope.themes")
 local opts = { noremap = true, silent = true }
+local theme = "ivy"
 
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "harpoon")
@@ -8,7 +9,6 @@ pcall(telescope.load_extension, "harpoon")
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
 telescope.setup({
@@ -21,11 +21,17 @@ telescope.setup({
         },
     },
     pickers = {
+        help_tags = {
+            theme = theme,
+        },
+        lsp_references = {
+            theme = theme,
+        },
         live_grep = {
-            theme = "ivy",
+            theme = theme,
         },
         find_files = {
-            theme = "ivy",
+            theme = theme,
             hidden = true,
         },
     },
@@ -56,11 +62,14 @@ telescope.setup({
 })
 
 vim.keymap.set("n", "<leader>dot", function()
-    require("telescope.builtin").find_files({ cwd = "~/dotfiles", prompt_title = "~ Search Dotfiles ~" })
+    require("telescope.builtin").find_files({
+        cwd = "~/dotfiles",
+        prompt_title = "~ Search Dotfiles ~",
+    })
 end, { desc = "Search dotfiles" })
 
 vim.keymap.set("n", "<leader>/", function()
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    require("telescope.builtin").current_buffer_fuzzy_find(themes.get_dropdown({
         winblend = 10,
         previewer = false,
     }))
