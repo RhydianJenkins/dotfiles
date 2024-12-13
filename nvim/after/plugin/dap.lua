@@ -16,11 +16,3 @@ if not dapui_status then
 end
 
 dapui.setup()
-
-local dap_ghost_status, dap_ghost = pcall(require, "nvim-dap-virtual-text")
-if not dap_ghost_status then
-    print("dap ghost text plugin not found")
-    return
-end
-
-dap_ghost.setup()
