@@ -1,15 +1,20 @@
 local telescope = require("telescope")
-local themes = require("telescope.themes")
 local opts = { noremap = true, silent = true }
 local theme = "ivy"
 
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "harpoon")
 
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+function region_to_text(region)
+    local text = ""
+    local maxcol = vim.v.maxcol
+    for line, cols in vim.spairs(region) do
+        local endcol = cols[2] == maxcol and -1 or cols[2]
+        local chunk = vim.api.nvim_buf_get_text(0, line, cols[1], line, endcol, {})[1]
+        text = ("%s%s\n"):format(text, chunk)
+    end
+    return text
+end
 
 telescope.setup({
     extensions = {
@@ -73,8 +78,14 @@ vim.keymap.set("n", "<leader>dot", function()
 end, { desc = "Search dotfiles" })
 
 vim.keymap.set("n", "<leader>/", function()
-    require("telescope.builtin").current_buffer_fuzzy_find(themes.get_dropdown({
-        winblend = 10,
-        previewer = false,
-    }))
-end, { desc = "Fuzzily search in current buffer" })
+    local word = vim.fn.expand("<cword>")
+    require("telescope.builtin").grep_string({
+        search = word,
+        default_text = word,
+    })
+end, { desc = "Perform a global search for word under cursor" })
+
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
+vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
+vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
