@@ -115,7 +115,7 @@ local function on_attach(client, bufnr)
         vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
 
-    nmap("<leader>a", "<cmd>Lspsaga code_action<CR>", "Code [a]ction")
+    nmap("<leader>ca", "<cmd>Lspsaga code_action<CR>", "Code [a]ction")
     nmap("<leader>rn", "<cmd>Lspsaga rename<CR>", "[R]e[n]ame")
     nmap("K", "<cmd>Lspsaga hover_doc<CR>", "Hover doc")
     nmap("gd", vim.lsp.buf.definition, "[G]o to [d]efinition")
