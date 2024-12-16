@@ -21,6 +21,9 @@ telescope.setup({
         lsp_references = {
             theme = theme,
         },
+        grep_string = {
+            theme = theme,
+        },
         live_grep = {
             theme = theme,
         },
