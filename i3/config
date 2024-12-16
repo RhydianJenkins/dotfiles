@@ -44,18 +44,16 @@ floating_maximum_size 3880 x 2160
 # window movement
 bindsym $alt+h focus left
 bindsym $alt+l focus right
-# bindsym $alt+Left focus left
-# bindsym $alt+Right focus right
 bindsym $alt+Down focus down
 bindsym $alt+Up focus up
-bindsym $alt+Shift+h move left 50
-bindsym $alt+Shift+j move down 50
-bindsym $alt+Shift+k move up 50
-bindsym $alt+Shift+l move right 50
-bindsym $alt+Shift+Left move left 50
-bindsym $alt+Shift+Down move down 50
-bindsym $alt+Shift+Up move up 50
-bindsym $alt+Shift+Right move right 50
+bindsym $alt+Shift+h move left 200
+bindsym $alt+Shift+j move down 200
+bindsym $alt+Shift+k move up 200
+bindsym $alt+Shift+l move right 200
+bindsym $alt+Shift+Left move left 200
+bindsym $alt+Shift+Down move down 200
+bindsym $alt+Shift+Up move up 200
+bindsym $alt+Shift+Right move right 200
 
 bindsym $alt+Return exec i3-sensible-terminal
 bindsym $alt+Shift+q kill
@@ -161,20 +159,30 @@ mode "$alte_system" {
 }
 
 mode "resize" {
+    # repeat of 'normal mode' movement
+    bindsym $alt+Shift+h move left 200
+    bindsym $alt+Shift+j move down 200
+    bindsym $alt+Shift+k move up 200
+    bindsym $alt+Shift+l move right 200
+    bindsym $alt+Shift+Left move left 200
+    bindsym $alt+Shift+Down move down 200
+    bindsym $alt+Shift+Up move up 200
+    bindsym $alt+Shift+Right move right 200
+
     # Pressing left will shrink the window’s width.
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 50 px or 50 ppt
-    bindsym j resize grow height 50 px or 50 ppt
-    bindsym k resize shrink height 50 px or 50 ppt
-    bindsym l resize grow width 50 px or 50 ppt
+    bindsym h resize shrink width 200 px or 200 ppt
+    bindsym j resize grow height 200 px or 200 ppt
+    bindsym k resize shrink height 200 px or 200 ppt
+    bindsym l resize grow width 200 px or 200 ppt
 
     # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 50 px or 50 ppt
-    bindsym Down resize grow height 50 px or 50 ppt
-    bindsym Up resize shrink height 50 px or 50 ppt
-    bindsym Right resize grow width 50 px or 50 ppt
+    bindsym Left resize shrink width 200 px or 200 ppt
+    bindsym Down resize grow height 200 px or 200 ppt
+    bindsym Up resize shrink height 200 px or 200 ppt
+    bindsym Right resize grow width 200 px or 200 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
