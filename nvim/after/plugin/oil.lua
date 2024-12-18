@@ -7,7 +7,8 @@ end
 
 oil.setup({
     keymaps = {
-        ["<C-p>"] = false, -- false means unset
+        ["<C-p>"] = false,
+        ["<C-s>"] = false,
     },
     view_options = {
         show_hidden = true,
