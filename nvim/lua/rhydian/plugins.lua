@@ -6,7 +6,10 @@ return {
         build = "make",
     },
 
-    "nvim-tree/nvim-tree.lua",
+    {
+        "stevearc/oil.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
     {
         "nvim-treesitter/nvim-treesitter",
