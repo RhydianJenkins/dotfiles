@@ -9,7 +9,7 @@ oil.setup({
     keymaps = {
         ["<C-p>"] = false,
         ["<C-s>"] = false,
-        ["<S-Y>"] = {
+        ["<leader>y"] = {
             desc = "Yank the full path to the clipboard",
             callback = require("oil.actions").copy_entry_path.callback,
         },
