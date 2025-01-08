@@ -8,7 +8,7 @@ end
 symfony_utils.setup({
     class_dirs = {
         "api/src",
-        "config/di/connect",
+        "config/di",
         "connect/app/bookings-checkout/src",
         "connect/app/bookings-checkout/tests",
         "connect/app/bookings/src",
