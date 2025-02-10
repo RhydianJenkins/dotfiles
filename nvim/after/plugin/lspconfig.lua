@@ -65,7 +65,6 @@ mason_lspconfig.setup({
 
 mason_null_ls.setup({
     ensure_installed = {
-        "codespell",
         "phpcs",
     },
     automatic_installation = true,
@@ -83,15 +82,6 @@ mason_null_ls.setup({
                 extra_args = extra_args,
                 method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
             }))
-        end,
-        ---@diagnostic disable-next-line: unused-local
-        codespell = function(_source_name, _methods)
-            null_ls.register(null_ls.builtins.diagnostics.codespell)
-
-            local fixOnSave = false
-            if fixOnSave then
-                null_ls.register(null_ls.builtins.formatting.codespell)
-            end
         end,
     },
 })
