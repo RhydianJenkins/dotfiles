@@ -17,10 +17,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "Stop trailing whitespace",
+    desc = "Strip trailing whitespace",
     group = vim.api.nvim_create_augroup("StripWhitespaceGroup", {}),
     callback = function()
-        vim.cmd("StripWhitespaceOnChangedLines")
+        if vim.fn.exists(":StripWhitespaceOnChangedLines") == 2 then
+            vim.cmd("StripWhitespaceOnChangedLines")
+        end
     end,
 })
 
