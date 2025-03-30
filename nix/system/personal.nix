@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-    imports = [
-        ./browsers.nix
-    ];
-
     # Personal-specific system settings
     environment.systemPackages = with pkgs; [
         # Personal applications

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    environment.systemPackages = with pkgs; [
+    home.packages = with pkgs; [
         thorium
         google-chrome
         firefox

@@ -2,7 +2,8 @@
 
 {
     imports = [
-        ../system/editors.nix
+        ./editors.nix
+        ./browsers.nix
     ];
 
     home.packages = with pkgs; [
