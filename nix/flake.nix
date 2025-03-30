@@ -14,38 +14,28 @@
         lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
     in {
-        # System configurations
         nixosConfigurations = {
-            # Personal system configuration
             personal = lib.nixosSystem {
                 inherit system;
                 modules = [
                     ./system/configuration.nix
-                    ./system/personal.nix  # Personal-specific settings
+                    ./system/personal.nix
                 ];
             };
-
-            # Add more system configurations here as needed
         };
 
-        # Home configurations
         homeConfigurations = {
-            # Personal home configuration
             personal = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
                     ./user/home.nix
-                    ./user/personal.nix  # Personal-specific home settings
+                    ./user/personal.nix
                 ];
             };
-
-            # Add more home configurations here as needed
         };
 
-        # Development shell
         devShells.${system}.default = pkgs.mkShell {
             buildInputs = with pkgs; [
-                # Add development tools here
             ];
         };
     };

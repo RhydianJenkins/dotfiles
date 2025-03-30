@@ -7,12 +7,7 @@
     ];
 
     home.packages = with pkgs; [
-        alacritty
-        rofi
-        feh
-        tmux
-        ripgrep
-        fd
+        spotify
     ];
 
     programs = {

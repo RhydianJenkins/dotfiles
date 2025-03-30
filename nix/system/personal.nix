@@ -2,7 +2,11 @@
 
 {
     environment.systemPackages = with pkgs; [
-        spotify
+        fd
+        feh
+        ripgrep
+        rofi
+        tmux
     ];
 
     services = {
