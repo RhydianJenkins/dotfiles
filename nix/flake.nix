@@ -14,14 +14,53 @@
         lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
     in {
-        nixosConfigurations.nixos = lib.nixosSystem {
-            inherit system;
-            modules = [ ./system/configuration.nix ];
+        # System configurations
+        nixosConfigurations = {
+            # Personal system configuration
+            personal = lib.nixosSystem {
+                inherit system;
+                modules = [
+                    ./system/configuration.nix
+                    ./system/personal.nix  # Personal-specific settings
+                ];
+            };
+
+            # Work system configuration
+            work = lib.nixosSystem {
+                inherit system;
+                modules = [
+                    ./system/configuration.nix
+                    ./system/work.nix  # Work-specific settings
+                ];
+            };
         };
 
-        homeConfigurations.rhydian = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./user/home.nix ];
+        # Home configurations
+        homeConfigurations = {
+            # Personal home configuration
+            personal = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                modules = [
+                    ./user/home.nix
+                    ./user/personal.nix  # Personal-specific home settings
+                ];
+            };
+
+            # Work home configuration
+            work = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                modules = [
+                    ./user/home.nix
+                    ./user/work.nix  # Work-specific home settings
+                ];
+            };
+        };
+
+        # Development shell
+        devShells.${system}.default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+                # Add development tools here
+            ];
         };
     };
 }
