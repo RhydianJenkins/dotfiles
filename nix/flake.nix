@@ -25,14 +25,7 @@
                 ];
             };
 
-            # Work system configuration
-            work = lib.nixosSystem {
-                inherit system;
-                modules = [
-                    ./system/configuration.nix
-                    ./system/work.nix  # Work-specific settings
-                ];
-            };
+            # Add more system configurations here as needed
         };
 
         # Home configurations
@@ -46,14 +39,7 @@
                 ];
             };
 
-            # Work home configuration
-            work = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = [
-                    ./user/home.nix
-                    ./user/work.nix  # Work-specific home settings
-                ];
-            };
+            # Add more home configurations here as needed
         };
 
         # Development shell
