@@ -9,9 +9,9 @@
     ];
 
     programs = {
-        thorium = {
+        ungoogled-chromium = {
             enable = true;
-            package = pkgs.thorium;
+            package = pkgs.ungoogled-chromium;
         };
 
         firefox = {
@@ -37,16 +37,6 @@
                     };
                 };
             };
-        };
-
-        chrome = {
-            enable = true;
-            package = pkgs.google-chrome;
-        };
-
-        edge = {
-            enable = true;
-            package = pkgs.microsoft-edge;
         };
     };
 }

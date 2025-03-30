@@ -88,6 +88,7 @@
             xkb = {
                 layout = "gb";
                 variant = "";
+                options = "caps:escape";
             };
         };
 
