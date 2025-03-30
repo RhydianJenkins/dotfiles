@@ -11,8 +11,8 @@
         neovim = {
             enable = true;
             package = pkgs.neovim;
-            viAlias = true;  # Create 'vi' command that points to nvim
-            vimAlias = true; # Create 'vim' command that points to nvim
+            viAlias = true;
+            vimAlias = true;
         };
     };
 

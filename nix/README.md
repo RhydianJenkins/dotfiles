@@ -12,7 +12,7 @@ sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigu
 nix flake update
 
 # from this nix dir, apply system config
-sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .#personal
 
 ```
 
