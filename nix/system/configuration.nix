@@ -16,6 +16,7 @@
         gnupg
         haskellPackages.greenclip
         neofetch
+        pavucontrol
         python3
         ripgrep
         rofi
