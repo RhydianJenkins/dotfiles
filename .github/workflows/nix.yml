@@ -9,7 +9,6 @@ jobs:
 
   Check:
     runs-on: ubuntu-latest
-    working-directory: ./nix
     steps:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v25
@@ -19,5 +18,5 @@ jobs:
       with:
         path: /nix/store
         key: ${{ runner.os }}-nix-${{ hashFiles('flake.nix', 'system/configuration.nix', 'user/home.nix') }}
-    - run: nix build
     - run: nix flake check
+      working-directory: ./nix
