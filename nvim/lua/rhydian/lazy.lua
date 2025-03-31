@@ -14,4 +14,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("rhydian.plugins")
+require("lazy").setup({
+    lockfile = "~/.lazy/lazy-lock.json", -- nixOS doesn't give us write access to .config
+    spec = require("rhydian.plugins"),
+})
