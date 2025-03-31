@@ -2,18 +2,13 @@
 
 {
     home.packages = with pkgs; [
-        thorium
+        brave
+        # firefox
         google-chrome
-        firefox
         microsoft-edge
     ];
 
     programs = {
-        ungoogled-chromium = {
-            enable = true;
-            package = pkgs.ungoogled-chromium;
-        };
-
         firefox = {
             enable = true;
             package = pkgs.firefox;

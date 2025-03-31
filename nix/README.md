@@ -26,5 +26,5 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 # from this nix dir, apply home config
-home-manager switch --flake .
+home-manager switch --flake .#personal
 ```

@@ -54,7 +54,7 @@ alias lr='ll -R' #  recursive ls
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 # nix
-alias hm='$(cd ~/dotfiles/nix && home-manager switch --flake .)'
+alias hm='$(cd ~/dotfiles/nix && home-manager switch --flake .#personal)'
 alias nixrebuild='$(cd ~/dotfiles/nix && sudo nixos-rebuild switch --flake .#personal)'
 
 # load custom_aliases file if exists
