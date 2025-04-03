@@ -51,6 +51,7 @@ neodev.setup()
 mason.setup()
 
 mason_lspconfig.setup({
+    automatic_installation = true,
     ensure_installed = {
         "ts_ls",
         "dockerls",
@@ -59,6 +60,7 @@ mason_lspconfig.setup({
         "sqlls",
         "bashls",
         "rust_analyzer",
+        "intelephense",
         "lua_ls",
     },
 })
@@ -187,6 +189,18 @@ mason_lspconfig.setup_handlers({
                     vim.lsp.diagnostic.on_publish_diagnostics,
                     { virtual_text = false }
                 ),
+            },
+        })
+    end,
+    ["intelephense"] = function()
+        lspconfig.intelephense.setup({
+            on_attach = on_attach,
+            settings = {
+                intelephense = {
+                    stubs = {
+                        "redis",
+                    },
+                },
             },
         })
     end,
