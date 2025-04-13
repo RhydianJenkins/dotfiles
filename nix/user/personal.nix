@@ -21,6 +21,6 @@
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
-        BROWSER = "firefox";
+        BROWSER = "vivaldi";
     };
 }

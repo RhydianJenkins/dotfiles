@@ -3,9 +3,9 @@
 {
     home.packages = with pkgs; [
         brave
-        # firefox
         google-chrome
         microsoft-edge
+        vivaldi
     ];
 
     programs = {
