@@ -5,6 +5,9 @@ Contains a system-level and user-level (managed by home-manager) flake that inst
 # Building
 
 ```sh
+# copy hardware-configuration.nix in
+cp /etc/nixos/hardware-configuration.nix /path/to/dotfiles/nix/system
+
 # ensure nix has flakes and nix-command experimental features, if building for the first time
 sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.personal.config.system.build.toplevel
 
@@ -30,7 +33,7 @@ home-manager switch --flake .#personal
 
 # TODOs
 
-- hardware-configuration needs to point to /etc/nixos/hardware-configuration.nix
+- hardware-configuration needs to point to /etc/nixos/hardware-configuration.nix. I can't just gitignore it as flakes only deal with files tracked with git...
 - Home manager instructions are for latest. We shouldn't need to do all of that if we're pinning ourselves to a nixpkgs version (24.11 eg)
 - Swapfiles are janky, and can cause delays in boot
 - nix-shell doesn't currently support unfree
