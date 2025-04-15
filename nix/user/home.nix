@@ -6,14 +6,6 @@ in {
         ./browsers.nix
     ];
 
-    programs = {
-        git = {
-            enable = true;
-            userName = "Rhydian Jenkins";
-            userEmail = "rhydz@msn.com";
-        };
-    };
-
     home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -63,15 +55,18 @@ in {
         enable = true;
         pinentryPackage = pkgs.pinentry-all;
     };
-
     services.keybase.enable = true;
     services.kbfs.enable = true;
 
     programs.home-manager.enable = true;
-
     programs.wezterm = {
         enable = true;
         extraConfig = builtins.readFile ../../dotfiles/.wezterm.lua;
+    };
+    programs.git = {
+        enable = true;
+        userName = "Rhydian Jenkins";
+        userEmail = "rhydz@msn.com";
     };
 
     nixpkgs.config.allowUnfree = true;
