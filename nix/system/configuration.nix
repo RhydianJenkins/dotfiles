@@ -111,7 +111,7 @@
     users.users.rhydian = {
         isNormalUser = true;
         description = "Rhydian";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
         shell = pkgs.zsh;
     };
 
