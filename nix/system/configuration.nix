@@ -162,4 +162,5 @@
     };
 
     system.stateVersion = "23.11";
+    virtualisation.docker.enable = true;
 }
