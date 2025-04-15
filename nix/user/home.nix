@@ -23,6 +23,9 @@ in {
             tldr
             typescript
             unzip
+            slack
+            pngquant
+            imagemagick
         ];
     };
 
