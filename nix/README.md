@@ -6,10 +6,7 @@ Contains a system-level and user-level (managed by home-manager) flake that inst
 
 ```sh
 # ensure nix has flakes and nix-command experimental features, if building for the first time
-sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.rhydian.config.system.build.toplevel
-
-# to update the lock file later on
-nix flake update
+sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.personal.config.system.build.toplevel
 
 # from this nix dir, apply system config
 sudo nixos-rebuild switch --flake .#personal
@@ -21,6 +18,8 @@ sudo nixos-rebuild switch --flake .#personal
 https://nix-community.github.io/home-manager/index.xhtml#ch-installation
 
 ```sh
+# Caution
+# TODO this is pointing to the unstable home manager channel, where we don't really want that...
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
