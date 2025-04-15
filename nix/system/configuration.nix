@@ -124,10 +124,6 @@
         zsh = {
             enable = true;
             syntaxHighlighting.enable = true;
-            shellInit = ''
-                source /run/current-system/sw/share/zsh/plugins/fzf-zsh/fzf-zsh.plugin.zsh
-                bindkey '^R' fzf-history-widget
-            '';
             ohMyZsh = {
                 enable = true;
                 theme = "gallois";
