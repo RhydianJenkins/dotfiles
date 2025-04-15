@@ -32,7 +32,6 @@
                 inherit pkgs;
                 modules = [
                     ./user/home.nix
-                    ./user/personal.nix
                 ];
             };
         };

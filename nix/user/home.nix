@@ -1,17 +1,36 @@
 {pkgs, inputs, ...}: let
     username = "rhydian";
 in {
+    imports = [
+        ./editors.nix
+        ./browsers.nix
+    ];
+
+    programs = {
+        git = {
+            enable = true;
+            userName = "Rhydian Jenkins";
+            userEmail = "rhydz@msn.com";
+        };
+    };
+
     home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
         stateVersion = "23.11";
-
+        sessionVariables = {
+            EDITOR = "nvim";
+            VISUAL = "nvim";
+            BROWSER = "vivaldi";
+        };
         packages = with pkgs; [
             brave
             cargo
             codespell
+            git
             gnumake
             go
+            imagemagick
             kbfs
             keybase
             keybase-gui
@@ -19,26 +38,26 @@ in {
             neovim
             nodejs_22
             pass
+            pngquant
+            slack
+            spotify
             spotify
             tldr
             typescript
             unzip
-            slack
-            pngquant
-            imagemagick
         ];
-    };
 
-    # Install existing dotfiles
-    # These will evenaually be added to the nix home-manager declaration
-    home.file.".aliases".source = ../../dotfiles/.aliases;
-    home.file.".bashrc".source = ../../dotfiles/.bashrc;
-    home.file.".functions".source = ../../dotfiles/.functions;
-    home.file.".inputrc".source = ../../dotfiles/.inputrc;
-    home.file.".tmux.conf".source = ../../dotfiles/.tmux.conf;
-    home.file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
-    home.file.".zshrc".source = ../../dotfiles/.zshrc;
-    home.file.".config/i3".source = ../../i3;
+        # Install existing dotfiles
+        # These will evenaually be added to the nix home-manager declaration
+        file.".aliases".source = ../../dotfiles/.aliases;
+        file.".bashrc".source = ../../dotfiles/.bashrc;
+        file.".functions".source = ../../dotfiles/.functions;
+        file.".inputrc".source = ../../dotfiles/.inputrc;
+        file.".tmux.conf".source = ../../dotfiles/.tmux.conf;
+        file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
+        file.".zshrc".source = ../../dotfiles/.zshrc;
+        file.".config/i3".source = ../../i3;
+    };
 
     services.gpg-agent = {
         enable = true;
