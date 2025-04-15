@@ -27,3 +27,9 @@ nix-shell '<home-manager>' -A install
 # from this nix dir, apply home config
 home-manager switch --flake .#personal
 ```
+
+# TODOs
+
+- hardware-configuration needs to point to /etc/nixos/hardware-configuration.nix
+- Home manager instructions are for latest. We shouldn't need to do all of that if we're pinning ourselves to a nixpkgs version (24.11 eg)
+- Swapfiles are janky, and can cause delays in boot
