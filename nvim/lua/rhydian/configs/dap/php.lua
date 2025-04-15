@@ -8,7 +8,7 @@ end
 local phpDebugPath = vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/php-debug-adapter"
 
 if vim.fn.filereadable(phpDebugPath) == 0 then
-    print("No PHP debug adapter found")
+    -- No PHP debug adapter installed
     return
 end
 
@@ -33,7 +33,7 @@ dap.configurations.php = {
         },
         pathMappings = {
             -- 'server' = 'local'
-            -- ["/var/basekit"] = "/var/basekit",
+            ["/var/basekit"] = "~/code/basekit",
         },
     },
 }

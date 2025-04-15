@@ -8,7 +8,7 @@ end
 local codeLldbPath = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb"
 
 if vim.fn.filereadable(codeLldbPath) == 0 then
-    print("No codelldb adapter found")
+    -- No codelldb adapter installed
     return
 end
 
