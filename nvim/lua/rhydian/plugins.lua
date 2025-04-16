@@ -38,7 +38,9 @@ return {
 
     "echasnovski/mini.icons",
 
-    "rrethy/vim-illuminate",
+    -- TODO Rhydian
+    -- https://github.com/RRethy/vim-illuminate/issues/232
+    -- "rrethy/vim-illuminate",
 
     "onsails/lspkind.nvim",
 
@@ -68,7 +70,6 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
             "vim-test/vim-test",
             "nvim-neotest/neotest-vim-test",
             "nvim-neotest/neotest-plenary",

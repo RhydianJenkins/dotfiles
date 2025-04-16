@@ -27,7 +27,6 @@ in {
             keybase
             keybase-gui
             lazygit
-            neovim
             nodejs_22
             pass
             pngquant

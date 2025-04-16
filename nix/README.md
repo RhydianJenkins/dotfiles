@@ -25,9 +25,9 @@ https://nix-community.github.io/home-manager/index.xhtml#ch-installation
 # TODO this is pointing to the unstable home manager channel, where we don't really want that...
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
-nix-shell '<home-manager>' -A install
 
 # from this nix dir, apply home config
+nix-shell '<home-manager>' -A install
 home-manager switch --flake .#personal
 ```
 
