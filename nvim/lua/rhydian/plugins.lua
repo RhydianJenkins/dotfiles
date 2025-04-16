@@ -38,10 +38,6 @@ return {
 
     "echasnovski/mini.icons",
 
-    -- TODO Rhydian
-    -- https://github.com/RRethy/vim-illuminate/issues/232
-    -- "rrethy/vim-illuminate",
-
     "onsails/lspkind.nvim",
 
     "theprimeagen/harpoon",
