@@ -49,6 +49,10 @@ in {
         file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
         file.".zshrc".source = ../../dotfiles/.zshrc;
         file.".config/i3".source = ../../i3;
+        file.".config/blueman/blueman.conf".text = ''
+            [Plugins]
+            ConnectionNotifier=false
+        '';
     };
 
     services.gpg-agent = {
