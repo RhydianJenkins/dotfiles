@@ -26,6 +26,7 @@ in {
             kbfs
             keybase
             keybase-gui
+            lazydocker
             lazygit
             nodejs_22
             pass

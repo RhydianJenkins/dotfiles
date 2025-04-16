@@ -97,8 +97,6 @@ null_ls.setup({
 ---@param client any
 ---@param bufnr number
 local function on_attach(client, bufnr)
-    require("illuminate").on_attach(client, bufnr)
-
     local nmap = function(keys, func, desc)
         if desc then
             desc = "LSP: " .. desc
