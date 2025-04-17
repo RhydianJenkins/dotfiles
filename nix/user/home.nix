@@ -18,6 +18,7 @@ in {
         packages = with pkgs; [
             brave
             cargo
+            google-clasp
             codespell
             git
             gnumake
