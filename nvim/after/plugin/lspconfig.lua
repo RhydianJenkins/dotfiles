@@ -75,8 +75,7 @@ mason_null_ls.setup({
         function(source_name, methods)
             require("mason-null-ls.automatic_setup")(source_name, methods)
         end,
-        ---@diagnostic disable-next-line: unused-local
-        phpcs = function(_source_name, _methods)
+        phpcs = function(_, _)
             local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
             local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
 
@@ -94,9 +93,8 @@ null_ls.setup({
     },
 })
 
----@param client any
 ---@param bufnr number
-local function on_attach(client, bufnr)
+local function on_attach(_, bufnr)
     local nmap = function(keys, func, desc)
         if desc then
             desc = "LSP: " .. desc
