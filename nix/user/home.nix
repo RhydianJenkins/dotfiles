@@ -18,11 +18,11 @@ in {
         packages = with pkgs; [
             brave
             cargo
-            google-clasp
             codespell
             git
             gnumake
             go
+            google-clasp
             imagemagick
             kbfs
             keybase
@@ -38,6 +38,7 @@ in {
             tldr
             typescript
             unzip
+            warp-terminal
         ];
 
         # Install existing dotfiles
@@ -53,6 +54,10 @@ in {
         file.".config/blueman/blueman.conf".text = ''
             [Plugins]
             ConnectionNotifier=false
+        '';
+        # nix-shell -p uses the global nixpkgs config, not Home Manager settings
+        file.".config/nixpkgs/config.nix".text = ''
+          { allowUnfree = true; }
         '';
     };
 
