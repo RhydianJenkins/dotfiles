@@ -33,7 +33,7 @@ dap.configurations.php = {
         },
         pathMappings = {
             -- 'server' = 'local'
-            ["/var/basekit"] = "~/code/basekit",
+            ["/var/basekit"] = "/home/rhydian/code/basekit",
         },
     },
 }
