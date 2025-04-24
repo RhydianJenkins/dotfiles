@@ -84,16 +84,13 @@ neotest.setup({
             jestCommand = "npm test --",
             jestConfigFile = function()
                 return find_path_that_exists({
-                    "/var/basekit/connect/jest.config.js",
-                    "/var/basekit/connect/jest.config.ts",
+                    "~/code/basekit/connect/jest.config.js",
+                    "~/code/basekit/connect/jest.config.ts",
                     vim.fn.getcwd() .. "/jest.config.js",
                     vim.fn.getcwd() .. "/jest.config.ts",
                 })
             end,
             env = { CI = true },
-            cwd = function()
-                return vim.fn.getcwd() .. "/connect"
-            end,
         }),
         require("neotest-vim-test")({
             ignore_file_types = { "js", "ts", "jsx", "tsx", "php" },
