@@ -36,4 +36,3 @@ home-manager switch --flake .#personal
 - hardware-configuration needs to point to /etc/nixos/hardware-configuration.nix. I can't just gitignore it as flakes only deal with files tracked with git...
 - Home manager instructions are for latest. We shouldn't need to do all of that if we're pinning ourselves to a nixpkgs version (24.11 eg)
 - Swapfiles are janky, and can cause delays in boot
-- nix-shell doesn't currently support unfree
