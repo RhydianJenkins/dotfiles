@@ -22,18 +22,22 @@ in {
             git
             gnumake
             go
-            google-clasp
+            google-cloud-sdk
             imagemagick
+            kail
             kbfs
             keybase
             keybase-gui
+            kubectl
+            kubectx
             lazydocker
             lazygit
+            libreoffice-qt6-fresh
+            nautilus
             nodejs_22
             pass
             pngquant
             slack
-            spotify
             spotify
             tldr
             typescript
