@@ -10,26 +10,26 @@ if not status_cmp then
     return
 end
 
-vim.g.copilot_filetypes = {
-    ["*"] = false,
-    ["javascript"] = true,
-    ["typescript"] = true,
-    ["php"] = true,
-    ["lua"] = true,
-    ["rust"] = true,
-    ["c"] = true,
-    ["c#"] = true,
-    ["c++"] = true,
-    ["go"] = true,
-    ["python"] = true,
-}
-
 copilot.setup({
     cmp = {
         enabled = true,
     },
     ft_disable = { "markdown", "terraform", "help" },
     plugin_manager_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim",
+    filetypes = {
+        ["*"] = false,
+        ["c"] = true,
+        ["c#"] = true,
+        ["c++"] = true,
+        ["go"] = true,
+        ["javascript"] = true,
+        ["lua"] = true,
+        ["nix"] = true,
+        ["php"] = true,
+        ["python"] = true,
+        ["rust"] = true,
+        ["typescript"] = true,
+    },
 })
 
 copilot_cmp.setup()
