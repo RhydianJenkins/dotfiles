@@ -13,14 +13,14 @@
 in
     stdenv.mkDerivation rec {
         name = "tableplus";
-        version = "0.1.258";
+        version = "0.1.264";
 
         src =
             if stdenv.hostPlatform.system == "x86_64-linux"
                 then
                 pkgs.fetchurl {
                     url = "https://deb.tableplus.com/debian/22/pool/main/t/tableplus/tableplus_${version}_amd64.deb";
-                    sha256 = "sha256-n2p3pgZnlpc5EYFf+kcSjWFRMKq/XcWqUI+409VQMso";
+                    sha256 = "sha256-Jg6ayiHMje8Q8L916G4+yqNZefNFWKA1WZerPVutv8E=";
                 }
             else if stdenv.hostPlatform.system == "aarch64-linux"
                 then
