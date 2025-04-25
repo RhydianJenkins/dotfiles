@@ -1,5 +1,6 @@
 {pkgs, customPkgs, inputs, ...}: let
     username = "rhydian";
+    allPkgs = pkgs // customPkgs;
 in {
     imports = [
         ./browsers.nix
@@ -15,35 +16,35 @@ in {
             VISUAL = "nvim";
             BROWSER = "vivaldi";
         };
-        packages = [
-            customPkgs.customTableplus
-            pkgs.brave
-            pkgs.cargo
-            pkgs.codespell
-            pkgs.git
-            pkgs.gnumake
-            pkgs.go
-            pkgs.google-cloud-sdk
-            pkgs.imagemagick
-            pkgs.kail
-            pkgs.kbfs
-            pkgs.keybase
-            pkgs.keybase-gui
-            pkgs.kubectl
-            pkgs.kubectx
-            pkgs.lazydocker
-            pkgs.lazygit
-            pkgs.libreoffice-qt6-fresh
-            pkgs.nautilus
-            pkgs.nodejs_22
-            pkgs.pass
-            pkgs.pngquant
-            pkgs.slack
-            pkgs.spotify
-            pkgs.tldr
-            pkgs.typescript
-            pkgs.unzip
-            pkgs.warp-terminal
+        packages = with allPkgs; [
+            brave
+            cargo
+            codespell
+            customTableplus
+            git
+            gnumake
+            go
+            google-cloud-sdk
+            imagemagick
+            kail
+            kbfs
+            keybase
+            keybase-gui
+            kubectl
+            kubectx
+            lazydocker
+            lazygit
+            libreoffice-qt6-fresh
+            nautilus
+            nodejs_22
+            pass
+            pngquant
+            slack
+            spotify
+            tldr
+            typescript
+            unzip
+            warp-terminal
         ];
 
         # Install existing dotfiles
