@@ -32,6 +32,11 @@
                 inherit pkgs;
                 modules = [
                     ./user/home.nix
+                    ({ ... }: {
+                        _module.args.customPkgs = {
+                            customTableplus = pkgs.callPackage ./customPkgs/tableplus.nix {};
+                        };
+                    })
                 ];
             };
         };
