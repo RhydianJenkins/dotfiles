@@ -1,7 +1,4 @@
-{
-    stdenv,
-    pkgs,
-}: let
+{ stdenv, pkgs, }: let
     openldap_2_4 =
         (import (builtins.fetchTarball {
             url = "https://github.com/NixOS/nixpkgs/archive/20c060c763107b735f4635faa7722de02f461006.tar.gz";
@@ -49,29 +46,25 @@ in
         ];
 
         unpackPhase = ''
-      runHook preUnpack
-      dpkg-deb -x ${src} .
-      runHook postUnpack
-      '';
+            runHook preUnpack
+            dpkg-deb -x ${src} .
+            runHook postUnpack
+        '';
 
         installPhase = ''
-      runHook preInstall
+            runHook preInstall
+            mkdir -p "$out/bin"
+            mkdir -p "$out/share/applications"
+            cp "opt/tableplus/tableplus" "$out/bin/"
+            cp "opt/tableplus/tableplus.desktop" "$out/share/applications/"
+            cp -r "opt/tableplus/resource" "$out/"
+            substituteInPlace "$out/share/applications/tableplus.desktop" \
+            --replace "/usr/local/bin/tableplus" "$out/bin/tableplus" \
+            --replace "/opt/tableplus/resource/image/logo.png" "$out/resource/image/logo.png"
+            chmod -R g-w "$out"
+            runHook postInstall
+        '';
 
-      mkdir -p "$out/bin"
-      mkdir -p "$out/share/applications"
-
-      cp "opt/tableplus/tableplus" "$out/bin/"
-      cp "opt/tableplus/tableplus.desktop" "$out/share/applications/"
-      cp -r "opt/tableplus/resource" "$out/"
-
-      substituteInPlace "$out/share/applications/tableplus.desktop" \
-      --replace "/usr/local/bin/tableplus" "$out/bin/tableplus" \
-      --replace "/opt/tableplus/resource/image/logo.png" "$out/resource/image/logo.png"
-
-      chmod -R g-w "$out"
-
-      runHook postInstall
-      '';
         meta = with pkgs.lib; {
             description = "TablePlus - Native Database GUI for Linux";
             homepage = "https://tableplus.com/";
