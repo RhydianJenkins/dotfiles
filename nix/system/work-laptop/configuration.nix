@@ -6,24 +6,6 @@
     ];
 
     environment.systemPackages = with pkgs; [
-        blueman
-        curl
-        docker
-        firefox
-        fzf-zsh
-        gcc
-        git
-        gnupg
-        haskellPackages.greenclip
-        neofetch
-        pavucontrol
-        python3
-        ripgrep
-        rofi
-        vim
-        wezterm
-        wget
-        xclip
     ];
 
     boot.loader.systemd-boot.enable = true;

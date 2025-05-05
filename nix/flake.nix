@@ -18,11 +18,10 @@
         };
     in {
         nixosConfigurations = {
-            personal = lib.nixosSystem {
+            work-laptop = lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/configuration.nix
-                    ./system/personal.nix
+                    ./system/work-laptop/configuration.nix
                 ];
             };
         };
