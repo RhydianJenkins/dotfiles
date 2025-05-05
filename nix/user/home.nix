@@ -26,7 +26,6 @@ in {
             docker
             fd
             feh
-            fzf-zsh
             gcc
             git
             gnumake

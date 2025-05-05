@@ -6,6 +6,7 @@
     ];
 
     environment.systemPackages = with pkgs; [
+        fzf-zsh
     ];
 
     boot.loader.systemd-boot.enable = true;
