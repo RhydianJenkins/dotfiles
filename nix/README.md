@@ -9,10 +9,11 @@ Contains a system-level and user-level (managed by home-manager) flake that inst
 cp /etc/nixos/hardware-configuration.nix /path/to/dotfiles/nix/system
 
 # ensure nix has flakes and nix-command experimental features, if building for the first time
-sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.personal.config.system.build.toplevel
+# be sure to swap the config for the machine
+sudo nix --extra-experimental-features "nix-command flakes" build .#nixosConfigurations.work-laptop.config.system.build.toplevel
 
-# from this nix dir, apply system config
-sudo nixos-rebuild switch --flake .#personal
+# from this nix dir, apply system config (swapping the flake based on what machine you're on)
+sudo nixos-rebuild switch --flake .#work-laptop
 
 ```
 

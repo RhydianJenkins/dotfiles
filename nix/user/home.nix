@@ -17,14 +17,23 @@ in {
             BROWSER = "vivaldi";
         };
         packages = with allPkgs; [
+            blueman
             brave
             cargo
             codespell
+            curl
             customTableplus
+            docker
+            fd
+            feh
+            fzf-zsh
+            gcc
             git
             gnumake
+            gnupg
             go
             google-cloud-sdk
+            haskellPackages.greenclip
             imagemagick
             kail
             kbfs
@@ -36,15 +45,24 @@ in {
             lazygit
             libreoffice-qt6-fresh
             nautilus
+            neofetch
             nodejs_22
             pass
+            pavucontrol
             pngquant
+            ripgrep
+            rofi
             slack
             spotify
             tldr
+            tmux
             typescript
             unzip
+            vim
             warp-terminal
+            wezterm
+            wget
+            xclip
         ];
 
         # Install existing dotfiles
