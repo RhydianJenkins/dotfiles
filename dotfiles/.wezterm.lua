@@ -18,4 +18,27 @@ config.window_padding = {
 }
 config.front_end = "WebGpu"
 
+config.keys = {
+    -- Trigger debug overlay
+    {
+        key = 'L',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ShowDebugOverlay,
+    },
+
+    -- Vim-like navigation for copy mode
+    {
+        key = 'c',
+        mods = 'CTRL|SHIFT|ALT',
+        action = wezterm.action.ActivateCopyMode,
+    },
+
+    -- Spawn command palette
+    {
+        key = 'p',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ActivateCommandPalette,
+    },
+}
+
 return config
