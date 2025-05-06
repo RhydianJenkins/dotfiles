@@ -17,6 +17,7 @@ in {
             BROWSER = "vivaldi";
         };
         packages = with allPkgs; [
+            alsa-utils
             blueman
             brave
             cargo
@@ -38,6 +39,7 @@ in {
             kbfs
             keybase
             keybase-gui
+            killall
             kubectl
             kubectx
             lazydocker
@@ -49,6 +51,7 @@ in {
             pass
             pavucontrol
             pngquant
+            pulseaudioFull
             ripgrep
             rofi
             slack
