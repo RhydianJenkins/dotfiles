@@ -35,6 +35,7 @@ in {
             google-cloud-sdk
             haskellPackages.greenclip
             imagemagick
+            jq
             kail
             kbfs
             keybase
