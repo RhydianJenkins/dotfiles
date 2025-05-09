@@ -49,6 +49,7 @@ in {
             nautilus
             neofetch
             nodejs_22
+            openssl
             pass
             pavucontrol
             pngquant
