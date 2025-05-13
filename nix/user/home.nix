@@ -78,6 +78,7 @@ in {
         file.".inputrc".source = ../../dotfiles/.inputrc;
         file.".tmux.conf".source = ../../dotfiles/.tmux.conf;
         file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
+        file.".vimrc".source = ../../dotfiles/.vimrc;
         file.".zshrc".source = ../../dotfiles/.zshrc;
         file.".config/i3".source = ../../i3;
         file.".config/blueman/blueman.conf".text = ''
