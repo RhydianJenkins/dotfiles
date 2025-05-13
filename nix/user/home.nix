@@ -48,6 +48,7 @@ in {
             libreoffice-qt6-fresh
             nautilus
             neofetch
+            ngrok
             nodejs_22
             openssl
             pass
