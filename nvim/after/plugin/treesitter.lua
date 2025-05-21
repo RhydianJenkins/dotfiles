@@ -39,7 +39,7 @@ treesitter_configs.setup({
     rainbow = {
         enable = true,
         extended_mode = true,
-        max_file_lines = 5000,
+        max_file_lines = 3000,
     },
     incremental_selection = {
         enable = true,
@@ -51,3 +51,5 @@ treesitter_configs.setup({
     },
     modules = {},
 })
+
+vim.treesitter.language.register('twig', 'html.twig.js.css');
