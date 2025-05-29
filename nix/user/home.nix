@@ -1,6 +1,7 @@
 {pkgs, customPkgs, inputs, ...}: let
     username = "rhydian";
     allPkgs = pkgs // customPkgs;
+    gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
 in {
     imports = [
         ./browsers.nix
@@ -29,11 +30,11 @@ in {
             fd
             feh
             gcc
+            gcloud
             git
             gnumake
             gnupg
             go
-            google-cloud-sdk
             haskellPackages.greenclip
             imagemagick
             jq
