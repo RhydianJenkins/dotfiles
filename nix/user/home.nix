@@ -61,7 +61,7 @@ in {
             rofi
             slack
             spotify
-            tldr
+            tealdeer
             tmux
             typescript
             unzip
