@@ -4,7 +4,6 @@
     home.packages = with pkgs; [
         brave
         google-chrome
-        microsoft-edge
         vivaldi
     ];
 

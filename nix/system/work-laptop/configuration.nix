@@ -82,10 +82,11 @@
             alsa.support32Bit = true;
             pulse.enable = true;
         };
+
+        pulseaudio.enable = false;
     };
 
     console.keyMap = "uk";
-    hardware.pulseaudio.enable = false;
     hardware.bluetooth = {
         enable = true;
         package = pkgs.bluez;
@@ -125,14 +126,13 @@
 
     fonts = {
         packages = with pkgs; [
+            nerd-fonts.meslo-lg
             noto-fonts
             noto-fonts-cjk-sans
             noto-fonts-emoji
-            font-awesome
             source-han-sans
             source-han-sans-japanese
             source-han-serif-japanese
-            (nerdfonts.override {fonts = ["Meslo"];})
         ];
         fontconfig = {
             enable = true;
