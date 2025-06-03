@@ -46,53 +46,6 @@ local format_au_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
 lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
 
-neodev.setup()
-
-mason.setup()
-
-mason_lspconfig.setup({
-    automatic_installation = true,
-    ensure_installed = {
-        "ts_ls",
-        "dockerls",
-        "html",
-        "eslint",
-        "sqlls",
-        "bashls",
-        "rust_analyzer",
-        "intelephense",
-        "lua_ls",
-    },
-})
-
-mason_null_ls.setup({
-    ensure_installed = {
-        "phpcs",
-    },
-    automatic_installation = true,
-    automatic_setup = true,
-    handlers = {
-        function(source_name, methods)
-            require("mason-null-ls.automatic_setup")(source_name, methods)
-        end,
-        phpcs = function(_, _)
-            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
-            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
-
-            null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
-                extra_args = extra_args,
-                method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-            }))
-        end,
-    },
-})
-
-null_ls.setup({
-    sources = {
-        -- anything not supported by mason
-    },
-})
-
 ---@param bufnr number
 local function on_attach(_, bufnr)
     local nmap = function(keys, func, desc)
@@ -117,136 +70,114 @@ local function on_attach(_, bufnr)
     end
 end
 
----@param client any
----@param bufnr number
-local function on_attach_with_format(client, bufnr)
-    vim.api.nvim_clear_autocmds({ group = format_au_group, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        group = format_au_group,
-        buffer = bufnr,
-        callback = function()
-            if vim.lsp.buf.format then
-                vim.lsp.buf.format({ async = false })
-            end
-        end,
-    })
-
-    return on_attach(client, bufnr)
-end
-
-mason_lspconfig.setup_handlers({
-    function(server)
-        lspconfig[server].setup({
-            on_attach = on_attach,
-        })
-    end,
-    ["lua_ls"] = function()
-        lspconfig.lua_ls.setup({
-            on_attach = on_attach_with_format,
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = "LuaJIT",
-                    },
-                    diagnostics = {
-                        globals = {
-                            "vim",
-                            "ngx",
-                        },
-                    },
-                    workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
-                        checkThirdParty = false,
-                    },
-                },
-            },
-        })
-    end,
-    ["rust_analyzer"] = function()
-        lspconfig.rust_analyzer.setup({
-            on_attach = on_attach_with_format,
-        })
-    end,
-    ["gopls"] = function()
-        lspconfig.gopls.setup({
-            on_attach = on_attach_with_format,
-        })
-    end,
-    ["sqlls"] = function()
-        lspconfig.sqlls.setup({
-            on_attach = on_attach,
-            filetypes = { "sql", "mysql" },
-            cmd = { "sql-language-server", "up", "--method", "stdio" },
-            root_dir = function(fname)
-                return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
-            end,
-            handlers = {
-                ["textDocument/publishDiagnostics"] = vim.lsp.with(
-                    vim.lsp.diagnostic.on_publish_diagnostics,
-                    { virtual_text = false }
-                ),
-            },
-        })
-    end,
-    ["intelephense"] = function()
-        lspconfig.intelephense.setup({
-            on_attach = on_attach,
-            settings = {
-                intelephense = {
-                    stubs = {
-                        "bcmath",
-                        "bz2",
-                        "Core",
-                        "curl",
-                        "date",
-                        "dom",
-                        "fileinfo",
-                        "filter",
-                        "gd",
-                        "gettext",
-                        "hash",
-                        "iconv",
-                        "imap",
-                        "intl",
-                        "json",
-                        "libxml",
-                        "mbstring",
-                        "mcrypt",
-                        "mysql",
-                        "mysqli",
-                        "password",
-                        "pcntl",
-                        "pcre",
-                        "PDO",
-                        "pdo_mysql",
-                        "Phar",
-                        "readline",
-                        "regex",
-                        "session",
-                        "SimpleXML",
-                        "sockets",
-                        "sodium",
-                        "standard",
-                        "superglobals",
-                        "tokenizer",
-                        "xml",
-                        "xdebug",
-                        "xmlreader",
-                        "xmlwriter",
-                        "yaml",
-                        "zip",
-                        "zlib",
-                        "wordpress-stubs",
-                        "woocommerce-stubs",
-                        "acf-pro-stubs",
-                        "wordpress-globals",
-                        "wp-cli-stubs",
-                        "genesis-stubs",
-                        "polylang-stubs",
-                        "redis",
-                    },
-                },
-            },
-        })
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        on_attach(args.data.client_id, args.buf)
     end,
 })
+
+vim.lsp.config('sqlls', {
+    filetypes = { "sql", "mysql" },
+    cmd = { "sql-language-server", "up", "--method", "stdio" },
+    root_dir = function(fname)
+        return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
+    end,
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            { virtual_text = false }
+        ),
+    },
+})
+
+vim.lsp.config('intelephense', {
+    settings = {
+        intelephense = {
+            stubs = {
+                "bcmath",
+                "bz2",
+                "Core",
+                "curl",
+                "date",
+                "dom",
+                "fileinfo",
+                "filter",
+                "gd",
+                "gettext",
+                "hash",
+                "iconv",
+                "imap",
+                "intl",
+                "json",
+                "libxml",
+                "mbstring",
+                "mcrypt",
+                "mysql",
+                "mysqli",
+                "password",
+                "pcntl",
+                "pcre",
+                "PDO",
+                "pdo_mysql",
+                "Phar",
+                "readline",
+                "regex",
+                "session",
+                "SimpleXML",
+                "sockets",
+                "sodium",
+                "standard",
+                "superglobals",
+                "tokenizer",
+                "xml",
+                "xdebug",
+                "xmlreader",
+                "xmlwriter",
+                "yaml",
+                "zip",
+                "zlib",
+                "wordpress-stubs",
+                "woocommerce-stubs",
+                "acf-pro-stubs",
+                "wordpress-globals",
+                "wp-cli-stubs",
+                "genesis-stubs",
+                "polylang-stubs",
+                "redis",
+            },
+        },
+    },
+})
+
+null_ls.setup({
+    sources = {
+        -- anything not supported by mason
+    },
+})
+
+neodev.setup()
+
+mason.setup()
+
+mason_null_ls.setup({
+    ensure_installed = {
+        "phpcs",
+    },
+    automatic_setup = true,
+    handlers = {
+        function(source_name, methods)
+            require("mason-null-ls.automatic_setup")(source_name, methods)
+        end,
+        phpcs = function(_, _)
+            local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
+            local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
+
+            null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+                extra_args = extra_args,
+                method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+            }))
+        end,
+    },
+})
+
+mason_lspconfig.setup()
