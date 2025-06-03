@@ -16,9 +16,9 @@
                     id = 0;
                     name = "default";
                     search = {
-                        default = "Google";
+                        default = "google";
                         engines = {
-                            "Google" = {
+                            "google" = {
                                 urls = [{
                                     template = "https://www.google.com/search";
                                     params = [

@@ -95,7 +95,7 @@ in {
 
     services.gpg-agent = {
         enable = true;
-        pinentryPackage = pkgs.pinentry-all;
+        pinentry.package = pkgs.pinentry-all;
     };
     services.keybase.enable = true;
     services.kbfs.enable = true;
