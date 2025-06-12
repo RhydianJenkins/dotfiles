@@ -29,6 +29,7 @@ in {
             docker
             fd
             feh
+            file
             gcc
             gcloud
             git
@@ -63,6 +64,7 @@ in {
             spotify
             tealdeer
             tmux
+            triton-llvm
             typescript
             unzip
             vim
