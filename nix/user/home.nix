@@ -53,6 +53,7 @@ in {
             neofetch
             ngrok
             nodejs_22
+            ollama
             openssl
             pass
             pavucontrol
