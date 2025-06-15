@@ -30,6 +30,7 @@ in {
             fd
             feh
             file
+            flyctl
             gcc
             gcloud
             git
@@ -37,6 +38,7 @@ in {
             gnupg
             go
             haskellPackages.greenclip
+            htop
             imagemagick
             jq
             kail
