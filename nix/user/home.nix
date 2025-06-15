@@ -56,6 +56,7 @@ in {
             openssl
             pass
             pavucontrol
+            playwright-test
             pngquant
             pulseaudioFull
             ripgrep
