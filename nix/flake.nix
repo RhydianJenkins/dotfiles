@@ -7,9 +7,13 @@
             url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-index-database = {
+            url = "github:nix-community/nix-index-database";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, home-manager, ... }: let
+    outputs = { nixpkgs, home-manager, nix-index-database, ... }: let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
         pkgs = import nixpkgs {
@@ -31,6 +35,7 @@
                 inherit pkgs;
                 modules = [
                     ./user/home.nix
+                    nix-index-database.hmModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
                             customTableplus = pkgs.callPackage ./customPkgs/tableplus.nix {};

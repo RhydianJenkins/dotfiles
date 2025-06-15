@@ -116,6 +116,7 @@ in {
         userName = "Rhydian Jenkins";
         userEmail = "rhydz@msn.com";
     };
+    programs.nix-index-database.comma.enable = true;
 
     nixpkgs.config.allowUnfree = true;
 }
