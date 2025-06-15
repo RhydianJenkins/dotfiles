@@ -106,6 +106,21 @@
     environment.pathsToLink = [ "/libexec" ];
 
     programs = {
+        nix-ld = {
+            enable = true;
+
+            libraries = [
+                pkgs.curl
+                pkgs.expat
+                pkgs.fuse3
+                pkgs.icu
+                pkgs.nss
+                pkgs.openssl
+                pkgs.stdenv.cc.cc
+                pkgs.zlib
+            ];
+        };
+
         zsh = {
             enable = true;
             syntaxHighlighting.enable = true;
