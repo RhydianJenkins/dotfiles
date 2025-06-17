@@ -25,6 +25,7 @@ in {
             codespell
             curl
             customTableplus
+            delve
             dig
             docker
             fd
