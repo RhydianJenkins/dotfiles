@@ -41,3 +41,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
+
+local highlightGroup = vim.api.nvim_create_augroup("DocumentHighlightGroup", { clear = true })
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    desc = "Highlight similar words",
+    group = highlightGroup,
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.document_highlight()
+    end,
+})
+
+vim.api.nvim_create_autocmd("CursorMoved", {
+    desc = "Clear similar word highlights",
+    group = highlightGroup,
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.clear_references()
+    end,
+})
