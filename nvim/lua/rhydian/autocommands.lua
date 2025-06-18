@@ -42,27 +42,42 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
 })
 
-local highlightGroup = vim.api.nvim_create_augroup("DocumentHighlightGroup", { clear = true })
+local highlight_group = vim.api.nvim_create_augroup("DocumentHighlightGroup", { clear = true })
+local highlight_timer = nil
+local highlight_timer_delay = 500
 
 vim.api.nvim_create_autocmd("CursorHold", {
     desc = "Highlight similar words",
-    group = highlightGroup,
+    group = highlight_group,
     pattern = "*",
     callback = function()
-        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-            if client.supports_method("textDocument/documentHighlight") then
-                vim.lsp.buf.document_highlight();
-                break
-            end
+        if highlight_timer then
+            vim.fn.timer_stop(highlight_timer)
         end
+
+        highlight_timer = vim.fn.timer_start(highlight_timer_delay, function()
+            for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+                if client.supports_method("textDocument/documentHighlight") then
+                    vim.lsp.buf.document_highlight();
+                    break
+                end
+            end
+
+            highlight_timer = nil
+        end)
     end,
 })
 
 vim.api.nvim_create_autocmd("CursorMoved", {
     desc = "Clear similar word highlights",
-    group = highlightGroup,
+    group = highlight_group,
     pattern = "*",
     callback = function()
+        if highlight_timer then
+            vim.fn.timer_stop(highlight_timer)
+            highlight_timer = nil
+        end
+
         for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
             if client.supports_method("textDocument/documentHighlight") then
                 vim.lsp.buf.clear_references();
