@@ -49,7 +49,12 @@ vim.api.nvim_create_autocmd("CursorHold", {
     group = highlightGroup,
     pattern = "*",
     callback = function()
-        vim.lsp.buf.document_highlight()
+        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+            if client.supports_method("textDocument/documentHighlight") then
+                vim.lsp.buf.document_highlight();
+                break
+            end
+        end
     end,
 })
 
@@ -58,6 +63,11 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     group = highlightGroup,
     pattern = "*",
     callback = function()
-        vim.lsp.buf.clear_references()
+        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+            if client.supports_method("textDocument/documentHighlight") then
+                vim.lsp.buf.clear_references();
+                break
+            end
+        end
     end,
 })
