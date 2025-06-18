@@ -116,6 +116,16 @@ in {
         enable = true;
         userName = "Rhydian Jenkins";
         userEmail = "rhydz@msn.com";
+        aliases = {
+            stash = "stash --all";
+            who = "blame -w -M -C -C -C";
+        };
+        maintenance = {
+            enable = true;
+        };
+        diff-so-fancy = {
+            enable = true;
+        };
     };
     programs.nix-index-database.comma.enable = true;
 
