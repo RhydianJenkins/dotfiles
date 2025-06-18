@@ -126,4 +126,6 @@ return {
             { "junegunn/fzf", run = "fzf#install" },
         },
     },
+
+    "rhydianjenkins/nvim-highlight",
 }
