@@ -70,13 +70,13 @@ local function on_attach(_, bufnr)
     end
 end
 
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         on_attach(args.data.client_id, args.buf)
     end,
 })
 
-vim.lsp.config('sqlls', {
+vim.lsp.config("sqlls", {
     filetypes = { "sql", "mysql" },
     cmd = { "sql-language-server", "up", "--method", "stdio" },
     root_dir = function(fname)
@@ -90,7 +90,7 @@ vim.lsp.config('sqlls', {
     },
 })
 
-vim.lsp.config('intelephense', {
+vim.lsp.config("intelephense", {
     settings = {
         intelephense = {
             stubs = {

@@ -52,4 +52,4 @@ treesitter_configs.setup({
     modules = {},
 })
 
-vim.treesitter.language.register('twig', 'html.twig.js.css');
+vim.treesitter.language.register("twig", "html.twig.js.css");
