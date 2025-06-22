@@ -42,7 +42,6 @@ if not cmp_nvim_lsp_present then
 end
 
 local lsp_defaults = lspconfig.util.default_config
-local format_au_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
 lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
 
