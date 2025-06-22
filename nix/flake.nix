@@ -11,9 +11,13 @@
             url = "github:nix-community/nix-index-database";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        apix = {
+            url = "github:rhydianjenkins/apix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, home-manager, nix-index-database, ... }: let
+    outputs = { nixpkgs, home-manager, nix-index-database, apix, ... }: let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
         pkgs = import nixpkgs {
@@ -39,6 +43,7 @@
                     ({ ... }: {
                         _module.args.customPkgs = {
                             customTableplus = pkgs.callPackage ./customPkgs/tableplus.nix {};
+                            apix = apix.packages.${system}.apix;
                         };
                     })
                 ];

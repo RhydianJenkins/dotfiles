@@ -19,6 +19,7 @@ in {
         };
         packages = with allPkgs; [
             alsa-utils
+            apix
             blueman
             brave
             cargo
