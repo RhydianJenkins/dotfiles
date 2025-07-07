@@ -19,7 +19,7 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
 
 local source_mapping = {
@@ -27,7 +27,7 @@ local source_mapping = {
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
     path = "[Path]",
-    copilot = "[CP]",
+    supermaven = "[SM]",
     luasnip = "[Snip]",
 }
 
@@ -53,8 +53,8 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },
+        { name = "supermaven" },
         { name = "zsh" },
-        { name = "copilot" },
     }, {
         { name = "path" },
         { name = "buffer" },
@@ -67,9 +67,9 @@ cmp.setup({
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
 
-            if entry.source.name == "copilot" then
-                vim_item.kind_hl_group = "CmpItemKindCopilot"
-                vim_item.kind = ""
+            if entry.source.name == "supermaven" then
+                vim_item.kind_hl_group = "CmpItemKindSupermaven"
+                vim_item.kind = ""
             end
 
             if entry.source.name == "buffer" then

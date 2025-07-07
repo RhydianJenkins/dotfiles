@@ -25,14 +25,6 @@ bob install v0.9.2
 
 - Better vi(m) compatibility
 
-# GitHub Copilot
-
-[copilot.lua](https://github.com/zbirenbaum/copilot.lua) is used for copilot suggestions.
-
-[copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) is used to turn suggestions into cmp completions.
-
-![image](https://user-images.githubusercontent.com/9198690/178099328-ea886b45-e071-40a4-8f27-5ee262b81ec0.png)
-
 # Debugging
 
 [nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters. Debug adapters are installed through `:Mason`.
