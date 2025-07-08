@@ -74,7 +74,7 @@ neotest.setup({
             },
             phpunit_cmd = function()
                 return find_path_that_exists({
-                    "/usr/local/bin/runtests.sh",
+                    "~/code/runtests",
                     vim.fn.getcwd() .. "/vendor/bin/phpunit",
                     "/var/basekit/vendor/bin/phpunit",
                 })
