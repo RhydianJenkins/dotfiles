@@ -28,8 +28,6 @@ set("n", "<leader>wd", "<cmd>w<bar>%bd<bar>e#<bar>bd#<CR>", { desc = "Close all 
 set("n", "<leader>wo", "<cmd>lua print('use CTRL-w CTRL-o instead')<CR>")
 set("n", "<leader>wr", "<C-W><C-r>", { desc = "[W]indow [r]otate" })
 set("n", "S-Y", "y$", { desc = "[Y]ank to end of line" })
-set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Next diagnostic" })
-set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Previous diagnostic" })
 set("n", "x", '"_x', { desc = "Remove char without copying to clipboard" })
 set("n", '<leader>"', "<C-W><C-s>", { desc = "[W]indow horizontal [s]plit" })
 set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
