@@ -33,8 +33,8 @@ saga.setup({
 })
 
 vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", { desc = "[G]o to [r]eferences" })
-vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Next [d]iagnostic" })
-vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Previous [d]iagnostic" })
+vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous [d]iagnostic" })
+vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next [d]iagnostic" })
 vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "[C]ode [a]ction" })
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "[R]e[n]ame" })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover doc" })
