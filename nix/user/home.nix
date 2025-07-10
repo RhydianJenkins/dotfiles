@@ -61,6 +61,7 @@ in {
             openssl
             pass
             pavucontrol
+            peek
             playwright-test
             pngquant
             pulseaudioFull
