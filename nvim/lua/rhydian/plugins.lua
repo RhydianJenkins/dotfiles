@@ -16,8 +16,6 @@ return {
         build = ":TSUpdate",
     },
 
-    "tami5/sqlite.lua",
-
     "rebelot/kanagawa.nvim",
 
     "numToStr/Comment.nvim",
