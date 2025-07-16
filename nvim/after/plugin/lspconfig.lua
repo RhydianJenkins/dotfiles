@@ -1,5 +1,4 @@
 local mason_present, mason = pcall(require, "mason")
-local neodev_present, neodev = pcall(require, "neodev")
 local lspconfig_present, lspconfig = pcall(require, "lspconfig")
 local mason_lspconfig_present, mason_lspconfig = pcall(require, "mason-lspconfig")
 local cmp_nvim_lsp_present, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -8,11 +7,6 @@ local mason_null_ls_present, mason_null_ls = pcall(require, "mason-null-ls")
 
 if not mason_present then
     print("mason plugin not found")
-    return
-end
-
-if not neodev_present then
-    print("neodev plugin not found")
     return
 end
 
@@ -150,8 +144,6 @@ null_ls.setup({
         -- anything not supported by mason
     },
 })
-
-neodev.setup()
 
 mason.setup()
 

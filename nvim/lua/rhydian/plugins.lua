@@ -96,8 +96,6 @@ return {
         build = "make install_jsregexp",
     },
 
-    "folke/neodev.nvim",
-
     {
         "williamboman/mason.nvim",
         dependencies = {
