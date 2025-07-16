@@ -44,8 +44,6 @@ return {
 
     "norcalli/nvim-colorizer.lua",
 
-    "petertriho/nvim-scrollbar",
-
     "nvim-lualine/lualine.nvim",
 
     "akinsho/bufferline.nvim",
