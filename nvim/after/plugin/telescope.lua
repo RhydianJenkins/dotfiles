@@ -1,9 +1,27 @@
 local telescope = require("telescope")
+local previewers = require("telescope.previewers")
+local sorters = require("telescope.sorters")
+
 local opts = { noremap = true, silent = true }
 local theme = "ivy"
 
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "harpoon")
+
+local largeFilesIgnoringPreviewer = function(filepath, bufnr, opts)
+    opts = opts or {}
+
+    filepath = vim.fn.expand(filepath)
+    vim.loop.fs_stat(filepath, function(_, stat)
+        if not stat then return end
+        if stat.size > 100000 then
+            return
+        else
+            previewers.buffer_previewer_maker(filepath, bufnr, opts)
+        end
+    end)
+end
+
 
 telescope.setup({
     extensions = {
@@ -31,8 +49,10 @@ telescope.setup({
             theme = theme,
             hidden = true,
         },
+        command_history = { sorter = sorters.fuzzy_with_index_bias() },
     },
     defaults = {
+        buffer_previewer_maker = largeFilesIgnoringPreviewer,
         layout_strategy = "vertical",
         file_ignore_patterns = {
             "%.a",
