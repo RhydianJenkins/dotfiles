@@ -35,6 +35,7 @@ in {
             flyctl
             gcc
             gcloud
+            gh
             git
             gnumake
             gnupg
