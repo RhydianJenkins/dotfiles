@@ -59,6 +59,7 @@ in {
             ngrok
             nodejs_22
             ollama
+            openapi-tui
             openssl
             pass
             pavucontrol
