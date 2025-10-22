@@ -81,6 +81,7 @@ in {
             wezterm
             wget
             xclip
+            yq-go
         ];
 
         # Install existing dotfiles
