@@ -42,6 +42,7 @@
                     nix-index-database.hmModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
+                            customStoplight = pkgs.callPackage ./customPkgs/stoplight.nix {};
                             customTableplus = pkgs.callPackage ./customPkgs/tableplus.nix {};
                             apix = apix.packages.${system}.apix;
                         };

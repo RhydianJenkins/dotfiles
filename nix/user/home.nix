@@ -25,6 +25,7 @@ in {
             cargo
             codespell
             curl
+            customStoplight
             customTableplus
             delve
             dig
