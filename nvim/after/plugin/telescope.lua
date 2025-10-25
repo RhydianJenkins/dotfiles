@@ -25,7 +25,6 @@ local largeFilesIgnoringPreviewer = function(filepath, bufnr, inputOpts)
     end)
 end
 
-
 telescope.setup({
     extensions = {
         fzf = {
