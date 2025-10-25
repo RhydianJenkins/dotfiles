@@ -19,7 +19,7 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg ="#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
 
 local source_mapping = {
