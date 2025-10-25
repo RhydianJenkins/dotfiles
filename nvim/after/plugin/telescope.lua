@@ -8,12 +8,15 @@ local theme = "ivy"
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "harpoon")
 
-local largeFilesIgnoringPreviewer = function(filepath, bufnr, opts)
-    opts = opts or {}
+local largeFilesIgnoringPreviewer = function(filepath, bufnr, inputOpts)
+    opts = inputOpts or {}
 
     filepath = vim.fn.expand(filepath)
     vim.loop.fs_stat(filepath, function(_, stat)
-        if not stat then return end
+        if not stat then
+            return
+        end
+
         if stat.size > 100000 then
             return
         else
