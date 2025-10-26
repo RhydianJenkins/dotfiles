@@ -20,6 +20,6 @@ require("lazy").setup({
     dev = {
         path = "~/code",
         patterns = { "supermaven-inc" },
-        fallback = false,
+        fallback = true,
     },
 })
