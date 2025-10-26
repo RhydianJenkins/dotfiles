@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     home.packages = with pkgs; [
@@ -14,6 +14,11 @@
         php84
         php84Packages.composer
     ];
+
+    home.sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+    };
 
     programs.neovim = {
         enable = true;
