@@ -32,13 +32,23 @@
                     ./system/work-laptop/configuration.nix
                 ];
             };
+
+            personal-laptop = lib.nixosSystem {
+                inherit system;
+                modules = [
+                    ./system/personal-laptop/configuration.nix
+                ];
+            };
         };
 
         homeConfigurations = {
             personal = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
-                    ./user/home.nix
+                    ./configs/browsers.nix
+                    ./configs/editors.nix
+                    ./configs/keybase.nix
+                    ./configs/user.nix
                     nix-index-database.hmModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {

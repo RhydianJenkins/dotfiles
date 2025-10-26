@@ -3,11 +3,6 @@
     allPkgs = pkgs // customPkgs;
     gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
 in {
-    imports = [
-        ./browsers.nix
-        ./editors.nix
-    ];
-
     home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -37,7 +32,6 @@ in {
             gcc
             gcloud
             gh
-            git
             gnumake
             gnupg
             go
@@ -46,14 +40,10 @@ in {
             imagemagick
             jq
             kail
-            kbfs
-            keybase
-            keybase-gui
             killall
             kubectl
             kubectx
             lazydocker
-            lazygit
             libreoffice-qt6-fresh
             nautilus
             neofetch
@@ -110,28 +100,11 @@ in {
         enable = true;
         pinentry.package = pkgs.pinentry-all;
     };
-    services.keybase.enable = true;
-    services.kbfs.enable = true;
 
     programs.home-manager.enable = true;
     programs.wezterm = {
         enable = true;
         extraConfig = builtins.readFile ../../dotfiles/.wezterm.lua;
-    };
-    programs.git = {
-        enable = true;
-        userName = "Rhydian Jenkins";
-        userEmail = "rhydz@msn.com";
-        aliases = {
-            stash = "stash --all";
-            who = "blame -w -M -C -C -C";
-        };
-        maintenance = {
-            enable = true;
-        };
-        diff-so-fancy = {
-            enable = true;
-        };
     };
     programs.nix-index-database.comma.enable = true;
 
