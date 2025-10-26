@@ -57,7 +57,6 @@ in {
             slack
             spotify
             tealdeer
-            tmux
             triton-llvm
             typescript
             unzip

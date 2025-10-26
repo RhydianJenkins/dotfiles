@@ -10,14 +10,14 @@
 in
     stdenv.mkDerivation rec {
         name = "tableplus";
-        version = "0.1.264";
+        version = "0.1.266";
 
         src =
             if stdenv.hostPlatform.system == "x86_64-linux"
                 then
                 pkgs.fetchurl {
                     url = "https://deb.tableplus.com/debian/22/pool/main/t/tableplus/tableplus_${version}_amd64.deb";
-                    sha256 = "sha256-Jg6ayiHMje8Q8L916G4+yqNZefNFWKA1WZerPVutv8E=";
+                    sha256 = "sha256-AxIeSsIDVDvSrbNckaLwu/Lu/EqK+DO/yZKIPqKYD7Y=";
                 }
             else if stdenv.hostPlatform.system == "aarch64-linux"
                 then
