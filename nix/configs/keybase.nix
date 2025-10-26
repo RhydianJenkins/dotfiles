@@ -1,7 +1,6 @@
-{ config, pkgs, ... }: let
-    username = "Rhydian Jenkins";
-    email = "rhydz@mens.com";
-in {
+{ pkgs, ... }:
+
+{
     home.packages = with pkgs; [
         kbfs
         keybase

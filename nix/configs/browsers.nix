@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     home.packages = with pkgs; [
@@ -6,6 +6,10 @@
         google-chrome
         vivaldi
     ];
+
+    home.sessionVariables = {
+        BROWSER = "vivaldi";
+    };
 
     programs = {
         firefox = {

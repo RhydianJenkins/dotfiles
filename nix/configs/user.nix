@@ -1,4 +1,4 @@
-{pkgs, customPkgs, inputs, ...}: let
+{pkgs, customPkgs, ...}: let
     username = "rhydian";
     allPkgs = pkgs // customPkgs;
     gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
@@ -7,16 +7,10 @@ in {
         username = "${username}";
         homeDirectory = "/home/${username}";
         stateVersion = "23.11";
-        sessionVariables = {
-            EDITOR = "nvim";
-            VISUAL = "nvim";
-            BROWSER = "vivaldi";
-        };
         packages = with allPkgs; [
             alsa-utils
             apix
             blueman
-            brave
             cargo
             codespell
             curl
@@ -69,7 +63,6 @@ in {
             unzip
             vim
             warp-terminal
-            wezterm
             wget
             xclip
             yq-go
@@ -102,10 +95,6 @@ in {
     };
 
     programs.home-manager.enable = true;
-    programs.wezterm = {
-        enable = true;
-        extraConfig = builtins.readFile ../../dotfiles/.wezterm.lua;
-    };
     programs.nix-index-database.comma.enable = true;
 
     nixpkgs.config.allowUnfree = true;

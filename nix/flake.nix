@@ -48,8 +48,9 @@
                     ./configs/browsers.nix
                     ./configs/editors.nix
                     ./configs/keybase.nix
+                    ./configs/wezterm.nix
                     ./configs/user.nix
-                    nix-index-database.hmModules.nix-index
+                    nix-index-database.homeModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
                             customStoplight = pkgs.callPackage ./customPkgs/stoplight.nix {};

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ pkgs, ... }: let
     username = "Rhydian Jenkins";
     email = "rhydz@mens.com";
 in {
