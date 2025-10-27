@@ -15,6 +15,9 @@
         php84Packages.composer
     ];
 
+    home.file.".vimrc".source = ../../dotfiles/.vimrc;
+    home.file.".config/nvim".source = ../../nvim;
+
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
@@ -27,6 +30,4 @@
         withNodeJs = true;
         withPython3 = true;
     };
-
-    home.file.".config/nvim".source = ../../nvim;
 }
