@@ -21,21 +21,20 @@
 
     outputs = { nixpkgs, home-manager, nix-index-database, apix, ... }: let
         system = "x86_64-linux";
-        lib = nixpkgs.lib;
         pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
         };
     in {
         nixosConfigurations = {
-            work-laptop = lib.nixosSystem {
+            work-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
                     ./system/work-laptop/configuration.nix
                 ];
             };
 
-            personal-laptop = lib.nixosSystem {
+            personal-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
                     ./system/personal-laptop/configuration.nix
