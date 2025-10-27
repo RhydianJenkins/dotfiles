@@ -50,7 +50,6 @@
             personal = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
-                    ./home/modules/hyprland.nix
                     ./home/modules/browsers.nix
                     ./home/modules/common.nix
                     ./home/modules/editors.nix

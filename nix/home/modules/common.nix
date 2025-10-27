@@ -65,12 +65,11 @@ in {
             yq-go
         ];
 
-        # Install existing dotfiles
-        # These will evenaually be added to the nix home-manager declaration
         file.".config/blueman/blueman.conf".text = ''
             [Plugins]
             ConnectionNotifier=false
         '';
+
         # nix-shell -p uses the global nixpkgs config, not Home Manager settings
         file.".config/nixpkgs/config.nix".text = ''
           { allowUnfree = true; }
