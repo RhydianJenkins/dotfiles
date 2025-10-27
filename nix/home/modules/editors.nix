@@ -15,8 +15,8 @@
         php84Packages.composer
     ];
 
-    home.file.".vimrc".source = ../../dotfiles/.vimrc;
-    home.file.".config/nvim".source = ../../nvim;
+    home.file.".vimrc".source = ../../../dotfiles/.vimrc;
+    home.file.".config/nvim".source = ../../../nvim;
 
     home.sessionVariables = {
         EDITOR = "nvim";

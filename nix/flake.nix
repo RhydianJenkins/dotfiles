@@ -31,6 +31,7 @@
                 inherit system;
                 modules = [
                     ./system/work-laptop/configuration.nix
+                    ./system/work-laptop/configuration.nix
                 ];
             };
 
@@ -46,17 +47,17 @@
             personal = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
-                    ./modules/browsers.nix
-                    ./modules/editors.nix
-                    ./modules/git.nix
-                    ./modules/keybase.nix
-                    ./modules/common.nix
-                    ./modules/terminal.nix
+                    ./home/modules/browsers.nix
+                    ./home/modules/editors.nix
+                    ./home/modules/git.nix
+                    ./home/modules/keybase.nix
+                    ./home/modules/common.nix
+                    ./home/modules/terminal.nix
                     nix-index-database.homeModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
-                            customStoplight = pkgs.callPackage ./customPkgs/stoplight.nix {};
-                            customTableplus = pkgs.callPackage ./customPkgs/tableplus.nix {};
+                            customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
+                            customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
                             apix = apix.packages.${system}.apix;
                         };
                     })
