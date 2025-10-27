@@ -19,6 +19,8 @@
         extraConfig = builtins.readFile ../../../dotfiles/.wezterm.lua;
     };
 
+    home.shell.enableZshIntegration = true;
+
     programs.zsh = {
         enable = true;
         enableCompletion = true;
