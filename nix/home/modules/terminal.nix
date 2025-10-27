@@ -31,6 +31,10 @@
         oh-my-zsh = {
             enable = true;
             theme = "gallois";
+
+            plugins = [
+                "tmux"
+            ];
         };
     };
 }
