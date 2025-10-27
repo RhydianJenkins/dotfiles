@@ -73,8 +73,6 @@ in {
         file.".bashrc".source = ../../dotfiles/.bashrc;
         file.".functions".source = ../../dotfiles/.functions;
         file.".inputrc".source = ../../dotfiles/.inputrc;
-        file.".tmux.conf".source = ../../dotfiles/.tmux.conf;
-        file.".tmuxifier".source = ../../dotfiles/.tmuxifier;
         file.".vimrc".source = ../../dotfiles/.vimrc;
         file.".zshrc".source = ../../dotfiles/.zshrc;
         file.".config/i3".source = ../../i3;
