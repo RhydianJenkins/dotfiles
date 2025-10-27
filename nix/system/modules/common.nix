@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    imports = [
-        ./hardware-configuration.nix
-    ];
-
-    environment.systemPackages = with pkgs; [
-        fzf-zsh
-    ];
+    environment.pathsToLink = [ "/libexec" ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -39,41 +33,14 @@
     };
 
     services = {
-        displayManager.autoLogin.enable = true;
-        displayManager.autoLogin.user = "rhydian";
         openssh.enable = true;
         printing.enable = true;
         blueman.enable = true;
+        pulseaudio.enable = false;
 
-        xserver = {
+        displayManager.autoLogin = {
             enable = true;
-            autorun = true;
-            autoRepeatDelay = 200;
-            autoRepeatInterval = 40;
-
-            desktopManager = {
-                xterm.enable = false;
-            };
-
-            displayManager = {
-                lightdm.enable = true;
-            };
-
-            windowManager.i3 = {
-                enable = true;
-                extraPackages = with pkgs; [
-                    dmenu
-                    i3status
-                    i3lock
-                    i3blocks
-                ];
-            };
-
-            xkb = {
-                layout = "gb";
-                variant = "";
-                options = "caps:escape";
-            };
+            user = "rhydian";
         };
 
         pipewire = {
@@ -82,8 +49,6 @@
             alsa.support32Bit = true;
             pulse.enable = true;
         };
-
-        pulseaudio.enable = false;
     };
 
     console.keyMap = "uk";
@@ -103,7 +68,6 @@
     systemd.services."getty@tty1".enable = false;
     systemd.services."autovt@tty1".enable = false;
     nixpkgs.config.allowUnfree = true;
-    environment.pathsToLink = [ "/libexec" ];
 
     programs = {
         nix-ld = {
@@ -132,7 +96,6 @@
                     "git"
                     "tmux"
                     "docker"
-                    "nvm"
                     "colorize"
                     "ssh-agent"
                 ];
