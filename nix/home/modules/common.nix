@@ -53,7 +53,6 @@ in {
             pngquant
             pulseaudioFull
             ripgrep
-            rofi
             slack
             spotify
             tealdeer
@@ -63,13 +62,11 @@ in {
             vim
             warp-terminal
             wget
-            xclip
             yq-go
         ];
 
         # Install existing dotfiles
         # These will evenaually be added to the nix home-manager declaration
-        file.".config/i3".source = ../../../i3;
         file.".config/blueman/blueman.conf".text = ''
             [Plugins]
             ConnectionNotifier=false
