@@ -87,19 +87,6 @@
 
         zsh = {
             enable = true;
-            enableCompletion = true;
-            syntaxHighlighting.enable = true;
-            ohMyZsh = {
-                enable = true;
-                theme = "gallois";
-                plugins = [
-                    "git"
-                    "tmux"
-                    "docker"
-                    "colorize"
-                    "ssh-agent"
-                ];
-            };
         };
     };
 
