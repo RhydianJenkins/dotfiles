@@ -54,5 +54,5 @@ alias lr='ll -R' #  recursive ls
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 # nix
-alias hm='cd ~/dotfiles/nix && home-manager switch --flake .#personal && cd -'
+alias hm='cd ~/dotfiles/nix && home-manager switch --flake .#work && cd -'
 alias ns='nix-env -qaP' # nix search
