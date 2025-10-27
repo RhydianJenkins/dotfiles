@@ -49,10 +49,11 @@
                 inherit pkgs;
                 modules = [
                     ./home/modules/browsers.nix
+                    ./home/modules/common.nix
                     ./home/modules/editors.nix
                     ./home/modules/git.nix
+                    ./home/modules/i3.nix
                     ./home/modules/keybase.nix
-                    ./home/modules/common.nix
                     ./home/modules/terminal.nix
                     nix-index-database.homeModules.nix-index
                     ({ ... }: {

@@ -3,14 +3,15 @@
 {
     home.packages = with pkgs; [
         wezterm
+        fzf-zsh
     ];
 
     home.file = {
-        ".tmux.conf".source = ../../../dotfiles/.tmux.conf;
-        ".tmuxifier".source = ../../../dotfiles/.tmuxifier;
         ".aliases".source = ../../../dotfiles/.aliases;
         ".functions".source = ../../../dotfiles/.functions;
         ".inputrc".source = ../../../dotfiles/.inputrc;
+        ".tmux.conf".source = ../../../dotfiles/.tmux.conf;
+        ".tmuxifier".source = ../../../dotfiles/.tmuxifier;
     };
 
     programs.wezterm = {
@@ -23,11 +24,11 @@
         enableCompletion = true;
         syntaxHighlighting.enable = true;
 
-        # initContent = lib.mkOrder 550 ''
-        initContent = ''
-            source ${builtins.toString ../../../dotfiles/.zshrc}
-            source ~/.aliases
-            source ~/.functions
-        '';
+        initContent = builtins.readFile ../../../dotfiles/.zshrc;
+
+        oh-my-zsh = {
+            enable = true;
+            theme = "gallois";
+        };
     };
 }
