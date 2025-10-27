@@ -2,9 +2,10 @@
 
 {
     home.packages = with pkgs; [
-        wezterm
-        fzf-zsh
+        fzf
+        thefuck
         tmux
+        wezterm
     ];
 
     home.file = {
@@ -34,6 +35,16 @@
             theme = "gallois";
 
             plugins = [
+                "fzf"
+                "z"
+                "sudo"
+                "colored-man-pages"
+                "command-not-found"
+                "aliases"
+                "extract"
+                "kubectl"
+                "thefuck"
+                "tmux"
             ];
         };
     };
