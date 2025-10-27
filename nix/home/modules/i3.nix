@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-    packages = with allPkgs; [
+    home.packages = with pkgs; [
         rofi
-        xclup
+        xclip
     ];
 
     home.file.".config/i3".source = ../../../i3;
