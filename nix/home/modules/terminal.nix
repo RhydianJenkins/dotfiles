@@ -6,7 +6,6 @@
         thefuck
         tmux
         wezterm
-        fzf-zsh
     ];
 
     home.file = {
@@ -23,8 +22,6 @@
         enable = true;
         extraConfig = builtins.readFile ../../../dotfiles/.wezterm.lua;
     };
-
-    home.shell.enableZshIntegration = true;
 
     programs.zsh = {
         enable = true;
