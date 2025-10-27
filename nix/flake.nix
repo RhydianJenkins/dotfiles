@@ -1,4 +1,6 @@
 {
+    description = "Rhydian's Nix configs";
+
     inputs = {
         nixpkgs = {
             url = "github:nixos/nixpkgs/nixos-25.05";
@@ -61,11 +63,6 @@
                     })
                 ];
             };
-        };
-
-        devShells.${system}.default = pkgs.mkShell {
-            buildInputs = [
-            ];
         };
     };
 }
