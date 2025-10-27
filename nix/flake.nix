@@ -30,24 +30,44 @@
             work-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/modules/i3.nix
-                    ./system/modules/common.nix
                     ./system/machines/work-laptop/hardware-configuration.nix
+                    ./system/modules/common.nix
+                    ./system/modules/i3.nix
                 ];
             };
 
             personal-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/modules/i3.nix
-                    ./system/modules/common.nix
                     ./system/machines/personal-laptop/hardware-configuration.nix
+                    ./system/modules/common.nix
+                    ./system/modules/hyprland.nix
                 ];
             };
         };
 
         homeConfigurations = {
-            personal = home-manager.lib.homeManagerConfiguration {
+            hyprland = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                modules = [
+                    ./home/modules/browsers.nix
+                    ./home/modules/common.nix
+                    ./home/modules/editors.nix
+                    ./home/modules/git.nix
+                    ./home/modules/hyprland.nix
+                    ./home/modules/terminal.nix
+                    nix-index-database.homeModules.nix-index
+                    ({ ... }: {
+                        _module.args.customPkgs = {
+                            customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
+                            customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
+                            apix = apix.packages.${system}.apix;
+                        };
+                    })
+                ];
+            };
+
+            i3 = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
                     ./home/modules/browsers.nix
