@@ -30,15 +30,16 @@
             work-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/work-laptop/configuration.nix
-                    ./system/work-laptop/configuration.nix
+                    ./system/modules/i3.nix
+                    ./system/machines/work-laptop/configuration.nix
                 ];
             };
 
             personal-laptop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/personal-laptop/configuration.nix
+                    ./system/modules/i3.nix
+                    ./system/machines/personal-laptop/configuration.nix
                 ];
             };
         };
