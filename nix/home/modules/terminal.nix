@@ -4,6 +4,7 @@
     home.packages = with pkgs; [
         wezterm
         fzf-zsh
+        tmux
     ];
 
     home.file = {
@@ -33,7 +34,6 @@
             theme = "gallois";
 
             plugins = [
-                "tmux"
             ];
         };
     };
