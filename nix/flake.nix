@@ -50,7 +50,7 @@
                     ./modules/git.nix
                     ./modules/keybase.nix
                     ./modules/common.nix
-                    ./modules/wezterm.nix
+                    ./modules/terminal.nix
                     nix-index-database.homeModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
