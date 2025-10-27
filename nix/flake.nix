@@ -31,7 +31,8 @@
                 inherit system;
                 modules = [
                     ./system/modules/i3.nix
-                    ./system/machines/work-laptop/configuration.nix
+                    ./system/modules/common.nix
+                    ./system/machines/work-laptop/hardware-configuration.nix
                 ];
             };
 
@@ -39,7 +40,8 @@
                 inherit system;
                 modules = [
                     ./system/modules/i3.nix
-                    ./system/machines/personal-laptop/configuration.nix
+                    ./system/modules/common.nix
+                    ./system/machines/personal-laptop/hardware-configuration.nix
                 ];
             };
         };
