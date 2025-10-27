@@ -6,6 +6,7 @@
         thefuck
         tmux
         wezterm
+        fzf-zsh
     ];
 
     home.file = {
@@ -15,6 +16,8 @@
         ".tmux.conf".source = ../../../dotfiles/.tmux.conf;
         ".tmuxifier".source = ../../../dotfiles/.tmuxifier;
     };
+
+    home.shell.enableZshIntegration = true;
 
     programs.wezterm = {
         enable = true;
