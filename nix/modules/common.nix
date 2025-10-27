@@ -69,12 +69,6 @@ in {
 
         # Install existing dotfiles
         # These will evenaually be added to the nix home-manager declaration
-        file.".aliases".source = ../../dotfiles/.aliases;
-        file.".bashrc".source = ../../dotfiles/.bashrc;
-        file.".functions".source = ../../dotfiles/.functions;
-        file.".inputrc".source = ../../dotfiles/.inputrc;
-        file.".vimrc".source = ../../dotfiles/.vimrc;
-        file.".zshrc".source = ../../dotfiles/.zshrc;
         file.".config/i3".source = ../../i3;
         file.".config/blueman/blueman.conf".text = ''
             [Plugins]
