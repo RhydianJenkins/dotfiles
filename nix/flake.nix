@@ -45,12 +45,12 @@
             personal = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [
-                    ./configs/browsers.nix
-                    ./configs/editors.nix
-                    ./configs/git.nix
-                    ./configs/keybase.nix
-                    ./configs/user.nix
-                    ./configs/wezterm.nix
+                    ./modules/browsers.nix
+                    ./modules/editors.nix
+                    ./modules/git.nix
+                    ./modules/keybase.nix
+                    ./modules/common.nix
+                    ./modules/wezterm.nix
                     nix-index-database.homeModules.nix-index
                     ({ ... }: {
                         _module.args.customPkgs = {
