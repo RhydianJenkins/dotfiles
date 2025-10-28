@@ -9,7 +9,6 @@
 
         settings = {
             monitor = [ ",preferred,auto,1" ];
-
             "$mod" = "ALT";
 
             exec-once = [
@@ -20,14 +19,16 @@
                 kb_layout = "gb";
                 kb_options = "caps:escape";
                 follow_mouse = 0;
+                repeat_delay = 200;
+                repeat_rate = 40;
                 touchpad = {
                     natural_scroll = true;
                 };
             };
 
             general = {
-                gaps_in = 5;
-                gaps_out = 10;
+                gaps_in = 1;
+                gaps_out = 2;
                 border_size = 2;
                 "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
                 "col.inactive_border" = "rgba(595959aa)";
@@ -41,21 +42,10 @@
                     size = 3;
                     passes = 1;
                 };
-                drop_shadow = true;
-                shadow_range = 4;
-                shadow_render_power = 3;
             };
 
             animations = {
-                enabled = true;
-                bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-                animation = [
-                    "windows, 1, 7, myBezier"
-                    "windowsOut, 1, 7, default, popin 80%"
-                    "border, 1, 10, default"
-                    "fade, 1, 7, default"
-                    "workspaces, 1, 6, default"
-                ];
+                enabled = false;
             };
 
             dwindle = {
@@ -64,10 +54,10 @@
             };
 
             bind = [
-                # Basic window management
                 "$mod, Return, exec, wezterm"
-                "$mod, Q, killactive"
-                "$mod SHIFT, E, exit"
+                "$mod, space, exec, ${pkgs.wofi}/bin/wofi --show drun"
+                "$mod, Return, exec, wezterm"
+                "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, togglefloating"
                 "$mod, V, togglefloating"
                 "$mod, F, fullscreen"
@@ -79,12 +69,6 @@
                 "$mod, j, movefocus, d"
                 "$mod, k, movefocus, u"
                 "$mod, l, movefocus, r"
-
-                # Move focus with arrow keys
-                "$mod, left, movefocus, l"
-                "$mod, right, movefocus, r"
-                "$mod, up, movefocus, u"
-                "$mod, down, movefocus, d"
 
                 # Switch workspaces (0-9)
                 "$mod, 1, workspace, 1"
