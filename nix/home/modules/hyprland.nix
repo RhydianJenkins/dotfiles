@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+    imports = [
+        ./walker.nix
+        ./waybar.nix
+    ];
+
     wayland.windowManager.hyprland = {
         enable = true;
         package = pkgs.hyprland;
@@ -13,8 +18,7 @@
 
             exec-once = [
                 "waybar"
-                "wl-paste --type text --watch cliphist store"
-                "wl-paste --type image --watch cliphist store"
+                "elephant"
             ];
 
             input = {
@@ -59,15 +63,14 @@
 
             bind = [
                 "$mod, Return, exec, wezterm"
-                "$mod, space, exec, ${pkgs.wofi}/bin/wofi --show drun"
-                "$mod, Return, exec, wezterm"
+                "$mod, space, exec, walker"
+                "SUPER, V, exec, walker -m clipboard"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, togglefloating"
                 "$mod, V, togglefloating"
                 "$mod, F, fullscreen"
                 "$mod, P, pseudo"
                 "$mod, J, togglesplit"
-                "SUPER, V, exec, cliphist list | wofi --show dmenu --prompt 'Clipboard History' | cliphist decode | wl-copy"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"

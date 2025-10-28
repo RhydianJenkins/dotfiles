@@ -1,6 +1,11 @@
 { pkgs, lib, ... }:
 
 {
+    imports = [
+        ./editors.nix
+        ./git.nix
+    ];
+
     home.packages = with pkgs; [
         fzf
         thefuck
