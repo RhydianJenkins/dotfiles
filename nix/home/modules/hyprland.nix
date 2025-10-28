@@ -23,6 +23,8 @@
                 repeat_rate = 40;
                 touchpad = {
                     natural_scroll = true;
+                    tap-to-click = false;
+                    clickfinger_behavior = true;
                 };
             };
 
