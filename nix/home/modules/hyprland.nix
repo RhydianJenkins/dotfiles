@@ -19,7 +19,7 @@
             input = {
                 kb_layout = "gb";
                 kb_options = "caps:escape";
-                follow_mouse = 1;
+                follow_mouse = 0;
                 touchpad = {
                     natural_scroll = true;
                 };
@@ -65,7 +65,7 @@
 
             bind = [
                 # Basic window management
-                "$mod, Return, exec, kitty"
+                "$mod, Return, exec, wezterm"
                 "$mod, Q, killactive"
                 "$mod SHIFT, E, exit"
                 "$mod SHIFT, Space, togglefloating"
@@ -109,10 +109,6 @@
                 "$mod SHIFT, 8, movetoworkspace, 8"
                 "$mod SHIFT, 9, movetoworkspace, 9"
                 "$mod SHIFT, 0, movetoworkspace, 10"
-
-                # Scroll through workspaces
-                "$mod, mouse_down, workspace, e+1"
-                "$mod, mouse_up, workspace, e-1"
             ];
 
             bindm = [
