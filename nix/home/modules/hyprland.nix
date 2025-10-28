@@ -13,6 +13,8 @@
 
             exec-once = [
                 "waybar"
+                "wl-paste --type text --watch cliphist store"
+                "wl-paste --type image --watch cliphist store"
             ];
 
             input = {
@@ -65,6 +67,7 @@
                 "$mod, F, fullscreen"
                 "$mod, P, pseudo"
                 "$mod, J, togglesplit"
+                "SUPER, V, exec, cliphist list | wofi --show dmenu --prompt 'Clipboard History' | cliphist decode | wl-copy"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"

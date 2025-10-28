@@ -17,7 +17,9 @@
     };
 
     environment.systemPackages = with pkgs; [
+        cliphist
         waybar
+        wl-clipboard
         wofi
     ];
 
