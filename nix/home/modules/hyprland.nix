@@ -6,6 +6,13 @@
         ./waybar.nix
     ];
 
+    home.pointerCursor = {
+        enable = true;
+        name = "Adwaita";
+        package = pkgs.vanilla-dmz;
+        hyprcursor.enable = true;
+    };
+
     wayland.windowManager.hyprland = {
         enable = true;
         package = pkgs.hyprland;
