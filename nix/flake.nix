@@ -32,6 +32,21 @@
             inherit system;
             config.allowUnfree = true;
         };
+
+        commonHmModules = [
+            ./home/modules/browsers.nix
+            ./home/modules/common.nix
+            ./home/modules/terminal.nix
+            walker.homeManagerModules.default
+            nix-index-database.homeModules.nix-index
+            ({ ... }: {
+                _module.args.customPkgs = {
+                    customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
+                    customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
+                    apix = apix.packages.${system}.apix;
+                };
+            })
+        ];
     in {
         nixosConfigurations = {
             work-laptop = nixpkgs.lib.nixosSystem {
@@ -56,39 +71,16 @@
         homeConfigurations = {
             hyprland = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-                modules = [
-                    ./home/modules/browsers.nix
-                    ./home/modules/common.nix
+                modules = commonHmModules ++ [
                     ./home/modules/hyprland.nix
-                    ./home/modules/terminal.nix
-                    walker.homeManagerModules.default
-                    nix-index-database.homeModules.nix-index
-                    ({ ... }: {
-                        _module.args.customPkgs = {
-                            customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
-                            customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
-                            apix = apix.packages.${system}.apix;
-                        };
-                    })
                 ];
             };
 
             i3 = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-                modules = [
-                    ./home/modules/browsers.nix
-                    ./home/modules/common.nix
+                modules = commonHmModules ++ [
                     ./home/modules/i3.nix
                     ./home/modules/keybase.nix
-                    ./home/modules/terminal.nix
-                    nix-index-database.homeModules.nix-index
-                    ({ ... }: {
-                        _module.args.customPkgs = {
-                            customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
-                            customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
-                            apix = apix.packages.${system}.apix;
-                        };
-                    })
                 ];
             };
         };
