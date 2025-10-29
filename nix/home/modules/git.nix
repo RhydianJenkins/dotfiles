@@ -18,8 +18,5 @@ in {
         maintenance = {
             enable = true;
         };
-        diff-so-fancy = {
-            enable = true;
-        };
     };
 }
