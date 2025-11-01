@@ -17,16 +17,9 @@
             url = "github:rhydianjenkins/apix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        elephant = {
-            url = "github:abenz1267/elephant";
-        };
-        walker = {
-            url = "github:abenz1267/walker";
-            inputs.elephant.follows = "elephant";
-        };
     };
 
-    outputs = { nixpkgs, home-manager, nix-index-database, apix, walker, ... }: let
+    outputs = { nixpkgs, home-manager, nix-index-database, apix, ... }: let
         system = "x86_64-linux";
         pkgs = import nixpkgs {
             inherit system;
@@ -37,7 +30,6 @@
             ./home/modules/browsers.nix
             ./home/modules/common.nix
             ./home/modules/terminal.nix
-            walker.homeManagerModules.default
             nix-index-database.homeModules.nix-index
             ({ ... }: {
                 _module.args.customPkgs = {

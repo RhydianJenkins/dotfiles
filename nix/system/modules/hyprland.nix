@@ -9,7 +9,7 @@
     environment.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
         NIXOS_OZONE_WL = "1";
-        XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+        XDG_CURRENT_DESKTOP = "Hyprland";
     };
 
     services.displayManager = {
