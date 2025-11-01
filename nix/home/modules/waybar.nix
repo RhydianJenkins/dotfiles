@@ -19,8 +19,6 @@
                 modules-right = [ "pulseaudio" "clock" ];
 
                 "hyprland/workspaces" = {
-                    # "on-scroll-up": "hyprctl dispatch workspace e+1";
-                    # "on-scroll-down": "hyprctl dispatch workspace e-1";
                     format = "{icon}";
                     sort-by-number = true;
                     on-click = "activate";
@@ -52,7 +50,7 @@
                     };
 
                     interval = 10;
-                    format = "{icon}  {capacity}%";
+                    format = "{icon}    {capacity}%";
                     format-icons = ["" "" "" "" ""];
                     max-length = 25;
                 };

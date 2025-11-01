@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./walker.nix
+        ./wofi.nix
         ./waybar.nix
     ];
 
@@ -75,14 +75,10 @@
 
             bind = [
                 "$mod, Return, exec, wezterm"
-                "$mod, space, exec, walker"
-                "SUPER, V, exec, walker -m clipboard"
+                "$mod, space, exec, wofi --show drun"
+                "SUPER, V, exec, cliphist list | wofi --dmenu -display-columns 2 --allow-images --allow-markup | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
-                "$mod SHIFT, Space, togglefloating"
-                "$mod, V, togglefloating"
-                "$mod, F, fullscreen"
-                "$mod, P, pseudo"
-                "$mod, J, togglesplit"
+                "$mod SHIFT, Space, pseudo"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"
