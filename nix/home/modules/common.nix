@@ -45,6 +45,7 @@ in {
             nodejs_22
             ollama
             openapi-tui
+            opencode
             openssl
             pass
             pavucontrol
