@@ -10,13 +10,18 @@
 
         settings = {
             mainBar = {
+                output = [
+                    "eDP-1"
+                    "DP-1"
+                ];
+
                 layer = "top";
                 position = "bottom";
                 interval = 5;
 
-                modules-left = [ "network" "disk" "battery" "cpu" ];
-                modules-center = [ "hyprland/workspace" ];
-                modules-right = [ "pulseaudio" "clock" ];
+                modules-left = [ "network" "disk" "battery" "cpu" "pulseaudio" ];
+                modules-center = [ "hyprland/workspaces" ];
+                modules-right = [ "clock" ];
 
                 "hyprland/workspaces" = {
                     format = "{icon}";
@@ -56,9 +61,10 @@
                 };
 
                 "pulseaudio" = {
-                    format = ": {volume}%";
-                    format-muted = ": {volume}% (muted)";
+                    format = ":    {volume}%";
+                    format-muted = ":  {volume}% (muted)";
                     scroll-step = 1;
+                    on-click = "pavucontrol";
                 };
 
                 "clock" = {
