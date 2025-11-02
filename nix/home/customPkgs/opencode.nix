@@ -17,7 +17,6 @@ stdenv.mkDerivation rec {
 
     buildInputs = with pkgs; [
         stdenv.cc.cc.lib
-        # Add other dependencies as needed
     ];
 
     unpackPhase = ''
@@ -30,7 +29,7 @@ stdenv.mkDerivation rec {
 
         makeWrapper $out/opencode $out/bin/opencode \
         --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}" \
-        --run 'mkdir -p "$HOME/.local/opencode" "$HOME/.local/share/opencode/log"'
+        --run 'mkdir -p "$HOME/.local/opencode" "$HOME/.local/share/opencode/log" "export OPENCODE_CONFIG_DIR='$HOME/.local/opencode'"'
     '';
 
     meta = with lib; {
