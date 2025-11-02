@@ -13,6 +13,11 @@
         hyprcursor.enable = true;
     };
 
+    services = {
+        flameshot.enable = true;
+        flameshot.package = pkgs.flameshot.override { enableWlrSupport = true; };
+    };
+
     wayland.windowManager.hyprland = {
         enable = true;
         package = pkgs.hyprland;
@@ -77,6 +82,7 @@
                 "SUPER, V, exec, cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, pseudo"
+                "$mod SHIFT, S, exec, flameshot gui"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"
