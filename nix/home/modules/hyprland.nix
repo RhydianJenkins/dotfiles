@@ -78,12 +78,12 @@
 
             bind = [
                 "$mod, Return, exec, wezterm"
-                "$mod, space, exec, wofi --show drun"
-                "SUPER, V, exec, cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
+                "$mod, space, exec, pkill wofi || wofi --show drun"
+                "SUPER, V, exec, pkill wofi || cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, pseudo"
                 "$mod SHIFT, S, exec, flameshot gui"
-                "$mod, P, exec, wofi-pass -sic"
+                "$mod, P, exec, pkill wofi || wofi-pass -sic"
                 "$mod, BACKSPACE, exec, ~/.local/bin/wofi-power"
 
                 # Move focus with hjkl
@@ -126,6 +126,15 @@
             bindm = [
                 "$mod, mouse:272, movewindow"
                 "$mod, mouse:273, resizewindow"
+            ];
+
+            bindl = [
+                # bindl=,switch:off:[switch name],exec,<CMD>
+
+                # "switch:off, exec, dunstify 'switch off'"
+                # "switch:on:, exec, dunstify 'switch on'"
+                # "switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,disable\""
+                # "switch:on:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,preferred,auto,1\""
             ];
         };
     };

@@ -25,7 +25,7 @@
         text = ''
       #!/usr/bin/env bash
       chosen=$(printf "    Lock\n     Logout\n⏾   Suspend\n  Reboot\n   Shutdown" \
-        | wofi --dmenu --prompt "Power" --width 200 --height 200)
+        | wofi -i --dmenu --prompt "Power" --width 200 --height 200)
 
       case "$chosen" in
           " Lock") hyprlock ;;
