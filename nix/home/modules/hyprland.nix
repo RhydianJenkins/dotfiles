@@ -74,7 +74,7 @@
             bind = [
                 "$mod, Return, exec, wezterm"
                 "$mod, space, exec, wofi --show drun"
-                "SUPER, V, exec, cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" | cliphist decode | wl-copy"
+                "SUPER, V, exec, cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, pseudo"
 

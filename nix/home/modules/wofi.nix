@@ -15,6 +15,8 @@
 
         settings = {
             allow_markup = true;
+            key_up = "Ctrl-p";
+            key_down = "Ctrl-n";
         };
     };
 }
