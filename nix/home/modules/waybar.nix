@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        # notify-send
+    imports = [
+        ./dunst.nix
     ];
 
     programs.waybar = {
@@ -44,9 +44,9 @@
                     };
 
                     events = {
-                        # on-discharging-warning = "notify-send -u normal 'Low Battery'";
-                        # on-discharging-critical = "notify-send -u critical 'Very Low Battery'";
-                        # on-charging-100 = "notify-send -u normal 'Battery Full!'";
+                        on-discharging-warning = "dunstify -u normal 'Low Battery'";
+                        on-discharging-critical = "dunstify -u critical 'Very Low Battery'";
+                        on-charging-100 = "dunstify 'Battery Full'";
                     };
 
                     interval = 10;
