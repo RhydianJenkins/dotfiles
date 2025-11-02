@@ -83,7 +83,7 @@
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, pseudo"
                 "$mod SHIFT, S, exec, flameshot gui"
-                "$mod, P, exec, wofi-pass -s"
+                "$mod, P, exec, wofi-pass -sic"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"
