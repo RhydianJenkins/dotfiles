@@ -30,13 +30,11 @@
 
             exec-once = [
                 "waybar"
-                "elephant"
             ];
 
             input = {
                 kb_layout = "gb";
                 kb_options = "caps:escape";
-                follow_mouse = 0;
                 repeat_delay = 200;
                 repeat_rate = 40;
                 touchpad = {
@@ -76,7 +74,7 @@
             bind = [
                 "$mod, Return, exec, wezterm"
                 "$mod, space, exec, wofi --show drun"
-                "SUPER, V, exec, cliphist list | wofi --dmenu -display-columns 2 --allow-images --allow-markup | cliphist decode | wl-copy"
+                "SUPER, V, exec, cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, pseudo"
 
