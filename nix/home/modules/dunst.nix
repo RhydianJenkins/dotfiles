@@ -15,14 +15,12 @@
                 frame_color = "#5B8234";
                 foreground = "#5B8234";
                 background = "#191311";
-                # override_pause_level = 30;
             };
 
             urgency_critical = {
                 frame_color = "#B7472A";
                 foreground = "#B7472A";
                 background = "#191311";
-                # override_pause_level = 60;
             };
         };
     };
