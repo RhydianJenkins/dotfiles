@@ -54,6 +54,7 @@
                 inherit system;
                 modules = [
                     ./system/machines/personal-laptop/hardware-configuration.nix
+                    ./system/modules/gaming.nix
                     ./system/modules/common.nix
                     ./system/modules/hyprland.nix
                 ];
