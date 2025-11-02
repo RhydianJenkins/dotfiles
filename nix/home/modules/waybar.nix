@@ -39,7 +39,12 @@
 
                 "disk" = {
                     path = "/";
-                    format = "{free}";
+                    format = "󰋊   {free}";
+                };
+
+                "cpu" = {
+                    format = "   {usage}%";
+                    interval = 5;
                 };
 
                 "battery" = {
