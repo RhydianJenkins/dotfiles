@@ -3,6 +3,7 @@
 {
     home.packages = with pkgs; [
         wl-clipboard
+        wofi-pass
     ];
 
     services.cliphist = {
