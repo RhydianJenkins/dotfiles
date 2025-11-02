@@ -84,6 +84,7 @@
                 "$mod SHIFT, Space, pseudo"
                 "$mod SHIFT, S, exec, flameshot gui"
                 "$mod, P, exec, wofi-pass -sic"
+                "$mod, BACKSPACE, exec, ~/.local/bin/wofi-power"
 
                 # Move focus with hjkl
                 "$mod, h, movefocus, l"

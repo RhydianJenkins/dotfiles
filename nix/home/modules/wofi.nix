@@ -20,4 +20,21 @@
             key_down = "Ctrl-n";
         };
     };
+
+    home.file.".local/bin/wofi-power" = {
+        text = ''
+      #!/usr/bin/env bash
+      chosen=$(printf "    Lock\n     Logout\n⏾   Suspend\n  Reboot\n   Shutdown" \
+        | wofi --dmenu --prompt "Power" --width 200 --height 200)
+
+      case "$chosen" in
+          " Lock") hyprlock ;;
+          " Logout") hyprctl dispatch exit ;;
+          "⏾ Suspend") systemctl suspend ;;
+          " Reboot") systemctl reboot ;;
+          " Shutdown") systemctl poweroff ;;
+      esac
+        '';
+        executable = true;
+    };
 }
