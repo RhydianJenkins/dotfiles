@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
     meta = with lib; {
         description = "Opencode - A command line tool for interacting with AI agents";
         homepage = "https://opencode.ai";
-        license = licenses.unfree;
+        license = licenses.mit;
         platforms = platforms.linux;
         maintainers = [ ];
     };
