@@ -27,6 +27,7 @@
         };
 
         commonHmModules = [
+            ./home/modules/ai.nix
             ./home/modules/browsers.nix
             ./home/modules/common.nix
             ./home/modules/terminal.nix
@@ -35,6 +36,7 @@
                 _module.args.customPkgs = {
                     customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
                     customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
+                    customOpencode = pkgs.callPackage ./home/customPkgs/opencode.nix {};
                     apix = apix.packages.${system}.apix;
                 };
             })
