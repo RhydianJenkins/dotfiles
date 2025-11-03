@@ -81,7 +81,7 @@
                 "$mod, space, exec, pkill wofi || wofi --show drun"
                 "SUPER, V, exec, pkill wofi || cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
-                "$mod SHIFT, Space, pseudo"
+                "$mod SHIFT, Space, togglefloating"
                 "$mod SHIFT, S, exec, flameshot gui"
                 "$mod, P, exec, pkill wofi || wofi-pass -sic"
                 "$mod, BACKSPACE, exec, ~/.local/bin/wofi-power"
