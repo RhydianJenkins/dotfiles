@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
 
     buildInputs = with pkgs; [
         stdenv.cc.cc.lib
+        ncurses
     ];
 
     unpackPhase = ''
