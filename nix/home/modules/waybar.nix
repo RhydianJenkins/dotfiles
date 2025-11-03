@@ -12,7 +12,6 @@
             mainBar = {
                 output = [
                     "eDP-1"
-                    "DP-1"
                 ];
 
                 layer = "top";
