@@ -23,11 +23,6 @@
         package = pkgs.hyprland;
         xwayland.enable = true;
 
-        systemd = {
-            enable = true;
-            variables = ["--all"];
-        };
-
         settings = {
             monitor = [ ",preferred,auto,1" ];
 
