@@ -21,16 +21,13 @@ stdenv.mkDerivation rec {
     ];
 
     unpackPhase = ''
-    unzip $src
+        unzip $src
     '';
 
     installPhase = ''
         mkdir -p $out/bin
         cp -r * $out/
-
-        makeWrapper $out/opencode $out/bin/opencode \
-        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}" \
-        --run 'mkdir -p "$HOME/.local/opencode" "$HOME/.local/share/opencode/log" "export OPENCODE_CONFIG_DIR='$HOME/.local/opencode'"'
+        makeWrapper $out/opencode $out/bin/opencode --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib pkgs.ncurses ]}"
     '';
 
     meta = with lib; {
