@@ -24,9 +24,13 @@
         xwayland.enable = true;
 
         settings = {
-            monitor = [ ",preferred,auto,1" ];
+            monitor = [ ",preferred,auto,auto" ];
 
             "$mod" = "ALT";
+
+            exec-once = [
+                "systemctl --user start waybar"
+            ];
 
             input = {
                 kb_layout = "gb";
