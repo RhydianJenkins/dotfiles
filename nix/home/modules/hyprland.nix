@@ -33,10 +33,6 @@
 
             "$mod" = "ALT";
 
-            exec-once = [
-                "waybar"
-            ];
-
             input = {
                 kb_layout = "gb";
                 kb_options = "caps:escape";
