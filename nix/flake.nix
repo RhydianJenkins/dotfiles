@@ -34,7 +34,6 @@
             ./home/modules/common.nix
             ./home/modules/terminal.nix
             nix-index-database.homeModules.nix-index
-            nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
             ({ ... }: {
                 _module.args.customPkgs = {
                     customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
@@ -52,6 +51,7 @@
                     ./system/machines/work-laptop/hardware-configuration.nix
                     ./system/modules/common.nix
                     ./system/modules/hyprland.nix
+                    nixos-hardware.nixosModules.dell-xps-15-9510-intel # disable GPU for battery life
                 ];
             };
 
@@ -59,9 +59,10 @@
                 inherit system;
                 modules = [
                     ./system/machines/personal-laptop/hardware-configuration.nix
-                    ./system/modules/gaming.nix
                     ./system/modules/common.nix
+                    ./system/modules/gaming.nix
                     ./system/modules/hyprland.nix
+                    nixos-hardware.nixosModules.dell-xps-15-9560-nvidia
                 ];
             };
         };

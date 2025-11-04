@@ -8,16 +8,22 @@
         gamescopeSession.enable = true; # Helps with upscaling
     };
 
-    home = {
-        packages = with pkgs; [
-            # run `protonup` to generate the compatibility report,
-            # then set the protonup version in steam to use it
-            protonup
-        ];
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia.modesetting.enable = true;
 
-        sessionVariables = {
-            STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/compatibilitytools.d";
-        };
+    hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
     };
 
+    environment.systemPackages = with pkgs; [
+        # run `protonup` to generate the compatibility report,
+        # then set the protonup version in steam to use it
+        protonup
+    ];
+
+    environment.sessionVariables = {
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+            "\${HOME}/.steam/root/compatibilitytools.d";
+    };
 }
