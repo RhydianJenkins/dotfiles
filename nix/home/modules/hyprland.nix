@@ -6,16 +6,16 @@
         ./waybar.nix
     ];
 
+    home.packages = with pkgs; [
+        grim
+        slurp
+    ];
+
     home.pointerCursor = {
         enable = true;
         name = "Adwaita";
         package = pkgs.vanilla-dmz;
         hyprcursor.enable = true;
-    };
-
-    services = {
-        flameshot.enable = true;
-        flameshot.package = pkgs.flameshot.override { enableWlrSupport = true; };
     };
 
     wayland.windowManager.hyprland = {
@@ -77,7 +77,7 @@
                 "SUPER, V, exec, pkill wofi || cliphist list | wofi -S dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" --prompt \"Clipboard History\" | cliphist decode | wl-copy"
                 "$mod SHIFT, Q, killactive"
                 "$mod SHIFT, Space, togglefloating"
-                "$mod SHIFT, S, exec, flameshot gui"
+                "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
                 "$mod, P, exec, pkill wofi || wofi-pass -sic"
                 "$mod, BACKSPACE, exec, ~/.local/bin/wofi-power"
 
