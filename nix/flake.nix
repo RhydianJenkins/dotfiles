@@ -15,7 +15,6 @@
         };
         apix = {
             url = "github:rhydianjenkins/apix";
-            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
