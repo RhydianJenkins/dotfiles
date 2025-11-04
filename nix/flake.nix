@@ -48,7 +48,7 @@
                 modules = [
                     ./system/machines/work-laptop/hardware-configuration.nix
                     ./system/modules/common.nix
-                    ./system/modules/hyprland.nix
+                    ./system/modules/i3.nix
                 ];
             };
 
@@ -68,7 +68,6 @@
                 inherit pkgs;
                 modules = commonHmModules ++ [
                     ./home/modules/hyprland.nix
-                    ./home/modules/keybase.nix
                 ];
             };
 
