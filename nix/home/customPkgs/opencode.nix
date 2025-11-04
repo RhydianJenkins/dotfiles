@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
     src = fetchurl {
         url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-linux-x64.zip";
-        sha256 = "DOSBtdjRkFagtgkF16kte1jUC4Gw/YeQLRg85T9+9pU=";
+        sha256 = "1vkh8b6smi9ga8x131am7f3q7045i5ijxfk9wynha64j695iqcp0";
     };
 
     nativeBuildInputs = [
