@@ -5,20 +5,23 @@
         nixpkgs = {
             url = "github:nixos/nixpkgs/nixos-25.05";
         };
+
         home-manager = {
             url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
         nix-index-database = {
             url = "github:nix-community/nix-index-database";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        apix = {
-            url = "github:rhydianjenkins/apix";
-        };
+
+        apix.url = "github:rhydianjenkins/apix";
+
+        nixos-hardware.url = "github:NixOS/nixos-hardware";
     };
 
-    outputs = { nixpkgs, home-manager, nix-index-database, apix, ... }: let
+    outputs = { nixpkgs, home-manager, nix-index-database, apix, nixos-hardware, ... }: let
         system = "x86_64-linux";
         pkgs = import nixpkgs {
             inherit system;
@@ -31,6 +34,7 @@
             ./home/modules/common.nix
             ./home/modules/terminal.nix
             nix-index-database.homeModules.nix-index
+            nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
             ({ ... }: {
                 _module.args.customPkgs = {
                     customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
