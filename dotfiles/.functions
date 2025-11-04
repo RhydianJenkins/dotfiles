@@ -1,4 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+function hyprpaper_random() {
+    directory=~/Pictures/wallpapers
+    monitors=($(hyprctl monitors | grep Monitor | awk '{print $2}'))
+
+    if [ -d "$directory" ]; then
+        hyprctl hyprpaper unload all
+        for monitor in "${monitors[@]}"; do
+            random_background=$(ls $directory/*.jpg | shuf -n 1)
+
+            echo "Monitor: $monitor"
+            echo "Random background: $random_background"
+
+            hyprctl hyprpaper preload $random_background
+            hyprctl hyprpaper wallpaper "$monitor, $random_background"
+        done
+    fi
+}
 
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 
