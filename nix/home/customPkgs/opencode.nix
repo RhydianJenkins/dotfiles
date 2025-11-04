@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
     pname = "opencode";
-    version = "1.0.12";
+    version = "1.0.20";
 
     src = fetchurl {
         url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-linux-x64.zip";
