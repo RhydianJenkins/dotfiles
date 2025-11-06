@@ -87,6 +87,10 @@
                 "$mod, j, movefocus, d"
                 "$mod, k, movefocus, u"
                 "$mod, l, movefocus, r"
+                "$mod SHIFT, h, movewindow, l"
+                "$mod SHIFT, j, movewindow, d"
+                "$mod SHIFT, k, movewindow, u"
+                "$mod SHIFT, l, movewindow, r"
 
                 # Switch workspaces (0-9)
                 "$mod, 1, workspace, 1"
