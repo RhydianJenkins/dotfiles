@@ -11,8 +11,8 @@ curl https://sh.rustup.rs -sSf | sh
 # install bob
 cargo install --git https://github.com/MordechaiHadad/bob.git
 
-# install NeoVim
-bob install v0.9.2
+# install NeoVim (note: requires 0.11.0+)
+bob install v0.11.2
 ```
 
 # Installation
