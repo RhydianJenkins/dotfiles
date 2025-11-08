@@ -66,78 +66,82 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.lsp.config("sqlls", {
-    filetypes = { "sql", "mysql" },
-    cmd = { "sql-language-server", "up", "--method", "stdio" },
-    root_dir = function(fname)
-        return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
-    end,
-    handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics,
-            { virtual_text = false }
-        ),
-    },
-})
+if vim.lsp and vim.lsp.config then
+    vim.lsp.config("sqlls", {
+        filetypes = { "sql", "mysql" },
+        cmd = { "sql-language-server", "up", "--method", "stdio" },
+        root_dir = function(fname)
+            return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
+        end,
+        handlers = {
+            ["textDocument/publishDiagnostics"] = vim.lsp.with(
+                vim.lsp.diagnostic.on_publish_diagnostics,
+                { virtual_text = false }
+            ),
+        },
+    })
 
-vim.lsp.config("intelephense", {
-    settings = {
-        intelephense = {
-            stubs = {
-                "bcmath",
-                "bz2",
-                "Core",
-                "curl",
-                "date",
-                "dom",
-                "fileinfo",
-                "filter",
-                "gd",
-                "gettext",
-                "hash",
-                "iconv",
-                "imap",
-                "intl",
-                "json",
-                "libxml",
-                "mbstring",
-                "mcrypt",
-                "mysql",
-                "mysqli",
-                "password",
-                "pcntl",
-                "pcre",
-                "PDO",
-                "pdo_mysql",
-                "Phar",
-                "readline",
-                "regex",
-                "session",
-                "SimpleXML",
-                "sockets",
-                "sodium",
-                "standard",
-                "superglobals",
-                "tokenizer",
-                "xml",
-                "xdebug",
-                "xmlreader",
-                "xmlwriter",
-                "yaml",
-                "zip",
-                "zlib",
-                "wordpress-stubs",
-                "woocommerce-stubs",
-                "acf-pro-stubs",
-                "wordpress-globals",
-                "wp-cli-stubs",
-                "genesis-stubs",
-                "polylang-stubs",
-                "redis",
+    vim.lsp.config("intelephense", {
+        settings = {
+            intelephense = {
+                stubs = {
+                    "bcmath",
+                    "bz2",
+                    "Core",
+                    "curl",
+                    "date",
+                    "dom",
+                    "fileinfo",
+                    "filter",
+                    "gd",
+                    "gettext",
+                    "hash",
+                    "iconv",
+                    "imap",
+                    "intl",
+                    "json",
+                    "libxml",
+                    "mbstring",
+                    "mcrypt",
+                    "mysql",
+                    "mysqli",
+                    "password",
+                    "pcntl",
+                    "pcre",
+                    "PDO",
+                    "pdo_mysql",
+                    "Phar",
+                    "readline",
+                    "regex",
+                    "session",
+                    "SimpleXML",
+                    "sockets",
+                    "sodium",
+                    "standard",
+                    "superglobals",
+                    "tokenizer",
+                    "xml",
+                    "xdebug",
+                    "xmlreader",
+                    "xmlwriter",
+                    "yaml",
+                    "zip",
+                    "zlib",
+                    "wordpress-stubs",
+                    "woocommerce-stubs",
+                    "acf-pro-stubs",
+                    "wordpress-globals",
+                    "wp-cli-stubs",
+                    "genesis-stubs",
+                    "polylang-stubs",
+                    "redis",
+                },
             },
         },
-    },
-})
+    })
+else
+    vim.notify_once("Warning: vim.lsp.config missing. Some lsp features will not work. Check nvim version.")
+end
 
 null_ls.setup({
     sources = {
