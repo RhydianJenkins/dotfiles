@@ -24,15 +24,35 @@
     home.file.".local/bin/wofi-power" = {
         text = ''
       #!/usr/bin/env bash
-      chosen=$(printf "    Lock\n     Logout\n⏾   Suspend\n  Reboot\n   Shutdown" \
+
+      chosen=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" \
         | wofi -i --dmenu --prompt "Power" --width 200 --height 200)
 
       case "$chosen" in
-          " Lock") hyprlock ;;
-          " Logout") hyprctl dispatch exit ;;
-          "⏾ Suspend") systemctl suspend ;;
-          " Reboot") systemctl reboot ;;
-          " Shutdown") systemctl poweroff ;;
+          "Lock")
+              echo "Executing: hyprlock"
+              hyprlock
+              ;;
+          "Logout")
+              echo "Executing: hyprctl dispatch exit"
+              hyprctl dispatch exit
+              ;;
+          "Suspend")
+              echo "Executing: systemctl suspend"
+              systemctl suspend
+              ;;
+          "Reboot")
+              echo "Executing: systemctl reboot"
+              systemctl reboot
+              ;;
+          "Shutdown")
+              echo "Executing: systemctl poweroff"
+              systemctl poweroff
+              ;;
+          *)
+              echo "Unknown selection: [$chosen]"
+              exit 1
+              ;;
       esac
         '';
         executable = true;
