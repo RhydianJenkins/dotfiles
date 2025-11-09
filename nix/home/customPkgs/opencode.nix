@@ -25,9 +25,13 @@ stdenv.mkDerivation rec {
     '';
 
     installPhase = ''
+        runHook preInstall
+
         mkdir -p $out/bin
         cp -r * $out/
         makeWrapper $out/opencode $out/bin/opencode --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib pkgs.ncurses ]}"
+
+        runHook postInstall
     '';
 
     meta = with lib; {
