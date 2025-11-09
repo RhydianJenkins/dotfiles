@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
     pname = "opencode";
-    version = "1.0.35";
+    version = "1.0.51";
 
     src = fetchurl {
         url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-linux-x64.zip";
-        sha256 = "1h47fz993vz8k42i4715y9dm92ihg9f3m5siyhb95d1ampsgrp7y";
+        sha256 = "0sl93wswg6pn07j0q0zc3xnp6xrl9kvra063k2lr0jkj89srvfzx";
     };
 
     nativeBuildInputs = [
