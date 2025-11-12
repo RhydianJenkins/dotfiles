@@ -10,7 +10,6 @@
         fzf
         thefuck
         tmux
-        wezterm
     ];
 
     home.file = {

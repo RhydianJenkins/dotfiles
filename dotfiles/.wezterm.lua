@@ -16,7 +16,7 @@ config.window_padding = {
     top = 0,
     bottom = 0,
 }
-config.front_end = "WebGpu"
+config.front_end = "OpenGL"
 
 config.keys = {
     -- Trigger debug overlay
