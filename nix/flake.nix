@@ -51,7 +51,7 @@
                     ./system/machines/work-laptop/hardware-configuration.nix
                     ./system/modules/common.nix
                     ./system/modules/hyprland.nix
-                    nixos-hardware.nixosModules.dell-xps-15-9510-intel # disable GPU for battery life
+                    nixos-hardware.nixosModules.dell-xps-15-9510 # omit nvidia for battery life
                 ];
             };
 
