@@ -11,9 +11,7 @@
 
         settings = {
             mainBar = {
-                output = [
-                    "eDP-1"
-                ];
+                output = [ "*" ];
 
                 layer = "top";
                 position = "bottom";

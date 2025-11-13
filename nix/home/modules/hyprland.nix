@@ -129,12 +129,8 @@
             ];
 
             bindl = [
-                # bindl=,switch:off:[switch name],exec,<CMD>
-
-                # "switch:off, exec, dunstify 'switch off'"
-                # "switch:on:, exec, dunstify 'switch on'"
-                # "switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,disable\""
-                # "switch:on:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,preferred,auto,1\""
+                ",switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,preferred,auto,auto\""
+                ",switch:on:Lid Switch, exec, hyprctl keyword monitor \"eDP-1,disable\""
             ];
         };
     };
