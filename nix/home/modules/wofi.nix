@@ -25,10 +25,14 @@
         text = ''
       #!/usr/bin/env bash
 
-      chosen=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" \
+      chosen=$(printf "Shutdown\nLock\nLogout\nSuspend\nReboot" \
         | wofi -i --dmenu --prompt "Power" --width 200 --height 200)
 
       case "$chosen" in
+          "Shutdown")
+              echo "Executing: systemctl poweroff"
+              systemctl poweroff
+              ;;
           "Lock")
               echo "Executing: hyprlock"
               hyprlock
@@ -44,10 +48,6 @@
           "Reboot")
               echo "Executing: systemctl reboot"
               systemctl reboot
-              ;;
-          "Shutdown")
-              echo "Executing: systemctl poweroff"
-              systemctl poweroff
               ;;
           *)
               echo "Unknown selection: [$chosen]"
