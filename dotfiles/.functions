@@ -55,7 +55,7 @@ function restore_databases() {
         return 1;
     fi
 
-    bk
+    cd ~/code/basekit
 
     if (type purge_databases &> /dev/null); then
         purge_databases
