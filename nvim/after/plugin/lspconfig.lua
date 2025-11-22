@@ -139,8 +139,6 @@ if vim.lsp and vim.lsp.config then
             },
         },
     })
-else
-    vim.notify_once("Warning: vim.lsp.config missing. Some lsp features will not work. Check nvim version.")
 end
 
 null_ls.setup({
