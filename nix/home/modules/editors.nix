@@ -8,7 +8,6 @@
         luajit
         tree-sitter
         rPackages.treesitter
-        python3Full
         julia
         openjdk
         php84
