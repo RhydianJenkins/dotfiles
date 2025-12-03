@@ -9,11 +9,15 @@ in {
 
     programs.git = {
         enable = true;
-        userName = "${username}";
-        userEmail = "${email}";
-        aliases = {
-            stash = "stash --all";
-            who = "blame -w -M -C -C -C";
+        settings = {
+            user = {
+                name = "${username}";
+                email = "${email}";
+            };
+            aliases = {
+                stash = "stash --all";
+                who = "blame -w -M -C -C -C";
+            };
         };
         maintenance = {
             enable = true;

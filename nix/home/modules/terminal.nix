@@ -8,7 +8,6 @@
 
     home.packages = with pkgs; [
         fzf
-        thefuck
         tmux
     ];
 
@@ -47,7 +46,6 @@
                 "aliases"
                 "extract"
                 "kubectl"
-                "thefuck"
                 "tmux"
             ];
         };

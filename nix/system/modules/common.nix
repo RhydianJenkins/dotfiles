@@ -93,10 +93,9 @@
             nerd-fonts.meslo-lg
             noto-fonts
             noto-fonts-cjk-sans
-            noto-fonts-emoji
+            noto-fonts-color-emoji
             source-han-sans
-            source-han-sans-japanese
-            source-han-serif-japanese
+            source-han-serif
         ];
         fontconfig = {
             enable = true;

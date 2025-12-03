@@ -31,7 +31,7 @@ in
             pkgs.dpkg
             pkgs.autoPatchelfHook
             pkgs.makeWrapper
-            pkgs.wrapGAppsHook
+            pkgs.wrapGAppsHook3
         ];
 
         buildInputs = [
