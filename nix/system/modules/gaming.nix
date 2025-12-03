@@ -19,7 +19,7 @@
     environment.systemPackages = with pkgs; [
         # run `protonup` to generate the compatibility report,
         # then set the protonup version in steam to use it
-        protonup
+        protonup-ng
     ];
 
     environment.sessionVariables = {
