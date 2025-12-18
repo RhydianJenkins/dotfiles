@@ -86,7 +86,10 @@
         };
 
         devShells.${system}.default = pkgs.mkShell {
-            packages = [ home-manager.packages.${system}.default ];
+            packages = [
+                home-manager.packages.${system}.default
+                pkgs.vim
+            ];
         };
     };
 }
