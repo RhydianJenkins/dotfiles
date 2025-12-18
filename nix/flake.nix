@@ -59,6 +59,7 @@
                 inherit system;
                 modules = [
                     ./system/machines/home-desktop/hardware-configuration.nix
+                    ./system/machines/home-desktop/nvidia.nix
                     ./system/modules/common.nix
                     ./system/modules/gaming.nix
                     ./system/modules/hyprland.nix
@@ -82,6 +83,10 @@
                     ./home/modules/keybase.nix
                 ];
             };
+        };
+
+        devShells.${system}.default = pkgs.mkShell {
+            packages = [ home-manager.packages.${system}.default ];
         };
     };
 }
