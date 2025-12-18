@@ -55,14 +55,13 @@
                 ];
             };
 
-            personal-laptop = nixpkgs.lib.nixosSystem {
+            home-desktop = nixpkgs.lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./system/machines/personal-laptop/hardware-configuration.nix
+                    ./system/machines/home-desktop/hardware-configuration.nix
                     ./system/modules/common.nix
                     ./system/modules/gaming.nix
                     ./system/modules/hyprland.nix
-                    nixos-hardware.nixosModules.dell-xps-15-9560-nvidia
                 ];
             };
         };
