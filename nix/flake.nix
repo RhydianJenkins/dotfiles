@@ -89,6 +89,7 @@
             packages = [
                 home-manager.packages.${system}.default
                 pkgs.git
+                pkgs.tmux
                 pkgs.vim
             ];
         };
