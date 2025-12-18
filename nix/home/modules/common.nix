@@ -22,7 +22,6 @@ in {
             fd
             feh
             file
-            flyctl
             gcc
             gcloud
             gh
@@ -62,6 +61,7 @@ in {
             vim
             warp-terminal
             wget
+            whatsapp-electron
             yq-go
         ];
 
