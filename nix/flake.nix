@@ -88,6 +88,7 @@
         devShells.${system}.default = pkgs.mkShell {
             packages = [
                 home-manager.packages.${system}.default
+                pkgs.git
                 pkgs.vim
             ];
         };
