@@ -10,20 +10,14 @@
 in
     stdenv.mkDerivation rec {
         name = "tableplus";
-        version = "0.1.266";
+        version = "0.1.284";
 
         src =
             if stdenv.hostPlatform.system == "x86_64-linux"
                 then
                 pkgs.fetchurl {
                     url = "https://deb.tableplus.com/debian/22/pool/main/t/tableplus/tableplus_${version}_amd64.deb";
-                    sha256 = "sha256-AxIeSsIDVDvSrbNckaLwu/Lu/EqK+DO/yZKIPqKYD7Y=";
-                }
-            else if stdenv.hostPlatform.system == "aarch64-linux"
-                then
-                pkgs.fetchurl {
-                    url = "https://deb.tableplus.com/debian/22-arm/pool/main/t/tableplus/tableplus_${version}_arm64.deb";
-                    sha256 = "sha256-placeholder-aarch64";
+                    sha256 = "sha256-TrYRRpjSVRD721XEd0gwGPv4RNq/uwaswPW2J8oVjXQ=";
                 }
             else throw "Unsupported platform: ${stdenv.hostPlatform.system}";
 
