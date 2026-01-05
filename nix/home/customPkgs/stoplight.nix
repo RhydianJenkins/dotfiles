@@ -22,8 +22,6 @@ appimageTools.wrapType2 {
     ];
 
     extraInstallCommands = ''
-        ls -la ${appimageContents}
-
         install -m 444 -D ${appimageContents}/${pname}.desktop $out/share/applications/${pname}.desktop
         install -m 444 -D ${appimageContents}/${pname}.png out/share/icons/hicolor/512x512/apps/${pname}.png
         substituteInPlace $out/share/applications/${pname}.desktop --replace-fail 'Exec=AppRun' 'Exec=${pname}'
