@@ -2,15 +2,14 @@
 
 stdenv.mkDerivation rec {
     pname = "opencode";
-    version = "1.0.51";
+    version = "1.1.3";
 
     src = fetchurl {
-        url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-linux-x64.zip";
-        sha256 = "0sl93wswg6pn07j0q0zc3xnp6xrl9kvra063k2lr0jkj89srvfzx";
+        url = "https://github.com/anomalyco/opencode/releases/download/v${version}/opencode-linux-x64.tar.gz";
+        sha256 = "10lbglamc5wivbyhajn402bm1qmz8w95kgn6jyyazbdrn1fchjp7";
     };
 
     nativeBuildInputs = [
-        pkgs.unzip
         makeWrapper
         autoPatchelfHook
     ];
@@ -21,7 +20,7 @@ stdenv.mkDerivation rec {
     ];
 
     unpackPhase = ''
-        unzip $src
+        tar -xvzf $src
     '';
 
     installPhase = ''
