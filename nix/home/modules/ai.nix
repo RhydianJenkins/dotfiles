@@ -1,7 +1,7 @@
-{ config, customPkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-    home.packages = with customPkgs; [
+    home.packages = with pkgs; [
         customOpencode
     ];
 }

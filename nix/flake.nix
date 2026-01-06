@@ -26,6 +26,9 @@
         pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+                (import ./home/customPkgs { inherit apix system; })
+            ];
         };
 
         commonHmModules = [
@@ -34,14 +37,6 @@
             ./home/modules/common.nix
             ./home/modules/terminal.nix
             nix-index-database.homeModules.nix-index
-            ({ ... }: {
-                _module.args.customPkgs = {
-                    customStoplight = pkgs.callPackage ./home/customPkgs/stoplight.nix {};
-                    customTableplus = pkgs.callPackage ./home/customPkgs/tableplus.nix {};
-                    customOpencode = pkgs.callPackage ./home/customPkgs/opencode.nix {};
-                    apix = apix.packages.${system}.default;
-                };
-            })
         ];
     in {
         nixosConfigurations = {

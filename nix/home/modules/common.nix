@@ -1,13 +1,12 @@
 {pkgs, customPkgs, ...}: let
     username = "rhydian";
-    allPkgs = pkgs // customPkgs;
     gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
 in {
     home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
         stateVersion = "23.11";
-        packages = with allPkgs; [
+        packages = with pkgs; [
             alsa-utils
             apix
             blueman
