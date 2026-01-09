@@ -61,6 +61,7 @@ in {
             warp-terminal
             wget
             whatsapp-electron
+            wireshark
             yq-go
         ];
 
