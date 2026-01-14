@@ -44,6 +44,7 @@ in
       nautilus
       neofetch
       ngrok
+      nixfmt-rfc-style
       nodejs_22
       ollama
       openapi-tui
