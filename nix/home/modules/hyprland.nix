@@ -14,7 +14,7 @@
 
   home.pointerCursor = {
     enable = true;
-    name = "Adwaita";
+    name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
     hyprcursor.enable = true;
   };
