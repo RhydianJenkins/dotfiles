@@ -15,6 +15,7 @@ in
       apix
       blueman
       cargo
+      claude-code
       codespell
       curl
       customStoplight
