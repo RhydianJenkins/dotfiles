@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@v25
+    - uses: cachix/install-nix-action@v31
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/cache@v3
@@ -19,4 +19,17 @@ jobs:
         path: /nix/store
         key: ${{ runner.os }}-nix-${{ hashFiles('flake.nix', 'system/configuration.nix', 'user/home.nix') }}
     - run: nix flake check
+      working-directory: ./nix
+
+  Format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cachix/install-nix-action@v31
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        nix_path: nixpkgs=channel:nixos-unstable
+    - name: Check Nix formatting
+      run: |
+        nix-shell -p nixfmt-tree --run "treefmt --ci ."
       working-directory: ./nix
