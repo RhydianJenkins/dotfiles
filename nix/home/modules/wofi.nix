@@ -1,28 +1,28 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        wl-clipboard
-        wofi-pass
-    ];
+  home.packages = with pkgs; [
+    wl-clipboard
+    wofi-pass
+  ];
 
-    services.cliphist = {
-        enable = true;
-        allowImages = true;
+  services.cliphist = {
+    enable = true;
+    allowImages = true;
+  };
+
+  programs.wofi = {
+    enable = true;
+
+    settings = {
+      allow_markup = true;
+      key_up = "Ctrl-p";
+      key_down = "Ctrl-n";
     };
+  };
 
-    programs.wofi = {
-        enable = true;
-
-        settings = {
-            allow_markup = true;
-            key_up = "Ctrl-p";
-            key_down = "Ctrl-n";
-        };
-    };
-
-    home.file.".local/bin/wofi-power" = {
-        text = ''
+  home.file.".local/bin/wofi-power" = {
+    text = ''
       #!/usr/bin/env bash
 
       chosen=$(printf "Shutdown\nLock\nLogout\nSuspend\nReboot" \
@@ -54,7 +54,7 @@
               exit 1
               ;;
       esac
-        '';
-        executable = true;
-    };
+    '';
+    executable = true;
+  };
 }

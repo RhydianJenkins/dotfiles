@@ -1,92 +1,102 @@
 {
-    description = "Rhydian's Nix configs";
+  description = "Rhydian's Nix configs";
 
-    inputs = {
-        nixpkgs = {
-            url = "github:nixos/nixpkgs/nixos-25.11";
-        };
-
-        home-manager = {
-            url = "github:nix-community/home-manager/release-25.11";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        nix-index-database = {
-            url = "github:nix-community/nix-index-database";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        apix.url = "github:rhydianjenkins/apix";
-
-        nixos-hardware.url = "github:NixOS/nixos-hardware";
+  inputs = {
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
-    outputs = { nixpkgs, home-manager, nix-index-database, apix, nixos-hardware, ... }: let
-        system = "x86_64-linux";
-        pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-                (import ./home/customPkgs { inherit apix system; })
-            ];
-        };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-        commonHmModules = [
-            ./home/modules/ai.nix
-            ./home/modules/browsers.nix
-            ./home/modules/common.nix
-            ./home/modules/terminal.nix
-            nix-index-database.homeModules.nix-index
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    apix.url = "github:rhydianjenkins/apix";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+  };
+
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nix-index-database,
+      apix,
+      nixos-hardware,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          (import ./home/customPkgs { inherit apix system; })
         ];
-    in {
-        nixosConfigurations = {
-            work-laptop = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = [
-                    ./system/machines/work-laptop/hardware-configuration.nix
-                    ./system/modules/common.nix
-                    ./system/modules/hyprland.nix
-                    nixos-hardware.nixosModules.dell-xps-15-9510 # omit nvidia for battery life
-                ];
-            };
+      };
 
-            home-desktop = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = [
-                    ./system/machines/home-desktop/hardware-configuration.nix
-                    ./system/machines/home-desktop/nvidia.nix
-                    ./system/modules/common.nix
-                    ./system/modules/gaming.nix
-                    ./system/modules/hyprland.nix
-                ];
-            };
+      commonHmModules = [
+        ./home/modules/ai.nix
+        ./home/modules/browsers.nix
+        ./home/modules/common.nix
+        ./home/modules/terminal.nix
+        nix-index-database.homeModules.nix-index
+      ];
+    in
+    {
+      nixosConfigurations = {
+        work-laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./system/machines/work-laptop/hardware-configuration.nix
+            ./system/modules/common.nix
+            ./system/modules/hyprland.nix
+            nixos-hardware.nixosModules.dell-xps-15-9510 # omit nvidia for battery life
+          ];
         };
 
-        homeConfigurations = {
-            hyprland = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = commonHmModules ++ [
-                    ./home/modules/hyprland.nix
-                    ./home/modules/keybase.nix
-                ];
-            };
+        home-desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./system/machines/home-desktop/hardware-configuration.nix
+            ./system/machines/home-desktop/nvidia.nix
+            ./system/modules/common.nix
+            ./system/modules/gaming.nix
+            ./system/modules/hyprland.nix
+          ];
+        };
+      };
 
-            i3 = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = commonHmModules ++ [
-                    ./home/modules/i3.nix
-                    ./home/modules/keybase.nix
-                ];
-            };
+      homeConfigurations = {
+        hyprland = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = commonHmModules ++ [
+            ./home/modules/hyprland.nix
+            ./home/modules/keybase.nix
+          ];
         };
 
-        devShells.${system}.default = pkgs.mkShell {
-            packages = [
-                home-manager.packages.${system}.default
-                pkgs.git
-                pkgs.tmux
-                pkgs.vim
-            ];
+        i3 = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = commonHmModules ++ [
+            ./home/modules/i3.nix
+            ./home/modules/keybase.nix
+          ];
         };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        packages = [
+          home-manager.packages.${system}.default
+          pkgs.git
+          pkgs.tmux
+          pkgs.vim
+        ];
+      };
     };
 }
