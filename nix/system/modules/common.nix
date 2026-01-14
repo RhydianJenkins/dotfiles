@@ -1,113 +1,123 @@
 { config, pkgs, ... }:
 
 {
-    environment.pathsToLink = [ "/libexec" ];
+  environment.pathsToLink = [ "/libexec" ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.configurationLimit = 5;
-    boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-    nix = {
-        settings = {
-            warn-dirty = false;
-            experimental-features = "nix-command flakes";
-            auto-optimise-store = true;
-        };
+  nix = {
+    settings = {
+      warn-dirty = false;
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
+  };
+
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 9009 ];
+  time.timeZone = "Europe/London";
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
+
+  services = {
+    openssh.enable = true;
+    printing.enable = true;
+    blueman.enable = true;
+    pulseaudio.enable = false;
+
+    displayManager.autoLogin = {
+      enable = true;
+      user = "rhydian";
     };
 
-    networking.hostName = "nixos";
-    networking.networkmanager.enable = true;
-    networking.firewall.allowedTCPPorts = [ 9009 ];
-    time.timeZone = "Europe/London";
-    i18n.defaultLocale = "en_GB.UTF-8";
-
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "en_GB.UTF-8";
-        LC_IDENTIFICATION = "en_GB.UTF-8";
-        LC_MEASUREMENT = "en_GB.UTF-8";
-        LC_MONETARY = "en_GB.UTF-8";
-        LC_NAME = "en_GB.UTF-8";
-        LC_NUMERIC = "en_GB.UTF-8";
-        LC_PAPER = "en_GB.UTF-8";
-        LC_TELEPHONE = "en_GB.UTF-8";
-        LC_TIME = "en_GB.UTF-8";
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
+  };
 
-    services = {
-        openssh.enable = true;
-        printing.enable = true;
-        blueman.enable = true;
-        pulseaudio.enable = false;
+  console.keyMap = "uk";
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluez;
+  };
+  security.rtkit.enable = true;
 
-        displayManager.autoLogin = {
-            enable = true;
-            user = "rhydian";
-        };
+  users.users.rhydian = {
+    isNormalUser = true;
+    description = "Rhydian";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    shell = pkgs.zsh;
+  };
 
-        pipewire = {
-            enable = true;
-            alsa.enable = true;
-            alsa.support32Bit = true;
-            pulse.enable = true;
-        };
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+  nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    zsh.enable = true;
+
+    nix-ld = {
+      enable = true;
+
+      libraries = [
+        pkgs.curl
+        pkgs.expat
+        pkgs.fuse3
+        pkgs.icu
+        pkgs.nss
+        pkgs.openssl
+        pkgs.stdenv.cc.cc
+        pkgs.zlib
+      ];
     };
+  };
 
-    console.keyMap = "uk";
-    hardware.bluetooth = {
-        enable = true;
-        package = pkgs.bluez;
-    };
-    security.rtkit.enable = true;
-
-    users.users.rhydian = {
-        isNormalUser = true;
-        description = "Rhydian";
-        extraGroups = [ "networkmanager" "wheel" "docker" ];
-        shell = pkgs.zsh;
-    };
-
-    systemd.services."getty@tty1".enable = false;
-    systemd.services."autovt@tty1".enable = false;
-    nixpkgs.config.allowUnfree = true;
-
-    programs = {
-        zsh.enable = true;
-
-        nix-ld = {
-            enable = true;
-
-            libraries = [
-                pkgs.curl
-                pkgs.expat
-                pkgs.fuse3
-                pkgs.icu
-                pkgs.nss
-                pkgs.openssl
-                pkgs.stdenv.cc.cc
-                pkgs.zlib
-            ];
-        };
-    };
-
-    fonts = {
-        packages = with pkgs; [
-            nerd-fonts.meslo-lg
-            noto-fonts
-            noto-fonts-cjk-sans
-            noto-fonts-color-emoji
-            source-han-sans
-            source-han-serif
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.meslo-lg
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      source-han-sans
+      source-han-serif
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "Meslo LG M Regular Nerd Font Complete Mono" ];
+        serif = [
+          "Noto Serif"
+          "Source Han Serif"
         ];
-        fontconfig = {
-            enable = true;
-            defaultFonts = {
-                monospace = ["Meslo LG M Regular Nerd Font Complete Mono"];
-                serif = ["Noto Serif" "Source Han Serif"];
-                sansSerif = ["Noto Sans" "Source Han Sans"];
-            };
-        };
+        sansSerif = [
+          "Noto Sans"
+          "Source Han Sans"
+        ];
+      };
     };
+  };
 
-    system.stateVersion = "23.11";
-    virtualisation.docker.enable = true;
+  system.stateVersion = "23.11";
+  virtualisation.docker.enable = true;
 }

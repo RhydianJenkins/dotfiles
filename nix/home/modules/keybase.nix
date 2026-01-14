@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        kbfs
-        keybase
-        keybase-gui
-    ];
+  home.packages = with pkgs; [
+    kbfs
+    keybase
+    keybase-gui
+  ];
 
-    services.keybase.enable = true;
-    services.kbfs.enable = true;
+  services.keybase.enable = true;
+  services.kbfs.enable = true;
 }

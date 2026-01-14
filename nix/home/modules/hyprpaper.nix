@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-    services.hyprpaper = {
-        enable = true;
-        settings.ipc = "on"; # Allow scripts to call hyprpaper
-    };
+  services.hyprpaper = {
+    enable = true;
+    settings.ipc = "on"; # Allow scripts to call hyprpaper
+  };
 }
