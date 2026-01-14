@@ -35,9 +35,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-          (import ./home/customPkgs { inherit apix system; })
-        ];
+        overlays = [ (import ./home/customPkgs { inherit apix system; }) ];
       };
 
       commonHmModules = [
