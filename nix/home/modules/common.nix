@@ -19,7 +19,6 @@ in
       codespell
       curl
       customStoplight
-      customTableplus
       delve
       dig
       docker
@@ -64,6 +63,7 @@ in
       triton-llvm
       typescript
       unstable.ollama
+      unstable.tableplus
       unzip
       vim
       warp-terminal
