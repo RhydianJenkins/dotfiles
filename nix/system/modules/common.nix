@@ -63,9 +63,10 @@
     isNormalUser = true;
     description = "Rhydian";
     extraGroups = [
+      "disk"
+      "docker"
       "networkmanager"
       "wheel"
-      "docker"
     ];
     shell = pkgs.zsh;
   };
