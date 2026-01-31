@@ -36,6 +36,10 @@
     }:
     let
       system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -45,7 +49,7 @@
               apix
               seek
               system
-              nixpkgs-unstable
+              pkgs-unstable
               ;
           })
         ];

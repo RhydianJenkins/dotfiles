@@ -1,6 +1,6 @@
 {
   apix,
-  nixpkgs-unstable,
+  pkgs-unstable,
   seek,
   system,
 }:
@@ -9,5 +9,5 @@ final: prev: {
   customStoplight = final.callPackage ./stoplight.nix { };
   customTableplus = final.callPackage ./tableplus.nix { };
   seek = seek.packages.${system}.default;
-  unstable = nixpkgs-unstable.legacyPackages.${system};
+  unstable = pkgs-unstable;
 }
