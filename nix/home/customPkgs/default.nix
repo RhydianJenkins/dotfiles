@@ -3,7 +3,8 @@
   nixpkgs-unstable,
   seek,
   system,
-}: final: prev: {
+}:
+final: prev: {
   apix = apix.packages.${system}.default;
   customOpencode = final.callPackage ./opencode.nix { };
   customStoplight = final.callPackage ./stoplight.nix { };
