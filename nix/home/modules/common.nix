@@ -57,6 +57,7 @@ in
       pngquant
       pulseaudioFull
       ripgrep
+      seek
       slack
       spotify
       tealdeer
