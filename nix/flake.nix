@@ -52,7 +52,6 @@
       };
 
       commonHmModules = [
-        ./home/modules/ai.nix
         ./home/modules/browsers.nix
         ./home/modules/common.nix
         ./home/modules/terminal.nix

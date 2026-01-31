@@ -192,11 +192,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1769819497,
-        "narHash": "sha256-4ou+u1sWvLhfuebBjpz8rX6Um30dx8uIdTAL0qozUdM=",
+        "lastModified": 1769821467,
+        "narHash": "sha256-4uHfPXURKTYUoVQiVXKW3yYjG0YST4K6x3dMurjD9Cw=",
         "owner": "rhydianjenkins",
         "repo": "seek",
-        "rev": "d5d9d93d0292ef0324dfc1e47770b238b45f7afa",
+        "rev": "807667b9bc9100873b330838b2c8d92e82d6ae28",
         "type": "github"
       },
       "original": {

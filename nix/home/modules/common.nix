@@ -48,6 +48,7 @@ in
       nixfmt-tree
       nodejs_22
       openapi-tui
+      opencode
       openssl
       pass
       pavucontrol
