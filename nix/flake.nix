@@ -2,9 +2,9 @@
   description = "Rhydian's Nix configs";
 
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.11";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -16,16 +16,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
     apix.url = "github:rhydianjenkins/apix";
 
     seek.url = "github:rhydianjenkins/seek";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs =
     {
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       nix-index-database,
       apix,
@@ -38,7 +39,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./home/customPkgs { inherit apix seek system; }) ];
+        overlays = [ (import ./home/customPkgs { inherit apix seek system nixpkgs-unstable; }) ];
       };
 
       commonHmModules = [

@@ -47,7 +47,6 @@ in
       ngrok
       nixfmt-tree
       nodejs_22
-      ollama
       openapi-tui
       openssl
       pass
@@ -63,6 +62,7 @@ in
       tealdeer
       triton-llvm
       typescript
+      unstable.ollama
       unzip
       vim
       warp-terminal
