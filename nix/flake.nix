@@ -39,7 +39,16 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./home/customPkgs { inherit apix seek system nixpkgs-unstable; }) ];
+        overlays = [
+          (import ./home/customPkgs {
+            inherit
+              apix
+              seek
+              system
+              nixpkgs-unstable
+              ;
+          })
+        ];
       };
 
       commonHmModules = [
