@@ -63,7 +63,7 @@ in
       tealdeer
       triton-llvm
       typescript
-      unstable.ollama
+      unstable.ollama-cuda
       unstable.tableplus
       unzip
       vim
