@@ -13,6 +13,7 @@ in
     packages = with pkgs; [
       alsa-utils
       apix
+      beekeeper-studio
       blueman
       cargo
       claude-code
@@ -93,4 +94,7 @@ in
   programs.nix-index-database.comma.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "beekeeper-studio-5.3.4"
+  ];
 }
