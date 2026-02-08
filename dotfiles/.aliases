@@ -34,6 +34,7 @@ alias dockerps='docker ps --format "table {{.Names}}\t{{.Status}}"'
 alias dockerkill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
 alias dockerup='docker-compose up -d'
 alias dockerdown='docker-compose down'
+alias ollama-serve='docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama'
 
 # git
 alias gs='git status'
