@@ -77,6 +77,7 @@ telescope.setup({
             "control/public/js/ext-3.3.0/**",
             "control/public/js/jquery-ui-1.10.3/**",
             "control/public/js/jquery-ui-1.12.1.custom/**",
+            "editor/desktop/libraries/jquery-ui/**",
             "node_modules",
             "tmp",
             "vendor",
