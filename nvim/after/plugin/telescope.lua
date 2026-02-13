@@ -12,7 +12,7 @@ local largeFilesIgnoringPreviewer = function(filepath, bufnr, inputOpts)
     opts = inputOpts or {}
 
     filepath = vim.fn.expand(filepath)
-    vim.loop.fs_stat(filepath, function(_, stat)
+    vim.uv.fs_stat(filepath, function(_, stat)
         if not stat then
             return
         end

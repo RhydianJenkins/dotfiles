@@ -1,15 +1,11 @@
 local set = vim.keymap.set
-local del = vim.keymap.del
-
-del("n", "<C-w><C-d>")
-del("n", "<C-w>d")
 
 set({ "n", "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", { desc = "[S]ave buffer" })
 set("n", "<A-j>", "<cmd>move +1<CR>==", { desc = "Move block down" })
 set("n", "<A-k>", "<cmd>move -2<CR>==", { desc = "Move block up" })
 set("n", "<C-d>", "<C-d>zz", { desc = "Page down" })
 set("n", "<C-u>", "<C-u>zz", { desc = "Page up" })
-set("n", "<C-w><C-d>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close current buffer (:bd) while keeping window" })
+set("n", "<leader>bd", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close current buffer (:bd) while keeping window" })
 set("n", "<F10>", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debug step into" })
 set("n", "<F11>", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debug step out" })
 set("n", "<F1>", "<cmd>lua require'dapui'.eval()<CR>", { desc = "Debug evaluate" })
