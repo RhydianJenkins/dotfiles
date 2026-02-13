@@ -1,6 +1,5 @@
 local cmp_present, cmp = pcall(require, "cmp")
 local lspkind_present, lspkind = pcall(require, "lspkind")
-local luasnip_present, luasnip = pcall(require, "luasnip")
 
 if not cmp_present then
     print("cmp plugin not found")
@@ -12,13 +11,6 @@ if not lspkind_present then
     return
 end
 
-if not luasnip_present then
-    print("luasnip plugin not found")
-    return
-end
-
-require("luasnip.loaders.from_vscode").lazy_load()
-
 vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#928374" })
 
@@ -28,7 +20,6 @@ local source_mapping = {
     nvim_lua = "[Lua]",
     path = "[Path]",
     supermaven = "[SM]",
-    luasnip = "[Snip]",
 }
 
 cmp.setup({
@@ -39,7 +30,7 @@ cmp.setup({
 
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.snippet.expand(args.body)
         end,
     },
 
@@ -52,7 +43,6 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "luasnip" },
         { name = "supermaven" },
         { name = "zsh" },
     }, {
@@ -75,10 +65,6 @@ cmp.setup({
             if entry.source.name == "buffer" then
                 vim_item.kind_hl_group = "CmpItemKindBuffer"
                 vim_item.kind = "﬘"
-            end
-
-            if entry.source.name == "luasnip" then
-                vim_item.kind = ""
             end
 
             vim_item.menu = menu

@@ -35,34 +35,25 @@ if not cmp_nvim_lsp_present then
     return
 end
 
+vim.diagnostic.config({ virtual_text = false })
+
 local lsp_defaults = lspconfig.util.default_config
 
 lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
 
----@param bufnr number
-local function on_attach(_, bufnr)
-    local nmap = function(keys, func, desc)
-        if desc then
-            desc = "LSP: " .. desc
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local bufnr = args.buf
+        local map = function(keys, func, desc)
+            vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
         end
 
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-    end
+        map("gd", vim.lsp.buf.definition, "[G]o to [d]efinition")
+        map("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
 
-    nmap("gd", vim.lsp.buf.definition, "[G]o to [d]efinition")
-    nmap("gi", vim.lsp.buf.implementation, "[G]o to [i]mplementation")
-    nmap("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
-
-    if vim.lsp.buf.format then
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
             vim.lsp.buf.format({ async = false })
         end, { desc = "LSP: Format current buffer" })
-    end
-end
-
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(args)
-        on_attach(args.data.client_id, args.buf)
     end,
 })
 
@@ -73,12 +64,6 @@ if vim.lsp and vim.lsp.config then
         root_dir = function(fname)
             return lspconfig.util.root_pattern("package.json", ".git")(fname) or lspconfig.util.path.dirname(fname)
         end,
-        handlers = {
-            ["textDocument/publishDiagnostics"] = vim.lsp.with(
-                vim.lsp.diagnostic.on_publish_diagnostics,
-                { virtual_text = false }
-            ),
-        },
     })
 
     vim.lsp.config("intelephense", {
@@ -142,9 +127,7 @@ if vim.lsp and vim.lsp.config then
 end
 
 null_ls.setup({
-    sources = {
-        -- anything not supported by mason
-    },
+    sources = {}, -- sources registered dynamically by mason-null-ls below
 })
 
 mason.setup()

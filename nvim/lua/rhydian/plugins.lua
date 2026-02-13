@@ -15,8 +15,6 @@ return {
 
     "rebelot/kanagawa.nvim",
 
-    "numToStr/Comment.nvim",
-
     "APZelos/blamer.nvim",
 
     "ntpeters/vim-better-whitespace",
@@ -29,13 +27,17 @@ return {
 
     "folke/trouble.nvim",
 
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
 
     "echasnovski/mini.icons",
 
     "onsails/lspkind.nvim",
 
-    "theprimeagen/harpoon",
+    {
+        "theprimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
     "norcalli/nvim-colorizer.lua",
 
@@ -77,18 +79,9 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            "saadparwaiz1/cmp_luasnip",
             "tamago324/cmp-zsh",
             "supermaven-inc/supermaven-nvim",
         },
-    },
-
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-        },
-        build = "make install_jsregexp",
     },
 
     {
@@ -100,8 +93,6 @@ return {
             "neovim/nvim-lspconfig",
         },
     },
-
-    "nvimdev/lspsaga.nvim",
 
     {
         "mrjones2014/smart-splits.nvim",

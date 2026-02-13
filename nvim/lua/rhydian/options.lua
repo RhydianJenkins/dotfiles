@@ -19,8 +19,6 @@ vim.o.termguicolors = true
 vim.o.scrolloff = 8
 vim.o.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-vim.o.cmdheight = 1
-vim.o.updatetime = 50
 vim.opt.shortmess:append("c")
 vim.o.mouse = "a"
 vim.o.mousemoveevent = true
