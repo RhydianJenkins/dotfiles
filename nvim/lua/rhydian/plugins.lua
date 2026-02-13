@@ -6,15 +6,13 @@ return {
         build = "make",
     },
 
-    {
-        "stevearc/oil.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
 
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
+
+    "stevearc/oil.nvim",
 
     "rebelot/kanagawa.nvim",
 
