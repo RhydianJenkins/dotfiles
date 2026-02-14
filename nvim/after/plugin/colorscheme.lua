@@ -33,5 +33,6 @@ vim.cmd("colorscheme kanagawa")
 vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#8f8f8f" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 vim.opt.fillchars = { eob = " " }
