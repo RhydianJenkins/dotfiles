@@ -29,3 +29,13 @@ set("n", '<leader>"', "<C-W><C-s>", { desc = "[W]indow horizontal [s]plit" })
 set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 set("x", "<leader>p", '"_dP', { desc = "[P]aste without replacing current register contents" })
+
+set("n", "]d", function()
+    vim.diagnostic.goto_next()
+    vim.diagnostic.open_float()
+end, { desc = "Next diagnostic" })
+
+set("n", "[d", function()
+    vim.diagnostic.goto_prev()
+    vim.diagnostic.open_float()
+end, { desc = "Previous diagnostic" })
