@@ -78,7 +78,7 @@ cmp.setup({
             end
 
             if entry.source.name == "luasnip" then
-                vim_item.kind = ""
+                vim_item.kind = ""
             end
 
             vim_item.menu = menu
