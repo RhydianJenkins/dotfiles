@@ -35,7 +35,10 @@ if not cmp_nvim_lsp_present then
     return
 end
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+    virtual_text = false,
+    float = { border = "rounded" },
+})
 
 local lsp_defaults = lspconfig.util.default_config
 
