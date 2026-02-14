@@ -51,8 +51,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
         end
 
-        map("gd", vim.lsp.buf.definition, "[G]o to [d]efinition")
-        map("gt", vim.lsp.buf.type_definition, "[G]o to [t]ype definition")
+        map("gd", function()
+            vim.notify("Use native Neovim defaults instead. Try 'gri' for references or ':h builtin-function'", vim.log.levels.WARN)
+        end, "[DISABLED] Use native defaults")
+        map("gt", function()
+            vim.notify("Use native Neovim defaults instead. Try 'gri' for references or ':h builtin-function'", vim.log.levels.WARN)
+        end, "[DISABLED] Use native defaults")
 
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
             vim.lsp.buf.format({ async = false })
