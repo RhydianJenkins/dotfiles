@@ -15,19 +15,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "EsLint fix on save",
-    group = vim.api.nvim_create_augroup("EsLintFormattingGroup", { clear = true }),
-    pattern = {
-        "*.js",
-        "*.jsx",
-        "*.ts",
-        "*.tsx",
-    },
-    callback = function()
-        if vim.fn.executable("EslintFixAll") == 1 then
-            vim.cmd("EslintFixAll")
-        end
-    end,
-})
