@@ -7,8 +7,4 @@ vim.diagnostic.config({
     float = { border = "rounded" },
 })
 
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-    "force",
-    lsp_defaults.capabilities,
-    cmp_nvim_lsp.default_capabilities()
-)
+lsp_defaults.capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
