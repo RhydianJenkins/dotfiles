@@ -82,13 +82,7 @@ return {
             },
             snippets = { preset = "luasnip" },
             completion = {
-                documentation = {
-                    auto_show = true,
-                    window = { border = "rounded" },
-                },
-                menu = {
-                    border = "rounded",
-                },
+                documentation = { auto_show = true },
             },
         },
     },
