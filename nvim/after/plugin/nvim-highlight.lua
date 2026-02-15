@@ -5,7 +5,4 @@ if not present then
     return
 end
 
-nvimHighlight.setup({
-    dev = false,
-    dir = "~/code/nvim-highlight",
-})
+nvimHighlight.setup()
