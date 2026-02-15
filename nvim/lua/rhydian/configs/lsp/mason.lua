@@ -4,6 +4,11 @@ local mason_lspconfig = plugins.mason_lspconfig
 local mason_null_ls = plugins.mason_null_ls
 local null_ls = plugins.null_ls
 
+-- Initialize null-ls with empty sources (mason-null-ls handles registration)
+null_ls.setup({
+    sources = {}, -- sources registered dynamically by mason-null-ls below
+})
+
 mason.setup()
 
 mason_null_ls.setup({
