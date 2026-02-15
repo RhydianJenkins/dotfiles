@@ -1,9 +1,5 @@
-local status, dap = pcall(require, "dap")
-
-if not status then
-    print("dap plugin not found")
-    return
-end
+local plugins = require("rhydian.configs.dap.init-plugins")
+local dap = plugins.dap
 
 local codeLldbPath = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb"
 
