@@ -31,11 +31,12 @@ set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 set("x", "<leader>p", '"_dP', { desc = "[P]aste without replacing current register contents" })
 
 set("n", "]d", function()
-    vim.diagnostic.goto_next()
-    vim.diagnostic.open_float()
+    vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic" })
 
 set("n", "[d", function()
-    vim.diagnostic.goto_prev()
-    vim.diagnostic.open_float()
+    vim.diagnostic.jump({ count = -1, float = true })
 end, { desc = "Previous diagnostic" })
+
+set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
+set("n", "grd", vim.lsp.buf.definition, { desc = "[G]oto [R]eference [D]efinition" })
