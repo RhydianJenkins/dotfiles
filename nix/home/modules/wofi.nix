@@ -11,6 +11,27 @@
     allowImages = true;
   };
 
+  systemd.user.services = {
+    cliphist = {
+      Unit.After = [ "graphical-session.target" ];
+      Service = {
+        Restart = "on-failure";
+        RestartSec = 2;
+        StartLimitBurst = 10;
+        StartLimitIntervalSec = 30;
+      };
+    };
+    cliphist-images = {
+      Unit.After = [ "graphical-session.target" ];
+      Service = {
+        Restart = "on-failure";
+        RestartSec = 2;
+        StartLimitBurst = 10;
+        StartLimitIntervalSec = 30;
+      };
+    };
+  };
+
   programs.wofi = {
     enable = true;
 
