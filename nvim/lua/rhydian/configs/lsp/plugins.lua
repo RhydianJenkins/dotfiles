@@ -7,32 +7,26 @@ local mason_null_ls_present, mason_null_ls = pcall(require, "mason-null-ls")
 
 if not mason_present then
     print("mason plugin not found")
-    return
 end
 
 if not null_ls_present then
     print("null ls plugin not found")
-    return
 end
 
 if not mason_null_ls_present then
     print("mason null ls plugin not found")
-    return
 end
 
 if not lspconfig_present then
     print("lspconfig plugin not found")
-    return
 end
 
 if not mason_lspconfig_present then
     print("mason lspconfig plugin not found")
-    return
 end
 
 if not cmp_nvim_lsp_present then
     print("cmp_nvim_lsp plugin not found")
-    return
 end
 
 return {
