@@ -20,13 +20,3 @@ bob install v0.11.2
 1. Copy/symlink files from this directory into `$HOME/.config/nvim`.
 2. Open `nvim` and wait for plugins to be installed
 3. Restart `nvim` and you should be ready to go.
-
-# Wishlist
-
-- Better vi(m) compatibility
-
-# Debugging
-
-[nvim-dap](https://github.com/mfussenegger/nvim-dap) is used to manage debug adapters. Debug adapters are installed through `:Mason`.
-
-Any further debug adapter configs can be added in `./lua/rhydian/configs/dap/*.lua` and imported in `./after/plugin/dap.lua`
