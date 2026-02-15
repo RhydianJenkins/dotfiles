@@ -1,17 +1,12 @@
-local plugins = require("rhydian.configs.lsp.init-plugins")
-local mason = plugins.mason
-local mason_lspconfig = plugins.mason_lspconfig
-local mason_null_ls = plugins.mason_null_ls
-local null_ls = plugins.null_ls
+local plugins = require("rhydian.configs.lsp.plugins")
 
--- Initialize null-ls with empty sources (mason-null-ls handles registration)
-null_ls.setup({
-    sources = {}, -- sources registered dynamically by mason-null-ls below
+plugins.null_ls.setup({
+    sources = {},
 })
 
-mason.setup()
+plugins.mason.setup()
 
-mason_null_ls.setup({
+plugins.mason_null_ls.setup({
     ensure_installed = {
         "phpcs",
     },
@@ -24,12 +19,12 @@ mason_null_ls.setup({
             local ruleset_exists = vim.fn.filereadable("tests/phpcs-ruleset.xml") == 1
             local extra_args = ruleset_exists and { "--standard=tests/phpcs-ruleset.xml" } or { "--standard=PSR12" }
 
-            null_ls.register(null_ls.builtins.diagnostics.phpcs.with({
+            plugins.null_ls.register(plugins.null_ls.builtins.diagnostics.phpcs.with({
                 extra_args = extra_args,
-                method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+                method = plugins.null_ls.methods.DIAGNOSTICS_ON_SAVE,
             }))
         end,
     },
 })
 
-mason_lspconfig.setup()
+plugins.mason_lspconfig.setup()
