@@ -1,6 +1,4 @@
-local plugins = require("rhydian.configs.dap.plugins")
-local dap = plugins.dap
-
+local dap = require("dap")
 local phpDebugPath = vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/php-debug-adapter"
 
 if vim.fn.filereadable(phpDebugPath) == 0 then
