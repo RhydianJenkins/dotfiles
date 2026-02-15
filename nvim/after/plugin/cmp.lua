@@ -33,8 +33,8 @@ local source_mapping = {
 
 cmp.setup({
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered({ border = "rounded" }),
+        documentation = cmp.config.window.bordered({ border = "rounded" }),
     },
 
     snippet = {
@@ -47,6 +47,8 @@ cmp.setup({
         -- Enter to confirm selection
         -- set select to true to also confirm even if not explicitly selected
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
     }),
 
     sources = cmp.config.sources({
