@@ -75,26 +75,6 @@ return {
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
         },
-        opts = {
-            keymap = {
-                preset = "enter",
-                ["<C-y>"] = { "select_and_accept", "fallback" },
-            },
-            snippets = { preset = "luasnip" },
-            completion = {
-                documentation = {
-                    auto_show = true,
-                    window = { border = "rounded" },
-                },
-                menu = {
-                    border = "rounded",
-                },
-            },
-            sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-            },
-            fuzzy = { implementation = "prefer_rust" },
-        },
     },
 
     {
