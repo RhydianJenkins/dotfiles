@@ -76,13 +76,13 @@ return {
             "rafamadriz/friendly-snippets",
         },
         opts = {
-            keymap = {
-                preset = "enter",
-                ["<C-y>"] = { "select_and_accept", "fallback" },
-            },
             snippets = { preset = "luasnip" },
             completion = {
                 documentation = { auto_show = true },
+            },
+            cmdline = {
+                keymap = { preset = 'inherit' },
+                completion = { menu = { auto_show = true } },
             },
         },
     },
