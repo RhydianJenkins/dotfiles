@@ -1,31 +1,10 @@
-local present, kanagawa = pcall(require, "kanagawa")
+local present = pcall(require, "kanagawa")
 
 if not present then
     print("kanagawa colorscheme plugin not found")
     vim.cmd("colorscheme evening")
     return
 end
-
-kanagawa.setup({
-    undercurl = true,
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true },
-    statementStyle = { bold = true },
-    typeStyle = {},
-    variablebuiltinStyle = { italic = true },
-    specialReturn = true,
-    specialException = true,
-    transparent = false,
-    dimInactive = false,
-    globalStatus = false,
-    terminalColors = true,
-    colors = {},
-    overrides = function()
-        return {}
-    end,
-    theme = "default",
-})
 
 vim.cmd("colorscheme kanagawa")
 
