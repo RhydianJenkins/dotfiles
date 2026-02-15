@@ -1,4 +1,4 @@
-local plugins = require("rhydian.configs.lsp.init-plugins")
+local plugins = require("rhydian.configs.lsp.plugins")
 local cmp_nvim_lsp = plugins.cmp_nvim_lsp
 local lsp_defaults = plugins.lspconfig.util.default_config
 
