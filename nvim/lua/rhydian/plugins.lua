@@ -19,8 +19,6 @@ return {
 
     "ntpeters/vim-better-whitespace",
 
-    "j-hui/fidget.nvim",
-
     "lewis6991/gitsigns.nvim",
 
     "folke/which-key.nvim",
