@@ -29,8 +29,6 @@ return {
 
     "echasnovski/mini.icons",
 
-    "onsails/lspkind.nvim",
-
     {
         "theprimeagen/harpoon",
         branch = "harpoon2",
@@ -70,25 +68,30 @@ return {
     },
 
     {
-        "hrsh7th/nvim-cmp",
+        "saghen/blink.cmp",
+        version = "1.*",
+        build = "nix run .#build-plugin",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "saadparwaiz1/cmp_luasnip",
-            "tamago324/cmp-zsh",
-            "supermaven-inc/supermaven-nvim",
-        },
-    },
-
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
+            "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
         },
-        build = "make install_jsregexp",
+        opts = {
+            keymap = { preset = "enter" },
+            snippets = { preset = "luasnip" },
+            completion = {
+                documentation = {
+                    auto_show = true,
+                    window = { border = "rounded" },
+                },
+                menu = {
+                    border = "rounded",
+                },
+            },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" },
+            },
+            fuzzy = { implementation = "prefer_rust" },
+        },
     },
 
     {
