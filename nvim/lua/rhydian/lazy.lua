@@ -19,7 +19,6 @@ require("lazy").setup({
     spec = require("rhydian.plugins"),
     dev = {
         path = "~/code",
-        patterns = { "supermaven-inc" },
         fallback = true,
     },
 })
