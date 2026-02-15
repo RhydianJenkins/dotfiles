@@ -81,7 +81,7 @@ return {
                 documentation = { auto_show = true },
             },
             cmdline = {
-                keymap = { preset = 'inherit' },
+                keymap = { preset = "inherit" },
                 completion = { menu = { auto_show = true } },
             },
         },
