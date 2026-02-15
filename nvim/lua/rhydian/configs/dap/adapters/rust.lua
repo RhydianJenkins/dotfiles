@@ -1,4 +1,4 @@
-local plugins = require("rhydian.configs.dap.init-plugins")
+local plugins = require("rhydian.configs.dap.plugins")
 local dap = plugins.dap
 
 local codeLldbPath = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb"
