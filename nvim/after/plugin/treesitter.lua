@@ -25,5 +25,3 @@ treesitter.install({
     "yaml",
     "jsdoc",
 })
-
-vim.treesitter.language.register("twig", "html.twig.js.css")

@@ -41,8 +41,6 @@ return {
 
     "akinsho/bufferline.nvim",
 
-    "nelsyeung/twig.vim",
-
     {
         "mfussenegger/nvim-dap",
         dependencies = {
@@ -69,22 +67,20 @@ return {
 
     {
         "saghen/blink.cmp",
+        dependencies = { "rafamadriz/friendly-snippets" },
         version = "1.*",
-        build = "nix run .#build-plugin",
-        dependencies = {
-            "L3MON4D3/LuaSnip",
-            "rafamadriz/friendly-snippets",
-        },
+        accept = { auto_brackets = { enabled = false }, },
+        documentation = { auto_show = true },
         opts = {
-            snippets = { preset = "luasnip" },
-            completion = {
-                documentation = { auto_show = true },
-            },
-            cmdline = {
-                keymap = { preset = "inherit" },
-                completion = { menu = { auto_show = true } },
-            },
+            keymap = { preset = "default" },
+            completion = { documentation = { auto_show = true } },
         },
+        cmdline = {
+            keymap = { preset = 'inherit' },
+            completion = { menu = { auto_show = true } },
+        },
+        opts_extend = { "sources.default" },
+        signature = { enabled = true } -- experimental
     },
 
     {
