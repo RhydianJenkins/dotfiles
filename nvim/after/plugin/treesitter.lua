@@ -5,23 +5,13 @@ if not present then
     return
 end
 
-treesitter.install({
-    "php",
-    "javascript",
-    "typescript",
-    "lua",
-    "rust",
-    "markdown",
-    "markdown_inline",
-    "vimdoc",
-    "vim",
-    "go",
-    "html",
-    "json",
-    "make",
-    "regex",
-    "scss",
-    "twig",
-    "yaml",
-    "jsdoc",
+local filetypes = { "twig" }
+
+treesitter.install(filetypes)
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = filetypes,
+    callback = function()
+        vim.treesitter.start()
+    end,
 })
