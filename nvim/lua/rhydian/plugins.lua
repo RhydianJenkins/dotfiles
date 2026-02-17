@@ -74,10 +74,10 @@ return {
         opts = {
             keymap = { preset = "default" },
             completion = { documentation = { auto_show = true } },
-        },
-        cmdline = {
-            keymap = { preset = 'inherit' },
-            completion = { menu = { auto_show = true } },
+            cmdline = {
+                keymap = { preset = 'inherit' },
+                completion = { menu = { auto_show = true } },
+            },
         },
         opts_extend = { "sources.default" },
         signature = { enabled = true } -- experimental
