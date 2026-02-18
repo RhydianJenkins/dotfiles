@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    brave
     google-chrome
+    playwright-mcp
     vivaldi
   ];
 
@@ -12,6 +12,8 @@
   };
 
   programs = {
+    chromium.enable = true;
+
     firefox = {
       enable = true;
       package = pkgs.firefox;
