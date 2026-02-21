@@ -69,18 +69,18 @@ return {
         "saghen/blink.cmp",
         dependencies = { "rafamadriz/friendly-snippets" },
         version = "1.*",
-        accept = { auto_brackets = { enabled = false }, },
+        accept = { auto_brackets = { enabled = false } },
         documentation = { auto_show = true },
         opts = {
             keymap = { preset = "default" },
             completion = { documentation = { auto_show = true } },
             cmdline = {
-                keymap = { preset = 'inherit' },
+                keymap = { preset = "inherit" },
                 completion = { menu = { auto_show = true } },
             },
         },
         opts_extend = { "sources.default" },
-        signature = { enabled = true } -- experimental
+        signature = { enabled = true }, -- experimental
     },
 
     {

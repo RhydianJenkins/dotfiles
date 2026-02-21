@@ -4,9 +4,7 @@ local lsp_defaults = plugins.lspconfig.util.default_config
 
 vim.diagnostic.config({ virtual_text = false })
 
-lsp_defaults.capabilities = blinkcmp.get_lsp_capabilities(
-    lsp_defaults.capabilities
-)
+lsp_defaults.capabilities = blinkcmp.get_lsp_capabilities(lsp_defaults.capabilities)
 
 plugins.null_ls.setup({
     sources = {},
