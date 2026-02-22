@@ -44,7 +44,7 @@ in
       libreoffice-qt6-fresh
       nautilus
       neofetch
-      netstat
+      unixtools.netstat
       ngrok
       nixfmt-tree
       nodejs_22
