@@ -64,6 +64,7 @@ in
       tealdeer
       triton-llvm
       typescript
+      unstable.opencode-claude-auth
       unstable.tableplus
       unzip
       vim
