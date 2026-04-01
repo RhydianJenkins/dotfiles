@@ -44,7 +44,6 @@ in
       libreoffice-qt6-fresh
       nautilus
       neofetch
-      unixtools.netstat
       ngrok
       nixfmt-tree
       nodejs_22
@@ -57,6 +56,7 @@ in
       playwright-test
       pngquant
       pulseaudioFull
+      python315
       ripgrep
       seek
       slack
@@ -64,6 +64,7 @@ in
       tealdeer
       triton-llvm
       typescript
+      unixtools.netstat
       unstable.opencode-claude-auth
       unstable.tableplus
       unzip
