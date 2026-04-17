@@ -48,7 +48,6 @@ in
       nixfmt-tree
       nodejs_22
       openapi-tui
-      opencode
       openssl
       pass
       pavucontrol
@@ -61,10 +60,12 @@ in
       seek
       slack
       spotify
+      tcpdump
       tealdeer
       triton-llvm
       typescript
       unixtools.netstat
+      unstable.opencode
       unstable.opencode-claude-auth
       unstable.tableplus
       unzip
