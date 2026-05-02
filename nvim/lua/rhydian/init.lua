@@ -1,5 +1,5 @@
 require("rhydian.options")
 require("rhydian.keybinds")
 require("rhydian.autocommands")
-require("rhydian.lazy")
+require("rhydian.packages")
 require("rhydian.configs")
