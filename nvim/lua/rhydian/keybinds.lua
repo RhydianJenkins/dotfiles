@@ -1,7 +1,5 @@
 local set = vim.keymap.set
 
-set("n", "<A-j>", "<cmd>move +1<CR>==", { desc = "Move block down" })
-set("n", "<A-k>", "<cmd>move -2<CR>==", { desc = "Move block up" })
 set("n", "<C-d>", "<C-d>zz", { desc = "Page down" })
 set("n", "<C-u>", "<C-u>zz", { desc = "Page up" })
 set("n", "<C-w><C-d>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close current buffer while keeping window" })
@@ -14,7 +12,6 @@ set("n", "<leader>a", "ggVG", { desc = "Select all" })
 set("n", "<leader>bt", "<cmd>BlamerToggle<CR>", { desc = "[B]lame [T]oggle" })
 set("n", "<leader>wd", "<cmd>w<bar>%bd<bar>e#<bar>bd#<CR>", { desc = "Close all buffers except current one" })
 set("n", "<leader>wr", "<C-W><C-r>", { desc = "[W]indow [r]otate" })
-set("n", "S-Y", "y$", { desc = "[Y]ank to end of line" })
 set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
 set(
@@ -25,8 +22,6 @@ set(
 )
 set("n", "x", '"_x', { desc = "Remove char without copying to clipboard" })
 set("n", '<leader>"', "<C-W><C-s>", { desc = "[W]indow horizontal [s]plit" })
-set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 set("x", "<leader>p", '"_dP', { desc = "[P]aste without replacing current register contents" })
 set({ "n", "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", { desc = "[S]ave buffer" })
 set("n", "]d", function()

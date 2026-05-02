@@ -27,7 +27,6 @@ vim.o.laststatus = 3
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
-vim.o.completeopt = "menuone,noselect"
 vim.o.updatetime = 100
 vim.o.cmdheight = 0
 vim.o.winborder = "rounded"
