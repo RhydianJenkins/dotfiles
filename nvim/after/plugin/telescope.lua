@@ -1,4 +1,5 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 
@@ -56,6 +57,23 @@ telescope.setup({
     defaults = {
         buffer_previewer_maker = largeFilesIgnoringPreviewer,
         layout_strategy = "vertical",
+        mappings = {
+            i = {
+                ["<C-n>"] = actions.move_selection_next,
+                ["<C-p>"] = actions.move_selection_previous,
+                ["<C-y>"] = actions.select_default,
+                ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+                ["<Tab>"] = false,
+                ["<S-Tab>"] = false,
+            },
+            n = {
+                ["<C-n>"] = actions.move_selection_next,
+                ["<C-p>"] = actions.move_selection_previous,
+                ["<C-y>"] = actions.select_default,
+                ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+                ["<Tab>"] = false,
+            },
+        },
         file_ignore_patterns = {
             "%.a",
             "%.class",

@@ -18,6 +18,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Quickfix navigation with C-n/C-p/C-y",
+    pattern = "qf",
+    group = vim.api.nvim_create_augroup("QuickfixNav", {}),
+    callback = function(ev)
+        local map = function(lhs, rhs)
+            vim.keymap.set("n", lhs, rhs, { buffer = ev.buf, silent = true })
+        end
+        map("<C-n>", "j")
+        map("<C-p>", "k")
+        map("<C-y>", "<CR>")
+    end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Strip trailing whitespace",
     group = vim.api.nvim_create_augroup("StripWhitespaceGroup", {}),
