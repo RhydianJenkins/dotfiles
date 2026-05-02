@@ -9,10 +9,22 @@ blink.build():wait(60000)
 
 blink.setup({
     keymap = {
-        preset = "default", -- C-n, C-p, C-y are all set by default
-        ["<Tab>"] = { "fallback" },
-        ["<S-Tab>"] = { "fallback" },
-        ["<CR>"] = { "fallback" },
+        preset = "none",
+        ["<C-n>"] = {
+            function(cmp)
+                if cmp.is_visible() then return cmp.select_next() end
+                return cmp.show()
+            end,
+            "fallback_to_mappings",
+        },
+        ["<C-p>"] = {
+            function(cmp)
+                if cmp.is_visible() then return cmp.select_prev() end
+                return cmp.show()
+            end,
+            "fallback_to_mappings",
+        },
+        ["<C-y>"] = { "select_and_accept" },
     },
     completion = {
         documentation = { auto_show = true },
