@@ -12,14 +12,18 @@ blink.setup({
         preset = "none",
         ["<C-n>"] = {
             function(cmp)
-                if cmp.is_visible() then return cmp.select_next() end
+                if cmp.is_visible() then
+                    return cmp.select_next()
+                end
                 return cmp.show()
             end,
             "fallback_to_mappings",
         },
         ["<C-p>"] = {
             function(cmp)
-                if cmp.is_visible() then return cmp.select_prev() end
+                if cmp.is_visible() then
+                    return cmp.select_prev()
+                end
                 return cmp.show()
             end,
             "fallback_to_mappings",
