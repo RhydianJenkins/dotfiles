@@ -67,7 +67,6 @@ in
       unixtools.netstat
       unstable.opencode
       unstable.opencode-claude-auth
-      unstable.tableplus
       unzip
       vim
       warp-terminal
