@@ -1,4 +1,4 @@
-{ pkgs, customPkgs, ... }:
+{ pkgs, ... }:
 let
   username = "rhydian";
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [
