@@ -64,14 +64,12 @@
     in
     {
       nixosConfigurations = {
-        work-laptop = nixpkgs.lib.nixosSystem {
+        uw-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./system/machines/work-laptop/hardware-configuration.nix
+            ./system/machines/uw-laptop/hardware-configuration.nix
             ./system/modules/common.nix
             ./system/modules/hyprland.nix
-            # nixos-hardware.nixosModules.dell-xps-15-9510 # omit nvidia for battery life
-            nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
           ];
         };
 

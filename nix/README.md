@@ -8,8 +8,10 @@ First, you will need to add your new system to the flake's nixos modules.
 
 ```sh
 # copy hardware-configuration.nix in
-cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/system/<YOUR_NEW_SYSTEM>
+cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/system/machines/<YOUR_NEW_SYSTEM>/hardware-configuration.nix
 ```
+
+Then, you'll need to add `<YOUR_NEW_SYSTEM>` to `nixosConfigurations` in `flake.nix`
 
 # Building
 
@@ -31,7 +33,3 @@ nix develop
 # then just install as normal...
 home-manager switch --flake .#<WHATEVER>
 ```
-
-# TODOs
-
-- [ ] hardware-configuration needs to point to /etc/nixos/hardware-configuration.nix. I can't just gitignore it as flakes only deal with files tracked with git...
