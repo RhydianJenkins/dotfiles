@@ -183,7 +183,21 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "secrets-file": "secrets-file",
         "seek": "seek"
+      }
+    },
+    "secrets-file": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780921191,
+        "narHash": "sha256-uCRYwklDgsaEsfNR2hU3r/fIEPZySH9SYawLhpEIapI=",
+        "path": "/home/rhydian/.secrets.nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/rhydian/.secrets.nix",
+        "type": "path"
       }
     },
     "seek": {

@@ -13,6 +13,25 @@ cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/system/machines/<YOUR_NE
 
 Then, you'll need to add `<YOUR_NEW_SYSTEM>` to `nixosConfigurations` in `flake.nix`
 
+# Secrets
+
+You'll have to make a `~/.secrets.nix` file that contains all the values you don't want to commit to source:
+
+```nix
+# ~/.secrets.nix
+{
+    uwDnsServer = "";
+    uwDnsDomains = [];
+}
+```
+
+... and update it every time it chagnes
+
+```sh
+nix flake update secrets-file
+rebuild
+```
+
 # Building
 
 ```sh

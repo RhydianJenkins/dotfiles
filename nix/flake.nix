@@ -21,6 +21,11 @@
     apix.url = "github:rhydianjenkins/apix";
 
     seek.url = "github:rhydianjenkins/seek";
+
+    secrets-file = {
+      url = "path:/home/rhydian/.secrets.nix";
+      flake = false;
+    };
   };
 
   outputs =
@@ -31,6 +36,7 @@
       nix-index-database,
       apix,
       seek,
+      secrets-file,
       nixos-hardware,
       ...
     }:
@@ -61,11 +67,14 @@
         ./home/modules/terminal.nix
         nix-index-database.homeModules.nix-index
       ];
+
+      uwSecrets = import secrets-file;
     in
     {
       nixosConfigurations = {
         uw-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { secrets = uwSecrets; };
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
             ./system/machines/uw-laptop/default.nix
