@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   username = "Rhydian Jenkins";
-  email = "rhydz@mens.com";
+  email = "rhydz@msn.com";
 in
 {
   home.packages = with pkgs; [
