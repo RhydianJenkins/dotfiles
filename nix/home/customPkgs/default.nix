@@ -9,4 +9,5 @@ final: prev: {
   customStoplight = final.callPackage ./stoplight.nix { };
   seek = seek.packages.${system}.default;
   unstable = pkgs-unstable;
+  wiresteward = final.callPackage ./wiresteward.nix { };
 }
