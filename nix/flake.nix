@@ -68,6 +68,7 @@
           inherit system;
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
+            ./system/machines/uw-laptop/default.nix
             ./system/modules/common.nix
             ./system/modules/hyprland.nix
           ];
