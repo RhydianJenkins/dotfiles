@@ -10,8 +10,7 @@
     rPackages.treesitter
     julia
     openjdk
-    php84
-    php84Packages.composer
+    neovim-unwrapped
   ];
 
   # make .config/nvim directory writable for vim.pack lockfile
@@ -23,14 +22,5 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-  };
-
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-    viAlias = false;
-    vimAlias = false;
-    withNodeJs = true;
-    withPython3 = true;
   };
 }

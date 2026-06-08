@@ -43,7 +43,6 @@ in
       lazydocker
       libreoffice-qt6-fresh
       nautilus
-      neofetch
       ngrok
       nixfmt-tree
       nodejs_22
