@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }:
+{ config, lib, pkgs, secretsFile, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -9,8 +9,8 @@
     enable = true;
     networks."uw-merit" = {
       matchConfig.Name = "wg-prod-merit";
-      networkConfig.DNS = secrets.uwDnsServer;
-      networkConfig.Domains = secrets.uwDnsDomains;
+      networkConfig.DNS = secretsFile.uwDnsServer;
+      networkConfig.Domains = secretsFile.uwDnsDomains;
     };
   };
 

@@ -68,13 +68,13 @@
         nix-index-database.homeModules.nix-index
       ];
 
-      uwSecrets = import secrets-file;
+      secretsFile = import secrets-file;
     in
     {
       nixosConfigurations = {
         uw-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { secrets = uwSecrets; };
+          specialArgs = { secretsFile = secretsFile; };
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
             ./system/machines/uw-laptop/default.nix
