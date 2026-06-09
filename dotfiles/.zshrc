@@ -18,5 +18,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
+# Point SSH to gpg-agent's SSH socket, overriding any stale value set by WezTerm
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
 # turn off annoying bell
 unsetopt BEEP
