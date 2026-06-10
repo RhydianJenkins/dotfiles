@@ -35,6 +35,7 @@ in
       htop
       imagemagick
       jq
+      k9s
       kail
       killall
       kubectl
