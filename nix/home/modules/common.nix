@@ -30,7 +30,7 @@ in
       gh
       gnumake
       gnupg
-      go
+      go_1_26_4
       haskellPackages.greenclip
       htop
       imagemagick
