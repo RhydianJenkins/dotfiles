@@ -15,7 +15,6 @@ in
       apix
       beekeeper-studio
       blueman
-      cargo
       claude-code
       codespell
       curl
