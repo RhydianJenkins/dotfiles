@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -9,9 +9,11 @@
   home.packages = with pkgs; [
     fzf
     tmux
+    (writeShellScriptBin "git-workspace" (builtins.readFile ../../../scripts/git-workspace))
+    (writeShellScriptBin "mux" (builtins.readFile ../../../scripts/mux))
   ];
 
-  home.sessionPath = [ "${../../../scripts}" ];
+  # home.sessionPath = [ "${../../../scripts}" ];
 
   home.file = {
     ".aliases".source = ../../../dotfiles/.aliases;

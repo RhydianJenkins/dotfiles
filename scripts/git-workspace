@@ -6,22 +6,71 @@ usage() {
     echo "commands:"
     echo "  pull    pull all repos in the go workspace"
     echo "  status  list repos in the go workspace with uncommitted changes"
+    echo "  main    checkout main/master on all repos, skipping dirty ones"
     exit 1
+}
+
+pull() {
+    go work edit -json |
+        jq -r '.Use[].DiskPath' |
+        xargs -P 10 -I{} sh -c 'echo Pulling {}; git -C "{}" pull'
+
+}
+
+status() {
+    go work edit -json | jq -r '.Use[].DiskPath' |
+    while read -r dir; do
+        local_status=$(git -C "$dir" status --porcelain 2>/dev/null)
+        branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
+        unpushed=$(git -C "$dir" cherry -v "@{upstream}" 2>/dev/null | wc -l | tr -d ' ')
+
+        parts=()
+        if [ -n "$local_status" ]; then
+            count=$(echo "$local_status" | wc -l | tr -d ' ')
+            parts+=("$count file(s) changed")
+        fi
+        if [ "$unpushed" -gt 0 ] 2>/dev/null; then
+            parts+=("$unpushed unpushed commit(s)")
+        fi
+
+        if [ "${#parts[@]}" -gt 0 ]; then
+            msg=$(IFS=', '; echo "${parts[*]}")
+            echo "$dir ($branch): $msg"
+        fi
+    done
+}
+
+main() {
+    go work edit -json | jq -r '.Use[].DiskPath' |
+    while read -r dir; do
+        if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+            echo "Skipping $dir: uncommitted changes"
+            continue
+        fi
+        default=$(git -C "$dir" symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||')
+        if [ -z "$default" ]; then
+            if git -C "$dir" rev-parse --verify main &>/dev/null; then
+                default="main"
+            elif git -C "$dir" rev-parse --verify master &>/dev/null; then
+                default="master"
+            else
+                echo "Skipping $dir: could not determine default branch"
+                continue
+            fi
+        fi
+        git -C "$dir" checkout "$default"
+    done
 }
 
 case "$1" in
     pull)
-        go work edit -json |
-            jq -r '.Use[].DiskPath' |
-            xargs -P 10 -I{} sh -c 'echo Pulling {}; git -C "{}" pull'
+        pull
         ;;
     status)
-        go work edit -json | jq -r '.Use[].DiskPath' |
-        while read -r dir; do
-            if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
-                echo "$dir"
-            fi
-        done
+        status
+        ;;
+    main)
+        main
         ;;
     *)
         usage

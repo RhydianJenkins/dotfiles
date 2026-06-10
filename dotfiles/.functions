@@ -1,31 +1,8 @@
 #!/usr/bin/env bash
 
-function hyprpaper_random() {
-    directory=~/Pictures/wallpapers
-    monitors=($(hyprctl monitors | grep Monitor | awk '{print $2}'))
-
-    if [ -d "$directory" ]; then
-        hyprctl hyprpaper unload all
-        for monitor in "${monitors[@]}"; do
-            random_background=$(ls $directory/*.jpg | shuf -n 1)
-
-            echo "Monitor: $monitor"
-            echo "Random background: $random_background"
-
-            hyprctl hyprpaper preload $random_background
-            hyprctl hyprpaper wallpaper "$monitor, $random_background"
-        done
-    fi
-}
-
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 
 function makezip() { zip -r "${1%%/}.zip" "$1" ; }
-
-# Usage: `weather CITYNAME` or just `weather` to use your IP addr. location.
-function weather() {
-    curl http://wttr.in/"${1}"
-}
 
 # Confirm a question with the user.
 # example: confirm "Are you sure?" && git reset --hard
@@ -37,50 +14,6 @@ confirm() {
         [yY][eE][sS]|[yY]) true;;
         *) false;;
     esac
-}
-
-function mstr() {
-    local timestamp="$(date +%Y%m%d%H%M%S)"
-    local argString="'$*'"
-    local name=${${argString// /_}//\'}
-    local suffix=".up.sql"
-    local result="${timestamp}_${name}${suffix}"
-
-    echo $result
-    echo $result | xclip
-}
-
-function restore_databases() {
-    if (! confirm); then
-        return 1;
-    fi
-
-    cd ~/code/basekit
-
-    if (type purge_databases &> /dev/null); then
-        purge_databases
-    fi
-
-    echo "Executing make targets..."
-    make migrate_all
-    make install_templates
-    make default_users
-    make update_brand
-    make connect_install_packages
-    make fresh
-    echo "Make targets executed"
-
-    echo "Starting scaffolding..."
-    docker compose exec mysql mysql -D basekit -e "$(cat $HOME/scaffold_basekit.sql)"
-    echo "Scaffolding complete"
-}
-
-function ollama-serve() {
-    if docker ps -a --format '{{.Names}}' | grep -q '^ollama$'; then
-        docker start ollama
-    else
-        docker run -d --device nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-    fi
 }
 
 # load custom_functions file if exists
