@@ -56,6 +56,7 @@ in
       pulseaudioFull
       python315
       ripgrep
+      rustup
       seek
       slack
       spotify
@@ -71,8 +72,8 @@ in
       warp-terminal
       wget
       whatsapp-electron
-      wiresteward
       wireshark
+      wiresteward
       yq-go
     ];
 
