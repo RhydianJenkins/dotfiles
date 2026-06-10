@@ -20,6 +20,11 @@ in
         stash = "stash --all";
         who = "blame -w -M -C -C -C";
       };
+      url = {
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
+        };
+      };
     };
     maintenance = {
       enable = true;
