@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     fzf
     tmux
+    (pkgs.writeShellScriptBin "workspace" (builtins.readFile ../../../dotfiles/scripts/workspace))
   ];
 
   home.file = {

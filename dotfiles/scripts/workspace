@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+base="$1"
+[[ -z "$base" ]] && echo "usage: workspace <directory>" >&2 && exit 1
+repo=$(find "$base" -maxdepth 1 -mindepth 1 -type d | sort | \
+    sed "s|$base/||" | \
+    fzf --prompt="  repo > " \
+        --preview="ls $base/{}" \
+        ${2:+--query="$2"})
+
+[[ -z "$repo" ]] && exit 0
+
+dir="$base/$repo"
+
+if [[ -n "$TMUX" ]]; then
+    tmux new-session -d -s "$repo" -n "$repo" -c "$dir" 2>/dev/null || true
+    tmux switch-client -t "$repo"
+else
+    tmux new-session -s "$repo" -n "$repo" -c "$dir"
+fi
