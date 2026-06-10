@@ -10,6 +10,7 @@ fi
 
 # Just link and erase all dotfiles to $HOME
 ln -sf $SCRIPT_DIR/.[a-z]* ~/
+ln -sf $SCRIPT_DIR/../scripts ~/.scripts
 echo "Dotfiles linked. "
 
 read -r -p "Install all packages listed in pkglist? [y/N] " response

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "usage: git workspace <command>"
+    echo ""
+    echo "commands:"
+    echo "  pull    pull all repos in the go workspace"
+    echo "  status  list repos in the go workspace with uncommitted changes"
+    exit 1
+}
+
+case "$1" in
+    pull)
+        go work edit -json |
+            jq -r '.Use[].DiskPath' |
+            xargs -P 10 -I{} sh -c 'echo Pulling {}; git -C "{}" pull'
+        ;;
+    status)
+        go work edit -json | jq -r '.Use[].DiskPath' |
+        while read -r dir; do
+            if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+                echo "$dir"
+            fi
+        done
+        ;;
+    *)
+        usage
+        ;;
+esac

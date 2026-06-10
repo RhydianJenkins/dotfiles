@@ -9,8 +9,9 @@
   home.packages = with pkgs; [
     fzf
     tmux
-    (pkgs.writeShellScriptBin "workspace" (builtins.readFile ../../../dotfiles/scripts/workspace))
   ];
+
+  home.sessionPath = [ "${../../../scripts}" ];
 
   home.file = {
     ".aliases".source = ../../../dotfiles/.aliases;

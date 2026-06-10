@@ -1,5 +1,6 @@
 PATHS=(
     $HOME/bin
+    $HOME/.scripts
     $HOME/.cargo/bin
     $HOME/.deno/bin
     $HOME/.local/bin
