@@ -1,9 +1,10 @@
 PATHS=(
-    $HOME/bin
-    $HOME/.scripts
     $HOME/.cargo/bin
     $HOME/.deno/bin
     $HOME/.local/bin
+    $HOME/.scripts
+    $HOME/bin
+    $HOME/go
     /usr/local/bin
 )
 
