@@ -34,6 +34,7 @@
   };
 
   services = {
+    gnome.gnome-keyring.enable = true;
     openssh.enable = true;
     printing.enable = true;
     blueman.enable = true;
@@ -58,6 +59,7 @@
     package = pkgs.bluez;
   };
   security.rtkit.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   users.users.rhydian = {
     isNormalUser = true;
