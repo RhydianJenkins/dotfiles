@@ -4,7 +4,7 @@ PATHS=(
     $HOME/.local/bin
     $HOME/.scripts
     $HOME/bin
-    $HOME/go
+    $HOME/go/bin
     /usr/local/bin
 )
 
