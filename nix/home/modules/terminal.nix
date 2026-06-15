@@ -10,10 +10,9 @@
     fzf
     tmux
     (writeShellScriptBin "git-workspace" (builtins.readFile ../../../scripts/git-workspace))
+    (writeShellScriptBin "go-replace" (builtins.readFile ../../../scripts/go-replace))
     (writeShellScriptBin "mux" (builtins.readFile ../../../scripts/mux))
   ];
-
-  # home.sessionPath = [ "${../../../scripts}" ];
 
   home.file = {
     ".aliases".source = ../../../dotfiles/.aliases;

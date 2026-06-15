@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+ORG="github.com/utilitywarehouse"
+
+usage() {
+    echo "usage: go-replace <command>"
+    echo ""
+    echo "commands:"
+    echo "  local   replace $ORG/* deps with local sibling directories (if they exist)"
+    echo "  remote  drop all local replacements for $ORG/*"
+    exit 1
+}
+
+local() {
+    while IFS= read -r dep; do
+        name=$(basename "$dep")
+        local_path=$(cd .. && pwd)/"$name"
+        if [ -d "$local_path" ]; then
+            echo "replacing $dep -> $local_path"
+            go mod edit -replace "$dep=$local_path"
+        fi
+    done < <(go mod edit -json | jq -r --arg org "$ORG" '.Require[].Path | select(startswith($org))')
+}
+
+remote() {
+    while IFS= read -r dep; do
+        echo "dropping replace for $dep"
+        go mod edit -dropreplace "$dep"
+    done < <(go mod edit -json | jq -r --arg org "$ORG" '.Replace[]? | select(.Old.Path | startswith($org)) | .Old.Path')
+}
+
+case "$1" in
+    local)
+        local
+        ;;
+    remote)
+        remote
+        ;;
+    *)
+        usage
+        ;;
+esac
