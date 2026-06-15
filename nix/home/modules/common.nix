@@ -32,6 +32,7 @@ in
       gnupg
       go_1_26_4
       golangci-lint
+      grpcurl
       haskellPackages.greenclip
       htop
       imagemagick
