@@ -31,6 +31,7 @@ in
       gnumake
       gnupg
       go_1_26_4
+      golangci-lint
       haskellPackages.greenclip
       htop
       imagemagick
