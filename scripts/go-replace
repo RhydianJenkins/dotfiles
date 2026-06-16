@@ -6,6 +6,7 @@ usage() {
     echo "usage: go-replace <command>"
     echo ""
     echo "commands:"
+    echo "  list    list all $ORG/* deps found in go.mod"
     echo "  local   replace $ORG/* deps with local sibling directories (if they exist)"
     echo "  remote  drop all local replacements for $ORG/*"
     exit 1
@@ -19,7 +20,11 @@ local() {
             echo "replacing $dep -> $local_path"
             go mod edit -replace "$dep=$local_path"
         fi
-    done < <(go mod edit -json | jq -r --arg org "$ORG" '.Require[].Path | select(startswith($org))')
+    done < <(list)
+}
+
+list() {
+    go mod edit -json | jq -r --arg org "$ORG" '.Require[].Path | select(startswith($org))'
 }
 
 remote() {
@@ -30,6 +35,9 @@ remote() {
 }
 
 case "$1" in
+    list)
+        list
+        ;;
     local)
         local
         ;;
