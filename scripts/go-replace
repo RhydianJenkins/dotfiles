@@ -12,9 +12,9 @@ usage() {
 }
 
 local() {
+    parent=$(cd .. && pwd)
     while IFS= read -r dep; do
-        name=$(basename "$dep")
-        local_path=$(cd .. && pwd)/"$name"
+        local_path="$parent/${dep#$ORG/}"
         if [ -d "$local_path" ]; then
             echo "replacing $dep -> $local_path"
             go mod edit -replace "$dep=$local_path"
