@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+
 base="$1"
 
-[[ -z "$base" ]] && echo "usage: workspace <directory>" >&2 && exit 1
+[[ -z "$base" ]] && echo "usage: mux <directory>" >&2 && exit 1
 
 repo=$(find "$base" -maxdepth 1 -mindepth 1 -type d | sort | \
     sed "s|$base/||" | \
