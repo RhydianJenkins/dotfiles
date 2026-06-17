@@ -37,6 +37,7 @@ in
       htop
       imagemagick
       jq
+      just
       k9s
       kail
       killall
