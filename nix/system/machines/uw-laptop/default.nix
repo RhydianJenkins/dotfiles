@@ -1,4 +1,10 @@
-{ config, lib, pkgs, secretsFile, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  secretsFile,
+  ...
+}:
 
 let
   wiresteward = pkgs.callPackage ../../../home/customPkgs/wiresteward.nix { };

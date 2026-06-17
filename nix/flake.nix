@@ -74,7 +74,9 @@
       nixosConfigurations = {
         uw-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { secretsFile = secretsFile; };
+          specialArgs = {
+            secretsFile = secretsFile;
+          };
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
             ./system/machines/uw-laptop/default.nix
