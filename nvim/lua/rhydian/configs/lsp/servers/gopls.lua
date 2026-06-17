@@ -1,7 +1,7 @@
-vim.lsp.config('gopls', {
-    cmd = { 'gopls' },
-    filetypes = { 'go' },
-    root_markers = { 'go.work', 'go.mod', '.git' },
+vim.lsp.config("gopls", {
+    cmd = { "gopls" },
+    filetypes = { "go" },
+    root_markers = { "go.work", "go.mod", ".git" },
     settings = {
         gopls = {
             gofumpt = true,
@@ -24,6 +24,6 @@ vim.lsp.config('gopls', {
                 parameterNames = true,
                 rangeVariableTypes = true,
             },
-        }
-    }
+        },
+    },
 })
