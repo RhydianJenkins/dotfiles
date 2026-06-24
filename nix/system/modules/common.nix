@@ -3,12 +3,6 @@
 {
   environment.pathsToLink = [ "/libexec" ];
 
-  programs.captive-browser = {
-      enable = true;
-      interface = "$(ip route show default | awk '{print $5}' | head -n1)";
-      dhcp-dns = "${pkgs.networkmanager}/bin/nmcli dev show $(ip route show default | awk '{print $5}' | head -n1) | grep 'IP4.DNS' | awk '{print $2}' | head -n1";
-  };
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
