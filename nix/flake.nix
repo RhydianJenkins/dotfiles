@@ -82,6 +82,7 @@
             ./system/machines/uw-laptop/default.nix
             ./system/modules/common.nix
             ./system/modules/hyprland.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
           ];
         };
 
