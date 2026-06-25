@@ -14,6 +14,8 @@ in
     wireguard-tools
   ];
 
+  hardware.firmware = with pkgs; [ sof-firmware ];
+
   systemd.services.wiresteward-agent = {
     description = "Wiresteward Agent";
     wantedBy = [ "multi-user.target" ];
