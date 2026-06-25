@@ -3,22 +3,29 @@
 usage() {
     echo "usage: git workspace <command>"
     echo ""
+    echo "A 'workspace' is a directory containing multiple git repositories."
+    echo "It is a term borrowed from go workspaces."
+    echo ""
     echo "commands:"
-    echo "  pull    pull all repos in the go workspace"
-    echo "  status  list repos in the go workspace with uncommitted changes"
-    echo "  main    checkout main/master on all repos, skipping dirty ones"
+    echo "  pull    pull all repos in the workspace"
+    echo "  status  list repos in the workspace with uncommitted changes"
+    echo "  main    checkout main/master on all repos in the workspace, skipping dirty ones
+  reset   discard all uncommitted changes in dirty repos (prompts for confirmation)"
     exit 1
 }
 
-pull() {
-    go work edit -json |
-        jq -r '.Use[].DiskPath' |
-        xargs -P 10 -I{} sh -c 'echo Pulling {}; git -C "{}" pull'
+git_repos() {
+    for dir in */; do
+        [ -d "$dir/.git" ] && echo "${dir%/}"
+    done
+}
 
+pull() {
+    git_repos | xargs -P 10 -I{} sh -c 'echo Pulling {}; git -C "{}" pull'
 }
 
 status() {
-    go work edit -json | jq -r '.Use[].DiskPath' |
+    git_repos |
     while read -r dir; do
         local_status=$(git -C "$dir" status --porcelain 2>/dev/null)
         branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -41,7 +48,7 @@ status() {
 }
 
 main() {
-    go work edit -json | jq -r '.Use[].DiskPath' |
+    git_repos |
     while read -r dir; do
         if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
             echo "Skipping $dir: uncommitted changes"
@@ -62,6 +69,38 @@ main() {
     done
 }
 
+reset() {
+    dirty=()
+    while read -r dir; do
+        if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+            dirty+=("$dir")
+        fi
+    done < <(git_repos)
+
+    if [ "${#dirty[@]}" -eq 0 ]; then
+        echo "Nothing to reset."
+        return
+    fi
+
+    echo "The following repos have uncommitted changes and will be reset:"
+    for dir in "${dirty[@]}"; do
+        echo "  $dir"
+    done
+    echo ""
+    printf "Are you sure? [y/n] "
+    read -r answer
+    if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
+        echo "Aborted."
+        return
+    fi
+
+    for dir in "${dirty[@]}"; do
+        echo "Resetting $dir..."
+        git -C "$dir" reset --hard HEAD
+        git -C "$dir" clean -fd
+    done
+}
+
 case "$1" in
     pull)
         pull
@@ -74,6 +113,9 @@ case "$1" in
         ;;
     main)
         main
+        ;;
+    reset)
+        reset
         ;;
     *)
         usage
