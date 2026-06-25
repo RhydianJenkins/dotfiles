@@ -5,7 +5,7 @@ if not present then
     return
 end
 
-local filetypes = { "twig" }
+local filetypes = { "twig", "go" }
 
 treesitter.install(filetypes)
 
