@@ -44,6 +44,7 @@ in
       killall
       kubectl
       kubectx
+      kustomize
       lazydocker
       libreoffice-qt6-fresh
       nautilus
