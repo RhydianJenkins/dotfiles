@@ -23,6 +23,7 @@ in
       delve
       dig
       docker
+      evans
       fd
       feh
       file
