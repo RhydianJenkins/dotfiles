@@ -52,6 +52,7 @@ in
       ngrok
       nixfmt-tree
       nodejs_22
+      obsidian
       openapi-tui
       openssl
       pass
