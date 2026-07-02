@@ -66,6 +66,7 @@ in
       seek
       slack
       spotify
+      stern
       tcpdump
       tealdeer
       triton-llvm
