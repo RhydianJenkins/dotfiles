@@ -69,6 +69,7 @@ in
       seek
       slack
       spotify
+      sqlc
       stern
       tcpdump
       tealdeer
