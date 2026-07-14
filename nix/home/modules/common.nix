@@ -48,6 +48,8 @@ in
       kustomize
       lazydocker
       libreoffice-qt6-fresh
+      mage
+      mockgen
       nautilus
       ngrok
       nixfmt-tree
