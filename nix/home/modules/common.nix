@@ -26,6 +26,7 @@ in
       evans
       fd
       feh
+      ffmpeg
       file
       gcc
       gcloud
