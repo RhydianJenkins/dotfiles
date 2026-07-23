@@ -35,6 +35,7 @@ in
       gnupg
       go_1_26_4
       golangci-lint
+      gopls
       grpcurl
       haskellPackages.greenclip
       htop
