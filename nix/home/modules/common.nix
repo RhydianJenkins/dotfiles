@@ -77,6 +77,7 @@ in
       tealdeer
       triton-llvm
       typescript
+      typescript-language-server
       unixtools.netstat
       unstable.opencode
       unstable.opencode-claude-auth
