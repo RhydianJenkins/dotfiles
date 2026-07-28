@@ -9,6 +9,7 @@ usage() {
     echo "commands:"
     echo "  pull    pull all repos in the workspace"
     echo "  status  list repos in the workspace with uncommitted changes"
+    echo "  diff    show a one-line summary of changed files per repo"
     echo "  main    checkout main/master on all repos in the workspace, skipping dirty ones
   reset   discard all uncommitted changes in dirty repos (prompts for confirmation)"
     exit 1
@@ -44,6 +45,21 @@ status() {
             msg=$(IFS=', '; echo "${parts[*]}")
             echo "$dir ($branch): $msg"
         fi
+    done
+}
+
+diff() {
+    git_repos |
+    while read -r dir; do
+        local_status=$(git -C "$dir" status --porcelain 2>/dev/null)
+        [ -z "$local_status" ] && continue
+
+        branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
+        echo "$dir ($branch)"
+        while IFS= read -r line; do
+            echo "  ${line:3}"
+        done <<< "$local_status"
+        echo ""
     done
 }
 
@@ -107,6 +123,9 @@ case "$1" in
         ;;
     status)
         status
+        ;;
+    diff)
+        diff
         ;;
     master)
         main
