@@ -62,6 +62,7 @@ in
       pass
       pavucontrol
       peek
+      pgcli
       playwright-test
       pngquant
       pulseaudioFull
