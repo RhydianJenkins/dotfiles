@@ -18,10 +18,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    apix.url = "github:rhydianjenkins/apix";
-
-    seek.url = "github:rhydianjenkins/seek";
-
     secrets-file = {
       url = "path:/home/rhydian/.secrets.nix";
       flake = false;
@@ -34,8 +30,6 @@
       nixpkgs-unstable,
       home-manager,
       nix-index-database,
-      apix,
-      seek,
       secrets-file,
       nixos-hardware,
       ...
@@ -52,8 +46,6 @@
         overlays = [
           (import ./home/customPkgs {
             inherit
-              apix
-              seek
               system
               pkgs-unstable
               ;

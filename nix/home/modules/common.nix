@@ -12,14 +12,11 @@ in
     stateVersion = "23.11";
     packages = with pkgs; [
       alsa-utils
-      apix
       beekeeper-studio
       blueman
       buf
       claude-code
-      codespell
       curl
-      customStoplight
       delve
       dig
       docker
@@ -57,11 +54,9 @@ in
       nixfmt-tree
       nodejs_22
       obsidian
-      openapi-tui
       openssl
       pass
       pavucontrol
-      peek
       pgcli
       playwright-test
       pngquant
@@ -69,14 +64,12 @@ in
       python315
       ripgrep
       rustup
-      seek
       slack
       spotify
       sqlc
       stern
       tcpdump
       tealdeer
-      triton-llvm
       typescript
       typescript-language-server
       unixtools.netstat
@@ -84,7 +77,6 @@ in
       unstable.opencode-claude-auth
       unzip
       vim
-      warp-terminal
       wget
       whatsapp-electron
       wireshark
