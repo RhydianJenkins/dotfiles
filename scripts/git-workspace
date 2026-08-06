@@ -19,8 +19,9 @@ usage() {
     echo "  pull    pull all repos in the workspace"
     echo "  status  list repos in the workspace with uncommitted changes"
     echo "  diff    list changed files per repo, one per line"
-    echo "  main    checkout main/master on all repos in the workspace, skipping dirty ones
-  reset   discard all uncommitted changes in dirty repos (prompts for confirmation)"
+    echo "  main    checkout main/master on all repos in the workspace, skipping dirty ones"
+    echo "  branches  list repos that are not on their main/master branch"
+    echo "  reset   discard all uncommitted changes in dirty repos (prompts for confirmation)"
     exit 1
 }
 
@@ -28,6 +29,19 @@ git_repos() {
     for dir in */; do
         [ -d "$dir/.git" ] && echo "${dir%/}"
     done
+}
+
+default_branch() {
+    dir="$1"
+    default=$(git -C "$dir" symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||')
+    if [ -z "$default" ]; then
+        if git -C "$dir" rev-parse --verify main &>/dev/null; then
+            default="main"
+        elif git -C "$dir" rev-parse --verify master &>/dev/null; then
+            default="master"
+        fi
+    fi
+    echo "$default"
 }
 
 pull() {
@@ -92,18 +106,27 @@ main() {
             echo "Skipping $dir: uncommitted changes"
             continue
         fi
-        default=$(git -C "$dir" symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||')
+        default=$(default_branch "$dir")
         if [ -z "$default" ]; then
-            if git -C "$dir" rev-parse --verify main &>/dev/null; then
-                default="main"
-            elif git -C "$dir" rev-parse --verify master &>/dev/null; then
-                default="master"
-            else
-                echo "Skipping $dir: could not determine default branch"
-                continue
-            fi
+            echo "Skipping $dir: could not determine default branch"
+            continue
         fi
         git -C "$dir" checkout "$default"
+    done
+}
+
+branches() {
+    git_repos |
+    while read -r dir; do
+        branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
+        default=$(default_branch "$dir")
+        if [ -z "$default" ]; then
+            echo "$dir ($branch): could not determine default branch"
+            continue
+        fi
+        if [ "$branch" != "$default" ]; then
+            echo "$dir: $branch"
+        fi
     done
 }
 
@@ -154,6 +177,9 @@ case "$1" in
         ;;
     main)
         main
+        ;;
+    branches)
+        branches
         ;;
     reset)
         reset
