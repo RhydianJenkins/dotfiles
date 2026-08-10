@@ -12,6 +12,7 @@ set("n", "<leader>a", "ggVG", { desc = "Select all" })
 set("n", "<leader>bt", "<cmd>BlamerToggle<CR>", { desc = "[B]lame [T]oggle" })
 set("n", "<leader>wd", "<cmd>w<bar>%bd<bar>e#<bar>bd#<CR>", { desc = "Close all buffers except current one" })
 set("n", "<leader>wr", "<C-W><C-r>", { desc = "[W]indow [r]otate" })
+set("n", "<leader>ds", vim.lsp.buf.document_symbol, { desc = "Show [D]ocument [S]ymbol list" })
 set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
 set(
