@@ -12,7 +12,34 @@ set("n", "<leader>a", "ggVG", { desc = "Select all" })
 set("n", "<leader>bt", "<cmd>BlamerToggle<CR>", { desc = "[B]lame [T]oggle" })
 set("n", "<leader>wd", "<cmd>w<bar>%bd<bar>e#<bar>bd#<CR>", { desc = "Close all buffers except current one" })
 set("n", "<leader>wr", "<C-W><C-r>", { desc = "[W]indow [r]otate" })
-set("n", "<leader>ds", vim.lsp.buf.document_symbol, { desc = "Show [D]ocument [S]ymbol list" })
+set("n", "<leader>ds", function()
+    local wanted_kinds = { Function = true, Method = true }
+
+    vim.lsp.buf.document_symbol({
+        on_list = function(list)
+            local items = vim.tbl_filter(function(item)
+                return wanted_kinds[item.kind]
+            end, list.items)
+
+            if vim.tbl_isempty(items) then
+                vim.notify("No functions or methods found", vim.log.levels.INFO)
+                return
+            end
+
+            vim.fn.setloclist(0, {}, " ", { title = list.title, items = items })
+            vim.cmd.lopen()
+
+            local buf = vim.api.nvim_get_current_buf()
+            local select_and_close = function()
+                local idx = vim.fn.line(".")
+                vim.cmd(idx .. "ll")
+                vim.cmd.lclose()
+            end
+            vim.keymap.set("n", "<CR>", select_and_close, { buffer = buf, silent = true })
+            vim.keymap.set("n", "<C-y>", select_and_close, { buffer = buf, silent = true })
+        end,
+    })
+end, { desc = "Show [D]ocument [S]ymbols (functions/methods only)" })
 set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
 set(
