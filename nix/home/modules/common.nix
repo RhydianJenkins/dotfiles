@@ -61,6 +61,7 @@ in
       pgcli
       playwright-test
       pngquant
+      postman
       pulseaudioFull
       python315
       ripgrep
