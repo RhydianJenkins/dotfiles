@@ -83,6 +83,7 @@ in
       whatsapp-electron
       wireshark
       wiresteward
+      yarn
       yq-go
     ];
 
