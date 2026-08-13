@@ -1,8 +1,10 @@
 {
+  apix,
   pkgs-unstable,
   system,
 }:
 final: prev: {
+  apix = apix.packages.${system}.default;
   go_1_26_4 = prev.go.overrideAttrs (old: rec {
     version = "1.26.4";
     src = final.fetchurl {

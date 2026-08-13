@@ -12,6 +12,7 @@ in
     stateVersion = "23.11";
     packages = with pkgs; [
       alsa-utils
+      apix
       beekeeper-studio
       blueman
       buf
