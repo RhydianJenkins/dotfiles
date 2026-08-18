@@ -72,6 +72,7 @@ in
       stern
       tcpdump
       tealdeer
+      terraform
       typescript
       typescript-language-server
       unixtools.netstat
