@@ -1,7 +1,6 @@
 local gh = "https://github.com/"
 
 vim.pack.add({
-    { src = gh .. "APZelos/blamer.nvim" },
     { src = gh .. "ThePrimeagen/harpoon", version = "harpoon2" },
     { src = gh .. "akinsho/bufferline.nvim" },
     { src = gh .. "catgoose/nvim-colorizer.lua" },
