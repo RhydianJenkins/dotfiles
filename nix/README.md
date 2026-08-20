@@ -13,6 +13,12 @@ cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/system/machines/<YOUR_NE
 
 Then, you'll need to add `<YOUR_NEW_SYSTEM>` to `nixosConfigurations` in `flake.nix`
 
+# Enter a shell with all dependencies
+
+```sh
+nix --extra-experimental-features 'nix-command flakes' develop
+```
+
 # Secrets
 
 You'll have to make a `~/.secrets.nix` file that contains all the values you don't want to commit to source:
