@@ -65,6 +65,7 @@ in
       pulseaudioFull
       python315
       ripgrep
+      rtk
       rustup
       slack
       spotify
