@@ -12,6 +12,7 @@ final: prev: {
       hash = "sha256-T2aKMvv8ETLmqIH7lowvHa2mMUkqM5IRc1+7JVpCYC0=";
     };
   });
+  strongbox = final.callPackage ./strongbox.nix { };
   unstable = pkgs-unstable;
   wiresteward = final.callPackage ./wiresteward.nix { };
 }

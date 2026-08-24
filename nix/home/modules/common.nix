@@ -71,6 +71,7 @@ in
       spotify
       sqlc
       stern
+      strongbox
       tcpdump
       tealdeer
       terraform
