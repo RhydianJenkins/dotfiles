@@ -24,6 +24,9 @@
 
   home.shell.enableZshIntegration = true;
 
+  # auto-suggests `nix shell nixpkgs#pkg -c cmd` for commands not on PATH
+  programs.nix-index-database.comma.enable = true;
+
   programs.wezterm = {
     enable = true;
     extraConfig = builtins.readFile ../../../dotfiles/.wezterm.lua;

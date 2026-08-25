@@ -59,10 +59,7 @@
       };
 
       commonHmModules = [
-        ./home/modules/browsers.nix
-        ./home/modules/common.nix
-        ./home/modules/packages.nix
-        ./home/modules/terminal.nix
+        ./home/modules
         nix-index-database.homeModules.nix-index
       ];
 
