@@ -39,6 +39,7 @@
     }:
     let
       system = "x86_64-linux";
+      username = "rhydian";
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
@@ -60,6 +61,7 @@
       commonHmModules = [
         ./home/modules/browsers.nix
         ./home/modules/common.nix
+        ./home/modules/packages.nix
         ./home/modules/terminal.nix
         nix-index-database.homeModules.nix-index
       ];
@@ -71,7 +73,7 @@
         uw-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            secretsFile = secretsFile;
+            inherit secretsFile username;
           };
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
@@ -84,6 +86,9 @@
 
         home-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit username;
+          };
           modules = [
             ./system/machines/home-desktop/hardware-configuration.nix
             ./system/machines/home-desktop/nvidia.nix
@@ -97,6 +102,9 @@
       homeConfigurations = {
         hyprland = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = {
+            inherit username;
+          };
           modules = commonHmModules ++ [
             ./home/modules/hyprland.nix
             ./home/modules/keybase.nix
@@ -105,6 +113,9 @@
 
         i3 = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = {
+            inherit username;
+          };
           modules = commonHmModules ++ [
             ./home/modules/i3.nix
             ./home/modules/keybase.nix

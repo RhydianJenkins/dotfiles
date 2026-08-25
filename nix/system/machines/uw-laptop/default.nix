@@ -46,8 +46,10 @@ in
   # it's just watching for an interface name match and applying DNS settings reactively.
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16384;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16384;
+    }
+  ];
 }

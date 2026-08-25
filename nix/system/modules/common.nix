@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   environment.pathsToLink = [ "/libexec" ];
@@ -42,7 +42,7 @@
 
     displayManager.autoLogin = {
       enable = true;
-      user = "rhydian";
+      user = username;
     };
 
     pipewire = {
@@ -61,9 +61,9 @@
   security.rtkit.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
-  users.users.rhydian = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "Rhydian";
+    description = username;
     extraGroups = [
       "disk"
       "docker"
