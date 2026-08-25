@@ -10,11 +10,6 @@
       [Plugins]
       ConnectionNotifier=false
     '';
-
-    # nix-shell -p uses the global nixpkgs config, not Home Manager settings
-    file.".config/nixpkgs/config.nix".text = ''
-      { allowUnfree = true; }
-    '';
   };
 
   services.gpg-agent = {
@@ -25,9 +20,4 @@
 
   programs.home-manager.enable = true;
   programs.nix-index-database.comma.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-5.3.4"
-  ];
 }

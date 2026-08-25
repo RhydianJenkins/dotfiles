@@ -82,4 +82,11 @@ in
     yarn
     yq-go
   ];
+
+  # nix-shell -p uses the global nixpkgs config, not Home Manager settings
+  home.file.".config/nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+  '';
+
+  nixpkgs.config.allowUnfree = true;
 }
