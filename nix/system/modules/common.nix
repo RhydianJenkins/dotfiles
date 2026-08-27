@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, username, hostName, ... }:
 
 {
   environment.pathsToLink = [ "/libexec" ];
@@ -15,7 +15,7 @@
     };
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = hostName;
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 9009 ];
   time.timeZone = "Europe/London";

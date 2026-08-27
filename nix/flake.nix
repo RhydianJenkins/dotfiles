@@ -71,6 +71,7 @@
           inherit system;
           specialArgs = {
             inherit secretsFile username;
+            hostName = "uw-laptop";
           };
           modules = [
             ./system/machines/uw-laptop/hardware-configuration.nix
@@ -85,6 +86,7 @@
           inherit system;
           specialArgs = {
             inherit username;
+            hostName = "home-desktop";
           };
           modules = [
             ./system/machines/home-desktop/hardware-configuration.nix
