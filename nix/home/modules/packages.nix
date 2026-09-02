@@ -28,6 +28,7 @@ in
     go_1_26_4
     golangci-lint
     gopls
+    gotestsum
     grpcurl
     haskellPackages.greenclip
     htop
