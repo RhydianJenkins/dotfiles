@@ -40,6 +40,11 @@
     let
       system = "x86_64-linux";
       username = "rhydian";
+      secretsPath = "/home/${username}/.secrets.nix";
+      secretsFile =
+        if builtins.pathExists secretsPath
+        then import secretsPath
+        else {};
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
@@ -62,8 +67,6 @@
         ./home/modules
         nix-index-database.homeModules.nix-index
       ];
-
-      secretsFile = import secrets-file;
     in
     {
       nixosConfigurations = {
