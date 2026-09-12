@@ -1,4 +1,9 @@
-{ pkgs, username, hostName, ... }:
+{
+  pkgs,
+  username,
+  hostName,
+  ...
+}:
 
 {
   environment.pathsToLink = [ "/libexec" ];
