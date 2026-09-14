@@ -40,6 +40,7 @@ in
     killall
     kubectl
     kubectx
+    kubefwd
     kustomize
     lazydocker
     libreoffice-qt6-fresh
