@@ -7,7 +7,6 @@ in
 {
   home.packages = with pkgs; [
     alsa-utils
-    apix
     beekeeper-studio
     blueman
     buf
@@ -73,8 +72,8 @@ in
     typescript
     typescript-language-server
     unixtools.netstat
-    unstable.opencode
-    unstable.opencode-claude-auth
+    opencode
+    opencode-claude-auth
     unzip
     vim
     wget
