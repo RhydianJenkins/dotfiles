@@ -73,8 +73,8 @@ in
     typescript
     typescript-language-server
     unixtools.netstat
-    unstable.opencode
-    unstable.opencode-claude-auth
+    opencode
+    opencode-claude-auth
     unzip
     vim
     wget
