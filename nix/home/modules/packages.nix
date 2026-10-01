@@ -10,6 +10,7 @@ in
     apix
     beekeeper-studio
     blueman
+    bubblewrap
     buf
     claude-code
     curl
