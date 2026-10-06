@@ -8,6 +8,7 @@ in
   home.packages = with pkgs; [
     alsa-utils
     apix
+    awscli
     beekeeper-studio
     blueman
     bubblewrap
