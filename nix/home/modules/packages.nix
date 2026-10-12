@@ -7,6 +7,7 @@ in
 {
   home.packages = with pkgs; [
     alsa-utils
+    postgresql
     apix
     awscli
     beekeeper-studio
@@ -53,6 +54,9 @@ in
     nixfmt-tree
     nodejs_22
     obsidian
+    okta-aws-cli
+    opencode
+    opencode-claude-auth
     openssl
     pass
     pavucontrol
@@ -75,8 +79,6 @@ in
     typescript
     typescript-language-server
     unixtools.netstat
-    opencode
-    opencode-claude-auth
     unzip
     vim
     wget
