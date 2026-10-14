@@ -9,7 +9,7 @@ in
     alsa-utils
     postgresql
     apix
-    awscli
+    awscli2
     beekeeper-studio
     blueman
     bubblewrap
