@@ -13,6 +13,7 @@ vim.pack.add({
     { src = gh .. "kevinhwang91/nvim-bqf" },
     { src = gh .. "leoluz/nvim-dap-go" },
     { src = gh .. "lewis6991/gitsigns.nvim" },
+    { src = gh .. "linrongbin16/gitlinker.nvim" },
     { src = gh .. "mfussenegger/nvim-dap" },
     { src = gh .. "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" },
     { src = gh .. "neovim/nvim-lspconfig" },
