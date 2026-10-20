@@ -55,8 +55,8 @@ in
     nodejs_22
     obsidian
     okta-aws-cli
-    opencode
-    opencode-claude-auth
+    unstable.opencode
+    unstable.opencode-claude-auth
     openssl
     pass
     pavucontrol
