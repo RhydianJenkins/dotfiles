@@ -44,6 +44,7 @@
           tap-to-click = false;
           clickfinger_behavior = true;
         };
+        sensitivity = -0.5; # mouse sensitivity; range is -1.0 to 1.0
       };
 
       general = {
