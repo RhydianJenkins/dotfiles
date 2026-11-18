@@ -6,8 +6,12 @@ if not present then
 end
 
 smart_splits.setup({
-    at_edge = "stop",
-    cursor_follows_swapped_bufs = true,
+    move = {
+        at_edge = "stop",
+    },
+    swap = {
+        move_cursor = true,
+    },
 })
 
 -- moving between splits
