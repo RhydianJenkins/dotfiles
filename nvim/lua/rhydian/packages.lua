@@ -8,6 +8,7 @@ vim.pack.add({
     { src = gh .. "folke/trouble.nvim" },
     { src = gh .. "folke/which-key.nvim" },
     { src = gh .. "haydenmeade/neotest-jest" },
+    { src = gh .. "j-hui/fidget.nvim" },
     { src = gh .. "jay-babu/mason-null-ls.nvim" },
     { src = gh .. "junegunn/fzf", build = "fzf#install" },
     { src = gh .. "kevinhwang91/nvim-bqf" },
