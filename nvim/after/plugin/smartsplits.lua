@@ -12,6 +12,9 @@ smart_splits.setup({
     swap = {
         move_cursor = true,
     },
+    mux = {
+        backend = 'smart-splits-backend-tmux',
+    },
 })
 
 -- moving between splits
