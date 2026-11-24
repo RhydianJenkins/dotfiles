@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1794916231,
-        "narHash": "sha256-t/osOZu2K0C3tF37hZlHJRZnr0jZzJPiCyF6dM2U/wY=",
+        "lastModified": 1795511547,
+        "narHash": "sha256-uUkha9np/8W/LgFGw5W8hpvHlfguIT/Cu4fKQ9d9iiA=",
         "owner": "rhydianjenkins",
         "repo": "apix",
-        "rev": "993d1a5b4acca7c250a446f7dc8bbfb7647cafb4",
+        "rev": "0477b81e0702ff47d0b3e383fc4848779e026908",
         "type": "github"
       },
       "original": {
